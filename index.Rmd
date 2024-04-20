@@ -8,28 +8,39 @@ bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::gitbook,
-  set in the _output.yml file.
+  This is a brief document on the Data visualization in R.
+  #The HTML output format for this example is bookdown::gitbook,
+  #set in the _output.yml file.
 link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
 
 # Introduction to R and Data Visualization
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
 
-## Overview of R 
 
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
+## Introduction
 
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
+### Overview of R 
+R is a powerful programming language and environment widely used for statistical computing and graphics. It provides a wide variety of statistical and graphical techniques, and it is highly extensible. R is freely available and runs on all major platforms, making it an excellent choice for data analysis and visualization.
 
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
+With its extensive libraries, R enables users to manipulate data, conduct statistical analyses, and create visualizations to explore and communicate insights effectively. Whether you're a beginner or an experienced data scientist, R provides a flexible and comprehensive environment for all your data analysis needs.
 
-## Render book
 
-You can render the HTML version of this example book without changing anything:
+## Why Use R for Data Visualization?
+
+### Advantages of R over other programming languages and tools.
+
+- R has thousands of packages, designed, maintained, and widely used by statisticians.
+- The R graphs have much more fun compared to other tools such as STATA.
+- R has a rather liberal syntax, and variables don’t need to be
+declared as they would in (for example) C++, which makes it very easy to
+code in.
+- R is designed to make it very easy to write functions which
+are applied point wise to every element of a vector. This is extremely useful in statistics.
+- R is powerful: if a command doesn’t exist already, you can code it yourself.
+
+
 
 1. Find the **Build** pane in the RStudio IDE, and
 

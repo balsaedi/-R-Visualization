@@ -1,2 +1,4 @@
-# Data Structures Relevant to Visualization
+
+# DATA STRUCTURES RELEVANT TO VISUALIZATION
+
 

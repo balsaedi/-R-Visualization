@@ -1,4 +1,4 @@
-# Statistical Graphics in R
 
+# STATISTICAL GRAPHS IN R
 
 

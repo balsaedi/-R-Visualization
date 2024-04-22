@@ -1,5 +1,3 @@
-eq:binom
-thm:tri
 introduction-to-r-and-data-visualization
 introduction
 overview-of-r
@@ -13,11 +11,12 @@ basic-r-concepts.
 introduction-to-r-syntax-and-basic-commands.
 overview-of-rs-data-types-and-structures-essential-for-visualization
 practical-examples-exercises
-r-base-graphics-starting-with-the-basics
+r-base-graphics---starting-with-the-basics
 data-structures-relevant-to-visualization
-customizing-graphs-in-base-r
+customizing-graphs-in-r
 advanced-base-plotting-techniques
 plotting-time-series-data
-equations
-theorems-and-proofs
-statistical-graphics-in-r
+statistical-graphs-in-r
+introduction-to-ggplot2
+advanced-data-visualization-with-ggplot2-and-other-packages
+real-world-applications-and-case-studies

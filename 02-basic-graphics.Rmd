@@ -1,2 +1,3 @@
-# R Base Graphics – Starting with the Basics 
+
+# R BASE GRAPHICS - STARTING WITH THE BASICS
 

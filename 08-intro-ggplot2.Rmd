@@ -1,1 +1,2 @@
-#Introduction to ggplot2
+
+# INTRODUCTION TO ggplot2

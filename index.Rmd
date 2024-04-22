@@ -15,8 +15,7 @@ link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
 
-# Introduction to R and Data Visualization
-
+# INTRODUCTION TO R AND DATA VISUALIZATION
 
 
 ## Introduction
@@ -41,31 +40,325 @@ are applied point wise to every element of a vector. This is extremely useful in
 - R is powerful: if a command doesn’t exist already, you can code it yourself.
 
 
+###  R’s extensive package ecosystem.
+A package is a collection (or library) of functions, datasets, and other objects. Most packages are not loaded automatically, so you have to do it yourself. **R's** extensive package ecosystem provides a vast array of tools for data analysis and visualization. These packages are contributed by a vibrant community of developers and cover almost every aspect of data science. Some of the most popular visualization packages include:
 
-1. Find the **Build** pane in the RStudio IDE, and
+ i) **ggplot2:** The package provides an intuitive syntax for creating complex and beautiful visualizations.
+ ii) **plotly:** This package allows one to create interactive web-based visualizations directly from R.
+ iii) **ggvis:** It allows the creation of web-based visualizations with reactive features using the grammar of graphics syntax.
+ iv) **lattice:** It is particularly useful for creating trellis plots, which allow you to visualize relationships in multivariate data.
+ v) **gganimate:** The package allows you to easily add animations to your visualizations, making it ideal for exploring changes in data over time.
+ 
+In this course, we will focus on the base R graphics system, which provides a solid foundation for understanding how plots are constructed in R. Once you have a good grasp of the basics, you can easily transition to more specialized packages like ggplot2 and plotly to create even more sophisticated visualizations.
 
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
 
-Or build the book from the R console:
+## Installing and Configuring R and RStudio
 
-```{r, eval=FALSE}
-bookdown::render_book()
-```
+Before installing **RStudio** in your computer, first start with **R**. **RStudio** is a front end program that lets you write **R** code, view plots, and do many other useful things. The detailed steps below show how to install R and RStudio in your computer system on both Windows, Mac and Linux operating systems.
 
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
 
-## Preview book
+### Step-by-step guide on installing R.
 
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
+1. Download the R installer from <https://cran.r-project.org/>.
+
+  a). Click on the link for your operating system. Make sure the   installer is for the latest R version. For example, the latest version is 4.3.3.
+  
+  b). Click install R for the first time.
+  
+  c). Use the download link at the top and save the file.
+  
+2. Run the installer (double click), default settings are fine. 
+
+
+### Step-by-step guide on installing RStudio and Set Up.
+
+1. Wait until the R installer has finished.
+2.Download RStudio installer from the official website <https://posit.co/download/rstudio-desktop/>.
+3. After the download is complete, double-click on the installer and follow the installation steps to install it in your computer.
+
+
+After successful installation, you can launch RStudio by double-clicking the RStudio icon on your desktop or from the Start menu. You can install the packages using the install.packages() function. However, for the base R visualization, you don't need to install any package which will support in plotting of graphs except where we you will be required to use data that comes with R packages. The last set up may be setting your working directory to the folder where your R scripts and data files are located. This makes it easier to access your files but it is optional.
+
+## Basic R Concepts.
+
+### Introduction to R syntax and basic commands.
+R is  designed for statistical computing and graphics. In this section, we will cover some basic syntax and commands to help you get started with R.
+
+
+**1. R as a Calculator:**
+
+You can use R as a simple calculator. Here are some basic arithmetic operations:
+
 
 ```{r eval=FALSE}
-bookdown::serve_book()
+# Addition
+2 + 3
+# Subtraction
+5 - 2
+# Multiplication
+2 * 3
+# Division
+6 / 2
+# Exponentiation
+2^3
+
+```
+
+**2. Assigning Values to Variables:**
+
+You can store values in variables using the assignment operator _<-_ or _=_.
+
+```{r eval=FALSE}
+# Assigning a value to a variable
+x <- 5
+y <- 3
+# You can also use =
+z = x + y
+
+```
+
+**3. Basic Data Types:**
+
+R supports several basic data types, including numeric, character, logical, and complex.
+
+```{r eval=FALSE}
+# Numeric
+num <- 10
+# Character
+char <- "Hello, Basim!"
+# Logical
+logic <- TRUE
+# Complex
+comp <- 3 + 2i
+
+```
+
+**4. Vectors:**
+
+A vector is a sequence of data elements of the same basic type. You can create a vector using the **c()** function.
+
+```{r eval=FALSE}
+# Creating a numeric vector
+nums <- c(1, 2, 3, 4, 5)
+# Creating a character vector
+chars <- c("apple", "banana", "orange")
+
+```
+
+**5. Indexing and Slicing:**
+
+You can access elements of a vector using square brackets **[]**.
+
+```{r eval=FALSE}
+# Accessing elements of a vector
+nums <- c(1, 2, 3, 4, 5)
+nums[1]   # Access the first element of nums
+nums[2:4] # Access the second to fourth elements of nums
+nums[1,4,6] # Access the first, fourth and sixth elements of nums
+
 ```
 
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
+**6. Functions:**
+
+R has a large number of built-in functions, and you can also create your own functions for some tasks that can not be achieved by built-in functions.
+
+```{r, eval=FALSE}
+# Built-in function
+sqrt(16)   # Square root function
+nums <- c(1, 2, 3, 4, 5)
+mean(nums) # the mean of nums elements
+var(nums) # the variance
+sd(nums) # standard deviation
+# User-defined function
+add <- function(a, b) {
+  return(a + b)
+}
+add(3, 5)
+
 ```
+
+
+### Overview of R’s data types and structures essential for visualization
+
+R provides several data types and structures that are essential for data visualization. Understanding these data types and structures is crucial for effectively analyzing and visualizing data.
+
+**1. Numeric:**
+
+Numeric data type is used to represent continuous numerical values.
+
+```{r}
+num <- 5.6
+
+```
+
+**2. Integer:**
+
+Integer data type is used to represent integer values.
+
+```{r}
+int <- 10L
+
+```
+
+**3. Character:**
+
+Character data type is used to represent text data.
+
+```{r}
+char <- "Hi, John!"
+
+```
+
+**4. Logical:**
+
+Logical data type is used to represent Boolean values ( __TRUE__ or __FALSE__).
+
+```{r}
+logic <- TRUE
+
+```
+
+**5. Vector:**
+
+A vector is a sequence of data elements of the same basic type. It is created using the concatenate __c()__ command.  
+
+```{r}
+nums <- c(1, 2, 3, 4, 5) # A vector of numeric data type
+chars <- c("apple", "banana", "orange")  # A vector of character data type
+
+```
+
+**6. Matrix:**
+
+A matrix is a two-dimensional array with rows and columns in that order respectively, that is ($R \times C$ ). It is created using the __matrix()__ command.
+
+```{r}
+mat <- matrix(1:12, nrow = 3, ncol = 4) # A matrix with three rows and 2 columns 
+
+```
+
+**7. Data Frame:**
+
+A data frame is a two-dimensional data structure with rows and columns, similar to a spreadsheet. It can contain several data types. It is created using the command __data.frame()__ command.
+
+```{r}
+df <- data.frame(
+  Name = c("John", "Alice", "Bob"),
+  Age = c(25, 30, 35),
+  Height = c(175, 160, 180)
+)
+
+```
+
+**8. List:**
+
+A list is an ordered collection of objects (which may be of different types: numeric, character, etc.). It is created using the __list()__ command.
+
+```{r}
+lst <- list(
+  Name = c("John", "Alice", "Bob"),
+  Age = c(25, 30, 35),
+  Height = c(175, 160, 180)
+)
+
+```
+
+
+**9. Factors:**
+
+Factors are used to represent categorical data. It is created using the __factor()__ command.
+
+```{r}
+gender <- factor(c("Male", "Female", "Male", "Female"))
+loan_default<-factor(c('Yes', 'No'))
+```
+
+## Practical Examples: Exercises
+
+**Exercise 1: Basic arithmetic**
+
+Create a variable called $x$ and give it the value 15.Take the exponent of the variable and add 5 to the final result. Print the final result of $x$.
+
+```{r}
+# Your code
+
+```
+
+**Exercise 2: Vectors:**
+
+The weights of five people before and after a diet programme
+are given in the table below. Read the ‘before’ and ‘after’ values into two different vectors called __before__
+and __after__. Use __R__ to evaluate the amount of weight lost for each participant. What is the average amount of weight lost?
+
+
+```{r, echo=FALSE}
+
+  df=data.frame(
+    X1 = c(78, 67),
+    X2 = c(72, 65),
+    X3 = c(78, 79),
+    X4 = c(79, 70),
+    X5 = c(105, 93)
+  )
+row.names(df)<-c("Before", "After")
+colnames(df)<-NULL
+knitr::kable(df, align = "c",booktabs = FALSE)
+```
+
+```{r}
+#Your code
+```
+
+
+
+**Exercise 3: Matrices**
+
+Create two matrices called __A__ and __X__ defined below. 
+\[
+A=
+\begin{pmatrix}
+1 & 4 & 7 \\
+2 & 5 & 8 \\
+3 & 6 & 10 \\
+\end{pmatrix}
+\]
+
+\[
+X=
+\begin{pmatrix}
+1&2&3\\
+\end{pmatrix}
+\]
+
+Find:
+
+i) the product of __A__ and __X__.
+
+ii) the transpose of __A__.
+
+iii) the determinant of __A__.
+iv) the diagonal of __A__.
+
+v) the inverse of __A__.
+
+```{r}
+#Your code
+```
+
+
+**Exercise 4: Creating Data Frames**
+
+(a) Create a small data frame representing a database of
+films. It should contain the fields __title__, __director__, __year__, __country__, and at least three films.
+
+(b) Create a second data frame of the same format as above, but containing just one new film.
+(c) Merge the two data frames using rbind().
+(d) Try sorting the titles using sort(): what happens?
+
+```{r}
+#Your code
+```
+
+
+

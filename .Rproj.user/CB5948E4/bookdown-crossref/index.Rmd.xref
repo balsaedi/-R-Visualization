@@ -4,13 +4,13 @@ h1:introduction-to-r-and-data-visualization INTRODUCTION TO R AND DATA VISUALIZA
 h2:introduction Introduction
 h3:overview-of-r Overview of R
 h2:why-use-r-for-data-visualization Why Use R for Data Visualization?
-h3:advantages-of-r-over-other-programming-languages-and-tools. Advantages of R over other programming languages and tools.
-h3:rs-extensive-package-ecosystem. R’s extensive package ecosystem.
+h3:advantages-of-r-over-other-programming-languages-and-tools Advantages of R over other programming languages and tools
+h3:rs-extensive-package-ecosystem R’s extensive package ecosystem
 h2:installing-and-configuring-r-and-rstudio Installing and Configuring R and RStudio
-h3:step-by-step-guide-on-installing-r. Step-by-step guide on installing R.
-h3:step-by-step-guide-on-installing-rstudio-and-set-up. Step-by-step guide on installing RStudio and Set Up.
+h3:step-by-step-guide-on-installing-r Step-by-step guide on installing R
+h3:step-by-step-guide-on-installing-rstudio-and-set-up Step-by-step guide on installing RStudio and Set Up
 h2:basic-r-concepts. Basic R Concepts.
-h3:introduction-to-r-syntax-and-basic-commands. Introduction to R syntax and basic commands.
+h3:introduction-to-r-syntax-and-basic-commands Introduction to R syntax and basic commands
 h3:overview-of-rs-data-types-and-structures-essential-for-visualization Overview of R’s data types and structures essential for visualization
 h2:practical-examples-exercises Practical Examples: Exercises
 

@@ -210,29 +210,36 @@ In order to have a plot with enhanced readability and have an aesthetic appeal, 
 You can also add more improvements to your plot to make it look more nice and appealing.
 
 
-
-
 ## Practical Examples: Exercises
 
+**Exercise 6**
+
+Create a dataframe of marks of 1000 students (male and female) with their respective status i.e pass if marks >= 40, fail otherwise (set a seed to 100). Additionally,  let the student marks  be graded using factor method in the following format:
+
+A: 70 marks and above
+
+B: 60-69
+
+C: 50-59
+
+D: 40-49
+
+E: Below 40 marks
+
+Create a dataframe called students with the vectors; id, gender, marks, grade and status where status is a column which shows whether the student passed or failed.You will use this dataframe to answer exercise 7,8 and 9.
 
 
+**Exercise 7**
+
+Plot a box plot to show the distribution of marks by gender.Give it a title, 'Distribution of Student Marks'. The x-axis should be labelled as 'Gender' while the y-axis should be labelled as 'Marks'. Apply blue color to male and green color to female. Set cex.main and cex.lab to 1.2.  
 
 
+**Exercise 8**
 
+Plot a histogram of the marks where the bins should be equivalent to the classes of grading. Which grade had the highest number of students? How were the marks distributed in the class? Fill the histogram with red. Add a customized title and label the axes. 
 
+**Exercise 9**
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+Use a well customized barpot to show the mean mark of students by gender. Which gender had the highest average score?
 
 

@@ -3,23 +3,23 @@
 
 ## Exploring Base Graphics in R
 
-### Overview of the philosophy behind R’s base graphics system, including its stateful nature {-}
+### Overview of the philosophy behind R’s base graphics system, including its stateful nature 
 
-#### Stateful Nature {-}
+#### Stateful Nature 
 R's base graphics system is stateful, meaning that plots are built up incrementally. You start with an empty plot and add elements to it one by one. This is in contrast to systems like ggplot2, which use a declarative approach where you specify the plot all at once.
 Stateful nature means that every new plotting command modifies the existing plot or creates a new one if none exists. This allows for a high degree of flexibility but can sometimes lead to complex and intuitive behavior.
 
 R's base graphics system provides a set of low-level graphics primitives for creating plots. These primitives include functions for drawing points, lines, polygons, text, and more.
 By combining these primitives, you can create a wide variety of plots, from simple scatter plots to complex multi-panel layouts.
 
-#### Philosophy {-}
+#### Philosophy 
 
 The philosophy behind R's base graphics system is to provide a flexible and powerful tool for creating a wide range of plots. The emphasis is on simplicity and ease of use, making it easy for users to quickly create informative visualizations.
 
 
 However, despite that base graphics are powerful, they do have some limitations compared to more modern plotting systems like ggplot2. For instance, they lack some of the advanced features of ggplot2, such as automatic faceting and easy customization of plot themes.
 
-### Introduction to Core Plotting Functions in R {-}
+### Introduction to Core Plotting Functions in R 
 R provides a variety of core plotting functions that are useful for creating basic visualizations. In this section, we will explore some of the most commonly used plotting functions. The commonly used core plotting functions are __plot()__, __hist()__, __boxplot()__
 and __barplot()__.
 
@@ -34,7 +34,7 @@ bins the histogram should have, and col alters the colour of the bars.
 ## Creating Basic Plots
 
 
-### Detailed instructions on using plot() for scatter plots and line graphs {-}
+### Detailed instructions on using plot() for scatter plots and line graphs 
 
 
 In order to get the full documentation of the  __plot()__ function, run __?plot__ in R. The syntax for the function is given below.
@@ -86,7 +86,7 @@ plot(x, y, type = "l", col = "red", lwd = 1, main = "Line plot", xlab = NULL, yl
 ```
 
 
-### Using hist() to create histograms for data distribution analysis {-}
+### Using hist() to create histograms for data distribution analysis 
 Histograms are useful for visualizing the frequency distribution of a single variable. Similarly, you can get more documentation of the __hist()__ function by running the command __?hist__ in R. The generic function __hist__ computes a histogram of the given data values.The default behavior for a histogram is to display frequencies on the vertical axis; probability densities can be displayed using the __freq=FALSE__ option. The default title is given by __paste("Histogram of" , x)__ where __x__ is the name of the variable being plotted; this can be changed with the main option. The common syntax for the function is given below
 
 ```{r}
@@ -110,7 +110,7 @@ hist(data, breaks = "Sturges", col = "skyblue", main = "Histogram", xlab = "Valu
 ```
 
 
-### Implementing boxplot() and barplot() to visualize data comparisons and distributions {-}
+### Implementing boxplot() and barplot() to visualize data comparisons and distributions 
 The __boxplot()__ and __barplot()__ functions in R are commonly used for visualizing data comparisons and distributions.
 
 **1. boxplot()**
@@ -154,7 +154,7 @@ barplot(data, col = "skyblue", main = "Bar Plot", xlab = "Number of Cylinders", 
 ## Customizing Plots
 
 
-### Basic customization options including colors, main titles, axis labels, and  plot dimensions {-}
+### Basic customization options including colors, main titles, axis labels, and  plot dimensions 
 
 **1. Changing Colors**
 ```{r}
@@ -196,7 +196,7 @@ plot(x, y, type = "p", col = "red", pch = 16, main = "Scatter Plot", xlab = "X-a
 You can further customize your plots by adjusting parameters such as __pch__ (for points), __lwd__ (for lines), __lty__ (for line type), __cex__ (for point size), and more.
 
 
-### Tips on enhancing plot readability and aesthetic appeal {-}
+### Tips on enhancing plot readability and aesthetic appeal 
 In order to have a plot with enhanced readability and have an aesthetic appeal, you need to use some of these tips:
 
 - **Choose appropriate colors:** Use colors that complement each other and make it easy to distinguish different elements of the plot.Avoid using colors that are too bright or too similar to each other.

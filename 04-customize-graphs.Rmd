@@ -1,2 +1,14 @@
 
-# CUSTOMIZING GRAPHS IN R
+# CUSTOMIZING GRAPHS IN BASE R
+
+## Introduction
+The main objectives of this chapter are:
+
+- Learn to customize and enhance graphs using R’s base graphic parameters.
+- Understand how to apply visual enhancements to convey information more 
+effectively.
+
+
+
+
+

@@ -29,7 +29,7 @@
 <meta name="author" content="Basim Alsaedi" />
 
 
-<meta name="date" content="2024-04-23" />
+<meta name="date" content="2024-04-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -37,7 +37,7 @@
   
   
 <link rel="prev" href="r-base-graphics---starting-with-the-basics.html"/>
-<link rel="next" href="customizing-graphs-in-r.html"/>
+<link rel="next" href="customizing-graphs-in-base-r.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -150,22 +150,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#overview-of-r"><i class="fa fa-check"></i>Overview of R</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#overview-of-r"><i class="fa fa-check"></i><b>1.1.1</b> Overview of R</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#why-use-r-for-data-visualization"><i class="fa fa-check"></i><b>1.2</b> Why Use R for Data Visualization?</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#advantages-of-r-over-other-programming-languages-and-tools"><i class="fa fa-check"></i>Advantages of R over other programming languages and tools</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#rs-extensive-package-ecosystem"><i class="fa fa-check"></i>R’s extensive package ecosystem</a></li>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#advantages-of-r-over-other-programming-languages-and-tools"><i class="fa fa-check"></i><b>1.2.1</b> Advantages of R over other programming languages and tools</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#rs-extensive-package-ecosystem"><i class="fa fa-check"></i><b>1.2.2</b> R’s extensive package ecosystem</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#installing-and-configuring-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> Installing and Configuring R and RStudio</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#step-by-step-guide-on-installing-r"><i class="fa fa-check"></i>Step-by-step guide on installing R</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#step-by-step-guide-on-installing-rstudio-and-set-up"><i class="fa fa-check"></i>Step-by-step guide on installing RStudio and Set Up</a></li>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#step-by-step-guide-on-installing-r"><i class="fa fa-check"></i><b>1.3.1</b> Step-by-step guide on installing R</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#step-by-step-guide-on-installing-rstudio-and-set-up"><i class="fa fa-check"></i><b>1.3.2</b> Step-by-step guide on installing RStudio and Set Up</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#basic-r-concepts."><i class="fa fa-check"></i><b>1.4</b> Basic R Concepts.</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#introduction-to-r-syntax-and-basic-commands"><i class="fa fa-check"></i>Introduction to R syntax and basic commands</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#overview-of-rs-data-types-and-structures-essential-for-visualization"><i class="fa fa-check"></i>Overview of R’s data types and structures essential for visualization</a></li>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#introduction-to-r-syntax-and-basic-commands"><i class="fa fa-check"></i><b>1.4.1</b> Introduction to R syntax and basic commands</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#overview-of-rs-data-types-and-structures-essential-for-visualization"><i class="fa fa-check"></i><b>1.4.2</b> Overview of R’s data types and structures essential for visualization</a></li>
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#practical-examples-exercises"><i class="fa fa-check"></i><b>1.5</b> Practical Examples: Exercises</a></li>
 </ul></li>
@@ -173,24 +173,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#exploring-base-graphics-in-r"><i class="fa fa-check"></i><b>2.1</b> Exploring Base Graphics in R</a>
 <ul>
-<li class="chapter" data-level="" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#overview-of-the-philosophy-behind-rs-base-graphics-system-including-its-stateful-nature"><i class="fa fa-check"></i>Overview of the philosophy behind R’s base graphics system, including its stateful nature</a></li>
-<li class="chapter" data-level="" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#introduction-to-core-plotting-functions-in-r"><i class="fa fa-check"></i>Introduction to Core Plotting Functions in R</a></li>
+<li class="chapter" data-level="2.1.1" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#overview-of-the-philosophy-behind-rs-base-graphics-system-including-its-stateful-nature"><i class="fa fa-check"></i><b>2.1.1</b> Overview of the philosophy behind R’s base graphics system, including its stateful nature</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#introduction-to-core-plotting-functions-in-r"><i class="fa fa-check"></i><b>2.1.2</b> Introduction to Core Plotting Functions in R</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#creating-basic-plots"><i class="fa fa-check"></i><b>2.2</b> Creating Basic Plots</a>
 <ul>
-<li class="chapter" data-level="" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#detailed-instructions-on-using-plot-for-scatter-plots-and-line-graphs"><i class="fa fa-check"></i>Detailed instructions on using plot() for scatter plots and line graphs</a></li>
-<li class="chapter" data-level="" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#using-hist-to-create-histograms-for-data-distribution-analysis"><i class="fa fa-check"></i>Using hist() to create histograms for data distribution analysis</a></li>
-<li class="chapter" data-level="" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#implementing-boxplot-and-barplot-to-visualize-data-comparisons-and-distributions"><i class="fa fa-check"></i>Implementing boxplot() and barplot() to visualize data comparisons and distributions</a></li>
+<li class="chapter" data-level="2.2.1" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#detailed-instructions-on-using-plot-for-scatter-plots-and-line-graphs"><i class="fa fa-check"></i><b>2.2.1</b> Detailed instructions on using plot() for scatter plots and line graphs</a></li>
+<li class="chapter" data-level="2.2.2" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#using-hist-to-create-histograms-for-data-distribution-analysis"><i class="fa fa-check"></i><b>2.2.2</b> Using hist() to create histograms for data distribution analysis</a></li>
+<li class="chapter" data-level="2.2.3" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#implementing-boxplot-and-barplot-to-visualize-data-comparisons-and-distributions"><i class="fa fa-check"></i><b>2.2.3</b> Implementing boxplot() and barplot() to visualize data comparisons and distributions</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#customizing-plots"><i class="fa fa-check"></i><b>2.3</b> Customizing Plots</a>
 <ul>
-<li class="chapter" data-level="" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#basic-customization-options-including-colors-main-titles-axis-labels-and-plot-dimensions"><i class="fa fa-check"></i>Basic customization options including colors, main titles, axis labels, and plot dimensions</a></li>
-<li class="chapter" data-level="" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#tips-on-enhancing-plot-readability-and-aesthetic-appeal"><i class="fa fa-check"></i>Tips on enhancing plot readability and aesthetic appeal</a></li>
+<li class="chapter" data-level="2.3.1" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#basic-customization-options-including-colors-main-titles-axis-labels-and-plot-dimensions"><i class="fa fa-check"></i><b>2.3.1</b> Basic customization options including colors, main titles, axis labels, and plot dimensions</a></li>
+<li class="chapter" data-level="2.3.2" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#tips-on-enhancing-plot-readability-and-aesthetic-appeal"><i class="fa fa-check"></i><b>2.3.2</b> Tips on enhancing plot readability and aesthetic appeal</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#practical-examples-exercises-1"><i class="fa fa-check"></i><b>2.4</b> Practical Examples: Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html"><i class="fa fa-check"></i><b>3</b> DATA STRUCTURES RELEVANT TO VISUALIZATION</a></li>
-<li class="chapter" data-level="4" data-path="customizing-graphs-in-r.html"><a href="customizing-graphs-in-r.html"><i class="fa fa-check"></i><b>4</b> CUSTOMIZING GRAPHS IN R</a></li>
+<li class="chapter" data-level="3" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html"><i class="fa fa-check"></i><b>3</b> DATA STRUCTURES RELEVANT TO VISUALIZATION</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#importance-of-data-structure-understanding"><i class="fa fa-check"></i><b>3.1.1</b> Importance of Data Structure Understanding</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#vectors-data-frames-and-matrices"><i class="fa fa-check"></i><b>3.2</b> Vectors, Data Frames, and Matrices</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#definitions"><i class="fa fa-check"></i><b>3.2.1</b> Definitions</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#tools-and-functions"><i class="fa fa-check"></i><b>3.2.2</b> Tools and Functions</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#step-by-step-tutorials"><i class="fa fa-check"></i><b>3.2.3</b> Step-by-Step Tutorials</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#practical-example-exercise"><i class="fa fa-check"></i><b>3.3</b> Practical Example : Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html"><i class="fa fa-check"></i><b>4</b> CUSTOMIZING GRAPHS IN BASE R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html"><i class="fa fa-check"></i><b>5</b> ADVANCED BASE PLOTTING TECHNIQUES</a></li>
 <li class="chapter" data-level="6" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html"><i class="fa fa-check"></i><b>6</b> PLOTTING TIME SERIES DATA</a></li>
 <li class="chapter" data-level="7" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html"><i class="fa fa-check"></i><b>7</b> STATISTICAL GRAPHS IN R</a></li>
@@ -220,7 +236,189 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data-structures-relevant-to-visualization" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Chapter 3</span> DATA STRUCTURES RELEVANT TO VISUALIZATION<a href="data-structures-relevant-to-visualization.html#data-structures-relevant-to-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Introduction<a href="data-structures-relevant-to-visualization.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The two main objectives of this chapter is to understand various data structures in R and learn how to manipulate and prepare data for effective visualization.</p>
+<p>Understanding data structures is crucial for creating effective visualizations in R. Properly organizing and structuring your data allows you to generate clear and insightful visual outputs. In this chapter, we will discuss the importance of data structure understanding in achieving effective visualizations.</p>
+<div id="importance-of-data-structure-understanding" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Importance of Data Structure Understanding<a href="data-structures-relevant-to-visualization.html#importance-of-data-structure-understanding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Data Compatibility:</strong> Different types of visualizations require different data structures. Understanding how to structure your data properly ensures compatibility with the visualization techniques you want to use.</li>
+<li><strong>Efficient Data Handling:</strong> Well-structured data is easier to manipulate and process, leading to more efficient visualization workflows.</li>
+<li><strong>Insightful Visual Outputs:</strong> Properly structured data enables you to generate visual outputs that effectively communicate your insights and findings.</li>
+</ul>
+<p>The most commonly used data structures for visualization are vectors, matrices, data frames and lists.</p>
+</div>
+</div>
+<div id="vectors-data-frames-and-matrices" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Vectors, Data Frames, and Matrices<a href="data-structures-relevant-to-visualization.html#vectors-data-frames-and-matrices" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="definitions" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Definitions<a href="data-structures-relevant-to-visualization.html#definitions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Vectors</strong> are one-dimensional arrays that can hold numeric, character, or logical values. They are suitable for creating simple plots like scatter plots and line graphs. For example, a vector of numeric values can be used to represent data on the x or y-axis of a plot.</p>
+<p>A <strong>data frame</strong> is a two-dimensional data structure where columns can be of different types. Data frames are highly versatile and commonly used for data analysis and visualization. They are suitable for creating a wide range of visualizations, including bar plots, histograms, and box plots. Each column in a data frame can represent a different variable, making it easy to visualize relationships between variables.</p>
+<p><strong>Matrices</strong> are two-dimensional arrays that contain elements of the same atomic types. Matrices are useful for creating visualizations such as heatmaps and surface plots. They are suitable for representing data that has two dimensions, such as images or spatial data.</p>
+<p><strong>Lists</strong> are ordered collections of objects, which can be of different types. Lists can also be nested, allowing for complex data structures. They provide flexibility in organizing and storing data for complex visualizations. They are suitable for creating custom plots or combining multiple plots into a single visualization.</p>
+<p><strong>Factors</strong> are used to represent categorical data in R. They are stored as integers and have labels associated with them. They are useful for creating plots that involve categorical data, such as bar plots and pie charts. They allow for easy grouping and aggregation of data based on categorical variables.</p>
+<p><strong>Example</strong></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-structures-relevant-to-visualization.html#cb38-1" tabindex="-1"></a><span class="co"># Example data</span></span>
+<span id="cb38-2"><a href="data-structures-relevant-to-visualization.html#cb38-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb38-3"><a href="data-structures-relevant-to-visualization.html#cb38-3" tabindex="-1"></a>numeric_vector <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
+<span id="cb38-4"><a href="data-structures-relevant-to-visualization.html#cb38-4" tabindex="-1"></a>character_vector <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb38-5"><a href="data-structures-relevant-to-visualization.html#cb38-5" tabindex="-1"></a>logical_vector <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb38-6"><a href="data-structures-relevant-to-visualization.html#cb38-6" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="data-structures-relevant-to-visualization.html#cb38-7" tabindex="-1"></a><span class="co"># Create a list</span></span>
+<span id="cb38-8"><a href="data-structures-relevant-to-visualization.html#cb38-8" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(numeric_vector, character_vector, logical_vector)</span>
+<span id="cb38-9"><a href="data-structures-relevant-to-visualization.html#cb38-9" tabindex="-1"></a></span>
+<span id="cb38-10"><a href="data-structures-relevant-to-visualization.html#cb38-10" tabindex="-1"></a><span class="co"># Create a matrix</span></span>
+<span id="cb38-11"><a href="data-structures-relevant-to-visualization.html#cb38-11" tabindex="-1"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">4</span>)</span>
+<span id="cb38-12"><a href="data-structures-relevant-to-visualization.html#cb38-12" tabindex="-1"></a></span>
+<span id="cb38-13"><a href="data-structures-relevant-to-visualization.html#cb38-13" tabindex="-1"></a><span class="co"># Create a data frame</span></span>
+<span id="cb38-14"><a href="data-structures-relevant-to-visualization.html#cb38-14" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb38-15"><a href="data-structures-relevant-to-visualization.html#cb38-15" tabindex="-1"></a>  <span class="at">ID =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb38-16"><a href="data-structures-relevant-to-visualization.html#cb38-16" tabindex="-1"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">&quot;John&quot;</span>, <span class="st">&quot;Mary&quot;</span>, <span class="st">&quot;David&quot;</span>, <span class="st">&quot;Emma&quot;</span>),</span>
+<span id="cb38-17"><a href="data-structures-relevant-to-visualization.html#cb38-17" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>)</span>
+<span id="cb38-18"><a href="data-structures-relevant-to-visualization.html#cb38-18" tabindex="-1"></a>)</span>
+<span id="cb38-19"><a href="data-structures-relevant-to-visualization.html#cb38-19" tabindex="-1"></a></span>
+<span id="cb38-20"><a href="data-structures-relevant-to-visualization.html#cb38-20" tabindex="-1"></a><span class="co"># Create a factor</span></span>
+<span id="cb38-21"><a href="data-structures-relevant-to-visualization.html#cb38-21" tabindex="-1"></a>my_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>))</span>
+<span id="cb38-22"><a href="data-structures-relevant-to-visualization.html#cb38-22" tabindex="-1"></a></span>
+<span id="cb38-23"><a href="data-structures-relevant-to-visualization.html#cb38-23" tabindex="-1"></a><span class="co"># Print the structures</span></span>
+<span id="cb38-24"><a href="data-structures-relevant-to-visualization.html#cb38-24" tabindex="-1"></a><span class="fu">print</span>(my_list)</span></code></pre></div>
+<pre><code>## [[1]]
+##  [1] -0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774  1.71506499
+##  [7]  0.46091621 -1.26506123 -0.68685285 -0.44566197
+## 
+## [[2]]
+##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot;
+## 
+## [[3]]
+##  [1]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-structures-relevant-to-visualization.html#cb40-1" tabindex="-1"></a><span class="fu">print</span>(my_matrix)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-structures-relevant-to-visualization.html#cb42-1" tabindex="-1"></a><span class="fu">print</span>(my_data)</span></code></pre></div>
+<pre><code>##   ID  Name Age
+## 1  1  John  25
+## 2  2  Mary  30
+## 3  3 David  35
+## 4  4  Emma  40</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-structures-relevant-to-visualization.html#cb44-1" tabindex="-1"></a><span class="fu">print</span>(my_factor)</span></code></pre></div>
+<pre><code>## [1] A B A C
+## Levels: A B C</code></pre>
+</div>
+<div id="tools-and-functions" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Tools and Functions<a href="data-structures-relevant-to-visualization.html#tools-and-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Understanding various tools and functions in R is essential for manipulating data structures effectively. Here are some commonly used tools and functions:</p>
+<p><strong>1. str():</strong> Displays the internal structure of R objects. For example if the object is a data frame, it shows the type of each vector in the dataframe</p>
+<p><strong>2. class():</strong> Returns the class of the R object.</p>
+<p><strong>3. length():</strong> Returns the number of elements in the R object. If the object is a data frame, it returns the number of columns in the data frame.</p>
+<p><strong>4. dim():</strong> Returns the dimensions of an R object (for matrices and arrays).</p>
+<p><strong>5. attributes():</strong> Returns the attributes of an R object.</p>
+<p><strong>6. as.factor():</strong> Converts a vector to a factor.</p>
+<p><strong>7. data.frame():</strong> Creates a data frame from vectors or other R objects.</p>
+<p><strong>8. ncol():</strong> Returns the number of columns of a dataframe or matrix.</p>
+<p><strong>9. nrow():</strong> Returns the number of rows of a data frame.</p>
+</div>
+<div id="step-by-step-tutorials" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Step-by-Step Tutorials<a href="data-structures-relevant-to-visualization.html#step-by-step-tutorials" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="converting-a-vector-to-a-data-frame" class="section level4 hasAnchor" number="3.2.3.1">
+<h4><span class="header-section-number">3.2.3.1</span> Converting a Vector to a Data Frame<a href="data-structures-relevant-to-visualization.html#converting-a-vector-to-a-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-structures-relevant-to-visualization.html#cb46-1" tabindex="-1"></a><span class="co"># Example vector</span></span>
+<span id="cb46-2"><a href="data-structures-relevant-to-visualization.html#cb46-2" tabindex="-1"></a>student_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb46-3"><a href="data-structures-relevant-to-visualization.html#cb46-3" tabindex="-1"></a>student_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;John&quot;</span>, <span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Emily&quot;</span>, <span class="st">&quot;Tom&quot;</span>)</span>
+<span id="cb46-4"><a href="data-structures-relevant-to-visualization.html#cb46-4" tabindex="-1"></a>student_score <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">90</span>, <span class="dv">85</span>, <span class="dv">88</span>)</span>
+<span id="cb46-5"><a href="data-structures-relevant-to-visualization.html#cb46-5" tabindex="-1"></a></span>
+<span id="cb46-6"><a href="data-structures-relevant-to-visualization.html#cb46-6" tabindex="-1"></a><span class="co"># Combine vectors into a data frame</span></span>
+<span id="cb46-7"><a href="data-structures-relevant-to-visualization.html#cb46-7" tabindex="-1"></a>student_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ID =</span> student_id, <span class="at">Name =</span> student_name, <span class="at">Score =</span> student_score)</span>
+<span id="cb46-8"><a href="data-structures-relevant-to-visualization.html#cb46-8" tabindex="-1"></a></span>
+<span id="cb46-9"><a href="data-structures-relevant-to-visualization.html#cb46-9" tabindex="-1"></a><span class="co"># View the data frame</span></span>
+<span id="cb46-10"><a href="data-structures-relevant-to-visualization.html#cb46-10" tabindex="-1"></a><span class="fu">print</span>(student_data)</span></code></pre></div>
+<pre><code>##   ID  Name Score
+## 1  1  John    80
+## 2  2 Alice    75
+## 3  3   Bob    90
+## 4  4 Emily    85
+## 5  5   Tom    88</code></pre>
+</div>
+<div id="creating-and-modifying-lists-for-nested-data-structures" class="section level4 hasAnchor" number="3.2.3.2">
+<h4><span class="header-section-number">3.2.3.2</span> Creating and Modifying Lists for Nested Data Structures<a href="data-structures-relevant-to-visualization.html#creating-and-modifying-lists-for-nested-data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-structures-relevant-to-visualization.html#cb48-1" tabindex="-1"></a><span class="co"># Example list</span></span>
+<span id="cb48-2"><a href="data-structures-relevant-to-visualization.html#cb48-2" tabindex="-1"></a>student1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Name =</span> <span class="st">&quot;John&quot;</span>, <span class="at">Age =</span> <span class="dv">25</span>, <span class="at">Grades =</span> <span class="fu">c</span>(<span class="at">Math =</span> <span class="dv">80</span>, <span class="at">Science =</span> <span class="dv">85</span>))</span>
+<span id="cb48-3"><a href="data-structures-relevant-to-visualization.html#cb48-3" tabindex="-1"></a>student2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Name =</span> <span class="st">&quot;Alice&quot;</span>, <span class="at">Age =</span> <span class="dv">23</span>, <span class="at">Grades =</span> <span class="fu">c</span>(<span class="at">Math =</span> <span class="dv">75</span>, <span class="at">Science =</span> <span class="dv">78</span>))</span>
+<span id="cb48-4"><a href="data-structures-relevant-to-visualization.html#cb48-4" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="data-structures-relevant-to-visualization.html#cb48-5" tabindex="-1"></a><span class="co"># Create a nested list</span></span>
+<span id="cb48-6"><a href="data-structures-relevant-to-visualization.html#cb48-6" tabindex="-1"></a>classroom <span class="ot">&lt;-</span> <span class="fu">list</span>(student1, student2)</span>
+<span id="cb48-7"><a href="data-structures-relevant-to-visualization.html#cb48-7" tabindex="-1"></a></span>
+<span id="cb48-8"><a href="data-structures-relevant-to-visualization.html#cb48-8" tabindex="-1"></a><span class="co"># View the nested list</span></span>
+<span id="cb48-9"><a href="data-structures-relevant-to-visualization.html#cb48-9" tabindex="-1"></a><span class="fu">print</span>(classroom)</span></code></pre></div>
+<pre><code>## [[1]]
+## [[1]]$Name
+## [1] &quot;John&quot;
+## 
+## [[1]]$Age
+## [1] 25
+## 
+## [[1]]$Grades
+##    Math Science 
+##      80      85 
+## 
+## 
+## [[2]]
+## [[2]]$Name
+## [1] &quot;Alice&quot;
+## 
+## [[2]]$Age
+## [1] 23
+## 
+## [[2]]$Grades
+##    Math Science 
+##      75      78</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-structures-relevant-to-visualization.html#cb50-1" tabindex="-1"></a><span class="co"># Accessing elements of the nested list</span></span>
+<span id="cb50-2"><a href="data-structures-relevant-to-visualization.html#cb50-2" tabindex="-1"></a><span class="fu">print</span>(classroom[[<span class="dv">1</span>]]<span class="sc">$</span>Name)  <span class="co"># Output: John</span></span></code></pre></div>
+<pre><code>## [1] &quot;John&quot;</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-structures-relevant-to-visualization.html#cb52-1" tabindex="-1"></a><span class="fu">print</span>(classroom[[<span class="dv">2</span>]]<span class="sc">$</span>Grades[<span class="st">&quot;Science&quot;</span>])  <span class="co"># Output: 78</span></span></code></pre></div>
+<pre><code>## Science 
+##      78</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-structures-relevant-to-visualization.html#cb54-1" tabindex="-1"></a><span class="co"># Modifying elements of the nested list</span></span>
+<span id="cb54-2"><a href="data-structures-relevant-to-visualization.html#cb54-2" tabindex="-1"></a>classroom[[<span class="dv">1</span>]]<span class="sc">$</span>Grades[<span class="st">&quot;Math&quot;</span>] <span class="ot">&lt;-</span> <span class="dv">85</span></span>
+<span id="cb54-3"><a href="data-structures-relevant-to-visualization.html#cb54-3" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="data-structures-relevant-to-visualization.html#cb54-4" tabindex="-1"></a><span class="co"># View the modified nested list</span></span>
+<span id="cb54-5"><a href="data-structures-relevant-to-visualization.html#cb54-5" tabindex="-1"></a><span class="fu">print</span>(classroom)</span></code></pre></div>
+<pre><code>## [[1]]
+## [[1]]$Name
+## [1] &quot;John&quot;
+## 
+## [[1]]$Age
+## [1] 25
+## 
+## [[1]]$Grades
+##    Math Science 
+##      85      85 
+## 
+## 
+## [[2]]
+## [[2]]$Name
+## [1] &quot;Alice&quot;
+## 
+## [[2]]$Age
+## [1] 23
+## 
+## [[2]]$Grades
+##    Math Science 
+##      75      78</code></pre>
+</div>
+</div>
+</div>
+<div id="practical-example-exercise" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Practical Example : Exercise<a href="data-structures-relevant-to-visualization.html#practical-example-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You have been provided with a snapshot of a fictional retail landscape, capturing essential attributes that drive retail operations and customer interactions. It includes key details such as Transaction ID, Date, Customer ID, Gender, Age, Product Category, Quantity, Price per Unit, and Total Amount. The dataset can be downloaded from Kaggle via the link <a href="https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-dataset" class="uri">https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-dataset</a>. Import the data into R and answer the following questions:</p>
+<p>i). Using a well customized line plot, what trend do you see in the sales (Total Amount)?
+ii). Using an appropriate plot covered so far, show how the total amount vary by the product category. Use a well customized plot to make it appealing and readable.</p>
 
+</div>
 </div>
             </section>
 
@@ -228,7 +426,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="r-base-graphics---starting-with-the-basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="customizing-graphs-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="customizing-graphs-in-base-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

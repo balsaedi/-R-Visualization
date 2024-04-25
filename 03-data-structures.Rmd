@@ -2,3 +2,152 @@
 # DATA STRUCTURES RELEVANT TO VISUALIZATION
 
 
+## Introduction
+
+The two main objectives of this chapter is to understand  various data structures in R and learn how to manipulate and prepare data for effective visualization. 
+
+Understanding data structures is crucial for creating effective visualizations in R. Properly organizing and structuring your data allows you to generate clear and insightful visual outputs. In this chapter, we will discuss the importance of data structure understanding in achieving effective visualizations.
+
+### Importance of Data Structure Understanding 
+
+- **Data Compatibility:** Different types of visualizations require different data structures. Understanding how to structure your data properly ensures compatibility with the visualization techniques you want to use.
+- **Efficient Data Handling:** Well-structured data is easier to manipulate and process, leading to more efficient visualization workflows.
+- **Insightful Visual Outputs:** Properly structured data enables you to generate visual outputs that effectively communicate your insights and findings.
+
+The most commonly used data structures for visualization are vectors, matrices, data frames and lists.
+
+## Vectors, Data Frames, and Matrices
+
+### Definitions 
+
+**Vectors** are one-dimensional arrays that can hold numeric, character, or logical values. They are suitable for creating simple plots like scatter plots and line graphs. For example, a vector of numeric values can be used to represent data on the x or y-axis of a plot.
+
+A **data frame** is a two-dimensional data structure where columns can be of different types. Data frames are highly versatile and commonly used for data analysis and visualization. They are suitable for creating a wide range of visualizations, including bar plots, histograms, and box plots. Each column in a data frame can represent a different variable, making it easy to visualize relationships between variables.
+
+**Matrices** are two-dimensional arrays that contain elements of the same atomic types. Matrices are useful for creating visualizations such as heatmaps and surface plots. They are suitable for representing data that has two dimensions, such as images or spatial data.
+
+**Lists** are ordered collections of objects, which can be of different types. Lists can also be nested, allowing for complex data structures. They provide flexibility in organizing and storing data for complex visualizations. They are suitable for creating custom plots or combining multiple plots into a single visualization.
+
+**Factors** are used to represent categorical data in R. They are stored as integers and have labels associated with them. They are useful for creating plots that involve categorical data, such as bar plots and pie charts. They allow for easy grouping and aggregation of data based on categorical variables.
+
+**Example**
+```{r}
+# Example data
+set.seed(123)
+numeric_vector <- rnorm(10)
+character_vector <- letters[1:10]
+logical_vector <- sample(c(TRUE, FALSE), 10, replace = TRUE)
+
+# Create a list
+my_list <- list(numeric_vector, character_vector, logical_vector)
+
+# Create a matrix
+my_matrix <- matrix(1:12, nrow = 4)
+
+# Create a data frame
+my_data <- data.frame(
+  ID = 1:4,
+  Name = c("John", "Mary", "David", "Emma"),
+  Age = c(25, 30, 35, 40)
+)
+
+# Create a factor
+my_factor <- factor(c("A", "B", "A", "C"))
+
+# Print the structures
+print(my_list)
+print(my_matrix)
+print(my_data)
+print(my_factor)
+
+```
+
+
+### Tools and Functions 
+
+Understanding various tools and functions in R is essential for manipulating data structures effectively. Here are some commonly used tools and functions:
+
+
+**1. str():** Displays the internal structure of R objects. For example if the object is a data frame, it shows the type of each vector in the dataframe
+
+**2. class():** Returns the class of the R object.
+
+**3. length():** Returns the number of elements in the R object. If the object is a data frame, it returns the number of columns in the data frame.
+
+**4. dim():** Returns the dimensions of an R object (for matrices and arrays).
+
+**5. attributes():** Returns the attributes of an R object.
+
+**6. as.factor():** Converts a vector to a factor.
+
+**7. data.frame():** Creates a data frame from vectors or other R objects.
+
+**8. ncol():** Returns the number of columns of a dataframe or matrix.
+
+**9. nrow():** Returns the number of rows of a data frame.
+
+
+### Step-by-Step Tutorials
+
+#### Converting a Vector to a Data Frame 
+
+```{r}
+# Example vector
+student_id <- 1:5
+student_name <- c("John", "Alice", "Bob", "Emily", "Tom")
+student_score <- c(80, 75, 90, 85, 88)
+
+# Combine vectors into a data frame
+student_data <- data.frame(ID = student_id, Name = student_name, Score = student_score)
+
+# View the data frame
+print(student_data)
+
+```
+
+
+#### Creating and Modifying Lists for Nested Data Structures 
+
+```{r}
+# Example list
+student1 <- list(Name = "John", Age = 25, Grades = c(Math = 80, Science = 85))
+student2 <- list(Name = "Alice", Age = 23, Grades = c(Math = 75, Science = 78))
+
+# Create a nested list
+classroom <- list(student1, student2)
+
+# View the nested list
+print(classroom)
+
+# Accessing elements of the nested list
+print(classroom[[1]]$Name)  # Output: John
+print(classroom[[2]]$Grades["Science"])  # Output: 78
+
+# Modifying elements of the nested list
+classroom[[1]]$Grades["Math"] <- 85
+
+# View the modified nested list
+print(classroom)
+
+```
+
+
+## Practical Example : Exercise
+You have been provided with a  snapshot of a fictional retail landscape, capturing essential attributes that drive retail operations and customer interactions. It includes key details such as Transaction ID, Date, Customer ID, Gender, Age, Product Category, Quantity, Price per Unit, and Total Amount. The dataset can be downloaded from Kaggle via the link <https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-dataset>. Import the data into R and answer the following questions:
+
+i). Using a well customized line plot, what trend do you see in the sales (Total Amount)?
+ii). Using an appropriate plot covered so far, show how the total amount vary by the product category. Use a well customized plot to make it appealing and readable.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

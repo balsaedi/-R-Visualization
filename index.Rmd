@@ -20,7 +20,7 @@ github-repo: rstudio/bookdown-demo
 
 ## Introduction
 
-### Overview of R {-}
+### Overview of R 
 R is a powerful programming language and environment widely used for statistical computing and graphics. It provides a wide variety of statistical and graphical techniques, and it is highly extensible. R is freely available and runs on all major platforms, making it an excellent choice for data analysis and visualization.
 
 With its extensive libraries, R enables users to manipulate data, conduct statistical analyses, and create visualizations to explore and communicate insights effectively. Whether you're a beginner or an experienced data scientist, R provides a flexible and comprehensive environment for all your data analysis needs.
@@ -28,7 +28,7 @@ With its extensive libraries, R enables users to manipulate data, conduct statis
 
 ## Why Use R for Data Visualization?
 
-### Advantages of R over other programming languages and tools {-}
+### Advantages of R over other programming languages and tools 
 
 - R has thousands of packages, designed, maintained, and widely used by statisticians.
 - The R graphs have much more fun compared to other tools such as STATA.
@@ -40,7 +40,7 @@ are applied point wise to every element of a vector. This is extremely useful in
 - R is powerful: if a command doesn’t exist already, you can code it yourself.
 
 
-###  R’s extensive package ecosystem {-}
+###  R’s extensive package ecosystem 
 A package is a collection (or library) of functions, datasets, and other objects. Most packages are not loaded automatically, so you have to do it yourself. **R's** extensive package ecosystem provides a vast array of tools for data analysis and visualization. These packages are contributed by a vibrant community of developers and cover almost every aspect of data science. Some of the most popular visualization packages include:
 
  i) **ggplot2:** The package provides an intuitive syntax for creating complex and beautiful visualizations.
@@ -57,7 +57,7 @@ In this course, we will focus on the base R graphics system, which provides a so
 Before installing **RStudio** in your computer, first start with **R**. **RStudio** is a front end program that lets you write **R** code, view plots, and do many other useful things. The detailed steps below show how to install R and RStudio in your computer system on both Windows, Mac and Linux operating systems.
 
 
-### Step-by-step guide on installing R {-}
+### Step-by-step guide on installing R 
 
 1. Download the R installer from <https://cran.r-project.org/>.
 
@@ -70,7 +70,7 @@ Before installing **RStudio** in your computer, first start with **R**. **RStudi
 2. Run the installer (double click), default settings are fine. 
 
 
-### Step-by-step guide on installing RStudio and Set Up {-}
+### Step-by-step guide on installing RStudio and Set Up 
 
 1. Wait until the R installer has finished.
 2.Download RStudio installer from the official website <https://posit.co/download/rstudio-desktop/>.
@@ -81,7 +81,7 @@ After successful installation, you can launch RStudio by double-clicking the RSt
 
 ## Basic R Concepts.
 
-### Introduction to R syntax and basic commands {-}
+### Introduction to R syntax and basic commands 
 R is  designed for statistical computing and graphics. In this section, we will cover some basic syntax and commands to help you get started with R.
 
 
@@ -179,7 +179,7 @@ add(3, 5)
 ```
 
 
-### Overview of R’s data types and structures essential for visualization {-}
+### Overview of R’s data types and structures essential for visualization 
 
 R provides several data types and structures that are essential for data visualization. Understanding these data types and structures is crucial for effectively analyzing and visualizing data.
 
@@ -368,19 +368,5 @@ Suppose we have the heights of 100 individuals, where the first are 50 male and 
 ```{r}
 #Your code
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

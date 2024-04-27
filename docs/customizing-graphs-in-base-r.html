@@ -29,7 +29,7 @@
 <meta name="author" content="Basim Alsaedi" />
 
 
-<meta name="date" content="2024-04-25" />
+<meta name="date" content="2024-04-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -206,6 +206,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html"><i class="fa fa-check"></i><b>4</b> CUSTOMIZING GRAPHS IN BASE R</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#graph-customization-basics"><i class="fa fa-check"></i><b>4.2</b> Graph Customization Basics</a></li>
+<li class="chapter" data-level="4.3" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#enhancing-plot-aesthetics"><i class="fa fa-check"></i><b>4.3</b> Enhancing Plot Aesthetics</a></li>
+<li class="chapter" data-level="4.4" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#advanced-customization-techniques"><i class="fa fa-check"></i><b>4.4</b> Advanced Customization Techniques</a></li>
+<li class="chapter" data-level="4.5" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#practical-examples-exercise"><i class="fa fa-check"></i><b>4.5</b> Practical Examples: Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html"><i class="fa fa-check"></i><b>5</b> ADVANCED BASE PLOTTING TECHNIQUES</a></li>
 <li class="chapter" data-level="6" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html"><i class="fa fa-check"></i><b>6</b> PLOTTING TIME SERIES DATA</a></li>
@@ -244,6 +248,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Understand how to apply visual enhancements to convey information more
 effectively.</li>
 </ul>
+</div>
+<div id="graph-customization-basics" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Graph Customization Basics<a href="customizing-graphs-in-base-r.html#graph-customization-basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Customizing plots in R allows you to enhance the appearance and readability of the visualizations. The <strong>par()</strong> function in R is used to set or query graphical parameters.</p>
+<p><strong>i). Graphical Parameters (par())</strong></p>
+<ul>
+<li><strong>pch:</strong> Sets the plotting symbol (or point character) used in plotting functions like <strong>plot()</strong>.</li>
+<li><strong>lty:</strong> Sets the line type.</li>
+<li><strong>lwd:</strong> Sets the line width.</li>
+<li><strong>col:</strong> Sets the color of lines and points.</li>
+<li><strong>bg:</strong> Sets the background color.</li>
+<li><strong>cex:</strong> Sets the character size.</li>
+<li><strong>mar:</strong> Sets the margins of the plot.</li>
+</ul>
+<p><strong>ii). Adding Custom Colors, Line Types, Point Shapes, and Plot Characters</strong></p>
+<ul>
+<li><strong>Custom Colors:</strong> You can specify custom colors using color names, hexadecimal codes, or color numbers.</li>
+<li><strong>Line Types:</strong> Different line types are available, such as solid, dashed, dotted, etc.</li>
+<li><strong>Point Shapes:</strong> Various point shapes are available, including circles, squares, triangles, etc.</li>
+<li><strong>Plot Characters:</strong> Different plot characters, such as dots, crosses, stars, etc., can be used.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="customizing-graphs-in-base-r.html#cb56-1" tabindex="-1"></a><span class="co"># Sample data</span></span>
+<span id="cb56-2"><a href="customizing-graphs-in-base-r.html#cb56-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb56-3"><a href="customizing-graphs-in-base-r.html#cb56-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb56-4"><a href="customizing-graphs-in-base-r.html#cb56-4" tabindex="-1"></a></span>
+<span id="cb56-5"><a href="customizing-graphs-in-base-r.html#cb56-5" tabindex="-1"></a><span class="co"># Plot with customized graphical parameters</span></span>
+<span id="cb56-6"><a href="customizing-graphs-in-base-r.html#cb56-6" tabindex="-1"></a><span class="fu">par</span>(</span>
+<span id="cb56-7"><a href="customizing-graphs-in-base-r.html#cb56-7" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,    <span class="co"># Use solid circles for points</span></span>
+<span id="cb56-8"><a href="customizing-graphs-in-base-r.html#cb56-8" tabindex="-1"></a>  <span class="at">lty =</span> <span class="dv">2</span>,     <span class="co"># Use dashed line</span></span>
+<span id="cb56-9"><a href="customizing-graphs-in-base-r.html#cb56-9" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">2</span>,     <span class="co"># Set line width to 2</span></span>
+<span id="cb56-10"><a href="customizing-graphs-in-base-r.html#cb56-10" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">&quot;blue&quot;</span> <span class="co"># Set line and point color to blue</span></span>
+<span id="cb56-11"><a href="customizing-graphs-in-base-r.html#cb56-11" tabindex="-1"></a>)</span>
+<span id="cb56-12"><a href="customizing-graphs-in-base-r.html#cb56-12" tabindex="-1"></a></span>
+<span id="cb56-13"><a href="customizing-graphs-in-base-r.html#cb56-13" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Customized Plot&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Y&quot;</span>)</span>
+<span id="cb56-14"><a href="customizing-graphs-in-base-r.html#cb56-14" tabindex="-1"></a><span class="fu">points</span>(x, y, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="co"># Add points with red color</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+</div>
+<div id="enhancing-plot-aesthetics" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Enhancing Plot Aesthetics<a href="customizing-graphs-in-base-r.html#enhancing-plot-aesthetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Improving the aesthetics of plots is essential for effectively communicating your data. The following are some techniques for enhancing plot aesthetics in R:</p>
+<ol style="list-style-type: decimal">
+<li>Setting Axis Options:</li>
+</ol>
+<p>Axis Labels: Use xlab and ylab parameters to set labels for x and y axes, respectively.
+Tick Marks: Use axes = FALSE to remove axis tick marks and add them back using axis() function.
+Axis Limits: Use xlim and ylim parameters to set limits for the x and y axes, respectively.
+Example:</p>
+</div>
+<div id="advanced-customization-techniques" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Advanced Customization Techniques<a href="customizing-graphs-in-base-r.html#advanced-customization-techniques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="practical-examples-exercise" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Practical Examples: Exercise<a href="customizing-graphs-in-base-r.html#practical-examples-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>

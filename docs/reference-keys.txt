@@ -37,6 +37,10 @@ creating-and-modifying-lists-for-nested-data-structures
 practical-example-exercise
 customizing-graphs-in-base-r
 introduction-2
+graph-customization-basics
+enhancing-plot-aesthetics
+advanced-customization-techniques
+practical-examples-exercise
 advanced-base-plotting-techniques
 plotting-time-series-data
 statistical-graphs-in-r

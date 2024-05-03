@@ -133,6 +133,9 @@ print(classroom)
 
 
 ## Practical Example : Exercise
+
+**Exercise 10**
+
 You have been provided with a  snapshot of a fictional retail landscape, capturing essential attributes that drive retail operations and customer interactions. It includes key details such as Transaction ID, Date, Customer ID, Gender, Age, Product Category, Quantity, Price per Unit, and Total Amount. The dataset can be downloaded from Kaggle via the link <https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-dataset>. Import the data into R and answer the following questions:
 
 i). Using a well customized line plot, what trend do you see in the sales (Total Amount)?

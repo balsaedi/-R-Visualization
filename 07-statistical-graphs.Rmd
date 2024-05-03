@@ -1,4 +1,177 @@
 
 # STATISTICAL GRAPHS IN R
 
+## Introduction
+
+The two main objectives of this chapter are:
+
+- Learn to use R’s base graphics for creating statistical plots.
+- Understand the application of statistical plots in real-world data analysis.
+
+
+## Essential Statistical Plots:
+Statistical plots are essential for exploring and understanding the distribution of data. In this chapter, we will cover how to create the following essential statistical plots in R and understand the insights they provide.
+
+### How to create box plots, violin plots, and QQ plots.
+
+**i) Box Plots:**
+
+```{r}
+# Creating a box plot
+boxplot(Sepal.Length ~ Species, data = iris, 
+        main = "Box Plot of Sepal Length by Species",
+        xlab = "Species", ylab = "Sepal Length")
+
+```
+
+
+**ii) Violin Plots:**
+
+```{r}
+# Creating a violin plot
+library(ggplot2)
+ggplot(iris, aes(x = Species, y = Sepal.Length)) +
+  geom_violin(fill = "lightblue") +
+  labs(title = "Violin Plot of Sepal Length by Species",
+       x = "Species", y = "Sepal Length")
+
+```
+
+
+**iii) QQ Plots:**
+
+```{r}
+# Creating a QQ plot
+qqnorm(iris$Sepal.Length)
+qqline(iris$Sepal.Length)
+
+```
+
+
+### Understanding the data insights these plots provide.
+
+**i) Box Plots:** Box plots provide a graphical summary of the distribution of a dataset. They display the median, quartiles, and potential outliers.
+
+**ii) Violin Plots:** Violin plots are similar to box plots but provide a more detailed summary of the distribution. They combine a box plot with a kernel density plot.
+
+**iii) QQ Plots (Quantile-Quantile Plots):** QQ plots are used to assess if a dataset follows a particular distribution. They compare the quantiles of the dataset against the quantiles of a theoretical distribution.
+
+
+These statistical plots are invaluable tools for exploring and understanding the distribution of data.
+
+## Analyzing Distributions with Histograms and Density Plots:
+Histograms provide a visual representation of the distribution of numerical data. They group data into bins and display the frequency of observations in each bin.Density plots estimate the probability density function of the underlying data distribution. They provide a smooth representation of the distribution.
+
+### Techniques for creating and customizing histograms and density plots and best practices for displaying distribution characteristics.
+
+**Creating and Customizing Histograms:**
+```{r}
+# Creating a histogram
+hist(iris$Sepal.Length, 
+     main = "Histogram of Sepal Length",
+     xlab = "Sepal Length",
+     ylab = "Frequency",
+     col = "lightblue")
+
+# Adding a density plot
+lines(density(iris$Sepal.Length), col = "red")
+
+```
+
+
+**Creating and Customizing Density Plots:**
+
+```{r}
+# Creating a density plot
+plot(density(iris$Sepal.Length), 
+     main = "Density Plot of Sepal Length",
+     xlab = "Sepal Length",
+     col = "blue")
+
+# Adding a histogram
+hist(iris$Sepal.Length, 
+     col = rgb(0,0,1,0.2), 
+     add = TRUE, 
+     breaks = 20)
+
+```
+
+
+
+## Scatter Plots and Correlation Analysis:
+
+Scatter plots are useful for visualizing the relationship between two continuous variables.
+
+### Using scatter plots to visualize relationships between variables.
+
+Scatter plots visually represent the relationship between two continuous variables. They help to identify patterns, trends, and correlations between variables.
+
+```{r}
+# Creating a scatter plot
+plot(iris$Sepal.Length, iris$Petal.Length,
+     main = "Scatter Plot of Sepal Length vs Petal Length",
+     xlab = "Sepal Length", ylab = "Petal Length",
+     col = "blue")
+
+```
+
+
+
+### Introduction to adding regression lines and confidence intervals.
+
+- Regression lines provide a summary of the relationship between variables.
+
+- Confidence intervals help assess the uncertainty of the estimated regression line.
+
+
+```{r}
+# Creating a scatter plot
+plot(iris$Sepal.Length, iris$Petal.Length,
+     main = "Scatter Plot and Regression Line of Sepal Length vs Petal Length",
+     xlab = "Sepal Length", ylab = "Petal Length",
+     col = "blue")
+
+# Fit linear regression model
+model <- lm(Petal.Length ~ Sepal.Length, data = iris)
+
+# Adding regression line
+abline(model, col = "red")
+
+# Adding regression equation
+eq <- paste("y =", round(coef(model)[1], 2), "+", round(coef(model)[2], 2), "x")
+text(6.5, 2.5, eq, pos = 4)
+
+# Adding confidence intervals
+conf_interval <- predict(model, interval = "confidence")
+lines(iris$Sepal.Length, conf_interval[, "lwr"], col = "green", lty = 2)
+lines(iris$Sepal.Length, conf_interval[, "upr"], col = "green", lty = 2)
+# Add legend
+legend("topleft", legend = c("Data Points", "Regression Line", "Confidence Intervals"),
+       col = c("blue", "red", "green"), lty = c(NA, 1, 2), lwd = c(NA, 1, 1),
+       pch = c(1, NA, NA), bty = "o" # Enclose the legend in a box
+       )
+
+```
+
+
+
+
+## Practical Examples: Exercises
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

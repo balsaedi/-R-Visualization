@@ -29,7 +29,7 @@
 <meta name="author" content="Basim Alsaedi" />
 
 
-<meta name="date" content="2024-04-27" />
+<meta name="date" content="2024-05-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -58,11 +58,18 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.3/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -211,9 +218,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#advanced-customization-techniques"><i class="fa fa-check"></i><b>4.4</b> Advanced Customization Techniques</a></li>
 <li class="chapter" data-level="4.5" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#practical-examples-exercise"><i class="fa fa-check"></i><b>4.5</b> Practical Examples: Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html"><i class="fa fa-check"></i><b>5</b> ADVANCED BASE PLOTTING TECHNIQUES</a></li>
-<li class="chapter" data-level="6" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html"><i class="fa fa-check"></i><b>6</b> PLOTTING TIME SERIES DATA</a></li>
-<li class="chapter" data-level="7" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html"><i class="fa fa-check"></i><b>7</b> STATISTICAL GRAPHS IN R</a></li>
+<li class="chapter" data-level="5" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html"><i class="fa fa-check"></i><b>5</b> ADVANCED BASE PLOTTING TECHNIQUES</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#combining-different-graph-types"><i class="fa fa-check"></i><b>5.1</b> Combining Different Graph Types</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#overlay-different-types-of-plots"><i class="fa fa-check"></i><b>5.1.1</b> Overlay different types of plots</a></li>
+<li class="chapter" data-level="5.1.2" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#axes-and-scales-customization-to-accomodate-combined-plots"><i class="fa fa-check"></i><b>5.1.2</b> Axes and scales customization to accomodate combined plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#interactive-graphics-in-base-r"><i class="fa fa-check"></i><b>5.2</b> Interactive Graphics in Base R</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#introduction-to-using-the-locator-function-for-interactive-plotting"><i class="fa fa-check"></i><b>5.2.1</b> Introduction to using the locator() function for interactive plotting</a></li>
+<li class="chapter" data-level="5.2.2" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#creating-dynamic-plots-that-respond-to-user-input-or-updates-in-data"><i class="fa fa-check"></i><b>5.2.2</b> Creating dynamic plots that respond to user input or updates in data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html"><i class="fa fa-check"></i><b>6</b> PLOTTING TIME SERIES DATA</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#importance-of-time-series-analysis-in-various-fields-like-finance-meteorology-and-epidemiology"><i class="fa fa-check"></i><b>6.1.1</b> Importance of time series analysis in various fields like finance, meteorology, and epidemiology</a></li>
+<li class="chapter" data-level="6.1.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#basic-concepts-related-to-time-series-data-and-its-visualization-challenges."><i class="fa fa-check"></i><b>6.1.2</b> Basic concepts related to time series data and its visualization challenges.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#time-series-data-basics"><i class="fa fa-check"></i><b>6.2</b> Time Series Data Basics</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#introduction-to-time-series-objects-in-r-ts-class."><i class="fa fa-check"></i><b>6.2.1</b> Introduction to time series objects in R (ts class).</a></li>
+<li class="chapter" data-level="6.2.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#how-to-convert-standard-date-formats-into-time-series-objects"><i class="fa fa-check"></i><b>6.2.2</b> How to convert standard date formats into time series objects</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#visualizing-time-series"><i class="fa fa-check"></i><b>6.3</b> Visualizing Time Series</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#creating-line-plots-for-time-series-data"><i class="fa fa-check"></i><b>6.3.1</b> Creating line plots for time series data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#techniques-for-highlighting-trends-seasonality-and-anomalies"><i class="fa fa-check"></i><b>6.3.2</b> Techniques for highlighting trends, seasonality, and anomalies</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#advanced-time-series-visualization"><i class="fa fa-check"></i><b>6.4</b> Advanced Time Series Visualization</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#advance-customization-using-ts_plot-function-from-plotly-package"><i class="fa fa-check"></i><b>6.4.1</b> Advance customization using ts_plot() function from <strong>plotly</strong> package</a></li>
+<li class="chapter" data-level="6.4.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#plotting-multiple-time-series-on-a-single-graph-for-comparative-analysis"><i class="fa fa-check"></i><b>6.4.2</b> Plotting multiple time series on a single graph for comparative analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#practical-examples-exercises-2"><i class="fa fa-check"></i><b>6.5</b> Practical Examples: Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html"><i class="fa fa-check"></i><b>7</b> STATISTICAL GRAPHS IN R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#essential-statistical-plots"><i class="fa fa-check"></i><b>7.2</b> Essential Statistical Plots:</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#how-to-create-box-plots-violin-plots-and-qq-plots."><i class="fa fa-check"></i><b>7.2.1</b> How to create box plots, violin plots, and QQ plots.</a></li>
+<li class="chapter" data-level="7.2.2" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#understanding-the-data-insights-these-plots-provide."><i class="fa fa-check"></i><b>7.2.2</b> Understanding the data insights these plots provide.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#analyzing-distributions-with-histograms-and-density-plots"><i class="fa fa-check"></i><b>7.3</b> Analyzing Distributions with Histograms and Density Plots:</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#techniques-for-creating-and-customizing-histograms-and-density-plots-and-best-practices-for-displaying-distribution-characteristics."><i class="fa fa-check"></i><b>7.3.1</b> Techniques for creating and customizing histograms and density plots and best practices for displaying distribution characteristics.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#scatter-plots-and-correlation-analysis"><i class="fa fa-check"></i><b>7.4</b> Scatter Plots and Correlation Analysis:</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#using-scatter-plots-to-visualize-relationships-between-variables."><i class="fa fa-check"></i><b>7.4.1</b> Using scatter plots to visualize relationships between variables.</a></li>
+<li class="chapter" data-level="7.4.2" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#introduction-to-adding-regression-lines-and-confidence-intervals."><i class="fa fa-check"></i><b>7.4.2</b> Introduction to adding regression lines and confidence intervals.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#practical-examples-exercises-3"><i class="fa fa-check"></i><b>7.5</b> Practical Examples: Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>8</b> INTRODUCTION TO ggplot2</a></li>
 <li class="chapter" data-level="9" data-path="advanced-data-visualization-with-ggplot2-and-other-packages.html"><a href="advanced-data-visualization-with-ggplot2-and-other-packages.html"><i class="fa fa-check"></i><b>9</b> ADVANCED DATA VISUALIZATION WITH ggplot2 AND OTHER PACKAGES</a></li>
 <li class="chapter" data-level="10" data-path="real-world-applications-and-case-studies.html"><a href="real-world-applications-and-case-studies.html"><i class="fa fa-check"></i><b>10</b> REAL-WORLD APPLICATIONS AND CASE STUDIES</a></li>
@@ -240,7 +300,129 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="statistical-graphs-in-r" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Chapter 7</span> STATISTICAL GRAPHS IN R<a href="statistical-graphs-in-r.html#statistical-graphs-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-4" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Introduction<a href="statistical-graphs-in-r.html#introduction-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The two main objectives of this chapter are:</p>
+<ul>
+<li>Learn to use R’s base graphics for creating statistical plots.</li>
+<li>Understand the application of statistical plots in real-world data analysis.</li>
+</ul>
+</div>
+<div id="essential-statistical-plots" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Essential Statistical Plots:<a href="statistical-graphs-in-r.html#essential-statistical-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Statistical plots are essential for exploring and understanding the distribution of data. In this chapter, we will cover how to create the following essential statistical plots in R and understand the insights they provide.</p>
+<div id="how-to-create-box-plots-violin-plots-and-qq-plots." class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> How to create box plots, violin plots, and QQ plots.<a href="statistical-graphs-in-r.html#how-to-create-box-plots-violin-plots-and-qq-plots." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>i) Box Plots:</strong></p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="statistical-graphs-in-r.html#cb84-1" tabindex="-1"></a><span class="co"># Creating a box plot</span></span>
+<span id="cb84-2"><a href="statistical-graphs-in-r.html#cb84-2" tabindex="-1"></a><span class="fu">boxplot</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris, </span>
+<span id="cb84-3"><a href="statistical-graphs-in-r.html#cb84-3" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Box Plot of Sepal Length by Species&quot;</span>,</span>
+<span id="cb84-4"><a href="statistical-graphs-in-r.html#cb84-4" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Sepal Length&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+<p><strong>ii) Violin Plots:</strong></p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="statistical-graphs-in-r.html#cb85-1" tabindex="-1"></a><span class="co"># Creating a violin plot</span></span>
+<span id="cb85-2"><a href="statistical-graphs-in-r.html#cb85-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb85-3"><a href="statistical-graphs-in-r.html#cb85-3" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb85-4"><a href="statistical-graphs-in-r.html#cb85-4" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">fill =</span> <span class="st">&quot;lightblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb85-5"><a href="statistical-graphs-in-r.html#cb85-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Violin Plot of Sepal Length by Species&quot;</span>,</span>
+<span id="cb85-6"><a href="statistical-graphs-in-r.html#cb85-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Sepal Length&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<p><strong>iii) QQ Plots:</strong></p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="statistical-graphs-in-r.html#cb86-1" tabindex="-1"></a><span class="co"># Creating a QQ plot</span></span>
+<span id="cb86-2"><a href="statistical-graphs-in-r.html#cb86-2" tabindex="-1"></a><span class="fu">qqnorm</span>(iris<span class="sc">$</span>Sepal.Length)</span>
+<span id="cb86-3"><a href="statistical-graphs-in-r.html#cb86-3" tabindex="-1"></a><span class="fu">qqline</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+</div>
+<div id="understanding-the-data-insights-these-plots-provide." class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Understanding the data insights these plots provide.<a href="statistical-graphs-in-r.html#understanding-the-data-insights-these-plots-provide." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>i) Box Plots:</strong> Box plots provide a graphical summary of the distribution of a dataset. They display the median, quartiles, and potential outliers.</p>
+<p><strong>ii) Violin Plots:</strong> Violin plots are similar to box plots but provide a more detailed summary of the distribution. They combine a box plot with a kernel density plot.</p>
+<p><strong>iii) QQ Plots (Quantile-Quantile Plots):</strong> QQ plots are used to assess if a dataset follows a particular distribution. They compare the quantiles of the dataset against the quantiles of a theoretical distribution.</p>
+<p>These statistical plots are invaluable tools for exploring and understanding the distribution of data.</p>
+</div>
+</div>
+<div id="analyzing-distributions-with-histograms-and-density-plots" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Analyzing Distributions with Histograms and Density Plots:<a href="statistical-graphs-in-r.html#analyzing-distributions-with-histograms-and-density-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Histograms provide a visual representation of the distribution of numerical data. They group data into bins and display the frequency of observations in each bin.Density plots estimate the probability density function of the underlying data distribution. They provide a smooth representation of the distribution.</p>
+<div id="techniques-for-creating-and-customizing-histograms-and-density-plots-and-best-practices-for-displaying-distribution-characteristics." class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Techniques for creating and customizing histograms and density plots and best practices for displaying distribution characteristics.<a href="statistical-graphs-in-r.html#techniques-for-creating-and-customizing-histograms-and-density-plots-and-best-practices-for-displaying-distribution-characteristics." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Creating and Customizing Histograms:</strong></p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="statistical-graphs-in-r.html#cb87-1" tabindex="-1"></a><span class="co"># Creating a histogram</span></span>
+<span id="cb87-2"><a href="statistical-graphs-in-r.html#cb87-2" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length, </span>
+<span id="cb87-3"><a href="statistical-graphs-in-r.html#cb87-3" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histogram of Sepal Length&quot;</span>,</span>
+<span id="cb87-4"><a href="statistical-graphs-in-r.html#cb87-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>,</span>
+<span id="cb87-5"><a href="statistical-graphs-in-r.html#cb87-5" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Frequency&quot;</span>,</span>
+<span id="cb87-6"><a href="statistical-graphs-in-r.html#cb87-6" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;lightblue&quot;</span>)</span>
+<span id="cb87-7"><a href="statistical-graphs-in-r.html#cb87-7" tabindex="-1"></a></span>
+<span id="cb87-8"><a href="statistical-graphs-in-r.html#cb87-8" tabindex="-1"></a><span class="co"># Adding a density plot</span></span>
+<span id="cb87-9"><a href="statistical-graphs-in-r.html#cb87-9" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(iris<span class="sc">$</span>Sepal.Length), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<p><strong>Creating and Customizing Density Plots:</strong></p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="statistical-graphs-in-r.html#cb88-1" tabindex="-1"></a><span class="co"># Creating a density plot</span></span>
+<span id="cb88-2"><a href="statistical-graphs-in-r.html#cb88-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(iris<span class="sc">$</span>Sepal.Length), </span>
+<span id="cb88-3"><a href="statistical-graphs-in-r.html#cb88-3" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Density Plot of Sepal Length&quot;</span>,</span>
+<span id="cb88-4"><a href="statistical-graphs-in-r.html#cb88-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>,</span>
+<span id="cb88-5"><a href="statistical-graphs-in-r.html#cb88-5" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb88-6"><a href="statistical-graphs-in-r.html#cb88-6" tabindex="-1"></a></span>
+<span id="cb88-7"><a href="statistical-graphs-in-r.html#cb88-7" tabindex="-1"></a><span class="co"># Adding a histogram</span></span>
+<span id="cb88-8"><a href="statistical-graphs-in-r.html#cb88-8" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length, </span>
+<span id="cb88-9"><a href="statistical-graphs-in-r.html#cb88-9" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.2</span>), </span>
+<span id="cb88-10"><a href="statistical-graphs-in-r.html#cb88-10" tabindex="-1"></a>     <span class="at">add =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb88-11"><a href="statistical-graphs-in-r.html#cb88-11" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+</div>
+</div>
+<div id="scatter-plots-and-correlation-analysis" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Scatter Plots and Correlation Analysis:<a href="statistical-graphs-in-r.html#scatter-plots-and-correlation-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Scatter plots are useful for visualizing the relationship between two continuous variables.</p>
+<div id="using-scatter-plots-to-visualize-relationships-between-variables." class="section level3 hasAnchor" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Using scatter plots to visualize relationships between variables.<a href="statistical-graphs-in-r.html#using-scatter-plots-to-visualize-relationships-between-variables." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Scatter plots visually represent the relationship between two continuous variables. They help to identify patterns, trends, and correlations between variables.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="statistical-graphs-in-r.html#cb89-1" tabindex="-1"></a><span class="co"># Creating a scatter plot</span></span>
+<span id="cb89-2"><a href="statistical-graphs-in-r.html#cb89-2" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length,</span>
+<span id="cb89-3"><a href="statistical-graphs-in-r.html#cb89-3" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Scatter Plot of Sepal Length vs Petal Length&quot;</span>,</span>
+<span id="cb89-4"><a href="statistical-graphs-in-r.html#cb89-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Petal Length&quot;</span>,</span>
+<span id="cb89-5"><a href="statistical-graphs-in-r.html#cb89-5" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+</div>
+<div id="introduction-to-adding-regression-lines-and-confidence-intervals." class="section level3 hasAnchor" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> Introduction to adding regression lines and confidence intervals.<a href="statistical-graphs-in-r.html#introduction-to-adding-regression-lines-and-confidence-intervals." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Regression lines provide a summary of the relationship between variables.</p></li>
+<li><p>Confidence intervals help assess the uncertainty of the estimated regression line.</p></li>
+</ul>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="statistical-graphs-in-r.html#cb90-1" tabindex="-1"></a><span class="co"># Creating a scatter plot</span></span>
+<span id="cb90-2"><a href="statistical-graphs-in-r.html#cb90-2" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length,</span>
+<span id="cb90-3"><a href="statistical-graphs-in-r.html#cb90-3" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Scatter Plot and Regression Line of Sepal Length vs Petal Length&quot;</span>,</span>
+<span id="cb90-4"><a href="statistical-graphs-in-r.html#cb90-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Petal Length&quot;</span>,</span>
+<span id="cb90-5"><a href="statistical-graphs-in-r.html#cb90-5" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb90-6"><a href="statistical-graphs-in-r.html#cb90-6" tabindex="-1"></a></span>
+<span id="cb90-7"><a href="statistical-graphs-in-r.html#cb90-7" tabindex="-1"></a><span class="co"># Fit linear regression model</span></span>
+<span id="cb90-8"><a href="statistical-graphs-in-r.html#cb90-8" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length, <span class="at">data =</span> iris)</span>
+<span id="cb90-9"><a href="statistical-graphs-in-r.html#cb90-9" tabindex="-1"></a></span>
+<span id="cb90-10"><a href="statistical-graphs-in-r.html#cb90-10" tabindex="-1"></a><span class="co"># Adding regression line</span></span>
+<span id="cb90-11"><a href="statistical-graphs-in-r.html#cb90-11" tabindex="-1"></a><span class="fu">abline</span>(model, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb90-12"><a href="statistical-graphs-in-r.html#cb90-12" tabindex="-1"></a></span>
+<span id="cb90-13"><a href="statistical-graphs-in-r.html#cb90-13" tabindex="-1"></a><span class="co"># Adding regression equation</span></span>
+<span id="cb90-14"><a href="statistical-graphs-in-r.html#cb90-14" tabindex="-1"></a>eq <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;y =&quot;</span>, <span class="fu">round</span>(<span class="fu">coef</span>(model)[<span class="dv">1</span>], <span class="dv">2</span>), <span class="st">&quot;+&quot;</span>, <span class="fu">round</span>(<span class="fu">coef</span>(model)[<span class="dv">2</span>], <span class="dv">2</span>), <span class="st">&quot;x&quot;</span>)</span>
+<span id="cb90-15"><a href="statistical-graphs-in-r.html#cb90-15" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">6.5</span>, <span class="fl">2.5</span>, eq, <span class="at">pos =</span> <span class="dv">4</span>)</span>
+<span id="cb90-16"><a href="statistical-graphs-in-r.html#cb90-16" tabindex="-1"></a></span>
+<span id="cb90-17"><a href="statistical-graphs-in-r.html#cb90-17" tabindex="-1"></a><span class="co"># Adding confidence intervals</span></span>
+<span id="cb90-18"><a href="statistical-graphs-in-r.html#cb90-18" tabindex="-1"></a>conf_interval <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span>
+<span id="cb90-19"><a href="statistical-graphs-in-r.html#cb90-19" tabindex="-1"></a><span class="fu">lines</span>(iris<span class="sc">$</span>Sepal.Length, conf_interval[, <span class="st">&quot;lwr&quot;</span>], <span class="at">col =</span> <span class="st">&quot;green&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb90-20"><a href="statistical-graphs-in-r.html#cb90-20" tabindex="-1"></a><span class="fu">lines</span>(iris<span class="sc">$</span>Sepal.Length, conf_interval[, <span class="st">&quot;upr&quot;</span>], <span class="at">col =</span> <span class="st">&quot;green&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb90-21"><a href="statistical-graphs-in-r.html#cb90-21" tabindex="-1"></a><span class="co"># Add legend</span></span>
+<span id="cb90-22"><a href="statistical-graphs-in-r.html#cb90-22" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Data Points&quot;</span>, <span class="st">&quot;Regression Line&quot;</span>, <span class="st">&quot;Confidence Intervals&quot;</span>),</span>
+<span id="cb90-23"><a href="statistical-graphs-in-r.html#cb90-23" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">lwd =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb90-24"><a href="statistical-graphs-in-r.html#cb90-24" tabindex="-1"></a>       <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">bty =</span> <span class="st">&quot;o&quot;</span> <span class="co"># Enclose the legend in a box</span></span>
+<span id="cb90-25"><a href="statistical-graphs-in-r.html#cb90-25" tabindex="-1"></a>       )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+</div>
+</div>
+<div id="practical-examples-exercises-3" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Practical Examples: Exercises<a href="statistical-graphs-in-r.html#practical-examples-exercises-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
+</div>
 </div>
             </section>
 

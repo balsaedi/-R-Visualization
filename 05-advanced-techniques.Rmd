@@ -1,3 +1,99 @@
 
 # ADVANCED BASE PLOTTING TECHNIQUES
 
+
+## Combining Different Graph Types
+We can overlay different types of plots, such as combining bar charts with line graphs, in R. Here's how this can be done  along with customizing axes and scales:
+
+### Overlay different types of plots
+
+```{r}
+# Sample data
+x <- 1:10
+y1 <- x^2
+y2 <- 2 * x
+y3 <- x^1.5
+
+# Create a line plot
+plot(x, y1, type = "l", col = "blue", main = "Combining Different Graph Types", xlab = "X", ylab = "Y")
+
+# Add points to the line plot
+points(x, y1, col = "blue", pch = 16)
+
+# Add a bar plot
+barplot(y2, col = "red", add = TRUE)
+
+# Add a second line plot
+lines(x, y3, col = "green")
+
+# Add a legend
+legend("topleft", legend = c("Trend 1", "Trend 2", "Trend 3"), col = c("blue", "red", "green"), lty = c(1, NA, 1), pch = c(16, NA, NA))
+
+```
+
+
+### Axes and scales customization to accomodate combined plots
+
+```{r}
+# Set custom axis limits
+plot(x, y1, type = "l", col = "blue", main = "Combining Different Graph Types", xlab = "X", ylab = "Y", ylim = c(0, max(y1, y2, y3)))
+
+# Add points to the line plot
+points(x, y1, col = "blue", pch = 16)
+
+# Add a bar plot
+barplot(y2, col = "red", add = TRUE, ylim = c(0, max(y1, y2, y3)))
+
+# Add a second line plot
+lines(x, y3, col = "green")
+
+# Add a legend
+legend("topleft", legend = c("Trend 1", "Trend 2", "Trend 3"), col = c("blue", "red", "green"), lty = c(1, NA, 1), pch = c(16, NA, NA))
+
+```
+
+
+
+## Interactive Graphics in Base R
+
+### Introduction to using the locator() function for interactive plotting
+
+Base R provides basic functionality for creating interactive plots using the locator() function. Here's how you can use locator() for interactive plotting and create dynamic plots that respond to user input or updates in data:
+
+
+```{r}
+# Sample data
+x <- 1:10
+y <- x^2
+
+# Plot data
+plot(x, y, type = "l", main = "Interactive Plotting with locator()")
+
+# Add points interactively
+points(locator(5), col = "red", pch = 16)
+
+```
+
+
+### Creating dynamic plots that respond to user input or updates in data
+
+```{r}
+# Dynamic plot that responds to user input
+plot_dynamic <- function() {
+  # Sample data
+  x <- 1:10
+  y <- x^2
+  
+  # Plot data
+  plot(x, y, type = "l", main = "Dynamic Plot with User Input")
+  
+  # Add points interactively
+  points(locator(5), col = "red", pch = 16)
+}
+
+# Call the function to create dynamic plot
+plot_dynamic()
+
+```
+
+

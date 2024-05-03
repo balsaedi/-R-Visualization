@@ -2,5 +2,219 @@
 # PLOTTING TIME SERIES DATA
 
 
+## Introduction
+The plotting of time series object is most likely one of the steps of the analysis of time-series data. The two main objectives of this chapter are:
+
+- Understand specific considerations for plotting time series data in R.
+- Learn to effectively visualize time-dependent data using R's base graphics.
+
+
+### Importance of time series analysis in various fields like finance, meteorology, and  epidemiology
+
+Time series analysis plays a crucial role in various fields such as finance, meteorology, epidemiology, and many others. Understanding time series data and effectively visualizing it are essential for extracting meaningful insights. In this chapter, we will explore the importance of time series analysis and the challenges associated with visualizing time series data. 
+
+Time series analysis is vital in various fields including:
+
+- **Finance:** Analyzing stock prices, market trends, and forecasting.
+
+- **Meteorology:**  Studying weather patterns, climate change, and forecasting.
+
+- **Epidemiology:**  Tracking disease outbreaks, analyzing trends, and forecasting.
+
+### Basic concepts related to time series data and its visualization challenges.
+
+- **Time Series Data:** Time series data consists of observations or measurements taken at different points in time.
+
+- **Temporal Patterns:** Time series data often exhibits various temporal patterns such as trend, seasonality, and cycles.
+
+- **Visualization Challenges:** Visualizing time series data poses challenges due to its temporal nature and the need to effectively represent temporal patterns.
+
+## Time Series Data Basics
+Time series data in R is commonly represented using the __ts__ class. The time series object must have a __Date__ or __POSIXct/lt__  column and at least one numeric column.
+
+### Introduction to time series objects in R (ts class).
+
+- The __ts__ class in R is a basic time series object.
+
+- It is suitable for regularly spaced time series data.
+
+- Time series objects are created using the __ts()__ function.
+
+**Example: Creating a time series object**
+
+```{r}
+# Sample time series data
+data <- c(10, 15, 20, 25, 30)
+time_series <- ts(data)
+
+# View the time series object
+print(time_series)
+
+```
+
+
+### How to convert standard date formats into time series objects
+R provides several functions to convert standard date formats into time series objects, such as **as.ts()** and **ts()**.
+
+**Example: Converting Standard Date Formats into Time Series Objects**
+
+
+```{r}
+# Sample data with dates
+dates <- as.Date(c("2022-01-01", "2022-02-01", "2022-03-01", "2022-04-01", "2022-05-01"))
+data <- c(10, 15, 20, 25, 30)
+
+# Create a time series object
+time_series <- ts(data, start = c(as.POSIXlt(dates[1])$year + 1900, as.POSIXlt(dates[1])$mon + 1), frequency = 12)
+
+# View the time series object
+print(time_series)
+
+```
+
+In this example, __start__ indicates the start of the time series, and __frequency__ indicates the number of observations per unit of time. Here, __frequency = 12__ indicates monthly data. These are the basics of working with time series data objects in R.
+
+
+
+## Visualizing Time Series
+Let’s load and plot the __USgas__ series, a __ts__ object which is attached in the TSstudio package:
+
+```{r}
+library(TSstudio)
+
+data(USgas)
+
+ts_info(USgas)
+```
+
+
+### Creating line plots for time series data
+
+Let us plot the __USgas__ series using the base R __plot()__ function.
+
+```{r}
+plot(USgas)
+```
+
+
+### Techniques for highlighting trends, seasonality, and anomalies
+
+- __Trends:__ Use __lines()__ function to overlay a trend line on the plot.
+
+- __Seasonality:__ Use __seasonplot()__ function from the forecast package to visualize seasonal patterns.
+
+- __Anomalies:__ Use __points()__ function to mark anomalies on the plot.
+
+**Example:** Let's visualize the __USgas__ time series data and highlight trends, seasonality, and anomalies:
+
+
+```{r, message=FALSE, warning=FALSE}
+# Install and load the necessary packages
+#install.packages("forecast")
+library(forecast)
+
+# Load the USgas time series object
+data("USgas")
+
+# Convert the ts object into a data frame
+USgas_df <- data.frame(year = time(USgas), production = as.numeric(USgas))
+
+# Apply loess function
+trend <- loess(production ~ year, data = USgas_df)
+
+# Extract the trend values
+trend_values <- predict(trend)
+
+# Plot the USgas time series
+plot(USgas, main = "US Gas Production Time Series", xlab = "Year", ylab = "Gas Production")
+
+# Add trend line
+#lines(time(USgas), trend_values, col = "blue")
+
+# Visualize seasonal pattern
+seasonplot(USgas, col = "green")
+
+# Identify anomalies
+anomalies <- which(USgas > mean(USgas) + 2 * sd(USgas) | USgas < mean(USgas) - 2 * sd(USgas))
+points(time(USgas)[anomalies], USgas[anomalies], col = "red", pch = 16)
+
+```
+
+
+
+## Advanced Time Series Visualization
+
+
+### Advance customization using ts_plot() function from __plotly__ package
+
+The __ts_plot__ is a wraper of the __plotly__ package plotting functions for time series objects, therefore, the output of the __ts_plot__ is a __plotly__ object. Advance customization of the __ts_plot__ output can be done with plotly’s layout function. For example, let’s re plot the __USgas__ series and customize the background to black:
+
+
+```{r, message=FALSE, warning=FALSE}
+library(plotly)
+
+ts_plot(USgas,
+        title = "US Monthly Natural Gas Consumption",
+        Xtitle = "Time",
+        Ytitle = "Billion Cubic Feet",
+        color =  "pink",
+        Xgrid = TRUE,
+        Ygrid = TRUE) %>%
+  layout(paper_bgcolor = "black",
+         plot_bgcolor = "black",
+         font = list(color = "white"),
+         yaxis = list(linecolor = "#6b6b6b",
+                      zerolinecolor = "#6b6b6b",
+                      gridcolor= "#444444"),
+         xaxis = list(linecolor = "#6b6b6b",
+                      zerolinecolor = "#6b6b6b",
+                      gridcolor= "#444444"))
+```
+
+
+Note  that the __Xgrid__ and __Ygrid__ arguments, when set to __TRUE__, add the corresponding X and Y grid lines.
+
+### Plotting multiple time series on a single graph for comparative analysis
+
+The plotting of a multiple time series object is straightforward. Let’s load the __Coffee_Prices__ an __mts__ object that represents the monthly prices of the Robusta and Arabica coffee prices (USD per Kg.):
+
+
+```{r}
+data("Coffee_Prices")
+
+ts_info(Coffee_Prices)
+ts_plot(Coffee_Prices,
+        title = "Comparison of Robusta and Arabica coffee prices")
+```
+
+
+By default, the function will plot all the series in one plot. Plotting the different series on a separate plot can be done by setting the type argument to multiple:
+
+```{r}
+ts_plot(Coffee_Prices,
+        title = "Comparison of Robusta and Arabica coffee prices",
+        type = "multiple")
+```
+
+__Note__ that the __color__, __Ytitle__, and __Xtitle__ arguments are not applicable when plotting multiple time series object.
+
+
+## Practical Examples: Exercises
+
+
+**Exercise 13: Stock market data**
+
+Obtain the daily closing  prices for the last ten calendar years of S&P 500 Index, Dow Jones, NASDAQ100 and Russell 2000 indices from Yahoo Finance using the appropriate R package such as tidyquant or  quantmod. Prepare the data and clean it by removing any missing values. Plot a time series plot of the prices of these indices in one graph and use the plot to identify any economic trends among the indices. 
+
+
+
+**Exercise 14: Temperature**
+
+Obtain the temperature data from an open source such as Weather data (https://www.wunderground.com/weather/in/ahmedabad/VAAH) for Ahmedabad which is located in Western India on the banks of River Sabarmati. Obtain the average monthly temperature data from Sardar Vallabhbhai Patel International Airport Station weather station for the years 2014-2021. Decompose the time series data by splitting these components (data or the level, trend, seasonality, and noise or random components) separately into 
+individual components. Present the decomposition of the  multiplicative model of the components of the time series of the average 
+temperature of Ahmedabad in a suitable plot. What observation did you make about the seasonality of this data?
+
+
+
 
 

@@ -29,7 +29,7 @@
 <meta name="author" content="Basim Alsaedi" />
 
 
-<meta name="date" content="2024-04-27" />
+<meta name="date" content="2024-05-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -58,11 +58,18 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.3/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -211,9 +218,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#advanced-customization-techniques"><i class="fa fa-check"></i><b>4.4</b> Advanced Customization Techniques</a></li>
 <li class="chapter" data-level="4.5" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#practical-examples-exercise"><i class="fa fa-check"></i><b>4.5</b> Practical Examples: Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html"><i class="fa fa-check"></i><b>5</b> ADVANCED BASE PLOTTING TECHNIQUES</a></li>
-<li class="chapter" data-level="6" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html"><i class="fa fa-check"></i><b>6</b> PLOTTING TIME SERIES DATA</a></li>
-<li class="chapter" data-level="7" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html"><i class="fa fa-check"></i><b>7</b> STATISTICAL GRAPHS IN R</a></li>
+<li class="chapter" data-level="5" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html"><i class="fa fa-check"></i><b>5</b> ADVANCED BASE PLOTTING TECHNIQUES</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#combining-different-graph-types"><i class="fa fa-check"></i><b>5.1</b> Combining Different Graph Types</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#overlay-different-types-of-plots"><i class="fa fa-check"></i><b>5.1.1</b> Overlay different types of plots</a></li>
+<li class="chapter" data-level="5.1.2" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#axes-and-scales-customization-to-accomodate-combined-plots"><i class="fa fa-check"></i><b>5.1.2</b> Axes and scales customization to accomodate combined plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#interactive-graphics-in-base-r"><i class="fa fa-check"></i><b>5.2</b> Interactive Graphics in Base R</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#introduction-to-using-the-locator-function-for-interactive-plotting"><i class="fa fa-check"></i><b>5.2.1</b> Introduction to using the locator() function for interactive plotting</a></li>
+<li class="chapter" data-level="5.2.2" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#creating-dynamic-plots-that-respond-to-user-input-or-updates-in-data"><i class="fa fa-check"></i><b>5.2.2</b> Creating dynamic plots that respond to user input or updates in data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html"><i class="fa fa-check"></i><b>6</b> PLOTTING TIME SERIES DATA</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#importance-of-time-series-analysis-in-various-fields-like-finance-meteorology-and-epidemiology"><i class="fa fa-check"></i><b>6.1.1</b> Importance of time series analysis in various fields like finance, meteorology, and epidemiology</a></li>
+<li class="chapter" data-level="6.1.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#basic-concepts-related-to-time-series-data-and-its-visualization-challenges."><i class="fa fa-check"></i><b>6.1.2</b> Basic concepts related to time series data and its visualization challenges.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#time-series-data-basics"><i class="fa fa-check"></i><b>6.2</b> Time Series Data Basics</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#introduction-to-time-series-objects-in-r-ts-class."><i class="fa fa-check"></i><b>6.2.1</b> Introduction to time series objects in R (ts class).</a></li>
+<li class="chapter" data-level="6.2.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#how-to-convert-standard-date-formats-into-time-series-objects"><i class="fa fa-check"></i><b>6.2.2</b> How to convert standard date formats into time series objects</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#visualizing-time-series"><i class="fa fa-check"></i><b>6.3</b> Visualizing Time Series</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#creating-line-plots-for-time-series-data"><i class="fa fa-check"></i><b>6.3.1</b> Creating line plots for time series data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#techniques-for-highlighting-trends-seasonality-and-anomalies"><i class="fa fa-check"></i><b>6.3.2</b> Techniques for highlighting trends, seasonality, and anomalies</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#advanced-time-series-visualization"><i class="fa fa-check"></i><b>6.4</b> Advanced Time Series Visualization</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#advance-customization-using-ts_plot-function-from-plotly-package"><i class="fa fa-check"></i><b>6.4.1</b> Advance customization using ts_plot() function from <strong>plotly</strong> package</a></li>
+<li class="chapter" data-level="6.4.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#plotting-multiple-time-series-on-a-single-graph-for-comparative-analysis"><i class="fa fa-check"></i><b>6.4.2</b> Plotting multiple time series on a single graph for comparative analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#practical-examples-exercises-2"><i class="fa fa-check"></i><b>6.5</b> Practical Examples: Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html"><i class="fa fa-check"></i><b>7</b> STATISTICAL GRAPHS IN R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#essential-statistical-plots"><i class="fa fa-check"></i><b>7.2</b> Essential Statistical Plots:</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#how-to-create-box-plots-violin-plots-and-qq-plots."><i class="fa fa-check"></i><b>7.2.1</b> How to create box plots, violin plots, and QQ plots.</a></li>
+<li class="chapter" data-level="7.2.2" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#understanding-the-data-insights-these-plots-provide."><i class="fa fa-check"></i><b>7.2.2</b> Understanding the data insights these plots provide.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#analyzing-distributions-with-histograms-and-density-plots"><i class="fa fa-check"></i><b>7.3</b> Analyzing Distributions with Histograms and Density Plots:</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#techniques-for-creating-and-customizing-histograms-and-density-plots-and-best-practices-for-displaying-distribution-characteristics."><i class="fa fa-check"></i><b>7.3.1</b> Techniques for creating and customizing histograms and density plots and best practices for displaying distribution characteristics.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#scatter-plots-and-correlation-analysis"><i class="fa fa-check"></i><b>7.4</b> Scatter Plots and Correlation Analysis:</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#using-scatter-plots-to-visualize-relationships-between-variables."><i class="fa fa-check"></i><b>7.4.1</b> Using scatter plots to visualize relationships between variables.</a></li>
+<li class="chapter" data-level="7.4.2" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#introduction-to-adding-regression-lines-and-confidence-intervals."><i class="fa fa-check"></i><b>7.4.2</b> Introduction to adding regression lines and confidence intervals.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#practical-examples-exercises-3"><i class="fa fa-check"></i><b>7.5</b> Practical Examples: Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>8</b> INTRODUCTION TO ggplot2</a></li>
 <li class="chapter" data-level="9" data-path="advanced-data-visualization-with-ggplot2-and-other-packages.html"><a href="advanced-data-visualization-with-ggplot2-and-other-packages.html"><i class="fa fa-check"></i><b>9</b> ADVANCED DATA VISUALIZATION WITH ggplot2 AND OTHER PACKAGES</a></li>
 <li class="chapter" data-level="10" data-path="real-world-applications-and-case-studies.html"><a href="real-world-applications-and-case-studies.html"><i class="fa fa-check"></i><b>10</b> REAL-WORLD APPLICATIONS AND CASE STUDIES</a></li>

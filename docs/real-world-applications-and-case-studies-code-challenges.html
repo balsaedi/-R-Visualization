@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 REAL-WORLD APPLICATIONS AND CASE STUDIES (CODE CHALLENGES) | R Base Data Visualization</title>
+  <meta name="description" content="<p>This is a brief document on the Data visualization in R.
+#The HTML output format for this example is bookdown::gitbook,
+#set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 REAL-WORLD APPLICATIONS AND CASE STUDIES (CODE CHALLENGES) | R Base Data Visualization" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a brief document on the Data visualization in R.
+#The HTML output format for this example is bookdown::gitbook,
+#set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 REAL-WORLD APPLICATIONS AND CASE STUDIES (CODE CHALLENGES) | R Base Data Visualization" />
+  
+  <meta name="twitter:description" content="<p>This is a brief document on the Data visualization in R.
+#The HTML output format for this example is bookdown::gitbook,
+#set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Basim Alsaedi" />
+
+
+<meta name="date" content="2024-05-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="advanced-data-visualization-with-ggplot2-and-other-packages.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.3/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Base Data Visualization</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRODUCTION TO R AND DATA VISUALIZATION</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#overview-of-r"><i class="fa fa-check"></i><b>1.1.1</b> Overview of R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#why-use-r-for-data-visualization"><i class="fa fa-check"></i><b>1.2</b> Why Use R for Data Visualization?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#advantages-of-r-over-other-programming-languages-and-tools"><i class="fa fa-check"></i><b>1.2.1</b> Advantages of R over other programming languages and tools</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#rs-extensive-package-ecosystem"><i class="fa fa-check"></i><b>1.2.2</b> R’s extensive package ecosystem</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#installing-and-configuring-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> Installing and Configuring R and RStudio</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#step-by-step-guide-on-installing-r"><i class="fa fa-check"></i><b>1.3.1</b> Step-by-step guide on installing R</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#step-by-step-guide-on-installing-rstudio-and-set-up"><i class="fa fa-check"></i><b>1.3.2</b> Step-by-step guide on installing RStudio and Set Up</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#basic-r-concepts."><i class="fa fa-check"></i><b>1.4</b> Basic R Concepts.</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#introduction-to-r-syntax-and-basic-commands"><i class="fa fa-check"></i><b>1.4.1</b> Introduction to R syntax and basic commands</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#overview-of-rs-data-types-and-structures-essential-for-visualization"><i class="fa fa-check"></i><b>1.4.2</b> Overview of R’s data types and structures essential for visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#practical-examples-exercises"><i class="fa fa-check"></i><b>1.5</b> Practical Examples: Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html"><i class="fa fa-check"></i><b>2</b> R BASE GRAPHICS - STARTING WITH THE BASICS</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#exploring-base-graphics-in-r"><i class="fa fa-check"></i><b>2.1</b> Exploring Base Graphics in R</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#overview-of-the-philosophy-behind-rs-base-graphics-system-including-its-stateful-nature"><i class="fa fa-check"></i><b>2.1.1</b> Overview of the philosophy behind R’s base graphics system, including its stateful nature</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#introduction-to-core-plotting-functions-in-r"><i class="fa fa-check"></i><b>2.1.2</b> Introduction to Core Plotting Functions in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#creating-basic-plots"><i class="fa fa-check"></i><b>2.2</b> Creating Basic Plots</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#detailed-instructions-on-using-plot-for-scatter-plots-and-line-graphs"><i class="fa fa-check"></i><b>2.2.1</b> Detailed instructions on using plot() for scatter plots and line graphs</a></li>
+<li class="chapter" data-level="2.2.2" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#using-hist-to-create-histograms-for-data-distribution-analysis"><i class="fa fa-check"></i><b>2.2.2</b> Using hist() to create histograms for data distribution analysis</a></li>
+<li class="chapter" data-level="2.2.3" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#implementing-boxplot-and-barplot-to-visualize-data-comparisons-and-distributions"><i class="fa fa-check"></i><b>2.2.3</b> Implementing boxplot() and barplot() to visualize data comparisons and distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#customizing-plots"><i class="fa fa-check"></i><b>2.3</b> Customizing Plots</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#basic-customization-options-including-colors-main-titles-axis-labels-and-plot-dimensions"><i class="fa fa-check"></i><b>2.3.1</b> Basic customization options including colors, main titles, axis labels, and plot dimensions</a></li>
+<li class="chapter" data-level="2.3.2" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#tips-on-enhancing-plot-readability-and-aesthetic-appeal"><i class="fa fa-check"></i><b>2.3.2</b> Tips on enhancing plot readability and aesthetic appeal</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="r-base-graphics---starting-with-the-basics.html"><a href="r-base-graphics---starting-with-the-basics.html#practical-examples-exercises-1"><i class="fa fa-check"></i><b>2.4</b> Practical Examples: Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html"><i class="fa fa-check"></i><b>3</b> DATA STRUCTURES RELEVANT TO VISUALIZATION</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#importance-of-data-structure-understanding"><i class="fa fa-check"></i><b>3.1.1</b> Importance of Data Structure Understanding</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#vectors-data-frames-and-matrices"><i class="fa fa-check"></i><b>3.2</b> Vectors, Data Frames, and Matrices</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#definitions"><i class="fa fa-check"></i><b>3.2.1</b> Definitions</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#tools-and-functions"><i class="fa fa-check"></i><b>3.2.2</b> Tools and Functions</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#step-by-step-tutorials"><i class="fa fa-check"></i><b>3.2.3</b> Step-by-Step Tutorials</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-structures-relevant-to-visualization.html"><a href="data-structures-relevant-to-visualization.html#practical-example-exercise"><i class="fa fa-check"></i><b>3.3</b> Practical Example : Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html"><i class="fa fa-check"></i><b>4</b> CUSTOMIZING GRAPHS IN BASE R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#graph-customization-basics"><i class="fa fa-check"></i><b>4.2</b> Graph Customization Basics</a></li>
+<li class="chapter" data-level="4.3" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#enhancing-plot-aesthetics"><i class="fa fa-check"></i><b>4.3</b> Enhancing Plot Aesthetics</a></li>
+<li class="chapter" data-level="4.4" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#advanced-customization-techniques"><i class="fa fa-check"></i><b>4.4</b> Advanced Customization Techniques</a></li>
+<li class="chapter" data-level="4.5" data-path="customizing-graphs-in-base-r.html"><a href="customizing-graphs-in-base-r.html#practical-examples-exercise"><i class="fa fa-check"></i><b>4.5</b> Practical Examples: Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html"><i class="fa fa-check"></i><b>5</b> ADVANCED BASE PLOTTING TECHNIQUES</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#combining-different-graph-types"><i class="fa fa-check"></i><b>5.1</b> Combining Different Graph Types</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#overlay-different-types-of-plots"><i class="fa fa-check"></i><b>5.1.1</b> Overlay different types of plots</a></li>
+<li class="chapter" data-level="5.1.2" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#axes-and-scales-customization-to-accomodate-combined-plots"><i class="fa fa-check"></i><b>5.1.2</b> Axes and scales customization to accomodate combined plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#interactive-graphics-in-base-r"><i class="fa fa-check"></i><b>5.2</b> Interactive Graphics in Base R</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#introduction-to-using-the-locator-function-for-interactive-plotting"><i class="fa fa-check"></i><b>5.2.1</b> Introduction to using the locator() function for interactive plotting</a></li>
+<li class="chapter" data-level="5.2.2" data-path="advanced-base-plotting-techniques.html"><a href="advanced-base-plotting-techniques.html#creating-dynamic-plots-that-respond-to-user-input-or-updates-in-data"><i class="fa fa-check"></i><b>5.2.2</b> Creating dynamic plots that respond to user input or updates in data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html"><i class="fa fa-check"></i><b>6</b> PLOTTING TIME SERIES DATA</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#importance-of-time-series-analysis-in-various-fields-like-finance-meteorology-and-epidemiology"><i class="fa fa-check"></i><b>6.1.1</b> Importance of time series analysis in various fields like finance, meteorology, and epidemiology</a></li>
+<li class="chapter" data-level="6.1.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#basic-concepts-related-to-time-series-data-and-its-visualization-challenges."><i class="fa fa-check"></i><b>6.1.2</b> Basic concepts related to time series data and its visualization challenges.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#time-series-data-basics"><i class="fa fa-check"></i><b>6.2</b> Time Series Data Basics</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#introduction-to-time-series-objects-in-r-ts-class."><i class="fa fa-check"></i><b>6.2.1</b> Introduction to time series objects in R (ts class).</a></li>
+<li class="chapter" data-level="6.2.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#how-to-convert-standard-date-formats-into-time-series-objects"><i class="fa fa-check"></i><b>6.2.2</b> How to convert standard date formats into time series objects</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#visualizing-time-series"><i class="fa fa-check"></i><b>6.3</b> Visualizing Time Series</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#creating-line-plots-for-time-series-data"><i class="fa fa-check"></i><b>6.3.1</b> Creating line plots for time series data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#techniques-for-highlighting-trends-seasonality-and-anomalies"><i class="fa fa-check"></i><b>6.3.2</b> Techniques for highlighting trends, seasonality, and anomalies</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#advanced-time-series-visualization"><i class="fa fa-check"></i><b>6.4</b> Advanced Time Series Visualization</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#advance-customization-using-ts_plot-function-from-plotly-package"><i class="fa fa-check"></i><b>6.4.1</b> Advance customization using ts_plot() function from <strong>plotly</strong> package</a></li>
+<li class="chapter" data-level="6.4.2" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#plotting-multiple-time-series-on-a-single-graph-for-comparative-analysis"><i class="fa fa-check"></i><b>6.4.2</b> Plotting multiple time series on a single graph for comparative analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="plotting-time-series-data.html"><a href="plotting-time-series-data.html#practical-examples-exercises-2"><i class="fa fa-check"></i><b>6.5</b> Practical Examples: Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html"><i class="fa fa-check"></i><b>7</b> STATISTICAL GRAPHS IN R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#essential-statistical-plots"><i class="fa fa-check"></i><b>7.2</b> Essential Statistical Plots:</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#how-to-create-box-plots-violin-plots-and-qq-plots."><i class="fa fa-check"></i><b>7.2.1</b> How to create box plots, violin plots, and QQ plots.</a></li>
+<li class="chapter" data-level="7.2.2" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#understanding-the-data-insights-these-plots-provide."><i class="fa fa-check"></i><b>7.2.2</b> Understanding the data insights these plots provide.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#analyzing-distributions-with-histograms-and-density-plots"><i class="fa fa-check"></i><b>7.3</b> Analyzing Distributions with Histograms and Density Plots:</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#techniques-for-creating-and-customizing-histograms-and-density-plots-and-best-practices-for-displaying-distribution-characteristics."><i class="fa fa-check"></i><b>7.3.1</b> Techniques for creating and customizing histograms and density plots and best practices for displaying distribution characteristics.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#scatter-plots-and-correlation-analysis"><i class="fa fa-check"></i><b>7.4</b> Scatter Plots and Correlation Analysis:</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#using-scatter-plots-to-visualize-relationships-between-variables."><i class="fa fa-check"></i><b>7.4.1</b> Using scatter plots to visualize relationships between variables.</a></li>
+<li class="chapter" data-level="7.4.2" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#introduction-to-adding-regression-lines-and-confidence-intervals."><i class="fa fa-check"></i><b>7.4.2</b> Introduction to adding regression lines and confidence intervals.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="statistical-graphs-in-r.html"><a href="statistical-graphs-in-r.html#practical-examples-exercises-3"><i class="fa fa-check"></i><b>7.5</b> Practical Examples: Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>8</b> INTRODUCTION TO ggplot2</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#getting-started-with-ggplot2"><i class="fa fa-check"></i><b>8.1</b> Getting Started with ggplot2</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#installation-of-ggplot2-and-setting-up-the-environment."><i class="fa fa-check"></i><b>8.1.1</b> Installation of ggplot2 and setting up the environment.</a></li>
+<li class="chapter" data-level="8.1.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#basic-syntax-and-components-of-ggplot2-aesthetics-geoms-and-layers"><i class="fa fa-check"></i><b>8.1.2</b> Basic syntax and components of ggplot2: aesthetics, geoms, and layers</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#creating-basic-plots-with-ggplot2"><i class="fa fa-check"></i><b>8.2</b> Creating Basic Plots with ggplot2</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#step-by-step-instructions-to-create-scatter-plots-histograms-and-bar-charts-using-ggplot2"><i class="fa fa-check"></i><b>8.2.1</b> Step-by-step instructions to create scatter plots, histograms, and bar charts using ggplot2</a></li>
+<li class="chapter" data-level="8.2.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#introduction-to-adding-layers-modifying-aesthetics-and-utilizing-facets-for-multi-panel-plots"><i class="fa fa-check"></i><b>8.2.2</b> Introduction to adding layers, modifying aesthetics, and utilizing facets for multi-panel plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#customizing-plots-in-ggplot2"><i class="fa fa-check"></i><b>8.3</b> Customizing Plots in ggplot2</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#advanced-customization-techniques-including-themes-scales-and-coordinate-systems."><i class="fa fa-check"></i><b>8.3.1</b> Advanced customization techniques including themes, scales, and coordinate systems.</a></li>
+<li class="chapter" data-level="8.3.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#techniques-for-fine-tuning-ggplot2-outputs-to-create-publication-quality-graphics"><i class="fa fa-check"></i><b>8.3.2</b> Techniques for fine-tuning ggplot2 outputs to create publication-quality graphics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#practical-examples-exercise-1"><i class="fa fa-check"></i><b>8.4</b> Practical Examples: Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="advanced-data-visualization-with-ggplot2-and-other-packages.html"><a href="advanced-data-visualization-with-ggplot2-and-other-packages.html"><i class="fa fa-check"></i><b>9</b> ADVANCED DATA VISUALIZATION WITH ggplot2 AND OTHER PACKAGES</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="advanced-data-visualization-with-ggplot2-and-other-packages.html"><a href="advanced-data-visualization-with-ggplot2-and-other-packages.html#interactive-graphs-with-plotly"><i class="fa fa-check"></i><b>9.1</b> Interactive Graphs with plotly</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="advanced-data-visualization-with-ggplot2-and-other-packages.html"><a href="advanced-data-visualization-with-ggplot2-and-other-packages.html#converting-ggplot2-charts-into-interactive-plotly-graphs"><i class="fa fa-check"></i><b>9.1.1</b> Converting ggplot2 charts into interactive plotly graphs</a></li>
+<li class="chapter" data-level="9.1.2" data-path="advanced-data-visualization-with-ggplot2-and-other-packages.html"><a href="advanced-data-visualization-with-ggplot2-and-other-packages.html#customizing-interactions-adding-tooltips-and-embedding-plotly-graphs-in-web-applications."><i class="fa fa-check"></i><b>9.1.2</b> Customizing interactions, adding tooltips, and embedding plotly graphs in web applications.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="advanced-data-visualization-with-ggplot2-and-other-packages.html"><a href="advanced-data-visualization-with-ggplot2-and-other-packages.html#building-web-applications-with-shiny"><i class="fa fa-check"></i><b>9.2</b> Building Web Applications with shiny</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="advanced-data-visualization-with-ggplot2-and-other-packages.html"><a href="advanced-data-visualization-with-ggplot2-and-other-packages.html#introduction-to-shiny-for-building-interactive-web-applications"><i class="fa fa-check"></i><b>9.2.1</b> Introduction to shiny for building interactive web applications</a></li>
+<li class="chapter" data-level="9.2.2" data-path="advanced-data-visualization-with-ggplot2-and-other-packages.html"><a href="advanced-data-visualization-with-ggplot2-and-other-packages.html#creating-reactive-plots-and-dashboards-that-update-with-user-input."><i class="fa fa-check"></i><b>9.2.2</b> Creating reactive plots and dashboards that update with user input.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="advanced-data-visualization-with-ggplot2-and-other-packages.html"><a href="advanced-data-visualization-with-ggplot2-and-other-packages.html#advanced-ggplot2-extensions"><i class="fa fa-check"></i><b>9.3</b> Advanced ggplot2 Extensions</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="advanced-data-visualization-with-ggplot2-and-other-packages.html"><a href="advanced-data-visualization-with-ggplot2-and-other-packages.html#explore-extensions-like-gganimate-for-creating-animated-plots."><i class="fa fa-check"></i><b>9.3.1</b> Explore extensions like gganimate for creating animated plots.</a></li>
+<li class="chapter" data-level="9.3.2" data-path="advanced-data-visualization-with-ggplot2-and-other-packages.html"><a href="advanced-data-visualization-with-ggplot2-and-other-packages.html#using-ggridges-for-ridge-line-plots-and-other-creative-visualization-techniques."><i class="fa fa-check"></i><b>9.3.2</b> Using ggridges for ridge line plots and other creative visualization techniques.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="advanced-data-visualization-with-ggplot2-and-other-packages.html"><a href="advanced-data-visualization-with-ggplot2-and-other-packages.html#practical-examples-exercises-4"><i class="fa fa-check"></i><b>9.4</b> Practical Examples: Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="real-world-applications-and-case-studies-code-challenges.html"><a href="real-world-applications-and-case-studies-code-challenges.html"><i class="fa fa-check"></i><b>10</b> REAL-WORLD APPLICATIONS AND CASE STUDIES (CODE CHALLENGES)</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Base Data Visualization</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="real-world-applications-and-case-studies-code-challenges" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> REAL-WORLD APPLICATIONS AND CASE STUDIES (CODE CHALLENGES)<a href="real-world-applications-and-case-studies-code-challenges.html#real-world-applications-and-case-studies-code-challenges" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="advanced-data-visualization-with-ggplot2-and-other-packages.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/10-real-world-application.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

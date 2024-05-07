@@ -74,7 +74,8 @@ The commonly used graphical parameters are:
 - $lwd$: a vector of line widths
 
 **Example:**
-```{r}
+
+```{r,tut=TRUE, height=500}
 # Create a scatter plot
 x <- c(1, 2, 3, 4, 5)
 y <- c(2, 3, 5, 7, 11)

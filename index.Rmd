@@ -1,22 +1,27 @@
+
 --- 
 title: "R Base Data Visualization"
 author: "Basim Alsaedi"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-documentclass: book
-bibliography: [book.bib, packages.bib]
-# url: your book url like https://bookdown.org/yihui/bookdown
-# cover-image: path to the social sharing image like images/cover.jpg
-description: |
-  This is a brief document on the Data visualization in R.
-  #The HTML output format for this example is bookdown::gitbook,
-  #set in the _output.yml file.
-link-citations: yes
-github-repo: rstudio/bookdown-demo
+output:
+   html_document:
+      self_contained: false
 ---
 
-# INTRODUCTION TO R AND DATA VISUALIZATION
 
+```{r, include=FALSE}
+# if(!require(devtools)) {
+#   install.packages("devtools")
+# }
+# devtools::install_github("datacamp/tutorial")
+
+tutorial::go_interactive()
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
+
+
+# INTRODUCTION TO R AND DATA VISUALIZATION
 
 ## Introduction
 
@@ -89,8 +94,7 @@ R is  designed for statistical computing and graphics. In this section, we will 
 
 You can use R as a simple calculator. Here are some basic arithmetic operations:
 
-
-```{r eval=FALSE}
+```{r}
 # Addition
 2 + 3
 # Subtraction
@@ -101,14 +105,13 @@ You can use R as a simple calculator. Here are some basic arithmetic operations:
 6 / 2
 # Exponentiation
 2^3
-
 ```
 
 **2. Assigning Values to Variables:**
 
 You can store values in variables using the assignment operator _<-_ or _=_.
 
-```{r eval=FALSE}
+```{r}
 # Assigning a value to a variable
 x <- 5
 y <- 3
@@ -121,7 +124,7 @@ z = x + y
 
 R supports several basic data types, including numeric, character, logical, and complex.
 
-```{r eval=FALSE}
+```{r}
 # Numeric
 num <- 10
 # Character
@@ -130,32 +133,30 @@ char <- "Hello, Basim!"
 logic <- TRUE
 # Complex
 comp <- 3 + 2i
-
 ```
 
 **4. Vectors:**
 
 A vector is a sequence of data elements of the same basic type. You can create a vector using the **c()** function.
 
-```{r eval=FALSE}
+```{r }
 # Creating a numeric vector
 nums <- c(1, 2, 3, 4, 5)
 # Creating a character vector
 chars <- c("apple", "banana", "orange")
-
 ```
 
 **5. Indexing and Slicing:**
 
 You can access elements of a vector using square brackets **[]**.
 
-```{r eval=FALSE}
+```{r }
 # Accessing elements of a vector
 nums <- c(1, 2, 3, 4, 5)
 nums[1]   # Access the first element of nums
 nums[2:4] # Access the second to fourth elements of nums
 nums[1,4,6] # Access the first, fourth and sixth elements of nums
-
+nums
 ```
 
 
@@ -163,7 +164,7 @@ nums[1,4,6] # Access the first, fourth and sixth elements of nums
 
 R has a large number of built-in functions, and you can also create your own functions for some tasks that can not be achieved by built-in functions.
 
-```{r, eval=FALSE}
+```{r}
 # Built-in function
 sqrt(16)   # Square root function
 nums <- c(1, 2, 3, 4, 5)
@@ -175,7 +176,6 @@ add <- function(a, b) {
   return(a + b)
 }
 add(3, 5)
-
 ```
 
 
@@ -188,7 +188,7 @@ R provides several data types and structures that are essential for data visuali
 Numeric data type is used to represent continuous numerical values.
 
 ```{r}
-num <- 5.6
+num <- 5.6; num
 
 ```
 
@@ -198,7 +198,6 @@ Integer data type is used to represent integer values.
 
 ```{r}
 int <- 10L
-
 ```
 
 **3. Character:**
@@ -207,7 +206,6 @@ Character data type is used to represent text data.
 
 ```{r}
 char <- "Hi, John!"
-
 ```
 
 **4. Logical:**
@@ -216,7 +214,6 @@ Logical data type is used to represent Boolean values ( __TRUE__ or __FALSE__).
 
 ```{r}
 logic <- TRUE
-
 ```
 
 **5. Vector:**
@@ -226,7 +223,6 @@ A vector is a sequence of data elements of the same basic type. It is created us
 ```{r}
 nums <- c(1, 2, 3, 4, 5) # A vector of numeric data type
 chars <- c("apple", "banana", "orange")  # A vector of character data type
-
 ```
 
 **6. Matrix:**
@@ -235,7 +231,6 @@ A matrix is a two-dimensional array with rows and columns in that order respecti
 
 ```{r}
 mat <- matrix(1:12, nrow = 3, ncol = 4) # A matrix with three rows and 2 columns 
-
 ```
 
 **7. Data Frame:**
@@ -248,7 +243,6 @@ df <- data.frame(
   Age = c(25, 30, 35),
   Height = c(175, 160, 180)
 )
-
 ```
 
 **8. List:**
@@ -261,7 +255,6 @@ lst <- list(
   Age = c(25, 30, 35),
   Height = c(175, 160, 180)
 )
-
 ```
 
 
@@ -282,7 +275,6 @@ Create a variable called $x$ and give it the value 15.Take the exponent of the v
 
 ```{r}
 # Your code
-
 ```
 
 **Exercise 2: Vectors:**
@@ -292,7 +284,7 @@ are given in the table below. Read the ‘before’ and ‘after’ values into 
 and __after__. Use __R__ to evaluate the amount of weight lost for each participant. What is the average amount of weight lost?
 
 
-```{r, echo=FALSE}
+```{r}
 
   df=data.frame(
     X1 = c(78, 67),

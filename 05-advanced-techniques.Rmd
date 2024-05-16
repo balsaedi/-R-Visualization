@@ -1,6 +1,10 @@
 
-# ADVANCED BASE PLOTTING TECHNIQUES
+```{r , include=FALSE}
+#tutorial::go_interactive(greedy = TRUE)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
 
+# ADVANCED BASE PLOTTING TECHNIQUES
 
 ## Combining Different Graph Types
 We can overlay different types of plots, such as combining bar charts with line graphs, in R. Here's how this can be done  along with customizing axes and scales:

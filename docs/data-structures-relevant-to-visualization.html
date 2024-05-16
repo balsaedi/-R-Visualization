@@ -5,31 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 DATA STRUCTURES RELEVANT TO VISUALIZATION | R Base Data Visualization</title>
-  <meta name="description" content="<p>This is a brief document on the Data visualization in R.
-#The HTML output format for this example is bookdown::gitbook,
-#set in the _output.yml file.</p>" />
+  <meta name="description" content="Chapter 3 DATA STRUCTURES RELEVANT TO VISUALIZATION | R Base Data Visualization" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 DATA STRUCTURES RELEVANT TO VISUALIZATION | R Base Data Visualization" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="<p>This is a brief document on the Data visualization in R.
-#The HTML output format for this example is bookdown::gitbook,
-#set in the _output.yml file.</p>" />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 3 DATA STRUCTURES RELEVANT TO VISUALIZATION | R Base Data Visualization" />
   
-  <meta name="twitter:description" content="<p>This is a brief document on the Data visualization in R.
-#The HTML output format for this example is bookdown::gitbook,
-#set in the _output.yml file.</p>" />
+  
   
 
 <meta name="author" content="Basim Alsaedi" />
 
 
-<meta name="date" content="2024-05-07" />
+<meta name="date" content="2024-05-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -58,79 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.10.3/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -358,55 +281,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Matrices</strong> are two-dimensional arrays that contain elements of the same atomic types. Matrices are useful for creating visualizations such as heatmaps and surface plots. They are suitable for representing data that has two dimensions, such as images or spatial data.</p>
 <p><strong>Lists</strong> are ordered collections of objects, which can be of different types. Lists can also be nested, allowing for complex data structures. They provide flexibility in organizing and storing data for complex visualizations. They are suitable for creating custom plots or combining multiple plots into a single visualization.</p>
 <p><strong>Factors</strong> are used to represent categorical data in R. They are stored as integers and have labels associated with them. They are useful for creating plots that involve categorical data, such as bar plots and pie charts. They allow for easy grouping and aggregation of data based on categorical variables.</p>
-<p><strong>Example</strong></p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-structures-relevant-to-visualization.html#cb38-1" tabindex="-1"></a><span class="co"># Example data</span></span>
-<span id="cb38-2"><a href="data-structures-relevant-to-visualization.html#cb38-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb38-3"><a href="data-structures-relevant-to-visualization.html#cb38-3" tabindex="-1"></a>numeric_vector <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb38-4"><a href="data-structures-relevant-to-visualization.html#cb38-4" tabindex="-1"></a>character_vector <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
-<span id="cb38-5"><a href="data-structures-relevant-to-visualization.html#cb38-5" tabindex="-1"></a>logical_vector <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb38-6"><a href="data-structures-relevant-to-visualization.html#cb38-6" tabindex="-1"></a></span>
-<span id="cb38-7"><a href="data-structures-relevant-to-visualization.html#cb38-7" tabindex="-1"></a><span class="co"># Create a list</span></span>
-<span id="cb38-8"><a href="data-structures-relevant-to-visualization.html#cb38-8" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(numeric_vector, character_vector, logical_vector)</span>
-<span id="cb38-9"><a href="data-structures-relevant-to-visualization.html#cb38-9" tabindex="-1"></a></span>
-<span id="cb38-10"><a href="data-structures-relevant-to-visualization.html#cb38-10" tabindex="-1"></a><span class="co"># Create a matrix</span></span>
-<span id="cb38-11"><a href="data-structures-relevant-to-visualization.html#cb38-11" tabindex="-1"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">4</span>)</span>
-<span id="cb38-12"><a href="data-structures-relevant-to-visualization.html#cb38-12" tabindex="-1"></a></span>
-<span id="cb38-13"><a href="data-structures-relevant-to-visualization.html#cb38-13" tabindex="-1"></a><span class="co"># Create a data frame</span></span>
-<span id="cb38-14"><a href="data-structures-relevant-to-visualization.html#cb38-14" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb38-15"><a href="data-structures-relevant-to-visualization.html#cb38-15" tabindex="-1"></a>  <span class="at">ID =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
-<span id="cb38-16"><a href="data-structures-relevant-to-visualization.html#cb38-16" tabindex="-1"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">&quot;John&quot;</span>, <span class="st">&quot;Mary&quot;</span>, <span class="st">&quot;David&quot;</span>, <span class="st">&quot;Emma&quot;</span>),</span>
-<span id="cb38-17"><a href="data-structures-relevant-to-visualization.html#cb38-17" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>)</span>
-<span id="cb38-18"><a href="data-structures-relevant-to-visualization.html#cb38-18" tabindex="-1"></a>)</span>
-<span id="cb38-19"><a href="data-structures-relevant-to-visualization.html#cb38-19" tabindex="-1"></a></span>
-<span id="cb38-20"><a href="data-structures-relevant-to-visualization.html#cb38-20" tabindex="-1"></a><span class="co"># Create a factor</span></span>
-<span id="cb38-21"><a href="data-structures-relevant-to-visualization.html#cb38-21" tabindex="-1"></a>my_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>))</span>
-<span id="cb38-22"><a href="data-structures-relevant-to-visualization.html#cb38-22" tabindex="-1"></a></span>
-<span id="cb38-23"><a href="data-structures-relevant-to-visualization.html#cb38-23" tabindex="-1"></a><span class="co"># Print the structures</span></span>
-<span id="cb38-24"><a href="data-structures-relevant-to-visualization.html#cb38-24" tabindex="-1"></a><span class="fu">print</span>(my_list)</span></code></pre></div>
-<pre><code>## [[1]]
-##  [1] -0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774  1.71506499
-##  [7]  0.46091621 -1.26506123 -0.68685285 -0.44566197
-## 
-## [[2]]
-##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot;
-## 
-## [[3]]
-##  [1]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-structures-relevant-to-visualization.html#cb40-1" tabindex="-1"></a><span class="fu">print</span>(my_matrix)</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    1    5    9
-## [2,]    2    6   10
-## [3,]    3    7   11
-## [4,]    4    8   12</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-structures-relevant-to-visualization.html#cb42-1" tabindex="-1"></a><span class="fu">print</span>(my_data)</span></code></pre></div>
-<pre><code>##   ID  Name Age
-## 1  1  John  25
-## 2  2  Mary  30
-## 3  3 David  35
-## 4  4  Emma  40</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-structures-relevant-to-visualization.html#cb44-1" tabindex="-1"></a><span class="fu">print</span>(my_factor)</span></code></pre></div>
-<pre><code>## [1] A B A C
-## Levels: A B C</code></pre>
+<strong>Example</strong>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgZGF0YVxuc2V0LnNlZWQoMTIzKVxubnVtZXJpY192ZWN0b3IgPC0gcm5vcm0oMTApXG5jaGFyYWN0ZXJfdmVjdG9yIDwtIGxldHRlcnNbMToxMF1cbmxvZ2ljYWxfdmVjdG9yIDwtIHNhbXBsZShjKFRSVUUsIEZBTFNFKSwgMTAsIHJlcGxhY2UgPSBUUlVFKVxuXG4jIENyZWF0ZSBhIGxpc3Rcbm15X2xpc3QgPC0gbGlzdChudW1lcmljX3ZlY3RvciwgY2hhcmFjdGVyX3ZlY3RvciwgbG9naWNhbF92ZWN0b3IpXG5cbiMgQ3JlYXRlIGEgbWF0cml4XG5teV9tYXRyaXggPC0gbWF0cml4KDE6MTIsIG5yb3cgPSA0KVxuXG4jIENyZWF0ZSBhIGRhdGEgZnJhbWVcbm15X2RhdGEgPC0gZGF0YS5mcmFtZShcbiAgSUQgPSAxOjQsXG4gIE5hbWUgPSBjKFwiSm9oblwiLCBcIk1hcnlcIiwgXCJEYXZpZFwiLCBcIkVtbWFcIiksXG4gIEFnZSA9IGMoMjUsIDMwLCAzNSwgNDApXG4pXG5cbiMgQ3JlYXRlIGEgZmFjdG9yXG5teV9mYWN0b3IgPC0gZmFjdG9yKGMoXCJBXCIsIFwiQlwiLCBcIkFcIiwgXCJDXCIpKVxuXG4jIFByaW50IHRoZSBzdHJ1Y3R1cmVzXG5wcmludChteV9saXN0KVxucHJpbnQobXlfbWF0cml4KVxucHJpbnQobXlfZGF0YSlcbnByaW50KG15X2ZhY3RvcikifQ==
+</div>
 </div>
 <div id="tools-and-functions" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Tools and Functions<a href="data-structures-relevant-to-visualization.html#tools-and-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -425,89 +303,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">3.2.3</span> Step-by-Step Tutorials<a href="data-structures-relevant-to-visualization.html#step-by-step-tutorials" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="converting-a-vector-to-a-data-frame" class="section level4 hasAnchor" number="3.2.3.1">
 <h4><span class="header-section-number">3.2.3.1</span> Converting a Vector to a Data Frame<a href="data-structures-relevant-to-visualization.html#converting-a-vector-to-a-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-structures-relevant-to-visualization.html#cb46-1" tabindex="-1"></a><span class="co"># Example vector</span></span>
-<span id="cb46-2"><a href="data-structures-relevant-to-visualization.html#cb46-2" tabindex="-1"></a>student_id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb46-3"><a href="data-structures-relevant-to-visualization.html#cb46-3" tabindex="-1"></a>student_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;John&quot;</span>, <span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Emily&quot;</span>, <span class="st">&quot;Tom&quot;</span>)</span>
-<span id="cb46-4"><a href="data-structures-relevant-to-visualization.html#cb46-4" tabindex="-1"></a>student_score <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">90</span>, <span class="dv">85</span>, <span class="dv">88</span>)</span>
-<span id="cb46-5"><a href="data-structures-relevant-to-visualization.html#cb46-5" tabindex="-1"></a></span>
-<span id="cb46-6"><a href="data-structures-relevant-to-visualization.html#cb46-6" tabindex="-1"></a><span class="co"># Combine vectors into a data frame</span></span>
-<span id="cb46-7"><a href="data-structures-relevant-to-visualization.html#cb46-7" tabindex="-1"></a>student_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ID =</span> student_id, <span class="at">Name =</span> student_name, <span class="at">Score =</span> student_score)</span>
-<span id="cb46-8"><a href="data-structures-relevant-to-visualization.html#cb46-8" tabindex="-1"></a></span>
-<span id="cb46-9"><a href="data-structures-relevant-to-visualization.html#cb46-9" tabindex="-1"></a><span class="co"># View the data frame</span></span>
-<span id="cb46-10"><a href="data-structures-relevant-to-visualization.html#cb46-10" tabindex="-1"></a><span class="fu">print</span>(student_data)</span></code></pre></div>
-<pre><code>##   ID  Name Score
-## 1  1  John    80
-## 2  2 Alice    75
-## 3  3   Bob    90
-## 4  4 Emily    85
-## 5  5   Tom    88</code></pre>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgdmVjdG9yXG5zdHVkZW50X2lkIDwtIDE6NVxuc3R1ZGVudF9uYW1lIDwtIGMoXCJKb2huXCIsIFwiQWxpY2VcIiwgXCJCb2JcIiwgXCJFbWlseVwiLCBcIlRvbVwiKVxuc3R1ZGVudF9zY29yZSA8LSBjKDgwLCA3NSwgOTAsIDg1LCA4OClcblxuIyBDb21iaW5lIHZlY3RvcnMgaW50byBhIGRhdGEgZnJhbWVcbnN0dWRlbnRfZGF0YSA8LSBkYXRhLmZyYW1lKElEID0gc3R1ZGVudF9pZCwgTmFtZSA9IHN0dWRlbnRfbmFtZSwgU2NvcmUgPSBzdHVkZW50X3Njb3JlKVxuXG4jIFZpZXcgdGhlIGRhdGEgZnJhbWVcbnByaW50KHN0dWRlbnRfZGF0YSkifQ==
+</div>
 </div>
 <div id="creating-and-modifying-lists-for-nested-data-structures" class="section level4 hasAnchor" number="3.2.3.2">
 <h4><span class="header-section-number">3.2.3.2</span> Creating and Modifying Lists for Nested Data Structures<a href="data-structures-relevant-to-visualization.html#creating-and-modifying-lists-for-nested-data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-structures-relevant-to-visualization.html#cb48-1" tabindex="-1"></a><span class="co"># Example list</span></span>
-<span id="cb48-2"><a href="data-structures-relevant-to-visualization.html#cb48-2" tabindex="-1"></a>student1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Name =</span> <span class="st">&quot;John&quot;</span>, <span class="at">Age =</span> <span class="dv">25</span>, <span class="at">Grades =</span> <span class="fu">c</span>(<span class="at">Math =</span> <span class="dv">80</span>, <span class="at">Science =</span> <span class="dv">85</span>))</span>
-<span id="cb48-3"><a href="data-structures-relevant-to-visualization.html#cb48-3" tabindex="-1"></a>student2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Name =</span> <span class="st">&quot;Alice&quot;</span>, <span class="at">Age =</span> <span class="dv">23</span>, <span class="at">Grades =</span> <span class="fu">c</span>(<span class="at">Math =</span> <span class="dv">75</span>, <span class="at">Science =</span> <span class="dv">78</span>))</span>
-<span id="cb48-4"><a href="data-structures-relevant-to-visualization.html#cb48-4" tabindex="-1"></a></span>
-<span id="cb48-5"><a href="data-structures-relevant-to-visualization.html#cb48-5" tabindex="-1"></a><span class="co"># Create a nested list</span></span>
-<span id="cb48-6"><a href="data-structures-relevant-to-visualization.html#cb48-6" tabindex="-1"></a>classroom <span class="ot">&lt;-</span> <span class="fu">list</span>(student1, student2)</span>
-<span id="cb48-7"><a href="data-structures-relevant-to-visualization.html#cb48-7" tabindex="-1"></a></span>
-<span id="cb48-8"><a href="data-structures-relevant-to-visualization.html#cb48-8" tabindex="-1"></a><span class="co"># View the nested list</span></span>
-<span id="cb48-9"><a href="data-structures-relevant-to-visualization.html#cb48-9" tabindex="-1"></a><span class="fu">print</span>(classroom)</span></code></pre></div>
-<pre><code>## [[1]]
-## [[1]]$Name
-## [1] &quot;John&quot;
-## 
-## [[1]]$Age
-## [1] 25
-## 
-## [[1]]$Grades
-##    Math Science 
-##      80      85 
-## 
-## 
-## [[2]]
-## [[2]]$Name
-## [1] &quot;Alice&quot;
-## 
-## [[2]]$Age
-## [1] 23
-## 
-## [[2]]$Grades
-##    Math Science 
-##      75      78</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-structures-relevant-to-visualization.html#cb50-1" tabindex="-1"></a><span class="co"># Accessing elements of the nested list</span></span>
-<span id="cb50-2"><a href="data-structures-relevant-to-visualization.html#cb50-2" tabindex="-1"></a><span class="fu">print</span>(classroom[[<span class="dv">1</span>]]<span class="sc">$</span>Name)  <span class="co"># Output: John</span></span></code></pre></div>
-<pre><code>## [1] &quot;John&quot;</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-structures-relevant-to-visualization.html#cb52-1" tabindex="-1"></a><span class="fu">print</span>(classroom[[<span class="dv">2</span>]]<span class="sc">$</span>Grades[<span class="st">&quot;Science&quot;</span>])  <span class="co"># Output: 78</span></span></code></pre></div>
-<pre><code>## Science 
-##      78</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-structures-relevant-to-visualization.html#cb54-1" tabindex="-1"></a><span class="co"># Modifying elements of the nested list</span></span>
-<span id="cb54-2"><a href="data-structures-relevant-to-visualization.html#cb54-2" tabindex="-1"></a>classroom[[<span class="dv">1</span>]]<span class="sc">$</span>Grades[<span class="st">&quot;Math&quot;</span>] <span class="ot">&lt;-</span> <span class="dv">85</span></span>
-<span id="cb54-3"><a href="data-structures-relevant-to-visualization.html#cb54-3" tabindex="-1"></a></span>
-<span id="cb54-4"><a href="data-structures-relevant-to-visualization.html#cb54-4" tabindex="-1"></a><span class="co"># View the modified nested list</span></span>
-<span id="cb54-5"><a href="data-structures-relevant-to-visualization.html#cb54-5" tabindex="-1"></a><span class="fu">print</span>(classroom)</span></code></pre></div>
-<pre><code>## [[1]]
-## [[1]]$Name
-## [1] &quot;John&quot;
-## 
-## [[1]]$Age
-## [1] 25
-## 
-## [[1]]$Grades
-##    Math Science 
-##      85      85 
-## 
-## 
-## [[2]]
-## [[2]]$Name
-## [1] &quot;Alice&quot;
-## 
-## [[2]]$Age
-## [1] 23
-## 
-## [[2]]$Grades
-##    Math Science 
-##      75      78</code></pre>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgbGlzdFxuc3R1ZGVudDEgPC0gbGlzdChOYW1lID0gXCJKb2huXCIsIEFnZSA9IDI1LCBHcmFkZXMgPSBjKE1hdGggPSA4MCwgU2NpZW5jZSA9IDg1KSlcbnN0dWRlbnQyIDwtIGxpc3QoTmFtZSA9IFwiQWxpY2VcIiwgQWdlID0gMjMsIEdyYWRlcyA9IGMoTWF0aCA9IDc1LCBTY2llbmNlID0gNzgpKVxuXG4jIENyZWF0ZSBhIG5lc3RlZCBsaXN0XG5jbGFzc3Jvb20gPC0gbGlzdChzdHVkZW50MSwgc3R1ZGVudDIpXG5cbiMgVmlldyB0aGUgbmVzdGVkIGxpc3RcbnByaW50KGNsYXNzcm9vbSlcblxuIyBBY2Nlc3NpbmcgZWxlbWVudHMgb2YgdGhlIG5lc3RlZCBsaXN0XG5wcmludChjbGFzc3Jvb21bWzFdXSROYW1lKSAgIyBPdXRwdXQ6IEpvaG5cbnByaW50KGNsYXNzcm9vbVtbMl1dJEdyYWRlc1tcIlNjaWVuY2VcIl0pICAjIE91dHB1dDogNzhcblxuIyBNb2RpZnlpbmcgZWxlbWVudHMgb2YgdGhlIG5lc3RlZCBsaXN0XG5jbGFzc3Jvb21bWzFdXSRHcmFkZXNbXCJNYXRoXCJdIDwtIDg1XG5cbiMgVmlldyB0aGUgbW9kaWZpZWQgbmVzdGVkIGxpc3RcbnByaW50KGNsYXNzcm9vbSkifQ==
+</div>
 </div>
 </div>
 </div>
@@ -557,7 +361,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-data-structures.Rmd",
+"link": "https://balsaedi.github.io/-R-Visualization/03-data-structures.Rmd",
 "text": "Edit"
 },
 "history": {

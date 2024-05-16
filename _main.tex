@@ -1,0 +1,1195 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={R Base Data Visualization},
+  pdfauthor={Basim Alsaedi},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{R Base Data Visualization}
+\author{Basim Alsaedi}
+\date{2024-05-16}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section{INTRODUCTION TO R AND DATA VISUALIZATION}\label{introduction-to-r-and-data-visualization}
+
+\subsection{Introduction}\label{introduction}
+
+\subsubsection{Overview of R}\label{overview-of-r}
+
+R is a powerful programming language and environment widely used for statistical computing and graphics. It provides a wide variety of statistical and graphical techniques, and it is highly extensible. R is freely available and runs on all major platforms, making it an excellent choice for data analysis and visualization.
+
+With its extensive libraries, R enables users to manipulate data, conduct statistical analyses, and create visualizations to explore and communicate insights effectively. Whether you're a beginner or an experienced data scientist, R provides a flexible and comprehensive environment for all your data analysis needs.
+
+\subsection{Why Use R for Data Visualization?}\label{why-use-r-for-data-visualization}
+
+\subsubsection{Advantages of R over other programming languages and tools}\label{advantages-of-r-over-other-programming-languages-and-tools}
+
+\begin{itemize}
+\tightlist
+\item
+  R has thousands of packages, designed, maintained, and widely used by statisticians.
+\item
+  The R graphs have much more fun compared to other tools such as STATA.
+\item
+  R has a rather liberal syntax, and variables don't need to be
+  declared as they would in (for example) C++, which makes it very easy to
+  code in.
+\item
+  R is designed to make it very easy to write functions which
+  are applied point wise to every element of a vector. This is extremely useful in statistics.
+\item
+  R is powerful: if a command doesn't exist already, you can code it yourself.
+\end{itemize}
+
+\subsubsection{R's extensive package ecosystem}\label{rs-extensive-package-ecosystem}
+
+A package is a collection (or library) of functions, datasets, and other objects. Most packages are not loaded automatically, so you have to do it yourself. \textbf{R's} extensive package ecosystem provides a vast array of tools for data analysis and visualization. These packages are contributed by a vibrant community of developers and cover almost every aspect of data science. Some of the most popular visualization packages include:
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\tightlist
+\item
+  \textbf{ggplot2:} The package provides an intuitive syntax for creating complex and beautiful visualizations.
+\item
+  \textbf{plotly:} This package allows one to create interactive web-based visualizations directly from R.
+\item
+  \textbf{ggvis:} It allows the creation of web-based visualizations with reactive features using the grammar of graphics syntax.
+\item
+  \textbf{lattice:} It is particularly useful for creating trellis plots, which allow you to visualize relationships in multivariate data.
+\item
+  \textbf{gganimate:} The package allows you to easily add animations to your visualizations, making it ideal for exploring changes in data over time.
+\end{enumerate}
+
+In this course, we will focus on the base R graphics system, which provides a solid foundation for understanding how plots are constructed in R. Once you have a good grasp of the basics, you can easily transition to more specialized packages like ggplot2 and plotly to create even more sophisticated visualizations.
+
+\subsection{Installing and Configuring R and RStudio}\label{installing-and-configuring-r-and-rstudio}
+
+Before installing \textbf{RStudio} in your computer, first start with \textbf{R}. \textbf{RStudio} is a front end program that lets you write \textbf{R} code, view plots, and do many other useful things. The detailed steps below show how to install R and RStudio in your computer system on both Windows, Mac and Linux operating systems.
+
+\subsubsection{Step-by-step guide on installing R}\label{step-by-step-guide-on-installing-r}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Download the R installer from \url{https://cran.r-project.org/}.
+\end{enumerate}
+
+a). Click on the link for your operating system. Make sure the installer is for the latest R version. For example, the latest version is 4.3.3.
+
+b). Click install R for the first time.
+
+c). Use the download link at the top and save the file.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Run the installer (double click), default settings are fine.
+\end{enumerate}
+
+\subsubsection{Step-by-step guide on installing RStudio and Set Up}\label{step-by-step-guide-on-installing-rstudio-and-set-up}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Wait until the R installer has finished.
+  2.Download RStudio installer from the official website \url{https://posit.co/download/rstudio-desktop/}.
+\item
+  After the download is complete, double-click on the installer and follow the installation steps to install it in your computer.
+\end{enumerate}
+
+After successful installation, you can launch RStudio by double-clicking the RStudio icon on your desktop or from the Start menu. You can install the packages using the install.packages() function. However, for the base R visualization, you don't need to install any package which will support in plotting of graphs except where we you will be required to use data that comes with R packages. The last set up may be setting your working directory to the folder where your R scripts and data files are located. This makes it easier to access your files but it is optional.
+
+\subsection{Basic R Concepts.}\label{basic-r-concepts.}
+
+\subsubsection{Introduction to R syntax and basic commands}\label{introduction-to-r-syntax-and-basic-commands}
+
+R is designed for statistical computing and graphics. In this section, we will cover some basic syntax and commands to help you get started with R.
+
+\textbf{1. R as a Calculator:}
+
+You can use R as a simple calculator. Here are some basic arithmetic operations:
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEFkZGl0aW9uXG4yICsgM1xuIyBTdWJ0cmFjdGlvblxuNSAtIDJcbiMgTXVsdGlwbGljYXRpb25cbjIgKiAzXG4jIERpdmlzaW9uXG42IC8gMlxuIyBFeHBvbmVudGlhdGlvblxuMl4zIn0=
+
+\textbf{2. Assigning Values to Variables:}
+
+You can store values in variables using the assignment operator \emph{\textless-} or \emph{=}.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEFzc2lnbmluZyBhIHZhbHVlIHRvIGEgdmFyaWFibGVcbnggPC0gNVxueSA8LSAzXG4jIFlvdSBjYW4gYWxzbyB1c2UgPVxueiA9IHggKyB5In0=
+
+\textbf{3. Basic Data Types:}
+
+R supports several basic data types, including numeric, character, logical, and complex.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIE51bWVyaWNcbm51bSA8LSAxMFxuIyBDaGFyYWN0ZXJcbmNoYXIgPC0gXCJIZWxsbywgQmFzaW0hXCJcbiMgTG9naWNhbFxubG9naWMgPC0gVFJVRVxuIyBDb21wbGV4XG5jb21wIDwtIDMgKyAyaSJ9
+
+\textbf{4. Vectors:}
+
+A vector is a sequence of data elements of the same basic type. You can create a vector using the \textbf{c()} function.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgbnVtZXJpYyB2ZWN0b3Jcbm51bXMgPC0gYygxLCAyLCAzLCA0LCA1KVxuIyBDcmVhdGluZyBhIGNoYXJhY3RlciB2ZWN0b3JcbmNoYXJzIDwtIGMoXCJhcHBsZVwiLCBcImJhbmFuYVwiLCBcIm9yYW5nZVwiKSJ9
+
+\textbf{5. Indexing and Slicing:}
+
+You can access elements of a vector using square brackets \textbf{{[}{]}}.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEFjY2Vzc2luZyBlbGVtZW50cyBvZiBhIHZlY3RvclxubnVtcyA8LSBjKDEsIDIsIDMsIDQsIDUpXG5udW1zWzFdICAgIyBBY2Nlc3MgdGhlIGZpcnN0IGVsZW1lbnQgb2YgbnVtc1xubnVtc1syOjRdICMgQWNjZXNzIHRoZSBzZWNvbmQgdG8gZm91cnRoIGVsZW1lbnRzIG9mIG51bXNcbm51bXNbMSw0LDZdICMgQWNjZXNzIHRoZSBmaXJzdCwgZm91cnRoIGFuZCBzaXh0aCBlbGVtZW50cyBvZiBudW1zXG5udW1zIn0=
+
+\textbf{6. Functions:}
+
+R has a large number of built-in functions, and you can also create your own functions for some tasks that can not be achieved by built-in functions.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEJ1aWx0LWluIGZ1bmN0aW9uXG5zcXJ0KDE2KSAgICMgU3F1YXJlIHJvb3QgZnVuY3Rpb25cbm51bXMgPC0gYygxLCAyLCAzLCA0LCA1KVxubWVhbihudW1zKSAjIHRoZSBtZWFuIG9mIG51bXMgZWxlbWVudHNcbnZhcihudW1zKSAjIHRoZSB2YXJpYW5jZVxuc2QobnVtcykgIyBzdGFuZGFyZCBkZXZpYXRpb25cbiMgVXNlci1kZWZpbmVkIGZ1bmN0aW9uXG5hZGQgPC0gZnVuY3Rpb24oYSwgYikge1xuICByZXR1cm4oYSArIGIpXG59XG5hZGQoMywgNSkifQ==
+
+\subsubsection{Overview of R's data types and structures essential for visualization}\label{overview-of-rs-data-types-and-structures-essential-for-visualization}
+
+R provides several data types and structures that are essential for data visualization. Understanding these data types and structures is crucial for effectively analyzing and visualizing data.
+
+\textbf{1. Numeric:}
+
+Numeric data type is used to represent continuous numerical values.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJudW0gPC0gNS42OyBudW0ifQ==
+
+\textbf{2. Integer:}
+
+Integer data type is used to represent integer values.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJpbnQgPC0gMTBMIn0=
+
+\textbf{3. Character:}
+
+Character data type is used to represent text data.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJjaGFyIDwtIFwiSGksIEpvaG4hXCIifQ==
+
+\textbf{4. Logical:}
+
+Logical data type is used to represent Boolean values ( \textbf{TRUE} or \textbf{FALSE}).
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsb2dpYyA8LSBUUlVFIn0=
+
+\textbf{5. Vector:}
+
+A vector is a sequence of data elements of the same basic type. It is created using the concatenate \textbf{c()} command.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJudW1zIDwtIGMoMSwgMiwgMywgNCwgNSkgIyBBIHZlY3RvciBvZiBudW1lcmljIGRhdGEgdHlwZVxuY2hhcnMgPC0gYyhcImFwcGxlXCIsIFwiYmFuYW5hXCIsIFwib3JhbmdlXCIpICAjIEEgdmVjdG9yIG9mIGNoYXJhY3RlciBkYXRhIHR5cGUifQ==
+
+\textbf{6. Matrix:}
+
+A matrix is a two-dimensional array with rows and columns in that order respectively, that is (\(R \times C\) ). It is created using the \textbf{matrix()} command.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtYXQgPC0gbWF0cml4KDE6MTIsIG5yb3cgPSAzLCBuY29sID0gNCkgIyBBIG1hdHJpeCB3aXRoIHRocmVlIHJvd3MgYW5kIDIgY29sdW1ucyAifQ==
+
+\textbf{7. Data Frame:}
+
+A data frame is a two-dimensional data structure with rows and columns, similar to a spreadsheet. It can contain several data types. It is created using the command \textbf{data.frame()} command.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkZiA8LSBkYXRhLmZyYW1lKFxuICBOYW1lID0gYyhcIkpvaG5cIiwgXCJBbGljZVwiLCBcIkJvYlwiKSxcbiAgQWdlID0gYygyNSwgMzAsIDM1KSxcbiAgSGVpZ2h0ID0gYygxNzUsIDE2MCwgMTgwKVxuKSJ9
+
+\textbf{8. List:}
+
+A list is an ordered collection of objects (which may be of different types: numeric, character, etc.). It is created using the \textbf{list()} command.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsc3QgPC0gbGlzdChcbiAgTmFtZSA9IGMoXCJKb2huXCIsIFwiQWxpY2VcIiwgXCJCb2JcIiksXG4gIEFnZSA9IGMoMjUsIDMwLCAzNSksXG4gIEhlaWdodCA9IGMoMTc1LCAxNjAsIDE4MClcbikifQ==
+
+\textbf{9. Factors:}
+
+Factors are used to represent categorical data. It is created using the \textbf{factor()} command.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnZW5kZXIgPC0gZmFjdG9yKGMoXCJNYWxlXCIsIFwiRmVtYWxlXCIsIFwiTWFsZVwiLCBcIkZlbWFsZVwiKSlcbmxvYW5fZGVmYXVsdDwtZmFjdG9yKGMoJ1llcycsICdObycpKSJ9
+
+\subsection{Practical Examples: Exercises}\label{practical-examples-exercises}
+
+\textbf{Exercise 1: Basic arithmetic}
+
+Create a variable called \(x\) and give it the value 15.Take the exponent of the variable and add 5 to the final result. Print the final result of \(x\).
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSJ9
+
+\textbf{Exercise 2: Vectors:}
+
+The weights of five people before and after a diet programme
+are given in the table below. Read the `before' and `after' values into two different vectors called \textbf{before}
+and \textbf{after}. Use \textbf{R} to evaluate the amount of weight lost for each participant. What is the average amount of weight lost?
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIgIGRmPWRhdGEuZnJhbWUoXG4gICAgWDEgPSBjKDc4LCA2NyksXG4gICAgWDIgPSBjKDcyLCA2NSksXG4gICAgWDMgPSBjKDc4LCA3OSksXG4gICAgWDQgPSBjKDc5LCA3MCksXG4gICAgWDUgPSBjKDEwNSwgOTMpXG4gIClcbnJvdy5uYW1lcyhkZik8LWMoXCJCZWZvcmVcIiwgXCJBZnRlclwiKVxuY29sbmFtZXMoZGYpPC1OVUxMXG5rbml0cjo6a2FibGUoZGYsIGFsaWduID0gXCJjXCIsYm9va3RhYnMgPSBGQUxTRSkifQ==
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+
+\textbf{Exercise 3: Matrices}
+
+Create two matrices called \textbf{A} and \textbf{X} defined below.
+\[
+A=
+\begin{pmatrix}
+1 & 4 & 7 \\
+2 & 5 & 8 \\
+3 & 6 & 10 \\
+\end{pmatrix}
+\]
+
+\[
+X=
+\begin{pmatrix}
+1&2&3\\
+\end{pmatrix}
+\]
+
+Find:
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\item
+  the product of \textbf{A} and \textbf{X}.
+\item
+  the transpose of \textbf{A}.
+\item
+  the determinant of \textbf{A}.
+\item
+  the diagonal of \textbf{A}.
+\item
+  the inverse of \textbf{A}.
+\end{enumerate}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+
+\textbf{Exercise 4: Creating Data Frames}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\item
+  Create a small data frame representing a database of
+  films. It should contain the fields \textbf{title}, \textbf{director}, \textbf{year}, \textbf{country}, and at least three films.
+\item
+  Create a second data frame of the same format as above, but containing just one new film.
+\item
+  Merge the two data frames using rbind().
+\item
+  Try sorting the titles using sort(): what happens?
+\end{enumerate}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+
+\textbf{Exercise 5: Factors and Simple plot}
+
+Suppose we have the heights of 100 individuals, where the first are 50 male and the rest female. Generate 100 fixed random numbers from a normal distribution where the mean height of male is 170 while that of female is 160 with an equal standard deviation of 10 and call that vector as `height'. Create another vector called `sex' with two entries `M' and `F' each replicated 50 times. Tell R to treat `sex' as a categorical variable and name it as `Sex'. Plot \textbf{Sex} against \textbf{height} using \textbf{plot()} function. Which type of plot have you obtained? What happens if you try to plot \textbf{sex} against \textbf{height} instead?
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+
+\section{R BASE GRAPHICS - STARTING WITH THE BASICS}\label{r-base-graphics---starting-with-the-basics}
+
+\subsection{Exploring Base Graphics in R}\label{exploring-base-graphics-in-r}
+
+\subsubsection{Overview of the philosophy behind R's base graphics system, including its stateful nature}\label{overview-of-the-philosophy-behind-rs-base-graphics-system-including-its-stateful-nature}
+
+\paragraph{Stateful Nature}\label{stateful-nature}
+
+R's base graphics system is stateful, meaning that plots are built up incrementally. You start with an empty plot and add elements to it one by one. This is in contrast to systems like ggplot2, which use a declarative approach where you specify the plot all at once.
+Stateful nature means that every new plotting command modifies the existing plot or creates a new one if none exists. This allows for a high degree of flexibility but can sometimes lead to complex and intuitive behavior.
+
+R's base graphics system provides a set of low-level graphics primitives for creating plots. These primitives include functions for drawing points, lines, polygons, text, and more.
+By combining these primitives, you can create a wide variety of plots, from simple scatter plots to complex multi-panel layouts.
+
+\paragraph{Philosophy}\label{philosophy}
+
+The philosophy behind R's base graphics system is to provide a flexible and powerful tool for creating a wide range of plots. The emphasis is on simplicity and ease of use, making it easy for users to quickly create informative visualizations.
+
+However, despite that base graphics are powerful, they do have some limitations compared to more modern plotting systems like ggplot2. For instance, they lack some of the advanced features of ggplot2, such as automatic faceting and easy customization of plot themes.
+
+\subsubsection{Introduction to Core Plotting Functions in R}\label{introduction-to-core-plotting-functions-in-r}
+
+R provides a variety of core plotting functions that are useful for creating basic visualizations. In this section, we will explore some of the most commonly used plotting functions. The commonly used core plotting functions are \textbf{plot()}, \textbf{hist()}, \textbf{boxplot()}
+and \textbf{barplot()}.
+
+\begin{itemize}
+\tightlist
+\item
+  The \textbf{plot()} function is used to create scatter plots, line plots, and other types of plots. It is a versatile function that can be used to visualize relationships between two or more variables.
+\item
+  The \textbf{hist()} function is used to create histograms, which are used to visualize the distribution of a single numeric variable. Note that the optional argument breaks chooses (approximately) how many
+  bins the histogram should have, and col alters the colour of the bars.
+\item
+  The \textbf{boxplot()} function is used to create box plots, which are used to visualize the distribution of a numeric variable, optionally broken down by a categorical variable.
+\item
+  The \textbf{barplot()} function is used to create bar plots, which are used to visualize the distribution of a categorical variable.
+\end{itemize}
+
+\subsection{Creating Basic Plots}\label{creating-basic-plots}
+
+\subsubsection{Detailed instructions on using plot() for scatter plots and line graphs}\label{detailed-instructions-on-using-plot-for-scatter-plots-and-line-graphs}
+
+In order to get the full documentation of the \textbf{plot()} function, run \textbf{?plot} in R. The syntax for the function is given below.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIHBsb3QoeCwgeSA9IE5VTEwsIHR5cGUgPSBcInBcIiwgIHhsaW0gPSBOVUxMLCB5bGltID0gTlVMTCxcbiMgICAgIGxvZyA9IFwiXCIsIG1haW4gPSBOVUxMLCBzdWIgPSBOVUxMLCB4bGFiID0gTlVMTCwgeWxhYiA9IE5VTEwsXG4jICAgICBhbm4gPSBwYXIoXCJhbm5cIiksIGF4ZXMgPSBUUlVFLCBmcmFtZS5wbG90ID0gYXhlcyxcbiMgICAgIHBhbmVsLmZpcnN0ID0gTlVMTCwgcGFuZWwubGFzdCA9IE5VTEwsIGFzcCA9IE5BLFxuIyAgICAgeGdhcC5heGlzID0gTkEsIHlnYXAuYXhpcyA9IE5BLFxuIyAgICAgLi4uKSJ9
+
+\textbf{Arguments}
+
+\begin{itemize}
+\tightlist
+\item
+  \(x, y\): the \(x\) and \(y\) arguments provide the \textbf{x} and \textbf{y} coordinates for the plot.
+\item
+  \(type\): 1-character string giving the type of plot desired.''p'' for points, ``l'' for lines ``b'' for both points and lines, ``c'' for empty points joined by lines, ``o'' for overplotted points and lines, ``s'' and ``S'' for stair steps and ``h'' for histogram-like vertical lines. Finally, ``n'' does not produce any points or lines.
+\item
+  \(xlim,\quad ylim\): the \textbf{x} and \textbf{y} limits respectively.
+\item
+  \(log\): a character string which contains ``x'' if the x axis is to be logarithmic, ``y'' if the y axis is to be logarithmic and ``xy'' or ``yx'' if both axes are to be logarithmic.
+\item
+  \(main\) : a main title for the plot.
+\item
+  \(sub\): a subtitle for the plot.
+\item
+  \(xlab,\quad ylab\) : The labels for x-axis and y-axis respectively, defaults to a description of x and y.
+\end{itemize}
+
+The commonly used graphical parameters are:
+
+\begin{itemize}
+\item
+  \(col\) : The colors for lines and points. Multiple colors can be specified so that each point can be given its own color. If there are fewer colors than points they are recycled in the standard fashion. Lines will all be plotted in the first colour specified.
+\item
+  \(bg\) : a vector of background colors for open plot symbols
+\item
+  \(pch\): a vector of plotting characters or symbols
+\item
+  \(cex\) : a numerical vector giving the amount by which plotting characters and symbols should be scaled relative to the default.
+\item
+  \(lty\): a vector of line types
+\item
+  \(lwd\): a vector of line widths
+\end{itemize}
+
+\textbf{Example:}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIHNjYXR0ZXIgcGxvdFxueCA8LSBjKDEsIDIsIDMsIDQsIDUpXG55IDwtIGMoMiwgMywgNSwgNywgMTEpXG5wbG90KHgsIHksIHR5cGUgPSBcInBcIiwgY29sID0gXCJibHVlXCIsIHBjaCA9IDE2LCBtYWluID0gXCJTY2F0dGVyIFBsb3RcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5cbiMgQ3JlYXRlIGEgbGluZSBwbG90XG5wbG90KHgsIHksIHR5cGUgPSBcImxcIiwgY29sID0gXCJyZWRcIiwgbHdkID0gMSwgbWFpbiA9IFwiTGluZSBwbG90XCIsIHhsYWIgPSBOVUxMLCB5bGFiID0gTlVMTCkifQ==
+
+\subsubsection{Using hist() to create histograms for data distribution analysis}\label{using-hist-to-create-histograms-for-data-distribution-analysis}
+
+Histograms are useful for visualizing the frequency distribution of a single variable. Similarly, you can get more documentation of the \textbf{hist()} function by running the command \textbf{?hist} in R. The generic function \textbf{hist} computes a histogram of the given data values.The default behavior for a histogram is to display frequencies on the vertical axis; probability densities can be displayed using the \textbf{freq=FALSE} option. The default title is given by \textbf{paste(``Histogram of'' , x)} where \textbf{x} is the name of the variable being plotted; this can be changed with the main option. The common syntax for the function is given below
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjaGlzdCh4LCBicmVha3MgPSBcIlN0dXJnZXNcIixcbiMgICAgIGZyZXEgPSBOVUxMLCBwcm9iYWJpbGl0eSA9ICFmcmVxLFxuIyAgICAgaW5jbHVkZS5sb3dlc3QgPSBUUlVFLCByaWdodCA9IFRSVUUsIGZ1enogPSAxZS03LFxuIyAgICAgZGVuc2l0eSA9IE5VTEwsIGFuZ2xlID0gNDUsIGNvbCA9IFwibGlnaHRncmF5XCIsIGJvcmRlciA9IE5VTEwsXG4jICAgICBtYWluID0gcGFzdGUoXCJIaXN0b2dyYW0gb2ZcIiAsIHhuYW1lKSxcbiMgICAgIHhsaW0gPSByYW5nZShicmVha3MpLCB5bGltID0gTlVMTCxcbiMgICAgIHhsYWIgPSB4bmFtZSwgeWxhYixcbiMgICAgIGF4ZXMgPSBUUlVFLCBwbG90ID0gVFJVRSwgbGFiZWxzID0gRkFMU0UsXG4jICAgICBuY2xhc3MgPSBOVUxMLCB3YXJuLnVudXNlZCA9IFRSVUUsIC4uLikifQ==
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIGhpc3RvZ3JhbVxuc2V0LnNlZWQoMTAwKSAgIyBGaXggdGhlIHJhbmRvbSBudW1iZXJzIGdlbmVyYXRlZFxuZGF0YSA8LSBybm9ybSgxMDApICAjIEdlbmVyYXRlIHNvbWUgcmFuZG9tIGRhdGFcbmhpc3QoZGF0YSwgYnJlYWtzID0gXCJTdHVyZ2VzXCIsIGNvbCA9IFwic2t5Ymx1ZVwiLCBtYWluID0gXCJIaXN0b2dyYW1cIiwgeGxhYiA9IFwiVmFsdWVcIiwgeWxhYiA9IFwiRnJlcXVlbmN5XCIpIn0=
+
+\subsubsection{Implementing boxplot() and barplot() to visualize data comparisons and distributions}\label{implementing-boxplot-and-barplot-to-visualize-data-comparisons-and-distributions}
+
+The \textbf{boxplot()} and \textbf{barplot()} functions in R are commonly used for visualizing data comparisons and distributions.
+
+\textbf{1. boxplot()}
+
+The common syntax of the function is given below.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjYm94cGxvdCh4LCBkYXRhID0gTlVMTCwgY29sID0gXCJza3libHVlXCIsIG1haW4gPSBOVUxMLCB4bGFiID0gTlVMTCwgeWxhYiA9ICNOVUxMKSJ9
+
+\textbf{Example}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIGJveCBwbG90XG5kYXRhIDwtIGRhdGEuZnJhbWUoXG4gIEdyb3VwID0gcmVwKGMoXCJBXCIsIFwiQlwiLCBcIkNcIiksIGVhY2ggPSA1MCksXG4gIFZhbHVlID0gYyhybm9ybSg1MCksIHJub3JtKDUwLCBtZWFuID0gMiksIHJub3JtKDUwLCBtZWFuID0gMykpXG4pXG5ib3hwbG90KFZhbHVlIH4gR3JvdXAsIGRhdGEgPSBkYXRhLCBjb2wgPSBcInNreWJsdWVcIiwgbWFpbiA9IFwiQm94IFBsb3RcIiwgeGxhYiA9IFwiR3JvdXBcIiwgeWxhYiA9IFwiVmFsdWVcIikifQ==
+
+\textbf{2.barplot()}
+The syntax used for \textbf{barplot()} function is given below.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjYmFycGxvdCh4LCBuYW1lcy5hcmcgPSBOVUxMLCBjb2wgPSBcInNreWJsdWVcIiwgbWFpbiA9IE5VTEwsIHhsYWIgPSBOVUxMLCAjeWxhYiA9IE5VTEwpIn0=
+
+\textbf{Example}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIGJhciBwbG90XG5kYXRhIDwtIHRhYmxlKG10Y2FycyRjeWwpXG5iYXJwbG90KGRhdGEsIGNvbCA9IFwic2t5Ymx1ZVwiLCBtYWluID0gXCJCYXIgUGxvdFwiLCB4bGFiID0gXCJOdW1iZXIgb2YgQ3lsaW5kZXJzXCIsIHlsYWIgPSBcIkZyZXF1ZW5jeVwiKSJ9
+
+\subsection{Customizing Plots}\label{customizing-plots}
+
+\subsubsection{Basic customization options including colors, main titles, axis labels, and plot dimensions}\label{basic-customization-options-including-colors-main-titles-axis-labels-and-plot-dimensions}
+
+\textbf{1. Changing Colors}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIHNjYXR0ZXIgcGxvdCB3aXRoIGN1c3RvbSBjb2xvcnNcbnggPC0gYygxLCAyLCAzLCA0LCA1KVxueSA8LSBjKDIsIDMsIDUsIDcsIDExKVxucGxvdCh4LCB5LCB0eXBlID0gXCJwXCIsIGNvbCA9IFwicmVkXCIsIHBjaCA9IDE2LCBtYWluID0gXCJcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpIn0=
+
+\textbf{2. Adding Titles and Axis Labels}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIHNjYXR0ZXIgcGxvdCB3aXRoIHRpdGxlcyBhbmQgYXhpcyBsYWJlbHNcbnggPC0gYygxLCAyLCAzLCA0LCA1KVxueSA8LSBjKDIsIDMsIDUsIDcsIDExKVxucGxvdCh4LCB5LCB0eXBlID0gXCJwXCIsIGNvbCA9IFwicmVkXCIsIHBjaCA9IDE2LCBtYWluID0gXCJTY2F0dGVyIFBsb3RcIiwgeGxhYiA9IFwiWC1heGlzXCIsIHlsYWIgPSBcIlktYXhpc1wiKSJ9
+
+\textbf{3. Changing Plot Dimensions}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIHNjYXR0ZXIgcGxvdCB3aXRoIGN1c3RvbSBkaW1lbnNpb25zXG54IDwtIGMoMSwgMiwgMywgNCwgNSlcbnkgPC0gYygyLCAzLCA1LCA3LCAxMSlcbnBsb3QoeCwgeSwgdHlwZSA9IFwicFwiLCBjb2wgPSBcInJlZFwiLCBwY2ggPSAxNiwgbWFpbiA9IFwiU2NhdHRlciBQbG90XCIsIHhsYWIgPSBcIlhcIiwgeWxhYiA9IFwiWVwiLCB4bGltID0gYygwLCA2KSwgeWxpbSA9IGMoMCwgMTIpKSJ9
+
+\textbf{4. Combining Customization Options}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIHNjYXR0ZXIgcGxvdCB3aXRoIGN1c3RvbSBjb2xvcnMsIHRpdGxlcywgYXhpcyBsYWJlbHMsIGFuZCBkaW1lbnNpb25zXG54IDwtIGMoMSwgMiwgMywgNCwgNSlcbnkgPC0gYygyLCAzLCA1LCA3LCAxMSlcbnBsb3QoeCwgeSwgdHlwZSA9IFwicFwiLCBjb2wgPSBcInJlZFwiLCBwY2ggPSAxNiwgbWFpbiA9IFwiU2NhdHRlciBQbG90XCIsIHhsYWIgPSBcIlgtYXhpc1wiLCB5bGFiID0gXCJZLWF4aXNcIiwgeGxpbSA9IGMoMCwgNiksIHlsaW0gPSBjKDAsIDEyKSkifQ==
+
+You can further customize your plots by adjusting parameters such as \textbf{pch} (for points), \textbf{lwd} (for lines), \textbf{lty} (for line type), \textbf{cex} (for point size), and more.
+
+\subsubsection{Tips on enhancing plot readability and aesthetic appeal}\label{tips-on-enhancing-plot-readability-and-aesthetic-appeal}
+
+In order to have a plot with enhanced readability and have an aesthetic appeal, you need to use some of these tips:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Choose appropriate colors:} Use colors that complement each other and make it easy to distinguish different elements of the plot.Avoid using colors that are too bright or too similar to each other.
+\item
+  \textbf{Use appropriate font sizes and styles:} Use larger font sizes for titles and axis labels to make them more prominent.
+\item
+  \textbf{Add grid lines:} Adding grid lines can make it easier to read the plot and interpret the data.
+\item
+  \textbf{Use appropriate plot types:} Choose the appropriate plot type for your data. For example, use a scatter plot for continuous data and a bar plot for categorical data.
+\item
+  \textbf{Use consistent and intuitive labeling:} Make sure that the labels on your plot are consistent and intuitive, making it easy for readers to understand the information presented.
+\item
+  \textbf{Use legends for clarity:} Use legends to explain the meaning of different colors or symbols used in the plot.
+\end{itemize}
+
+You can also add more improvements to your plot to make it look more nice and appealing.
+
+\subsection{Practical Examples: Exercises}\label{practical-examples-exercises-1}
+
+\textbf{Exercise 6}
+
+Create a dataframe of marks of 1000 students (male and female) with their respective status i.e pass if marks \textgreater= 40, fail otherwise (set a seed to 100). Additionally, let the student marks be graded using factor method in the following format:
+
+A: 70 marks and above
+
+B: 60-69
+
+C: 50-59
+
+D: 40-49
+
+E: Below 40 marks
+
+Create a dataframe called students with the vectors; id, gender, marks, grade and status where status is a column which shows whether the student passed or failed.You will use this dataframe to answer exercise 7,8 and 9.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSJ9
+
+\textbf{Exercise 7}
+
+Plot a box plot to show the distribution of marks by gender.Give it a title, `Distribution of Student Marks'. The x-axis should be labelled as `Gender' while the y-axis should be labelled as `Marks'. Apply blue color to male and green color to female. Set cex.main and cex.lab to 1.2.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+
+\textbf{Exercise 8}
+
+Plot a histogram of the marks where the bins should be equivalent to the classes of grading. Which grade had the highest number of students? How were the marks distributed in the class? Fill the histogram with red. Add a customized title and label the axes.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+
+\textbf{Exercise 9}
+
+Use a well customized barpot to show the mean mark of students by gender. Which gender had the highest average score?
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+
+\section{DATA STRUCTURES RELEVANT TO VISUALIZATION}\label{data-structures-relevant-to-visualization}
+
+\subsection{Introduction}\label{introduction-1}
+
+The two main objectives of this chapter is to understand various data structures in R and learn how to manipulate and prepare data for effective visualization.
+
+Understanding data structures is crucial for creating effective visualizations in R. Properly organizing and structuring your data allows you to generate clear and insightful visual outputs. In this chapter, we will discuss the importance of data structure understanding in achieving effective visualizations.
+
+\subsubsection{Importance of Data Structure Understanding}\label{importance-of-data-structure-understanding}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Data Compatibility:} Different types of visualizations require different data structures. Understanding how to structure your data properly ensures compatibility with the visualization techniques you want to use.
+\item
+  \textbf{Efficient Data Handling:} Well-structured data is easier to manipulate and process, leading to more efficient visualization workflows.
+\item
+  \textbf{Insightful Visual Outputs:} Properly structured data enables you to generate visual outputs that effectively communicate your insights and findings.
+\end{itemize}
+
+The most commonly used data structures for visualization are vectors, matrices, data frames and lists.
+
+\subsection{Vectors, Data Frames, and Matrices}\label{vectors-data-frames-and-matrices}
+
+\subsubsection{Definitions}\label{definitions}
+
+\textbf{Vectors} are one-dimensional arrays that can hold numeric, character, or logical values. They are suitable for creating simple plots like scatter plots and line graphs. For example, a vector of numeric values can be used to represent data on the x or y-axis of a plot.
+
+A \textbf{data frame} is a two-dimensional data structure where columns can be of different types. Data frames are highly versatile and commonly used for data analysis and visualization. They are suitable for creating a wide range of visualizations, including bar plots, histograms, and box plots. Each column in a data frame can represent a different variable, making it easy to visualize relationships between variables.
+
+\textbf{Matrices} are two-dimensional arrays that contain elements of the same atomic types. Matrices are useful for creating visualizations such as heatmaps and surface plots. They are suitable for representing data that has two dimensions, such as images or spatial data.
+
+\textbf{Lists} are ordered collections of objects, which can be of different types. Lists can also be nested, allowing for complex data structures. They provide flexibility in organizing and storing data for complex visualizations. They are suitable for creating custom plots or combining multiple plots into a single visualization.
+
+\textbf{Factors} are used to represent categorical data in R. They are stored as integers and have labels associated with them. They are useful for creating plots that involve categorical data, such as bar plots and pie charts. They allow for easy grouping and aggregation of data based on categorical variables.
+
+\textbf{Example}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgZGF0YVxuc2V0LnNlZWQoMTIzKVxubnVtZXJpY192ZWN0b3IgPC0gcm5vcm0oMTApXG5jaGFyYWN0ZXJfdmVjdG9yIDwtIGxldHRlcnNbMToxMF1cbmxvZ2ljYWxfdmVjdG9yIDwtIHNhbXBsZShjKFRSVUUsIEZBTFNFKSwgMTAsIHJlcGxhY2UgPSBUUlVFKVxuXG4jIENyZWF0ZSBhIGxpc3Rcbm15X2xpc3QgPC0gbGlzdChudW1lcmljX3ZlY3RvciwgY2hhcmFjdGVyX3ZlY3RvciwgbG9naWNhbF92ZWN0b3IpXG5cbiMgQ3JlYXRlIGEgbWF0cml4XG5teV9tYXRyaXggPC0gbWF0cml4KDE6MTIsIG5yb3cgPSA0KVxuXG4jIENyZWF0ZSBhIGRhdGEgZnJhbWVcbm15X2RhdGEgPC0gZGF0YS5mcmFtZShcbiAgSUQgPSAxOjQsXG4gIE5hbWUgPSBjKFwiSm9oblwiLCBcIk1hcnlcIiwgXCJEYXZpZFwiLCBcIkVtbWFcIiksXG4gIEFnZSA9IGMoMjUsIDMwLCAzNSwgNDApXG4pXG5cbiMgQ3JlYXRlIGEgZmFjdG9yXG5teV9mYWN0b3IgPC0gZmFjdG9yKGMoXCJBXCIsIFwiQlwiLCBcIkFcIiwgXCJDXCIpKVxuXG4jIFByaW50IHRoZSBzdHJ1Y3R1cmVzXG5wcmludChteV9saXN0KVxucHJpbnQobXlfbWF0cml4KVxucHJpbnQobXlfZGF0YSlcbnByaW50KG15X2ZhY3RvcikifQ==
+
+\subsubsection{Tools and Functions}\label{tools-and-functions}
+
+Understanding various tools and functions in R is essential for manipulating data structures effectively. Here are some commonly used tools and functions:
+
+\textbf{1. str():} Displays the internal structure of R objects. For example if the object is a data frame, it shows the type of each vector in the dataframe
+
+\textbf{2. class():} Returns the class of the R object.
+
+\textbf{3. length():} Returns the number of elements in the R object. If the object is a data frame, it returns the number of columns in the data frame.
+
+\textbf{4. dim():} Returns the dimensions of an R object (for matrices and arrays).
+
+\textbf{5. attributes():} Returns the attributes of an R object.
+
+\textbf{6. as.factor():} Converts a vector to a factor.
+
+\textbf{7. data.frame():} Creates a data frame from vectors or other R objects.
+
+\textbf{8. ncol():} Returns the number of columns of a dataframe or matrix.
+
+\textbf{9. nrow():} Returns the number of rows of a data frame.
+
+\subsubsection{Step-by-Step Tutorials}\label{step-by-step-tutorials}
+
+\paragraph{Converting a Vector to a Data Frame}\label{converting-a-vector-to-a-data-frame}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgdmVjdG9yXG5zdHVkZW50X2lkIDwtIDE6NVxuc3R1ZGVudF9uYW1lIDwtIGMoXCJKb2huXCIsIFwiQWxpY2VcIiwgXCJCb2JcIiwgXCJFbWlseVwiLCBcIlRvbVwiKVxuc3R1ZGVudF9zY29yZSA8LSBjKDgwLCA3NSwgOTAsIDg1LCA4OClcblxuIyBDb21iaW5lIHZlY3RvcnMgaW50byBhIGRhdGEgZnJhbWVcbnN0dWRlbnRfZGF0YSA8LSBkYXRhLmZyYW1lKElEID0gc3R1ZGVudF9pZCwgTmFtZSA9IHN0dWRlbnRfbmFtZSwgU2NvcmUgPSBzdHVkZW50X3Njb3JlKVxuXG4jIFZpZXcgdGhlIGRhdGEgZnJhbWVcbnByaW50KHN0dWRlbnRfZGF0YSkifQ==
+
+\paragraph{Creating and Modifying Lists for Nested Data Structures}\label{creating-and-modifying-lists-for-nested-data-structures}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgbGlzdFxuc3R1ZGVudDEgPC0gbGlzdChOYW1lID0gXCJKb2huXCIsIEFnZSA9IDI1LCBHcmFkZXMgPSBjKE1hdGggPSA4MCwgU2NpZW5jZSA9IDg1KSlcbnN0dWRlbnQyIDwtIGxpc3QoTmFtZSA9IFwiQWxpY2VcIiwgQWdlID0gMjMsIEdyYWRlcyA9IGMoTWF0aCA9IDc1LCBTY2llbmNlID0gNzgpKVxuXG4jIENyZWF0ZSBhIG5lc3RlZCBsaXN0XG5jbGFzc3Jvb20gPC0gbGlzdChzdHVkZW50MSwgc3R1ZGVudDIpXG5cbiMgVmlldyB0aGUgbmVzdGVkIGxpc3RcbnByaW50KGNsYXNzcm9vbSlcblxuIyBBY2Nlc3NpbmcgZWxlbWVudHMgb2YgdGhlIG5lc3RlZCBsaXN0XG5wcmludChjbGFzc3Jvb21bWzFdXSROYW1lKSAgIyBPdXRwdXQ6IEpvaG5cbnByaW50KGNsYXNzcm9vbVtbMl1dJEdyYWRlc1tcIlNjaWVuY2VcIl0pICAjIE91dHB1dDogNzhcblxuIyBNb2RpZnlpbmcgZWxlbWVudHMgb2YgdGhlIG5lc3RlZCBsaXN0XG5jbGFzc3Jvb21bWzFdXSRHcmFkZXNbXCJNYXRoXCJdIDwtIDg1XG5cbiMgVmlldyB0aGUgbW9kaWZpZWQgbmVzdGVkIGxpc3RcbnByaW50KGNsYXNzcm9vbSkifQ==
+
+\subsection{Practical Example : Exercise}\label{practical-example-exercise}
+
+\textbf{Exercise 10}
+
+You have been provided with a snapshot of a fictional retail landscape, capturing essential attributes that drive retail operations and customer interactions. It includes key details such as Transaction ID, Date, Customer ID, Gender, Age, Product Category, Quantity, Price per Unit, and Total Amount. The dataset can be downloaded from Kaggle via the link \url{https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-dataset}. Import the data into R and answer the following questions:
+
+i). Using a well customized line plot, what trend do you see in the sales (Total Amount)?
+
+ii). Using an appropriate plot covered so far, show how the total amount vary by the product category. Use a well customized plot to make it more appealing and readable.
+
+\section{CUSTOMIZING GRAPHS IN BASE R}\label{customizing-graphs-in-base-r}
+
+\subsection{Introduction}\label{introduction-2}
+
+The main objectives of this chapter are:
+
+\begin{itemize}
+\tightlist
+\item
+  Learn to customize and enhance graphs using R's base graphic parameters.
+\item
+  Understand how to apply visual enhancements to convey information more
+  effectively.
+\end{itemize}
+
+\subsection{Graph Customization Basics}\label{graph-customization-basics}
+
+Customizing plots in R allows you to enhance the appearance and readability of the visualizations. The \textbf{par()} function in R is used to set or query graphical parameters.
+
+\textbf{i). Graphical Parameters (par())}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{pch:} Sets the plotting symbol (or point character) used in plotting functions like \textbf{plot()}.
+\item
+  \textbf{lty:} Sets the line type.
+\item
+  \textbf{lwd:} Sets the line width.
+\item
+  \textbf{col:} Sets the color of lines and points.
+\item
+  \textbf{bg:} Sets the background color.
+\item
+  \textbf{cex:} Sets the character size.
+\item
+  \textbf{mar:} Sets the margins of the plot.
+\end{itemize}
+
+\textbf{ii). Adding Custom Colors, Line Types, Point Shapes, and Plot Characters}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Custom Colors:} You can specify custom colors using color names, hexadecimal codes, or color numbers.
+\item
+  \textbf{Line Types:} Different line types are available, such as solid, dashed, dotted, etc.
+\item
+  \textbf{Point Shapes:} Various point shapes are available, including circles, squares, triangles, etc.
+\item
+  \textbf{Plot Characters:} Different plot characters, such as dots, crosses, stars, etc., can be used.
+\end{itemize}
+
+\textbf{Example:}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkgPC0geF4yXG5cbiMgUGxvdCB3aXRoIGN1c3RvbWl6ZWQgZ3JhcGhpY2FsIHBhcmFtZXRlcnNcbnBhcihcbiAgcGNoID0gMTksICAgICMgVXNlIHNvbGlkIGNpcmNsZXMgZm9yIHBvaW50c1xuICBsdHkgPSAyLCAgICAgIyBVc2UgZGFzaGVkIGxpbmVcbiAgbHdkID0gMiwgICAgICMgU2V0IGxpbmUgd2lkdGggdG8gMlxuICBjb2wgPSBcImJsdWVcIiAjIFNldCBsaW5lIGFuZCBwb2ludCBjb2xvciB0byBibHVlXG4pXG5cbnBsb3QoeCwgeSwgdHlwZSA9IFwibFwiLCBtYWluID0gXCJDdXN0b21pemVkIFBsb3RcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5wb2ludHMoeCwgeSwgY29sID0gXCJyZWRcIikgIyBBZGQgcG9pbnRzIHdpdGggcmVkIGNvbG9yIn0=
+
+\subsection{Enhancing Plot Aesthetics}\label{enhancing-plot-aesthetics}
+
+Improving the aesthetics of plots is essential for effectively communicating your data. The following are some techniques for enhancing plot aesthetics in R:
+
+\textbf{1. Setting Axis Options:}
+
+\textbf{Axis Labels:} Use \textbf{xlab} and \textbf{ylab} parameters to set labels for x and y axes, respectively.
+
+\textbf{Tick Marks:} Use \textbf{axes = FALSE} to remove axis tick marks and add them back using axis() function.
+
+\textbf{Axis Limits:} Use \textbf{xlim} and \textbf{ylim} parameters to set limits for the x and y axes, respectively.
+
+Example:
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkgPC0geF4yXG5cbiMgUGxvdCB3aXRoIGN1c3RvbWl6ZWQgYXhpcyBvcHRpb25zXG5wbG90KHgsIHksIHR5cGUgPSBcImxcIiwgbWFpbiA9IFwiQSBzaW1wbGUgbGluZSBwbG90XCIsIHhsYWIgPSBcIlgtYXhpc1wiLCB5bGFiID0gXCJZLWF4aXNcIiwgeGxpbSA9IGMoMCwgMTIpLCB5bGltID0gYygwLCAxMjApKVxuYXhpcyhzaWRlID0gMSwgYXQgPSBzZXEoMCwgMTIsIGJ5ID0gMikpICMgQWRkIHgtYXhpcyB0aWNrIG1hcmtzXG5heGlzKHNpZGUgPSAyLCBhdCA9IHNlcSgwLCAxMjAsIGJ5ID0gMjApKSAjIEFkZCB5LWF4aXMgdGljayBtYXJrcyJ9
+
+\subsection{Advanced Customization Techniques}\label{advanced-customization-techniques}
+
+Enhancing plots in R involves more than just changing colors and labels. Here are some advanced customization techniques to make your plots more informative and visually appealing:
+
+\textbf{i). Multiple Plot Windows (mfrow and mfcol):}
+
+\textbf{mfrow:} Divides the plotting area into a matrix of rows and columns. Plots are filled row-wise.
+
+\textbf{mfcol:} Divides the plotting area into a matrix of rows and columns. Plots are filled column-wise.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgdXNpbmcgbWZyb3dcbnBhcihtZnJvdyA9IGMoMiwgMikpICMgQ3JlYXRlIGEgMngyIGdyaWQgZm9yIHBsb3RzXG5wbG90KDE6MTAsIDE6MTAsIG1haW4gPSBcIlBsb3QgMVwiLCB0eXBlID0gXCJsXCIpXG5wbG90KDE6MTAsICgxOjEwKV4yLCBtYWluID0gXCJQbG90IDJcIiwgdHlwZSA9IFwibFwiKVxucGxvdCgxOjEwLCAoMToxMCleMywgbWFpbiA9IFwiUGxvdCAzXCIsIHR5cGUgPSBcImxcIilcbnBsb3QoMToxMCwgbG9nKDE6MTApLCBtYWluID0gXCJQbG90IDRcIiwgdHlwZSA9IFwibFwiKSJ9
+
+\textbf{ii). Customizing Plots with Grid Lines, Background Color, and Themes:}
+
+\textbf{Grid Lines:} Use \textbf{grid()} function to add grid lines to the plot.
+
+\textbf{Background Color:} Use \textbf{par(bg = ``color'')} to set background color for the plot.
+
+\textbf{Themes:} Use themes from packages like ggplot2 to change the overall appearance of the plot. This will be covered under ggplot2 package chapter.
+
+\textbf{Example with Grid Lines and Background Color:}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgd2l0aCBncmlkIGxpbmVzIGFuZCBiYWNrZ3JvdW5kIGNvbG9yXG5wbG90KDE6MTAsIDE6MTAsIG1haW4gPSBcIkEgQ3VzdG9taXplZCBTaW1wbGUgTGluZSBQbG90XCIsIHR5cGUgPSBcImxcIiwgeGxhYj0nSGVpZ2h0Jyx5bGFiID0gJ1dlaWdodCcpXG5ncmlkKCkgIyBBZGQgZ3JpZCBsaW5lc1xucGFyKGJnID0gXCJsaWdodGJsdWVcIikgIyBTZXQgYmFja2dyb3VuZCBjb2xvciJ9
+
+\subsection{Practical Examples: Exercise}\label{practical-examples-exercise}
+
+\textbf{Exercise 11}
+
+Read the \textbf{cabbages} dataset from \textbf{MASS} package. Remove the duplicated values of \textbf{``HeadWt''} and arrange the dataframe in descending order by \textbf{``HeadWt''} column. Plot a line plot of \textbf{``HeadWt''} against its square and apply blue color with the first line type. Add a second line plot of the square of cube of \textbf{``HeadWt''} , apply the red color and the line type should be the second one. Add a legend to the plot and position it at the top - left position with the names ``Square of Head Weight'' and ``Cube of Head Weight'' respectively. Maintain the same line types and colors that were used to plot. Add a title, `Comparison of Cabbage Trends'. Label the x-axis as `Head Weight' and y-axis should be blank
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZVxuXG4jIFNvbHV0aW9uXG5saWJyYXJ5KGRwbHlyKVxubGlicmFyeShNQVNTKVxuXG5jYWJiYWdlcyA8LSBjYWJiYWdlcyAlPiUgXG4gIGRpc3RpbmN0KEhlYWRXdCwgLmtlZXBfYWxsID0gVFJVRSkgJT4lIFxuICBhcnJhbmdlKGRlc2MoSGVhZFd0KSxGQUxTRSlcblxucGxvdChjYWJiYWdlcyRIZWFkV3QsKGNhYmJhZ2VzJEhlYWRXdCleMix0eXBlID0gJ2wnLCBjb2w9J2JsdWUnLCBcbiAgICAgbHR5PTEsbWFpbiA9IFwiQ29tcGFyaXNvbiBvZiBVbmlxdWUgQ2FiYmFnZSBUcmVuZHNcIiwgeGxhYiA9IFwiSGVhZCBXZWlnaHRcIiwgeWxhYiA9IFwiXCIpXG5saW5lcyhjYWJiYWdlcyRIZWFkV3QsKGNhYmJhZ2VzJEhlYWRXdCleMyx0eXBlID0gJ2wnLCBjb2w9J3JlZCcsIGx0eT0yKVxubGVnZW5kKFwidG9wbGVmdFwiLCBsZWdlbmQgPSBjKFwiU3F1YXJlIG9mIEhlYWQgV2VpZ2h0XCIsIFwiQ3ViZSBvZiBIZWFkIFdlaWdodCBcIiksIGNvbCA9IGMoXCJibHVlXCIsIFwicmVkXCIpLCBsdHkgPSBjKDEsIDIpKSJ9
+
+\textbf{Exercise 12 : Multiple Small Plots in One Graphic to Compare Different Data Sets}
+
+Create a vector \textbf{x} of a sequence of numbers from 1 to 100. Create another vector \textbf{y1} which is the square of \textbf{x}. Create another vector \textbf{y2} which is the double of \textbf{x}. Lastly, create the last vector \textbf{y3} which is equivalent to \textbf{x} raised to the power of 1.5. Create three multiple small line plots and organize them in one row with three columns. All plots will use the same independent variable in the x-axis, i.e \textbf{x}.
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\tightlist
+\item
+  Plot x against y1. Give it the title,`Trend 1', x-axis should be labelled as `X' while y-axis=`Y' and color is blue.
+\item
+  Plot x against y2. Give it the title,`Trend 2', x-axis should be labelled as `X' while y-axis=`Y2',col is red.
+\item
+  Plot x against y3. Give it the title,`Trend 3', x-axis should be labelled as `X' while y-axis=`Y3',col is green.
+\end{enumerate}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgIGRhdGFcblxuI1NvbHV0aW9uXG4jQ3JlYXRlIGRhdGFcbnggPC0gMToxMDBcbnkxIDwtIHheMlxueTIgPC0gMiAqIHhcbnkzIDwtIHheMS41XG5cbiMgQ3JlYXRlIG11bHRpcGxlIHNtYWxsIHBsb3RzXG5wYXIobWZyb3cgPSBjKDEsIDMpKSAjIDEgcm93LCAzIGNvbHVtbnNcblxuIyBQbG90IDFcbnBsb3QoeCwgeTEsIHR5cGUgPSBcImxcIiwgY29sID0gXCJibHVlXCIsIG1haW4gPSBcIlRyZW5kIDFcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5cbiMgUGxvdCAyXG5wbG90KHgsIHkyLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwicmVkXCIsIG1haW4gPSBcIlRyZW5kIDJcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZMlwiKVxuXG4jIFBsb3QgM1xucGxvdCh4LCB5MywgdHlwZSA9IFwibFwiLCBjb2wgPSBcImdyZWVuXCIsIG1haW4gPSBcIlRyZW5kIDNcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZM1wiKSJ9
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Repeat the above similar plots but arranged in three rows and one column using \textbf{mfcol()}.
+\end{enumerate}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgIGRhdGFcblxuI1NvbHV0aW9uXG4jQ3JlYXRlIGRhdGFcbnggPC0gMToxMDBcbnkxIDwtIHheMlxueTIgPC0gMiAqIHhcbnkzIDwtIHheMS41XG5cbiMgQ3JlYXRlIG11bHRpcGxlIHNtYWxsIHBsb3RzXG5wYXIobWZjb2wgPSBjKDMsIDEpKSAjIDMgcm93cywgMSBjb2x1bW5cblxuIyBQbG90IDFcbnBsb3QoeCwgeTEsIHR5cGUgPSBcImxcIiwgY29sID0gXCJibHVlXCIsIG1haW4gPSBcIlRyZW5kIDFcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5cbiMgUGxvdCAyXG5wbG90KHgsIHkyLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwicmVkXCIsIG1haW4gPSBcIlRyZW5kIDJcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZMlwiKVxuXG4jIFBsb3QgM1xucGxvdCh4LCB5MywgdHlwZSA9IFwibFwiLCBjb2wgPSBcImdyZWVuXCIsIG1haW4gPSBcIlRyZW5kIDNcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZM1wiKSJ9
+
+\section{ADVANCED BASE PLOTTING TECHNIQUES}\label{advanced-base-plotting-techniques}
+
+\subsection{Combining Different Graph Types}\label{combining-different-graph-types}
+
+We can overlay different types of plots, such as combining bar charts with line graphs, in R. Here's how this can be done along with customizing axes and scales:
+
+\subsubsection{Overlay different types of plots}\label{overlay-different-types-of-plots}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkxIDwtIHheMlxueTIgPC0gMiAqIHhcbnkzIDwtIHheMS41XG5cbiMgQ3JlYXRlIGEgbGluZSBwbG90XG5wbG90KHgsIHkxLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwiYmx1ZVwiLCBtYWluID0gXCJDb21iaW5pbmcgRGlmZmVyZW50IEdyYXBoIFR5cGVzXCIsIHhsYWIgPSBcIlhcIiwgeWxhYiA9IFwiWVwiKVxuXG4jIEFkZCBwb2ludHMgdG8gdGhlIGxpbmUgcGxvdFxucG9pbnRzKHgsIHkxLCBjb2wgPSBcImJsdWVcIiwgcGNoID0gMTYpXG5cbiMgQWRkIGEgYmFyIHBsb3RcbmJhcnBsb3QoeTIsIGNvbCA9IFwicmVkXCIsIGFkZCA9IFRSVUUpXG5cbiMgQWRkIGEgc2Vjb25kIGxpbmUgcGxvdFxubGluZXMoeCwgeTMsIGNvbCA9IFwiZ3JlZW5cIilcblxuIyBBZGQgYSBsZWdlbmRcbmxlZ2VuZChcInRvcGxlZnRcIiwgbGVnZW5kID0gYyhcIlRyZW5kIDFcIiwgXCJUcmVuZCAyXCIsIFwiVHJlbmQgM1wiKSwgY29sID0gYyhcImJsdWVcIiwgXCJyZWRcIiwgXCJncmVlblwiKSwgbHR5ID0gYygxLCBOQSwgMSksIHBjaCA9IGMoMTYsIE5BLCBOQSkpIn0=
+
+\subsubsection{Axes and scales customization to accomodate combined plots}\label{axes-and-scales-customization-to-accomodate-combined-plots}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNldCBjdXN0b20gYXhpcyBsaW1pdHNcbnBsb3QoeCwgeTEsIHR5cGUgPSBcImxcIiwgY29sID0gXCJibHVlXCIsIG1haW4gPSBcIkNvbWJpbmluZyBEaWZmZXJlbnQgR3JhcGggVHlwZXNcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIsIHlsaW0gPSBjKDAsIG1heCh5MSwgeTIsIHkzKSkpXG5cbiMgQWRkIHBvaW50cyB0byB0aGUgbGluZSBwbG90XG5wb2ludHMoeCwgeTEsIGNvbCA9IFwiYmx1ZVwiLCBwY2ggPSAxNilcblxuIyBBZGQgYSBiYXIgcGxvdFxuYmFycGxvdCh5MiwgY29sID0gXCJyZWRcIiwgYWRkID0gVFJVRSwgeWxpbSA9IGMoMCwgbWF4KHkxLCB5MiwgeTMpKSlcblxuIyBBZGQgYSBzZWNvbmQgbGluZSBwbG90XG5saW5lcyh4LCB5MywgY29sID0gXCJncmVlblwiKVxuXG4jIEFkZCBhIGxlZ2VuZFxubGVnZW5kKFwidG9wbGVmdFwiLCBsZWdlbmQgPSBjKFwiVHJlbmQgMVwiLCBcIlRyZW5kIDJcIiwgXCJUcmVuZCAzXCIpLCBjb2wgPSBjKFwiYmx1ZVwiLCBcInJlZFwiLCBcImdyZWVuXCIpLCBsdHkgPSBjKDEsIE5BLCAxKSwgcGNoID0gYygxNiwgTkEsIE5BKSkifQ==
+
+\subsection{Interactive Graphics in Base R}\label{interactive-graphics-in-base-r}
+
+\subsubsection{Introduction to using the locator() function for interactive plotting}\label{introduction-to-using-the-locator-function-for-interactive-plotting}
+
+Base R provides basic functionality for creating interactive plots using the locator() function. Here's how you can use locator() for interactive plotting and create dynamic plots that respond to user input or updates in data:
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkgPC0geF4yXG5cbiMgUGxvdCBkYXRhXG5wbG90KHgsIHksIHR5cGUgPSBcImxcIiwgbWFpbiA9IFwiSW50ZXJhY3RpdmUgUGxvdHRpbmcgd2l0aCBsb2NhdG9yKClcIilcblxuIyBBZGQgcG9pbnRzIGludGVyYWN0aXZlbHlcbnBvaW50cyhsb2NhdG9yKDUpLCBjb2wgPSBcInJlZFwiLCBwY2ggPSAxNikifQ==
+
+\subsubsection{Creating dynamic plots that respond to user input or updates in data}\label{creating-dynamic-plots-that-respond-to-user-input-or-updates-in-data}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIER5bmFtaWMgcGxvdCB0aGF0IHJlc3BvbmRzIHRvIHVzZXIgaW5wdXRcbnBsb3RfZHluYW1pYyA8LSBmdW5jdGlvbigpIHtcbiAgIyBTYW1wbGUgZGF0YVxuICB4IDwtIDE6MTBcbiAgeSA8LSB4XjJcbiAgXG4gICMgUGxvdCBkYXRhXG4gIHBsb3QoeCwgeSwgdHlwZSA9IFwibFwiLCBtYWluID0gXCJEeW5hbWljIFBsb3Qgd2l0aCBVc2VyIElucHV0XCIpXG4gIFxuICAjIEFkZCBwb2ludHMgaW50ZXJhY3RpdmVseVxuICBwb2ludHMobG9jYXRvcig1KSwgY29sID0gXCJyZWRcIiwgcGNoID0gMTYpXG59XG5cbiMgQ2FsbCB0aGUgZnVuY3Rpb24gdG8gY3JlYXRlIGR5bmFtaWMgcGxvdFxucGxvdF9keW5hbWljKCkifQ==
+
+\section{PLOTTING TIME SERIES DATA}\label{plotting-time-series-data}
+
+\subsection{Introduction}\label{introduction-3}
+
+The plotting of time series object is most likely one of the steps of the analysis of time-series data. The two main objectives of this chapter are:
+
+\begin{itemize}
+\tightlist
+\item
+  Understand specific considerations for plotting time series data in R.
+\item
+  Learn to effectively visualize time-dependent data using R's base graphics.
+\end{itemize}
+
+\subsubsection{Importance of time series analysis in various fields like finance, meteorology, and epidemiology}\label{importance-of-time-series-analysis-in-various-fields-like-finance-meteorology-and-epidemiology}
+
+Time series analysis plays a crucial role in various fields such as finance, meteorology, epidemiology, and many others. Understanding time series data and effectively visualizing it are essential for extracting meaningful insights. In this chapter, we will explore the importance of time series analysis and the challenges associated with visualizing time series data.
+
+Time series analysis is vital in various fields including:
+
+\begin{itemize}
+\item
+  \textbf{Finance:} Analyzing stock prices, market trends, and forecasting.
+\item
+  \textbf{Meteorology:} Studying weather patterns, climate change, and forecasting.
+\item
+  \textbf{Epidemiology:} Tracking disease outbreaks, analyzing trends, and forecasting.
+\end{itemize}
+
+\subsubsection{Basic concepts related to time series data and its visualization challenges.}\label{basic-concepts-related-to-time-series-data-and-its-visualization-challenges.}
+
+\begin{itemize}
+\item
+  \textbf{Time Series Data:} Time series data consists of observations or measurements taken at different points in time.
+\item
+  \textbf{Temporal Patterns:} Time series data often exhibits various temporal patterns such as trend, seasonality, and cycles.
+\item
+  \textbf{Visualization Challenges:} Visualizing time series data poses challenges due to its temporal nature and the need to effectively represent temporal patterns.
+\end{itemize}
+
+\subsection{Time Series Data Basics}\label{time-series-data-basics}
+
+Time series data in R is commonly represented using the \textbf{ts} class. The time series object must have a \textbf{Date} or \textbf{POSIXct/lt} column and at least one numeric column.
+
+\subsubsection{Introduction to time series objects in R (ts class).}\label{introduction-to-time-series-objects-in-r-ts-class.}
+
+\begin{itemize}
+\item
+  The \textbf{ts} class in R is a basic time series object.
+\item
+  It is suitable for regularly spaced time series data.
+\item
+  Time series objects are created using the \textbf{ts()} function.
+\end{itemize}
+
+\textbf{Example: Creating a time series object}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSB0aW1lIHNlcmllcyBkYXRhXG5kYXRhIDwtIGMoMTAsIDE1LCAyMCwgMjUsIDMwKVxudGltZV9zZXJpZXMgPC0gdHMoZGF0YSlcblxuIyBWaWV3IHRoZSB0aW1lIHNlcmllcyBvYmplY3RcbnByaW50KHRpbWVfc2VyaWVzKSJ9
+
+\subsubsection{How to convert standard date formats into time series objects}\label{how-to-convert-standard-date-formats-into-time-series-objects}
+
+R provides several functions to convert standard date formats into time series objects, such as \textbf{as.ts()} and \textbf{ts()}.
+
+\textbf{Example: Converting Standard Date Formats into Time Series Objects}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhIHdpdGggZGF0ZXNcbmRhdGVzIDwtIGFzLkRhdGUoYyhcIjIwMjItMDEtMDFcIiwgXCIyMDIyLTAyLTAxXCIsIFwiMjAyMi0wMy0wMVwiLCBcIjIwMjItMDQtMDFcIiwgXCIyMDIyLTA1LTAxXCIpKVxuZGF0YSA8LSBjKDEwLCAxNSwgMjAsIDI1LCAzMClcblxuIyBDcmVhdGUgYSB0aW1lIHNlcmllcyBvYmplY3RcbnRpbWVfc2VyaWVzIDwtIHRzKGRhdGEsIHN0YXJ0ID0gYyhhcy5QT1NJWGx0KGRhdGVzWzFdKSR5ZWFyICsgMTkwMCwgYXMuUE9TSVhsdChkYXRlc1sxXSkkbW9uICsgMSksIGZyZXF1ZW5jeSA9IDEyKVxuXG4jIFZpZXcgdGhlIHRpbWUgc2VyaWVzIG9iamVjdFxucHJpbnQodGltZV9zZXJpZXMpIn0=
+
+In this example, \textbf{start} indicates the start of the time series, and \textbf{frequency} indicates the number of observations per unit of time. Here, \textbf{frequency = 12} indicates monthly data. These are the basics of working with time series data objects in R.
+
+\subsection{Visualizing Time Series}\label{visualizing-time-series}
+
+Let's load and plot the \textbf{USgas} series, a \textbf{ts} object which is attached in the TSstudio package:
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KFRTc3R1ZGlvKVxuXG5kYXRhKFVTZ2FzKVxuXG50c19pbmZvKFVTZ2FzKSJ9
+
+\subsubsection{Creating line plots for time series data}\label{creating-line-plots-for-time-series-data}
+
+Let us plot the \textbf{USgas} series using the base R \textbf{plot()} function.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJwbG90KFVTZ2FzKSJ9
+
+\subsubsection{Techniques for highlighting trends, seasonality, and anomalies}\label{techniques-for-highlighting-trends-seasonality-and-anomalies}
+
+\begin{itemize}
+\item
+  \textbf{Trends:} Use \textbf{lines()} function to overlay a trend line on the plot.
+\item
+  \textbf{Seasonality:} Use \textbf{seasonplot()} function from the forecast package to visualize seasonal patterns.
+\item
+  \textbf{Anomalies:} Use \textbf{points()} function to mark anomalies on the plot.
+\end{itemize}
+
+\textbf{Example:} Let's visualize the \textbf{USgas} time series data and highlight trends, seasonality, and anomalies:
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEluc3RhbGwgYW5kIGxvYWQgdGhlIG5lY2Vzc2FyeSBwYWNrYWdlc1xuI2luc3RhbGwucGFja2FnZXMoXCJmb3JlY2FzdFwiKVxubGlicmFyeShmb3JlY2FzdClcblxuIyBMb2FkIHRoZSBVU2dhcyB0aW1lIHNlcmllcyBvYmplY3RcbmRhdGEoXCJVU2dhc1wiKVxuXG4jIENvbnZlcnQgdGhlIHRzIG9iamVjdCBpbnRvIGEgZGF0YSBmcmFtZVxuVVNnYXNfZGYgPC0gZGF0YS5mcmFtZSh5ZWFyID0gdGltZShVU2dhcyksIHByb2R1Y3Rpb24gPSBhcy5udW1lcmljKFVTZ2FzKSlcblxuIyBBcHBseSBsb2VzcyBmdW5jdGlvblxudHJlbmQgPC0gbG9lc3MocHJvZHVjdGlvbiB+IHllYXIsIGRhdGEgPSBVU2dhc19kZilcblxuIyBFeHRyYWN0IHRoZSB0cmVuZCB2YWx1ZXNcbnRyZW5kX3ZhbHVlcyA8LSBwcmVkaWN0KHRyZW5kKVxuXG4jIFBsb3QgdGhlIFVTZ2FzIHRpbWUgc2VyaWVzXG5wbG90KFVTZ2FzLCBtYWluID0gXCJVUyBHYXMgUHJvZHVjdGlvbiBUaW1lIFNlcmllc1wiLCB4bGFiID0gXCJZZWFyXCIsIHlsYWIgPSBcIkdhcyBQcm9kdWN0aW9uXCIpXG5cbiMgQWRkIHRyZW5kIGxpbmVcbiNsaW5lcyh0aW1lKFVTZ2FzKSwgdHJlbmRfdmFsdWVzLCBjb2wgPSBcImJsdWVcIilcblxuIyBWaXN1YWxpemUgc2Vhc29uYWwgcGF0dGVyblxuc2Vhc29ucGxvdChVU2dhcywgY29sID0gXCJncmVlblwiKVxuXG4jIElkZW50aWZ5IGFub21hbGllc1xuYW5vbWFsaWVzIDwtIHdoaWNoKFVTZ2FzID4gbWVhbihVU2dhcykgKyAyICogc2QoVVNnYXMpIHwgVVNnYXMgPCBtZWFuKFVTZ2FzKSAtIDIgKiBzZChVU2dhcykpXG5wb2ludHModGltZShVU2dhcylbYW5vbWFsaWVzXSwgVVNnYXNbYW5vbWFsaWVzXSwgY29sID0gXCJyZWRcIiwgcGNoID0gMTYpIn0=
+
+\subsection{Advanced Time Series Visualization}\label{advanced-time-series-visualization}
+
+\subsubsection{\texorpdfstring{Advance customization using ts\_plot() function from \textbf{plotly} package}{Advance customization using ts\_plot() function from plotly package}}\label{advance-customization-using-ts_plot-function-from-plotly-package}
+
+The \textbf{ts\_plot} is a wraper of the \textbf{plotly} package plotting functions for time series objects, therefore, the output of the \textbf{ts\_plot} is a \textbf{plotly} object. Advance customization of the \textbf{ts\_plot} output can be done with plotly's layout function. For example, let's re plot the \textbf{USgas} series and customize the background to black:
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHBsb3RseSlcblxudHNfcGxvdChVU2dhcyxcbiAgICAgICAgdGl0bGUgPSBcIlVTIE1vbnRobHkgTmF0dXJhbCBHYXMgQ29uc3VtcHRpb25cIixcbiAgICAgICAgWHRpdGxlID0gXCJUaW1lXCIsXG4gICAgICAgIFl0aXRsZSA9IFwiQmlsbGlvbiBDdWJpYyBGZWV0XCIsXG4gICAgICAgIGNvbG9yID0gIFwicGlua1wiLFxuICAgICAgICBYZ3JpZCA9IFRSVUUsXG4gICAgICAgIFlncmlkID0gVFJVRSkgJT4lXG4gIGxheW91dChwYXBlcl9iZ2NvbG9yID0gXCJibGFja1wiLFxuICAgICAgICAgcGxvdF9iZ2NvbG9yID0gXCJibGFja1wiLFxuICAgICAgICAgZm9udCA9IGxpc3QoY29sb3IgPSBcIndoaXRlXCIpLFxuICAgICAgICAgeWF4aXMgPSBsaXN0KGxpbmVjb2xvciA9IFwiIzZiNmI2YlwiLFxuICAgICAgICAgICAgICAgICAgICAgIHplcm9saW5lY29sb3IgPSBcIiM2YjZiNmJcIixcbiAgICAgICAgICAgICAgICAgICAgICBncmlkY29sb3I9IFwiIzQ0NDQ0NFwiKSxcbiAgICAgICAgIHhheGlzID0gbGlzdChsaW5lY29sb3IgPSBcIiM2YjZiNmJcIixcbiAgICAgICAgICAgICAgICAgICAgICB6ZXJvbGluZWNvbG9yID0gXCIjNmI2YjZiXCIsXG4gICAgICAgICAgICAgICAgICAgICAgZ3JpZGNvbG9yPSBcIiM0NDQ0NDRcIikpIn0=
+
+Note that the \textbf{Xgrid} and \textbf{Ygrid} arguments, when set to \textbf{TRUE}, add the corresponding X and Y grid lines.
+
+\subsubsection{Plotting multiple time series on a single graph for comparative analysis}\label{plotting-multiple-time-series-on-a-single-graph-for-comparative-analysis}
+
+The plotting of a multiple time series object is straightforward. Let's load the \textbf{Coffee\_Prices} an \textbf{mts} object that represents the monthly prices of the Robusta and Arabica coffee prices (USD per Kg.):
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhKFwiQ29mZmVlX1ByaWNlc1wiKVxuXG50c19pbmZvKENvZmZlZV9QcmljZXMpXG50c19wbG90KENvZmZlZV9QcmljZXMsXG4gICAgICAgIHRpdGxlID0gXCJDb21wYXJpc29uIG9mIFJvYnVzdGEgYW5kIEFyYWJpY2EgY29mZmVlIHByaWNlc1wiKSJ9
+
+By default, the function will plot all the series in one plot. Plotting the different series on a separate plot can be done by setting the type argument to multiple:
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0c19wbG90KENvZmZlZV9QcmljZXMsXG4gICAgICAgIHRpdGxlID0gXCJDb21wYXJpc29uIG9mIFJvYnVzdGEgYW5kIEFyYWJpY2EgY29mZmVlIHByaWNlc1wiLFxuICAgICAgICB0eXBlID0gXCJtdWx0aXBsZVwiKSJ9
+
+\textbf{Note} that the \textbf{color}, \textbf{Ytitle}, and \textbf{Xtitle} arguments are not applicable when plotting multiple time series object.
+
+\subsection{Practical Examples: Exercises}\label{practical-examples-exercises-2}
+
+\textbf{Exercise 13: Stock market data}
+
+Obtain the daily closing prices for the last ten calendar years of S\&P 500 Index, Dow Jones, NASDAQ100 and Russell 2000 indices from Yahoo Finance using the appropriate R package such as tidyquant or quantmod. Prepare the data and clean it by removing any missing values. Plot a time series plot of the prices of these indices in one graph and use the plot to identify any economic trends among the indices.
+
+\textbf{Exercise 14: Temperature}
+
+Obtain the temperature data from an open source such as Weather data (\url{https://www.wunderground.com/weather/in/ahmedabad/VAAH}) for Ahmedabad which is located in Western India on the banks of River Sabarmati. Obtain the average monthly temperature data from Sardar Vallabhbhai Patel International Airport Station weather station for the years 2014-2021. Decompose the time series data by splitting these components (data or the level, trend, seasonality, and noise or random components) separately into
+individual components. Present the decomposition of the multiplicative model of the components of the time series of the average
+temperature of Ahmedabad in a suitable plot. What observation did you make about the seasonality of this data?
+
+\section{STATISTICAL GRAPHS IN R}\label{statistical-graphs-in-r}
+
+\subsection{Introduction}\label{introduction-4}
+
+The two main objectives of this chapter are:
+
+\begin{itemize}
+\tightlist
+\item
+  Learn to use R's base graphics for creating statistical plots.
+\item
+  Understand the application of statistical plots in real-world data analysis.
+\end{itemize}
+
+\subsection{Essential Statistical Plots:}\label{essential-statistical-plots}
+
+Statistical plots are essential for exploring and understanding the distribution of data. In this chapter, we will cover how to create the following essential statistical plots in R and understand the insights they provide.
+
+\subsubsection{How to create box plots, violin plots, and QQ plots.}\label{how-to-create-box-plots-violin-plots-and-qq-plots.}
+
+\textbf{i) Box Plots:}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgYm94IHBsb3RcbmJveHBsb3QoU2VwYWwuTGVuZ3RoIH4gU3BlY2llcywgZGF0YSA9IGlyaXMsIFxuICAgICAgICBtYWluID0gXCJCb3ggUGxvdCBvZiBTZXBhbCBMZW5ndGggYnkgU3BlY2llc1wiLFxuICAgICAgICB4bGFiID0gXCJTcGVjaWVzXCIsIHlsYWIgPSBcIlNlcGFsIExlbmd0aFwiKSJ9
+
+\textbf{ii) Violin Plots:}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgdmlvbGluIHBsb3RcbmxpYnJhcnkoZ2dwbG90MilcbmdncGxvdChpcmlzLCBhZXMoeCA9IFNwZWNpZXMsIHkgPSBTZXBhbC5MZW5ndGgpKSArXG4gIGdlb21fdmlvbGluKGZpbGwgPSBcImxpZ2h0Ymx1ZVwiKSArXG4gIGxhYnModGl0bGUgPSBcIlZpb2xpbiBQbG90IG9mIFNlcGFsIExlbmd0aCBieSBTcGVjaWVzXCIsXG4gICAgICAgeCA9IFwiU3BlY2llc1wiLCB5ID0gXCJTZXBhbCBMZW5ndGhcIikifQ==
+
+\textbf{iii) QQ Plots:}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgUVEgcGxvdFxucXFub3JtKGlyaXMkU2VwYWwuTGVuZ3RoKVxucXFsaW5lKGlyaXMkU2VwYWwuTGVuZ3RoKSJ9
+
+\subsubsection{Understanding the data insights these plots provide.}\label{understanding-the-data-insights-these-plots-provide.}
+
+\textbf{i) Box Plots:} Box plots provide a graphical summary of the distribution of a dataset. They display the median, quartiles, and potential outliers.
+
+\textbf{ii) Violin Plots:} Violin plots are similar to box plots but provide a more detailed summary of the distribution. They combine a box plot with a kernel density plot.
+
+\textbf{iii) QQ Plots (Quantile-Quantile Plots):} QQ plots are used to assess if a dataset follows a particular distribution. They compare the quantiles of the dataset against the quantiles of a theoretical distribution.
+
+These statistical plots are invaluable tools for exploring and understanding the distribution of data.
+
+\subsection{Analyzing Distributions with Histograms and Density Plots:}\label{analyzing-distributions-with-histograms-and-density-plots}
+
+Histograms provide a visual representation of the distribution of numerical data. They group data into bins and display the frequency of observations in each bin.Density plots estimate the probability density function of the underlying data distribution. They provide a smooth representation of the distribution.
+
+\subsubsection{Techniques for creating and customizing histograms and density plots and best practices for displaying distribution characteristics.}\label{techniques-for-creating-and-customizing-histograms-and-density-plots-and-best-practices-for-displaying-distribution-characteristics.}
+
+\textbf{Creating and Customizing Histograms:}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgaGlzdG9ncmFtXG5oaXN0KGlyaXMkU2VwYWwuTGVuZ3RoLCBcbiAgICAgbWFpbiA9IFwiSGlzdG9ncmFtIG9mIFNlcGFsIExlbmd0aFwiLFxuICAgICB4bGFiID0gXCJTZXBhbCBMZW5ndGhcIixcbiAgICAgeWxhYiA9IFwiRnJlcXVlbmN5XCIsXG4gICAgIGNvbCA9IFwibGlnaHRibHVlXCIpXG5cbiMgQWRkaW5nIGEgZGVuc2l0eSBwbG90XG5saW5lcyhkZW5zaXR5KGlyaXMkU2VwYWwuTGVuZ3RoKSwgY29sID0gXCJyZWRcIikifQ==
+
+\textbf{Creating and Customizing Density Plots:}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgZGVuc2l0eSBwbG90XG5wbG90KGRlbnNpdHkoaXJpcyRTZXBhbC5MZW5ndGgpLCBcbiAgICAgbWFpbiA9IFwiRGVuc2l0eSBQbG90IG9mIFNlcGFsIExlbmd0aFwiLFxuICAgICB4bGFiID0gXCJTZXBhbCBMZW5ndGhcIixcbiAgICAgY29sID0gXCJibHVlXCIpXG5cbiMgQWRkaW5nIGEgaGlzdG9ncmFtXG5oaXN0KGlyaXMkU2VwYWwuTGVuZ3RoLCBcbiAgICAgY29sID0gcmdiKDAsMCwxLDAuMiksIFxuICAgICBhZGQgPSBUUlVFLCBcbiAgICAgYnJlYWtzID0gMjApIn0=
+
+\subsection{Scatter Plots and Correlation Analysis:}\label{scatter-plots-and-correlation-analysis}
+
+Scatter plots are useful for visualizing the relationship between two continuous variables.
+
+\subsubsection{Using scatter plots to visualize relationships between variables.}\label{using-scatter-plots-to-visualize-relationships-between-variables.}
+
+Scatter plots visually represent the relationship between two continuous variables. They help to identify patterns, trends, and correlations between variables.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgc2NhdHRlciBwbG90XG5wbG90KGlyaXMkU2VwYWwuTGVuZ3RoLCBpcmlzJFBldGFsLkxlbmd0aCxcbiAgICAgbWFpbiA9IFwiU2NhdHRlciBQbG90IG9mIFNlcGFsIExlbmd0aCB2cyBQZXRhbCBMZW5ndGhcIixcbiAgICAgeGxhYiA9IFwiU2VwYWwgTGVuZ3RoXCIsIHlsYWIgPSBcIlBldGFsIExlbmd0aFwiLFxuICAgICBjb2wgPSBcImJsdWVcIikifQ==
+
+\subsubsection{Introduction to adding regression lines and confidence intervals.}\label{introduction-to-adding-regression-lines-and-confidence-intervals.}
+
+\begin{itemize}
+\item
+  Regression lines provide a summary of the relationship between variables.
+\item
+  Confidence intervals help assess the uncertainty of the estimated regression line.
+\end{itemize}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgc2NhdHRlciBwbG90XG5wbG90KGlyaXMkU2VwYWwuTGVuZ3RoLCBpcmlzJFBldGFsLkxlbmd0aCxcbiAgICAgbWFpbiA9IFwiU2NhdHRlciBQbG90IGFuZCBSZWdyZXNzaW9uIExpbmUgb2YgU2VwYWwgTGVuZ3RoIHZzIFBldGFsIExlbmd0aFwiLFxuICAgICB4bGFiID0gXCJTZXBhbCBMZW5ndGhcIiwgeWxhYiA9IFwiUGV0YWwgTGVuZ3RoXCIsXG4gICAgIGNvbCA9IFwiYmx1ZVwiKVxuXG4jIEZpdCBsaW5lYXIgcmVncmVzc2lvbiBtb2RlbFxubW9kZWwgPC0gbG0oUGV0YWwuTGVuZ3RoIH4gU2VwYWwuTGVuZ3RoLCBkYXRhID0gaXJpcylcblxuIyBBZGRpbmcgcmVncmVzc2lvbiBsaW5lXG5hYmxpbmUobW9kZWwsIGNvbCA9IFwicmVkXCIpXG5cbiMgQWRkaW5nIHJlZ3Jlc3Npb24gZXF1YXRpb25cbmVxIDwtIHBhc3RlKFwieSA9XCIsIHJvdW5kKGNvZWYobW9kZWwpWzFdLCAyKSwgXCIrXCIsIHJvdW5kKGNvZWYobW9kZWwpWzJdLCAyKSwgXCJ4XCIpXG50ZXh0KDYuNSwgMi41LCBlcSwgcG9zID0gNClcblxuIyBBZGRpbmcgY29uZmlkZW5jZSBpbnRlcnZhbHNcbmNvbmZfaW50ZXJ2YWwgPC0gcHJlZGljdChtb2RlbCwgaW50ZXJ2YWwgPSBcImNvbmZpZGVuY2VcIilcbmxpbmVzKGlyaXMkU2VwYWwuTGVuZ3RoLCBjb25mX2ludGVydmFsWywgXCJsd3JcIl0sIGNvbCA9IFwiZ3JlZW5cIiwgbHR5ID0gMilcbmxpbmVzKGlyaXMkU2VwYWwuTGVuZ3RoLCBjb25mX2ludGVydmFsWywgXCJ1cHJcIl0sIGNvbCA9IFwiZ3JlZW5cIiwgbHR5ID0gMilcbiMgQWRkIGxlZ2VuZFxubGVnZW5kKFwidG9wbGVmdFwiLCBsZWdlbmQgPSBjKFwiRGF0YSBQb2ludHNcIiwgXCJSZWdyZXNzaW9uIExpbmVcIiwgXCJDb25maWRlbmNlIEludGVydmFsc1wiKSxcbiAgICAgICBjb2wgPSBjKFwiYmx1ZVwiLCBcInJlZFwiLCBcImdyZWVuXCIpLCBsdHkgPSBjKE5BLCAxLCAyKSwgbHdkID0gYyhOQSwgMSwgMSksXG4gICAgICAgcGNoID0gYygxLCBOQSwgTkEpLCBidHkgPSBcIm9cIiAjIEVuY2xvc2UgdGhlIGxlZ2VuZCBpbiBhIGJveFxuICAgICAgICkifQ==
+
+\subsection{Practical Examples: Exercises}\label{practical-examples-exercises-3}
+
+\section{INTRODUCTION TO ggplot2}\label{introduction-to-ggplot2}
+
+\subsection{Getting Started with ggplot2}\label{getting-started-with-ggplot2}
+
+\subsubsection{Installation of ggplot2 and setting up the environment.}\label{installation-of-ggplot2-and-setting-up-the-environment.}
+
+If you have not installed the \textbf{ggplot2} package in your computer, then installing the package for the first time is achieved by writing the code \textbf{install.packages(``ggplot2'')}. Once, the package has successfully been installed, you can set up the environment to use it in your analysis by writing the code \textbf{library(``ggplot2'')}. Alternatively, \textbf{ggpot2} package can be loaded by loading the \textbf{tidyverse} package which comes while attached with several packages where ggplot2 is among them.
+
+\subsubsection{Basic syntax and components of ggplot2: aesthetics, geoms, and layers}\label{basic-syntax-and-components-of-ggplot2-aesthetics-geoms-and-layers}
+
+\begin{itemize}
+\item
+  \textbf{Aesthetics:} Mapping data variables to visual properties.
+\item
+  \textbf{Geoms:} Geometric objects that represent data points, lines, shapes, etc.
+\item
+  \textbf{Layers:} Building plots by adding layers of graphics.
+\end{itemize}
+
+\subsection{Creating Basic Plots with ggplot2}\label{creating-basic-plots-with-ggplot2}
+
+We are using the gapminder dataset (\url{https://www.gapminder.org/data}) that has
+been put into an R package by Bryan (2017) so we can load it with
+library(gapminder). The dataset includes 1704 observations (rows) of 6 variables (columns: country,
+continent, year, lifeExp, pop, gdpPercap). country, continent, and year could
+be thought of as grouping variables, whereas lifeExp (life expectancy), pop
+(population), and gdpPercap (Gross Domestic Product per capita) are values.
+The years in this dataset span 1952 to 2007 with 5-year intervals (so a total of
+12 different years). It includes 142 countries from 5 continents (Asia, Europe,
+Africa, Americas, Oceania).
+You can check that all of the numbers quoted above are correct with these
+lines:
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHRpZHl2ZXJzZSlcbmxpYnJhcnkoZ2FwbWluZGVyKVxuZ2FwbWluZGVyJHllYXIgJT4lIHVuaXF1ZSgpXG5nYXBtaW5kZXIkY291bnRyeSAlPiUgbl9kaXN0aW5jdCgpXG5nYXBtaW5kZXIkY29udGluZW50ICU+JSB1bmlxdWUoKSJ9
+
+\subsubsection{Step-by-step instructions to create scatter plots, histograms, and bar charts using ggplot2}\label{step-by-step-instructions-to-create-scatter-plots-histograms-and-bar-charts-using-ggplot2}
+
+\paragraph{Scatter plots/bubble plots}\label{scatter-plotsbubble-plots}
+
+Let's create a new shorter tibble called gapdata2007 that only includes data for the year 2007. Let's ask ggplot() to draw a point for each observation by adding geom\_point()
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpbHRlciBvbmx5IHRoZSB5ZWFyIDIwMDcgZGF0YVxuZ2FwZGF0YTIwMDcgPC0gZ2FwbWluZGVyICU+JVxuZmlsdGVyKHllYXIgPT0gMjAwNylcblxuI1Bsb3QgYSBzaW1wbGUgc2NhdHRlciBwbG90IFxuZ2FwZGF0YTIwMDcgJT4lXG5nZ3Bsb3QoYWVzKHggPSBnZHBQZXJjYXAsIHkgPSBsaWZlRXhwKSkgK1xuZ2VvbV9wb2ludCgpIn0=
+
+\paragraph{Histograms}\label{histograms}
+
+A histogram displays the distribution of values within a continuous variable.
+In the example below, we are taking the life expectancy (aes(x = lifeExp))
+and telling the histogram to count the observations up in ``bins'' of 10 years
+(geom\_histogram(binwidth = 10)
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGxpZmVFeHApKSArXG5nZW9tX2hpc3RvZ3JhbShiaW53aWR0aCA9IDEwKSJ9
+
+We can see that most countries in the world have a life expectancy of \textasciitilde70-80
+years (in 2007), and that the distribution of life expectancy globally is not normally distributed. Setting the binwidth is optional, using just geom\_histogram() works well too - by default, it will divide the data into 30 bins.
+
+\paragraph{Bar plots}\label{bar-plots}
+
+There are two geoms for making bar plots - \textbf{geom\_col()} and \textbf{geom\_bar()} and the examples below will illustrate when to use which one. In short: if your data is already summarised or includes values for y (height of the bars), use \textbf{geom\_col()}. If, however, you want ggplot() to count up the number of rows in your dataset, use \textbf{geom\_bar()}. For example, with patient-level data (each row is a patient) you'll probably want to use geom\_bar(), with data that is already somewhat aggregated, you'll use geom\_col(). There is no harm in trying one, and if it doesn't work, trying the other.
+
+Let's plot the life expectancies in 2007 in these three countries:
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmZpbHRlcihjb3VudHJ5ICVpbiUgYyhcIlVuaXRlZCBLaW5nZG9tXCIsIFwiRnJhbmNlXCIsIFwiR2VybWFueVwiKSkgJT4lXG5nZ3Bsb3QoYWVzKHggPSBjb3VudHJ5LCB5ID0gbGlmZUV4cCkpICtcbmdlb21fY29sKCkifQ==
+
+\paragraph{Box plots}\label{box-plots}
+
+Box plots are our go to method for quickly visualizing summary statistics of a continuous outcome variable (such as life expectancy in the gapminder dataset. Box plots include:
+
+\begin{itemize}
+\tightlist
+\item
+  the median (middle line in the box)
+\item
+  inter-quartile range (IQR, top and bottom parts of the boxes - this is where
+  50\% of your data is)
+\item
+  whiskers (the black lines extending to the lowest and highest values that are
+  still within 1.5*IQR)
+\item
+  outliers (any observations out with the whiskers)
+\end{itemize}
+
+Let's pot the boxplots of life expectancies within each continent in year 2007
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGNvbnRpbmVudCwgeSA9IGxpZmVFeHApKSArXG5nZW9tX2JveHBsb3QoKSJ9
+
+\paragraph{Line plots/time series plots}\label{line-plotstime-series-plots}
+
+Let's plot the life expectancy in the United Kingdom over time.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhIDwtIGdhcG1pbmRlclxuZ2FwZGF0YSAlPiVcbmZpbHRlcihjb3VudHJ5ID09IFwiVW5pdGVkIEtpbmdkb21cIikgJT4lXG5nZ3Bsb3QoYWVzKHggPSB5ZWFyLCB5ID0gbGlmZUV4cCkpICtcbmdlb21fbGluZSgpIn0=
+
+\subsubsection{Introduction to adding layers, modifying aesthetics, and utilizing facets for multi-panel plots}\label{introduction-to-adding-layers-modifying-aesthetics-and-utilizing-facets-for-multi-panel-plots}
+
+\textbf{a) Adding layers}
+
+Going back to the scatter plot (lifeExp vs gdpPercap), let's use continent to give the points some colour. We can do this by adding colour = continent inside the aes():Let's also add a regression line to the scatter plot
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGdkcFBlcmNhcCwgeSA9IGxpZmVFeHAsIGNvbG91ciA9IGNvbnRpbmVudCkpICtcbmdlb21fcG9pbnQoKStcbmdlb21fc21vb3RoKG1ldGhvZCA9IFwibG1cIiwgc2UgPSBGQUxTRSkifQ==
+
+\textbf{b) Modifying aesthetics}
+
+This can be achieved by specifying further variables inside \textbf{aes()} or specifying aesthetics outside \textbf{aes()}. The main aesthetics (things we can see) are: \textbf{x, y, colour, fill, shape, size,} and any of these could appear inside or outside the \textbf{aes()} function.
+
+Variables (so columns of your dataset) have to be defined inside \textbf{aes()}. Whereas to apply a modification on everything, we can set an aesthetic to a constant value outside of aes().
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGdkcFBlcmNhcCwgeSA9IGxpZmVFeHAsIGNvbG91ciA9IGNvbnRpbmVudCkpICtcbmdlb21fcG9pbnQoc2hhcGUgPSAxKSJ9
+
+\textbf{c) Utilizing facets for multi-panel plots}
+Faceting is a way to efficiently create the same plot for subgroups within the dataset. For example, we can separate each continent into its own facet by adding facet\_wrap(\textasciitilde continent) to our plot:
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGdkcFBlcmNhcCwgeSA9IGxpZmVFeHAsIGNvbG91ciA9IGNvbnRpbmVudCkpICtcbmdlb21fcG9pbnQoc2hhcGUgPSAxKSArXG5mYWNldF93cmFwKH5jb250aW5lbnQpIn0=
+
+\subsection{Customizing Plots in ggplot2}\label{customizing-plots-in-ggplot2}
+
+\subsubsection{Advanced customization techniques including themes, scales, and coordinate systems.}\label{advanced-customization-techniques-including-themes-scales-and-coordinate-systems.}
+
+\textbf{a) Themes}
+
+Changing themes involves changing the default background from grey to a white background. Some of the built-in ggplot themes are \textbf{theme\_bw()},
+\textbf{theme\_dark()}, \textbf{theme\_minimal()} and \textbf{theme\_classic()}. We are adding \textbf{theme\_bw()} (``background white'') to give the plot a different look. We have also divided the gdpPercap by 1000 (making the units ``thousands of dollars per capita''). Note that you can apply calculations
+directly on ggplot variables (so how we've done x = gdpPercap/1000 here). This is how ggplot() works - you can build a plot by adding or modifying things one by one.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGdkcFBlcmNhcC8xMDAwLCB5ID0gbGlmZUV4cCwgY29sb3VyID0gY29udGluZW50KSkgK1xuZ2VvbV9wb2ludChzaGFwZSA9IDEpICtcbmZhY2V0X3dyYXAofmNvbnRpbmVudCkgK1xudGhlbWVfYncoKSJ9
+
+\textbf{b) Scales}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBtaW5kZXIgJT4lXG5nZ3Bsb3QoYWVzKHggPSB5ZWFyLCB5ID0gbGlmZUV4cCwgZ3JvdXAgPSBjb3VudHJ5LCBjb2xvdXIgPSBjb250aW5lbnQpKSArXG5nZW9tX2xpbmUoKSArXG5mYWNldF93cmFwKH5jb250aW5lbnQpICtcbnRoZW1lX2J3KCkgK1xuc2NhbGVfY29sb3VyX2JyZXdlcihwYWxldHRlID0gXCJQYWlyZWRcIikifQ==
+
+\textbf{c) Coordinate systems}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZsaXBwZWQgY29vcmRpbmF0ZSBzeXN0ZW1cbmdhcGRhdGEyMDA3ICU+JVxuZ2dwbG90KGFlcyh4ID0gZ2RwUGVyY2FwLCB5ID0gbGlmZUV4cCwgY29sb3VyID0gY29udGluZW50KSkgK1xuZ2VvbV9wb2ludChzaGFwZSA9IDEpK1xuICBjb29yZF9mbGlwKCkgK1xuICBsYWJzKHRpdGxlID0gXCJTY2F0dGVyIFBsb3Qgd2l0aCBGbGlwcGVkIENvb3JkaW5hdGUgU3lzdGVtXCIsXG4gICAgICAgeCA9IFwiR0RQIFBlciBDYXBpdGFcIiwgeSA9IFwiTGlmZSBFeHBlY3RhbmN5XCIpICtcbiAgdGhlbWVfYncoKSJ9
+
+\subsubsection{Techniques for fine-tuning ggplot2 outputs to create publication-quality graphics}\label{techniques-for-fine-tuning-ggplot2-outputs-to-create-publication-quality-graphics}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFB1YmxpY2F0aW9uLXF1YWxpdHkgc2NhdHRlciBwbG90XG5nZ3Bsb3QoZGF0YSA9IGlyaXMsIGFlcyh4ID0gU2VwYWwuTGVuZ3RoLCB5ID0gU2VwYWwuV2lkdGgsIGNvbG9yID0gU3BlY2llcykpICsgXG4gIGdlb21fcG9pbnQoYWxwaGEgPSAwLjcsIHNpemUgPSAzKSArXG4gIGxhYnModGl0bGUgPSBcIlB1YmxpY2F0aW9uLVF1YWxpdHkgU2NhdHRlciBQbG90XCIsXG4gICAgICAgeCA9IFwiU2VwYWwgTGVuZ3RoXCIsIHkgPSBcIlNlcGFsIFdpZHRoXCIpICtcbiAgdGhlbWVfYncoKSArXG4gIHRoZW1lKFxuICAgIHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDE0LCBmYWNlID0gXCJib2xkXCIsIGhqdXN0ID0gMC41KSxcbiAgICBheGlzLnRpdGxlID0gZWxlbWVudF90ZXh0KHNpemUgPSAxMiksXG4gICAgYXhpcy50ZXh0ID0gZWxlbWVudF90ZXh0KHNpemUgPSAxMCksXG4gICAgbGVnZW5kLnRpdGxlID0gZWxlbWVudF90ZXh0KHNpemUgPSAxMiksXG4gICAgbGVnZW5kLnRleHQgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEwKVxuICApICtcbiAgc2NhbGVfY29sb3JfbWFudWFsKHZhbHVlcyA9IGMoXCJzZXRvc2FcIiA9IFwiYmx1ZVwiLCBcInZlcnNpY29sb3JcIiA9IFwiZ3JlZW5cIiwgXCJ2aXJnaW5pY2FcIiA9IFwicmVkXCIpKSJ9
+
+\subsection{Practical Examples: Exercise}\label{practical-examples-exercise-1}
+
+\section{ADVANCED DATA VISUALIZATION WITH ggplot2 AND OTHER PACKAGES}\label{advanced-data-visualization-with-ggplot2-and-other-packages}
+
+\subsection{Interactive Graphs with plotly}\label{interactive-graphs-with-plotly}
+
+\subsubsection{Converting ggplot2 charts into interactive plotly graphs}\label{converting-ggplot2-charts-into-interactive-plotly-graphs}
+
+Before converting the ggplot2 chart to interactive plotly graph, you assign the plot to a vector, say, p.~Then load the \textbf{plotly} package and convert the ggplot chart to interactive plotly graph using the \textbf{ggpotly()} function, for example, \textbf{ggplotly(p)}.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHBsb3RseSlcbnA8LWdncGxvdChkYXRhID0gaXJpcywgYWVzKHggPSBTZXBhbC5MZW5ndGgsIHkgPSBTZXBhbC5XaWR0aCwgY29sb3IgPSBTcGVjaWVzKSkgKyBcbiAgZ2VvbV9wb2ludChhbHBoYSA9IDAuNywgc2l6ZSA9IDMpICtcbiAgbGFicyh0aXRsZSA9IFwiUHVibGljYXRpb24tUXVhbGl0eSBTY2F0dGVyIFBsb3RcIixcbiAgICAgICB4ID0gXCJTZXBhbCBMZW5ndGhcIiwgeSA9IFwiU2VwYWwgV2lkdGhcIikgK1xuICB0aGVtZV9idygpICtcbiAgdGhlbWUoXG4gICAgcGxvdC50aXRsZSA9IGVsZW1lbnRfdGV4dChzaXplID0gMTQsIGZhY2UgPSBcImJvbGRcIiwgaGp1c3QgPSAwLjUpLFxuICAgIGF4aXMudGl0bGUgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEyKSxcbiAgICBheGlzLnRleHQgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEwKSxcbiAgICBsZWdlbmQudGl0bGUgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEyKSxcbiAgICBsZWdlbmQudGV4dCA9IGVsZW1lbnRfdGV4dChzaXplID0gMTApXG4gICkgK1xuICBzY2FsZV9jb2xvcl9tYW51YWwodmFsdWVzID0gYyhcInNldG9zYVwiID0gXCJibHVlXCIsIFwidmVyc2ljb2xvclwiID0gXCJncmVlblwiLCBcInZpcmdpbmljYVwiID0gXCJyZWRcIikpXG5cbiMgQ29udmVydCBnZ3Bsb3QyIHRvIHBsb3RseVxuI2dncGxvdGx5KHApIn0=
+
+\subsubsection{Customizing interactions, adding tooltips, and embedding plotly graphs in web applications.}\label{customizing-interactions-adding-tooltips-and-embedding-plotly-graphs-in-web-applications.}
+
+\textbf{Customizing Interactions and Adding Tooltips}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENvbnZlcnQgZ2dwbG90MiBzY2F0dGVyIHBsb3QgdG8gcGxvdGx5IHdpdGggY3VzdG9tIHRvb2x0aXBcbnAgPC0gZ2dwbG90KGRhdGEgPSBpcmlzLCBhZXMoeCA9IFNlcGFsLkxlbmd0aCwgeSA9IFNlcGFsLldpZHRoLCBjb2xvciA9IFNwZWNpZXMsIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXh0ID0gcGFzdGUoXCJTcGVjaWVzOiBcIiwgU3BlY2llcykpKSArIFxuICBnZW9tX3BvaW50KCkgK1xuICBsYWJzKHRpdGxlID0gXCJJbnRlcmFjdGl2ZSBTY2F0dGVyIFBsb3Qgb2YgU2VwYWwgTGVuZ3RoIHZzIFNlcGFsIFdpZHRoXCIsXG4gICAgICAgeCA9IFwiU2VwYWwgTGVuZ3RoXCIsIHkgPSBcIlNlcGFsIFdpZHRoXCIpICtcbiAgdGhlbWVfYncoKVxuXG4jIENvbnZlcnQgZ2dwbG90MiB0byBwbG90bHkgd2l0aCBjdXN0b20gdG9vbHRpcFxuI2dncGxvdGx5KHAsIHRvb2x0aXAgPSBcInRleHRcIikifQ==
+
+\textbf{Embedding plotly Graphs in Web Applications (Shiny)}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEluc3RhbGwgYW5kIGxvYWQgU2hpbnkgcGFja2FnZVxuI2luc3RhbGwucGFja2FnZXMoXCJzaGlueVwiKVxubGlicmFyeShzaGlueSlcblxuIyBEZWZpbmUgVUlcbnVpIDwtIGZsdWlkUGFnZShcbiAgdGl0bGVQYW5lbChcIkludGVyYWN0aXZlIFNjYXR0ZXIgUGxvdFwiKSxcbiAgcGxvdGx5T3V0cHV0KFwic2NhdHRlcl9wbG90XCIpXG4pXG5cbiMgRGVmaW5lIHNlcnZlciBsb2dpY1xuc2VydmVyIDwtIGZ1bmN0aW9uKGlucHV0LCBvdXRwdXQpIHtcbiAgb3V0cHV0JHNjYXR0ZXJfcGxvdCA8LSByZW5kZXJQbG90bHkoe1xuICAgIGdncGxvdChkYXRhID0gaXJpcywgYWVzKHggPSBTZXBhbC5MZW5ndGgsIHkgPSBTZXBhbC5XaWR0aCwgY29sb3IgPSBTcGVjaWVzLCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXh0ID0gcGFzdGUoXCJTcGVjaWVzOiBcIiwgU3BlY2llcykpKSArIFxuICAgICAgZ2VvbV9wb2ludCgpICtcbiAgICAgIGxhYnModGl0bGUgPSBcIkludGVyYWN0aXZlIFNjYXR0ZXIgUGxvdCBvZiBTZXBhbCBMZW5ndGggdnMgU2VwYWwgV2lkdGhcIixcbiAgICAgICAgICAgeCA9IFwiU2VwYWwgTGVuZ3RoXCIsIHkgPSBcIlNlcGFsIFdpZHRoXCIpICtcbiAgICAgIHRoZW1lX21pbmltYWwoKSAlPiVcbiAgICAgIGdncGxvdGx5KHRvb2x0aXAgPSBcInRleHRcIilcbiAgfSlcbn1cblxuIyBSdW4gdGhlIGFwcGxpY2F0aW9uXG5zaGlueUFwcCh1aSA9IHVpLCBzZXJ2ZXIgPSBzZXJ2ZXIpIn0=
+
+\subsection{Building Web Applications with shiny}\label{building-web-applications-with-shiny}
+
+\subsubsection{Introduction to shiny for building interactive web applications}\label{introduction-to-shiny-for-building-interactive-web-applications}
+
+Shiny allows you to turn your analyses into interactive web applications without needing to know HTML, CSS, or JavaScript. It works by allowing you to separate the user interface from the underlying R code, making it easy to create complex interactive apps.
+
+\subsubsection{Creating reactive plots and dashboards that update with user input.}\label{creating-reactive-plots-and-dashboards-that-update-with-user-input.}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgbmVjZXNzYXJ5IHBhY2thZ2VzXG4jbGlicmFyeShzaGlueSlcbiNsaWJyYXJ5KGdncGxvdDIpXG5cbiMgRGVmaW5lIFVJXG51aSA8LSBmbHVpZFBhZ2UoXG4gIHRpdGxlUGFuZWwoXCJJbnRlcmFjdGl2ZSBTY2F0dGVyIFBsb3RcIiksXG4gIHNpZGViYXJMYXlvdXQoXG4gICAgc2lkZWJhclBhbmVsKFxuICAgICAgc2xpZGVySW5wdXQoXCJzbGlkZXJcIiwgXCJOdW1iZXIgb2YgcG9pbnRzIHRvIHNob3c6XCIsIFxuICAgICAgICAgICAgICAgICAgbWluID0gMTAsIG1heCA9IG5yb3coaXJpcyksIHZhbHVlID0gNTApXG4gICAgKSxcbiAgICBtYWluUGFuZWwoXG4gICAgICBwbG90T3V0cHV0KFwic2NhdHRlcl9wbG90XCIpXG4gICAgKVxuICApXG4pXG5cbiMgRGVmaW5lIHNlcnZlciBsb2dpY1xuc2VydmVyIDwtIGZ1bmN0aW9uKGlucHV0LCBvdXRwdXQpIHtcbiAgb3V0cHV0JHNjYXR0ZXJfcGxvdCA8LSByZW5kZXJQbG90KHtcbiAgICBzYW1wbGVfcm93cyA8LSBzYW1wbGUobnJvdyhpcmlzKSwgaW5wdXQkc2xpZGVyKVxuICAgIGdncGxvdChkYXRhID0gaXJpc1tzYW1wbGVfcm93cywgXSwgYWVzKHggPSBTZXBhbC5MZW5ndGgsIHkgPSBTZXBhbC5XaWR0aCwgY29sb3IgPSBTcGVjaWVzKSkgKyBcbiAgICAgIGdlb21fcG9pbnQoKSArXG4gICAgICBsYWJzKHRpdGxlID0gXCJJbnRlcmFjdGl2ZSBTY2F0dGVyIFBsb3Qgb2YgU2VwYWwgTGVuZ3RoIHZzIFNlcGFsIFdpZHRoXCIsXG4gICAgICAgICAgIHggPSBcIlNlcGFsIExlbmd0aFwiLCB5ID0gXCJTZXBhbCBXaWR0aFwiKSArXG4gICAgICB0aGVtZV9taW5pbWFsKClcbiAgfSlcbn1cblxuIyBSdW4gdGhlIGFwcGxpY2F0aW9uXG5zaGlueUFwcCh1aSA9IHVpLCBzZXJ2ZXIgPSBzZXJ2ZXIpIn0=
+
+\subsection{Advanced ggplot2 Extensions}\label{advanced-ggplot2-extensions}
+
+\subsubsection{Explore extensions like gganimate for creating animated plots.}\label{explore-extensions-like-gganimate-for-creating-animated-plots.}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KGdnYW5pbWF0ZSlcblxuI05vdGU6IFRoaXMgcGxvdCB3aWxsIGJlIGRpc3BsYXllZCBhZnRlciB5b3UgaW5zdGFsbCB0aGUgZ2lmc2tpIHBhY2thZ2VcblxuIyBBbmltYXRlZCBzY2F0dGVyIHBsb3RcbmdncGxvdChpcmlzLCBhZXMoeCA9IFNlcGFsLkxlbmd0aCwgeSA9IFNlcGFsLldpZHRoLCBjb2xvciA9IFNwZWNpZXMpKSArIFxuICBnZW9tX3BvaW50KCkgK1xuICB0cmFuc2l0aW9uX3N0YXRlcyhTcGVjaWVzLCB0cmFuc2l0aW9uX2xlbmd0aCA9IDIsIHN0YXRlX2xlbmd0aCA9IDEpICtcbiAgbGFicyh0aXRsZSA9IFwiQW5pbWF0ZWQgU2NhdHRlciBQbG90IG9mIFNlcGFsIExlbmd0aCB2cyBTZXBhbCBXaWR0aFwiLFxuICAgICAgIHggPSBcIlNlcGFsIExlbmd0aFwiLCB5ID0gXCJTZXBhbCBXaWR0aFwiKSArXG4gIHRoZW1lX2J3KCkifQ==
+
+\subsubsection{Using ggridges for ridge line plots and other creative visualization techniques.}\label{using-ggridges-for-ridge-line-plots-and-other-creative-visualization-techniques.}
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KGdncmlkZ2VzKVxuXG4jIFJpZGdlIGxpbmUgcGxvdFxuZ2dwbG90KGlyaXMsIGFlcyh4ID0gU2VwYWwuTGVuZ3RoLCB5ID0gU3BlY2llcywgZmlsbCA9IFNwZWNpZXMpKSArIFxuICBnZW9tX2RlbnNpdHlfcmlkZ2VzKCkgK1xuICBsYWJzKHRpdGxlID0gXCJSaWRnZSBMaW5lIFBsb3Qgb2YgU2VwYWwgTGVuZ3RoIGJ5IFNwZWNpZXNcIixcbiAgICAgICB4ID0gXCJTZXBhbCBMZW5ndGhcIiwgeSA9IFwiU3BlY2llc1wiKSArXG4gIHRoZW1lX2J3KCkifQ==
+
+\subsection{Practical Examples: Exercises}\label{practical-examples-exercises-4}
+
+\section{REAL-WORLD APPLICATIONS AND CASE STUDIES (CODE CHALLENGES)}\label{real-world-applications-and-case-studies-code-challenges}
+
+\end{document}

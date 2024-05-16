@@ -1,6 +1,12 @@
 
-# DATA STRUCTURES RELEVANT TO VISUALIZATION
 
+```{r , include=FALSE}
+#tutorial::go_interactive(greedy = TRUE)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
+
+
+# DATA STRUCTURES RELEVANT TO VISUALIZATION
 
 ## Introduction
 

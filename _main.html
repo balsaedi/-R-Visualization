@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Basim Alsaedi" />
+
+<meta name="date" content="2024-05-16" />
+
+<title>R Base Data Visualization</title>
+
+<script src="_main_files/header-attrs-2.26/header-attrs.js"></script>
+<script src="_main_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="_main_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="_main_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="_main_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="_main_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="_main_files/navigation-1.1/tabsets.js"></script>
+<link href="_main_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="_main_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">R Base Data Visualization</h1>
+<h4 class="author">Basim Alsaedi</h4>
+<h4 class="date">2024-05-16</h4>
+
+</div>
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<div id="introduction-to-r-and-data-visualization"
+class="section level1">
+<h1>INTRODUCTION TO R AND DATA VISUALIZATION</h1>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<div id="overview-of-r" class="section level3">
+<h3>Overview of R</h3>
+<p>R is a powerful programming language and environment widely used for
+statistical computing and graphics. It provides a wide variety of
+statistical and graphical techniques, and it is highly extensible. R is
+freely available and runs on all major platforms, making it an excellent
+choice for data analysis and visualization.</p>
+<p>With its extensive libraries, R enables users to manipulate data,
+conduct statistical analyses, and create visualizations to explore and
+communicate insights effectively. Whether you’re a beginner or an
+experienced data scientist, R provides a flexible and comprehensive
+environment for all your data analysis needs.</p>
+</div>
+</div>
+<div id="why-use-r-for-data-visualization" class="section level2">
+<h2>Why Use R for Data Visualization?</h2>
+<div id="advantages-of-r-over-other-programming-languages-and-tools"
+class="section level3">
+<h3>Advantages of R over other programming languages and tools</h3>
+<ul>
+<li>R has thousands of packages, designed, maintained, and widely used
+by statisticians.</li>
+<li>The R graphs have much more fun compared to other tools such as
+STATA.</li>
+<li>R has a rather liberal syntax, and variables don’t need to be
+declared as they would in (for example) C++, which makes it very easy to
+code in.</li>
+<li>R is designed to make it very easy to write functions which are
+applied point wise to every element of a vector. This is extremely
+useful in statistics.</li>
+<li>R is powerful: if a command doesn’t exist already, you can code it
+yourself.</li>
+</ul>
+</div>
+<div id="rs-extensive-package-ecosystem" class="section level3">
+<h3>R’s extensive package ecosystem</h3>
+<p>A package is a collection (or library) of functions, datasets, and
+other objects. Most packages are not loaded automatically, so you have
+to do it yourself. <strong>R’s</strong> extensive package ecosystem
+provides a vast array of tools for data analysis and visualization.
+These packages are contributed by a vibrant community of developers and
+cover almost every aspect of data science. Some of the most popular
+visualization packages include:</p>
+<ol style="list-style-type: lower-roman">
+<li><strong>ggplot2:</strong> The package provides an intuitive syntax
+for creating complex and beautiful visualizations.</li>
+<li><strong>plotly:</strong> This package allows one to create
+interactive web-based visualizations directly from R.</li>
+<li><strong>ggvis:</strong> It allows the creation of web-based
+visualizations with reactive features using the grammar of graphics
+syntax.</li>
+<li><strong>lattice:</strong> It is particularly useful for creating
+trellis plots, which allow you to visualize relationships in
+multivariate data.</li>
+<li><strong>gganimate:</strong> The package allows you to easily add
+animations to your visualizations, making it ideal for exploring changes
+in data over time.</li>
+</ol>
+<p>In this course, we will focus on the base R graphics system, which
+provides a solid foundation for understanding how plots are constructed
+in R. Once you have a good grasp of the basics, you can easily
+transition to more specialized packages like ggplot2 and plotly to
+create even more sophisticated visualizations.</p>
+</div>
+</div>
+<div id="installing-and-configuring-r-and-rstudio"
+class="section level2">
+<h2>Installing and Configuring R and RStudio</h2>
+<p>Before installing <strong>RStudio</strong> in your computer, first
+start with <strong>R</strong>. <strong>RStudio</strong> is a front end
+program that lets you write <strong>R</strong> code, view plots, and do
+many other useful things. The detailed steps below show how to install R
+and RStudio in your computer system on both Windows, Mac and Linux
+operating systems.</p>
+<div id="step-by-step-guide-on-installing-r" class="section level3">
+<h3>Step-by-step guide on installing R</h3>
+<ol style="list-style-type: decimal">
+<li>Download the R installer from <a href="https://cran.r-project.org/"
+class="uri">https://cran.r-project.org/</a>.</li>
+</ol>
+<p>a). Click on the link for your operating system. Make sure the
+installer is for the latest R version. For example, the latest version
+is 4.3.3.</p>
+<p>b). Click install R for the first time.</p>
+<p>c). Use the download link at the top and save the file.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Run the installer (double click), default settings are fine.</li>
+</ol>
+</div>
+<div id="step-by-step-guide-on-installing-rstudio-and-set-up"
+class="section level3">
+<h3>Step-by-step guide on installing RStudio and Set Up</h3>
+<ol style="list-style-type: decimal">
+<li>Wait until the R installer has finished. 2.Download RStudio
+installer from the official website <a
+href="https://posit.co/download/rstudio-desktop/"
+class="uri">https://posit.co/download/rstudio-desktop/</a>.</li>
+<li>After the download is complete, double-click on the installer and
+follow the installation steps to install it in your computer.</li>
+</ol>
+<p>After successful installation, you can launch RStudio by
+double-clicking the RStudio icon on your desktop or from the Start menu.
+You can install the packages using the install.packages() function.
+However, for the base R visualization, you don’t need to install any
+package which will support in plotting of graphs except where we you
+will be required to use data that comes with R packages. The last set up
+may be setting your working directory to the folder where your R scripts
+and data files are located. This makes it easier to access your files
+but it is optional.</p>
+</div>
+</div>
+<div id="basic-r-concepts." class="section level2">
+<h2>Basic R Concepts.</h2>
+<div id="introduction-to-r-syntax-and-basic-commands"
+class="section level3">
+<h3>Introduction to R syntax and basic commands</h3>
+<p>R is designed for statistical computing and graphics. In this
+section, we will cover some basic syntax and commands to help you get
+started with R.</p>
+<p><strong>1. R as a Calculator:</strong></p>
+<p>You can use R as a simple calculator. Here are some basic arithmetic
+operations:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEFkZGl0aW9uXG4yICsgM1xuIyBTdWJ0cmFjdGlvblxuNSAtIDJcbiMgTXVsdGlwbGljYXRpb25cbjIgKiAzXG4jIERpdmlzaW9uXG42IC8gMlxuIyBFeHBvbmVudGlhdGlvblxuMl4zIn0=
+</div>
+<p><strong>2. Assigning Values to Variables:</strong></p>
+<p>You can store values in variables using the assignment operator
+<em>&lt;-</em> or <em>=</em>.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEFzc2lnbmluZyBhIHZhbHVlIHRvIGEgdmFyaWFibGVcbnggPC0gNVxueSA8LSAzXG4jIFlvdSBjYW4gYWxzbyB1c2UgPVxueiA9IHggKyB5In0=
+</div>
+<p><strong>3. Basic Data Types:</strong></p>
+<p>R supports several basic data types, including numeric, character,
+logical, and complex.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIE51bWVyaWNcbm51bSA8LSAxMFxuIyBDaGFyYWN0ZXJcbmNoYXIgPC0gXCJIZWxsbywgQmFzaW0hXCJcbiMgTG9naWNhbFxubG9naWMgPC0gVFJVRVxuIyBDb21wbGV4XG5jb21wIDwtIDMgKyAyaSJ9
+</div>
+<p><strong>4. Vectors:</strong></p>
+<p>A vector is a sequence of data elements of the same basic type. You
+can create a vector using the <strong>c()</strong> function.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgbnVtZXJpYyB2ZWN0b3Jcbm51bXMgPC0gYygxLCAyLCAzLCA0LCA1KVxuIyBDcmVhdGluZyBhIGNoYXJhY3RlciB2ZWN0b3JcbmNoYXJzIDwtIGMoXCJhcHBsZVwiLCBcImJhbmFuYVwiLCBcIm9yYW5nZVwiKSJ9
+</div>
+<p><strong>5. Indexing and Slicing:</strong></p>
+<p>You can access elements of a vector using square brackets
+<strong>[]</strong>.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEFjY2Vzc2luZyBlbGVtZW50cyBvZiBhIHZlY3RvclxubnVtcyA8LSBjKDEsIDIsIDMsIDQsIDUpXG5udW1zWzFdICAgIyBBY2Nlc3MgdGhlIGZpcnN0IGVsZW1lbnQgb2YgbnVtc1xubnVtc1syOjRdICMgQWNjZXNzIHRoZSBzZWNvbmQgdG8gZm91cnRoIGVsZW1lbnRzIG9mIG51bXNcbm51bXNbMSw0LDZdICMgQWNjZXNzIHRoZSBmaXJzdCwgZm91cnRoIGFuZCBzaXh0aCBlbGVtZW50cyBvZiBudW1zXG5udW1zIn0=
+</div>
+<p><strong>6. Functions:</strong></p>
+<p>R has a large number of built-in functions, and you can also create
+your own functions for some tasks that can not be achieved by built-in
+functions.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEJ1aWx0LWluIGZ1bmN0aW9uXG5zcXJ0KDE2KSAgICMgU3F1YXJlIHJvb3QgZnVuY3Rpb25cbm51bXMgPC0gYygxLCAyLCAzLCA0LCA1KVxubWVhbihudW1zKSAjIHRoZSBtZWFuIG9mIG51bXMgZWxlbWVudHNcbnZhcihudW1zKSAjIHRoZSB2YXJpYW5jZVxuc2QobnVtcykgIyBzdGFuZGFyZCBkZXZpYXRpb25cbiMgVXNlci1kZWZpbmVkIGZ1bmN0aW9uXG5hZGQgPC0gZnVuY3Rpb24oYSwgYikge1xuICByZXR1cm4oYSArIGIpXG59XG5hZGQoMywgNSkifQ==
+</div>
+</div>
+<div
+id="overview-of-rs-data-types-and-structures-essential-for-visualization"
+class="section level3">
+<h3>Overview of R’s data types and structures essential for
+visualization</h3>
+<p>R provides several data types and structures that are essential for
+data visualization. Understanding these data types and structures is
+crucial for effectively analyzing and visualizing data.</p>
+<p><strong>1. Numeric:</strong></p>
+<p>Numeric data type is used to represent continuous numerical
+values.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJudW0gPC0gNS42OyBudW0ifQ==
+</div>
+<p><strong>2. Integer:</strong></p>
+<p>Integer data type is used to represent integer values.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJpbnQgPC0gMTBMIn0=
+</div>
+<p><strong>3. Character:</strong></p>
+<p>Character data type is used to represent text data.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJjaGFyIDwtIFwiSGksIEpvaG4hXCIifQ==
+</div>
+<p><strong>4. Logical:</strong></p>
+<p>Logical data type is used to represent Boolean values (
+<strong>TRUE</strong> or <strong>FALSE</strong>).</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsb2dpYyA8LSBUUlVFIn0=
+</div>
+<p><strong>5. Vector:</strong></p>
+<p>A vector is a sequence of data elements of the same basic type. It is
+created using the concatenate <strong>c()</strong> command.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJudW1zIDwtIGMoMSwgMiwgMywgNCwgNSkgIyBBIHZlY3RvciBvZiBudW1lcmljIGRhdGEgdHlwZVxuY2hhcnMgPC0gYyhcImFwcGxlXCIsIFwiYmFuYW5hXCIsIFwib3JhbmdlXCIpICAjIEEgdmVjdG9yIG9mIGNoYXJhY3RlciBkYXRhIHR5cGUifQ==
+</div>
+<p><strong>6. Matrix:</strong></p>
+<p>A matrix is a two-dimensional array with rows and columns in that
+order respectively, that is (<span class="math inline">\(R \times
+C\)</span> ). It is created using the <strong>matrix()</strong>
+command.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtYXQgPC0gbWF0cml4KDE6MTIsIG5yb3cgPSAzLCBuY29sID0gNCkgIyBBIG1hdHJpeCB3aXRoIHRocmVlIHJvd3MgYW5kIDIgY29sdW1ucyAifQ==
+</div>
+<p><strong>7. Data Frame:</strong></p>
+<p>A data frame is a two-dimensional data structure with rows and
+columns, similar to a spreadsheet. It can contain several data types. It
+is created using the command <strong>data.frame()</strong> command.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkZiA8LSBkYXRhLmZyYW1lKFxuICBOYW1lID0gYyhcIkpvaG5cIiwgXCJBbGljZVwiLCBcIkJvYlwiKSxcbiAgQWdlID0gYygyNSwgMzAsIDM1KSxcbiAgSGVpZ2h0ID0gYygxNzUsIDE2MCwgMTgwKVxuKSJ9
+</div>
+<p><strong>8. List:</strong></p>
+<p>A list is an ordered collection of objects (which may be of different
+types: numeric, character, etc.). It is created using the
+<strong>list()</strong> command.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsc3QgPC0gbGlzdChcbiAgTmFtZSA9IGMoXCJKb2huXCIsIFwiQWxpY2VcIiwgXCJCb2JcIiksXG4gIEFnZSA9IGMoMjUsIDMwLCAzNSksXG4gIEhlaWdodCA9IGMoMTc1LCAxNjAsIDE4MClcbikifQ==
+</div>
+<p><strong>9. Factors:</strong></p>
+<p>Factors are used to represent categorical data. It is created using
+the <strong>factor()</strong> command.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnZW5kZXIgPC0gZmFjdG9yKGMoXCJNYWxlXCIsIFwiRmVtYWxlXCIsIFwiTWFsZVwiLCBcIkZlbWFsZVwiKSlcbmxvYW5fZGVmYXVsdDwtZmFjdG9yKGMoJ1llcycsICdObycpKSJ9
+</div>
+</div>
+</div>
+<div id="practical-examples-exercises" class="section level2">
+<h2>Practical Examples: Exercises</h2>
+<p><strong>Exercise 1: Basic arithmetic</strong></p>
+<p>Create a variable called <span class="math inline">\(x\)</span> and
+give it the value 15.Take the exponent of the variable and add 5 to the
+final result. Print the final result of <span
+class="math inline">\(x\)</span>.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSJ9
+</div>
+<p><strong>Exercise 2: Vectors:</strong></p>
+<p>The weights of five people before and after a diet programme are
+given in the table below. Read the ‘before’ and ‘after’ values into two
+different vectors called <strong>before</strong> and
+<strong>after</strong>. Use <strong>R</strong> to evaluate the amount of
+weight lost for each participant. What is the average amount of weight
+lost?</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIgIGRmPWRhdGEuZnJhbWUoXG4gICAgWDEgPSBjKDc4LCA2NyksXG4gICAgWDIgPSBjKDcyLCA2NSksXG4gICAgWDMgPSBjKDc4LCA3OSksXG4gICAgWDQgPSBjKDc5LCA3MCksXG4gICAgWDUgPSBjKDEwNSwgOTMpXG4gIClcbnJvdy5uYW1lcyhkZik8LWMoXCJCZWZvcmVcIiwgXCJBZnRlclwiKVxuY29sbmFtZXMoZGYpPC1OVUxMXG5rbml0cjo6a2FibGUoZGYsIGFsaWduID0gXCJjXCIsYm9va3RhYnMgPSBGQUxTRSkifQ==
+</div>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+</div>
+<p><strong>Exercise 3: Matrices</strong></p>
+<p>Create two matrices called <strong>A</strong> and <strong>X</strong>
+defined below. <span class="math display">\[
+A=
+\begin{pmatrix}
+1 &amp; 4 &amp; 7 \\
+2 &amp; 5 &amp; 8 \\
+3 &amp; 6 &amp; 10 \\
+\end{pmatrix}
+\]</span></p>
+<p><span class="math display">\[
+X=
+\begin{pmatrix}
+1&amp;2&amp;3\\
+\end{pmatrix}
+\]</span></p>
+<p>Find:</p>
+<ol style="list-style-type: lower-roman">
+<li><p>the product of <strong>A</strong> and
+<strong>X</strong>.</p></li>
+<li><p>the transpose of <strong>A</strong>.</p></li>
+<li><p>the determinant of <strong>A</strong>.</p></li>
+<li><p>the diagonal of <strong>A</strong>.</p></li>
+<li><p>the inverse of <strong>A</strong>.</p></li>
+</ol>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+</div>
+<p><strong>Exercise 4: Creating Data Frames</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create a small data frame representing a database of films. It
+should contain the fields <strong>title</strong>,
+<strong>director</strong>, <strong>year</strong>,
+<strong>country</strong>, and at least three films.</p></li>
+<li><p>Create a second data frame of the same format as above, but
+containing just one new film.</p></li>
+<li><p>Merge the two data frames using rbind().</p></li>
+<li><p>Try sorting the titles using sort(): what happens?</p></li>
+</ol>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+</div>
+<p><strong>Exercise 5: Factors and Simple plot</strong></p>
+<p>Suppose we have the heights of 100 individuals, where the first are
+50 male and the rest female. Generate 100 fixed random numbers from a
+normal distribution where the mean height of male is 170 while that of
+female is 160 with an equal standard deviation of 10 and call that
+vector as ‘height’. Create another vector called ‘sex’ with two entries
+‘M’ and ‘F’ each replicated 50 times. Tell R to treat ‘sex’ as a
+categorical variable and name it as ‘Sex’. Plot <strong>Sex</strong>
+against <strong>height</strong> using <strong>plot()</strong> function.
+Which type of plot have you obtained? What happens if you try to plot
+<strong>sex</strong> against <strong>height</strong> instead?</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+</div>
+<!--chapter:end:index.Rmd-->
+</div>
+</div>
+<div id="r-base-graphics---starting-with-the-basics"
+class="section level1">
+<h1>R BASE GRAPHICS - STARTING WITH THE BASICS</h1>
+<div id="exploring-base-graphics-in-r" class="section level2">
+<h2>Exploring Base Graphics in R</h2>
+<div
+id="overview-of-the-philosophy-behind-rs-base-graphics-system-including-its-stateful-nature"
+class="section level3">
+<h3>Overview of the philosophy behind R’s base graphics system,
+including its stateful nature</h3>
+<div id="stateful-nature" class="section level4">
+<h4>Stateful Nature</h4>
+<p>R’s base graphics system is stateful, meaning that plots are built up
+incrementally. You start with an empty plot and add elements to it one
+by one. This is in contrast to systems like ggplot2, which use a
+declarative approach where you specify the plot all at once. Stateful
+nature means that every new plotting command modifies the existing plot
+or creates a new one if none exists. This allows for a high degree of
+flexibility but can sometimes lead to complex and intuitive
+behavior.</p>
+<p>R’s base graphics system provides a set of low-level graphics
+primitives for creating plots. These primitives include functions for
+drawing points, lines, polygons, text, and more. By combining these
+primitives, you can create a wide variety of plots, from simple scatter
+plots to complex multi-panel layouts.</p>
+</div>
+<div id="philosophy" class="section level4">
+<h4>Philosophy</h4>
+<p>The philosophy behind R’s base graphics system is to provide a
+flexible and powerful tool for creating a wide range of plots. The
+emphasis is on simplicity and ease of use, making it easy for users to
+quickly create informative visualizations.</p>
+<p>However, despite that base graphics are powerful, they do have some
+limitations compared to more modern plotting systems like ggplot2. For
+instance, they lack some of the advanced features of ggplot2, such as
+automatic faceting and easy customization of plot themes.</p>
+</div>
+</div>
+<div id="introduction-to-core-plotting-functions-in-r"
+class="section level3">
+<h3>Introduction to Core Plotting Functions in R</h3>
+<p>R provides a variety of core plotting functions that are useful for
+creating basic visualizations. In this section, we will explore some of
+the most commonly used plotting functions. The commonly used core
+plotting functions are <strong>plot()</strong>, <strong>hist()</strong>,
+<strong>boxplot()</strong> and <strong>barplot()</strong>.</p>
+<ul>
+<li>The <strong>plot()</strong> function is used to create scatter
+plots, line plots, and other types of plots. It is a versatile function
+that can be used to visualize relationships between two or more
+variables.</li>
+<li>The <strong>hist()</strong> function is used to create histograms,
+which are used to visualize the distribution of a single numeric
+variable. Note that the optional argument breaks chooses (approximately)
+how many bins the histogram should have, and col alters the colour of
+the bars.</li>
+<li>The <strong>boxplot()</strong> function is used to create box plots,
+which are used to visualize the distribution of a numeric variable,
+optionally broken down by a categorical variable.</li>
+<li>The <strong>barplot()</strong> function is used to create bar plots,
+which are used to visualize the distribution of a categorical
+variable.</li>
+</ul>
+</div>
+</div>
+<div id="creating-basic-plots" class="section level2">
+<h2>Creating Basic Plots</h2>
+<div
+id="detailed-instructions-on-using-plot-for-scatter-plots-and-line-graphs"
+class="section level3">
+<h3>Detailed instructions on using plot() for scatter plots and line
+graphs</h3>
+<p>In order to get the full documentation of the <strong>plot()</strong>
+function, run <strong>?plot</strong> in R. The syntax for the function
+is given below.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIHBsb3QoeCwgeSA9IE5VTEwsIHR5cGUgPSBcInBcIiwgIHhsaW0gPSBOVUxMLCB5bGltID0gTlVMTCxcbiMgICAgIGxvZyA9IFwiXCIsIG1haW4gPSBOVUxMLCBzdWIgPSBOVUxMLCB4bGFiID0gTlVMTCwgeWxhYiA9IE5VTEwsXG4jICAgICBhbm4gPSBwYXIoXCJhbm5cIiksIGF4ZXMgPSBUUlVFLCBmcmFtZS5wbG90ID0gYXhlcyxcbiMgICAgIHBhbmVsLmZpcnN0ID0gTlVMTCwgcGFuZWwubGFzdCA9IE5VTEwsIGFzcCA9IE5BLFxuIyAgICAgeGdhcC5heGlzID0gTkEsIHlnYXAuYXhpcyA9IE5BLFxuIyAgICAgLi4uKSJ9
+</div>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><span class="math inline">\(x, y\)</span>: the <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> arguments provide the
+<strong>x</strong> and <strong>y</strong> coordinates for the plot.</li>
+<li><span class="math inline">\(type\)</span>: 1-character string giving
+the type of plot desired.”p” for points, “l” for lines “b” for both
+points and lines, “c” for empty points joined by lines, “o” for
+overplotted points and lines, “s” and “S” for stair steps and “h” for
+histogram-like vertical lines. Finally, “n” does not produce any points
+or lines.</li>
+<li><span class="math inline">\(xlim,\quad ylim\)</span>: the
+<strong>x</strong> and <strong>y</strong> limits respectively.</li>
+<li><span class="math inline">\(log\)</span>: a character string which
+contains “x” if the x axis is to be logarithmic, “y” if the y axis is to
+be logarithmic and “xy” or “yx” if both axes are to be logarithmic.</li>
+<li><span class="math inline">\(main\)</span> : a main title for the
+plot.</li>
+<li><span class="math inline">\(sub\)</span>: a subtitle for the
+plot.</li>
+<li><span class="math inline">\(xlab,\quad ylab\)</span> : The labels
+for x-axis and y-axis respectively, defaults to a description of x and
+y.</li>
+</ul>
+<p>The commonly used graphical parameters are:</p>
+<ul>
+<li><p><span class="math inline">\(col\)</span> : The colors for lines
+and points. Multiple colors can be specified so that each point can be
+given its own color. If there are fewer colors than points they are
+recycled in the standard fashion. Lines will all be plotted in the first
+colour specified.</p></li>
+<li><p><span class="math inline">\(bg\)</span> : a vector of background
+colors for open plot symbols</p></li>
+<li><p><span class="math inline">\(pch\)</span>: a vector of plotting
+characters or symbols</p></li>
+<li><p><span class="math inline">\(cex\)</span> : a numerical vector
+giving the amount by which plotting characters and symbols should be
+scaled relative to the default.</p></li>
+<li><p><span class="math inline">\(lty\)</span>: a vector of line
+types</p></li>
+<li><p><span class="math inline">\(lwd\)</span>: a vector of line
+widths</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIHNjYXR0ZXIgcGxvdFxueCA8LSBjKDEsIDIsIDMsIDQsIDUpXG55IDwtIGMoMiwgMywgNSwgNywgMTEpXG5wbG90KHgsIHksIHR5cGUgPSBcInBcIiwgY29sID0gXCJibHVlXCIsIHBjaCA9IDE2LCBtYWluID0gXCJTY2F0dGVyIFBsb3RcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5cbiMgQ3JlYXRlIGEgbGluZSBwbG90XG5wbG90KHgsIHksIHR5cGUgPSBcImxcIiwgY29sID0gXCJyZWRcIiwgbHdkID0gMSwgbWFpbiA9IFwiTGluZSBwbG90XCIsIHhsYWIgPSBOVUxMLCB5bGFiID0gTlVMTCkifQ==
+</div>
+</div>
+<div id="using-hist-to-create-histograms-for-data-distribution-analysis"
+class="section level3">
+<h3>Using hist() to create histograms for data distribution
+analysis</h3>
+<p>Histograms are useful for visualizing the frequency distribution of a
+single variable. Similarly, you can get more documentation of the
+<strong>hist()</strong> function by running the command
+<strong>?hist</strong> in R. The generic function <strong>hist</strong>
+computes a histogram of the given data values.The default behavior for a
+histogram is to display frequencies on the vertical axis; probability
+densities can be displayed using the <strong>freq=FALSE</strong> option.
+The default title is given by <strong>paste(“Histogram of” , x)</strong>
+where <strong>x</strong> is the name of the variable being plotted; this
+can be changed with the main option. The common syntax for the function
+is given below</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjaGlzdCh4LCBicmVha3MgPSBcIlN0dXJnZXNcIixcbiMgICAgIGZyZXEgPSBOVUxMLCBwcm9iYWJpbGl0eSA9ICFmcmVxLFxuIyAgICAgaW5jbHVkZS5sb3dlc3QgPSBUUlVFLCByaWdodCA9IFRSVUUsIGZ1enogPSAxZS03LFxuIyAgICAgZGVuc2l0eSA9IE5VTEwsIGFuZ2xlID0gNDUsIGNvbCA9IFwibGlnaHRncmF5XCIsIGJvcmRlciA9IE5VTEwsXG4jICAgICBtYWluID0gcGFzdGUoXCJIaXN0b2dyYW0gb2ZcIiAsIHhuYW1lKSxcbiMgICAgIHhsaW0gPSByYW5nZShicmVha3MpLCB5bGltID0gTlVMTCxcbiMgICAgIHhsYWIgPSB4bmFtZSwgeWxhYixcbiMgICAgIGF4ZXMgPSBUUlVFLCBwbG90ID0gVFJVRSwgbGFiZWxzID0gRkFMU0UsXG4jICAgICBuY2xhc3MgPSBOVUxMLCB3YXJuLnVudXNlZCA9IFRSVUUsIC4uLikifQ==
+</div>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIGhpc3RvZ3JhbVxuc2V0LnNlZWQoMTAwKSAgIyBGaXggdGhlIHJhbmRvbSBudW1iZXJzIGdlbmVyYXRlZFxuZGF0YSA8LSBybm9ybSgxMDApICAjIEdlbmVyYXRlIHNvbWUgcmFuZG9tIGRhdGFcbmhpc3QoZGF0YSwgYnJlYWtzID0gXCJTdHVyZ2VzXCIsIGNvbCA9IFwic2t5Ymx1ZVwiLCBtYWluID0gXCJIaXN0b2dyYW1cIiwgeGxhYiA9IFwiVmFsdWVcIiwgeWxhYiA9IFwiRnJlcXVlbmN5XCIpIn0=
+</div>
+</div>
+<div
+id="implementing-boxplot-and-barplot-to-visualize-data-comparisons-and-distributions"
+class="section level3">
+<h3>Implementing boxplot() and barplot() to visualize data comparisons
+and distributions</h3>
+<p>The <strong>boxplot()</strong> and <strong>barplot()</strong>
+functions in R are commonly used for visualizing data comparisons and
+distributions.</p>
+<p><strong>1. boxplot()</strong></p>
+The common syntax of the function is given below.
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjYm94cGxvdCh4LCBkYXRhID0gTlVMTCwgY29sID0gXCJza3libHVlXCIsIG1haW4gPSBOVUxMLCB4bGFiID0gTlVMTCwgeWxhYiA9ICNOVUxMKSJ9
+</div>
+<strong>Example</strong>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIGJveCBwbG90XG5kYXRhIDwtIGRhdGEuZnJhbWUoXG4gIEdyb3VwID0gcmVwKGMoXCJBXCIsIFwiQlwiLCBcIkNcIiksIGVhY2ggPSA1MCksXG4gIFZhbHVlID0gYyhybm9ybSg1MCksIHJub3JtKDUwLCBtZWFuID0gMiksIHJub3JtKDUwLCBtZWFuID0gMykpXG4pXG5ib3hwbG90KFZhbHVlIH4gR3JvdXAsIGRhdGEgPSBkYXRhLCBjb2wgPSBcInNreWJsdWVcIiwgbWFpbiA9IFwiQm94IFBsb3RcIiwgeGxhYiA9IFwiR3JvdXBcIiwgeWxhYiA9IFwiVmFsdWVcIikifQ==
+</div>
+<p><strong>2.barplot()</strong> The syntax used for
+<strong>barplot()</strong> function is given below.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjYmFycGxvdCh4LCBuYW1lcy5hcmcgPSBOVUxMLCBjb2wgPSBcInNreWJsdWVcIiwgbWFpbiA9IE5VTEwsIHhsYWIgPSBOVUxMLCAjeWxhYiA9IE5VTEwpIn0=
+</div>
+<strong>Example</strong>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIGJhciBwbG90XG5kYXRhIDwtIHRhYmxlKG10Y2FycyRjeWwpXG5iYXJwbG90KGRhdGEsIGNvbCA9IFwic2t5Ymx1ZVwiLCBtYWluID0gXCJCYXIgUGxvdFwiLCB4bGFiID0gXCJOdW1iZXIgb2YgQ3lsaW5kZXJzXCIsIHlsYWIgPSBcIkZyZXF1ZW5jeVwiKSJ9
+</div>
+</div>
+</div>
+<div id="customizing-plots" class="section level2">
+<h2>Customizing Plots</h2>
+<div
+id="basic-customization-options-including-colors-main-titles-axis-labels-and-plot-dimensions"
+class="section level3">
+<h3>Basic customization options including colors, main titles, axis
+labels, and plot dimensions</h3>
+<strong>1. Changing Colors</strong>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIHNjYXR0ZXIgcGxvdCB3aXRoIGN1c3RvbSBjb2xvcnNcbnggPC0gYygxLCAyLCAzLCA0LCA1KVxueSA8LSBjKDIsIDMsIDUsIDcsIDExKVxucGxvdCh4LCB5LCB0eXBlID0gXCJwXCIsIGNvbCA9IFwicmVkXCIsIHBjaCA9IDE2LCBtYWluID0gXCJcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpIn0=
+</div>
+<strong>2. Adding Titles and Axis Labels</strong>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIHNjYXR0ZXIgcGxvdCB3aXRoIHRpdGxlcyBhbmQgYXhpcyBsYWJlbHNcbnggPC0gYygxLCAyLCAzLCA0LCA1KVxueSA8LSBjKDIsIDMsIDUsIDcsIDExKVxucGxvdCh4LCB5LCB0eXBlID0gXCJwXCIsIGNvbCA9IFwicmVkXCIsIHBjaCA9IDE2LCBtYWluID0gXCJTY2F0dGVyIFBsb3RcIiwgeGxhYiA9IFwiWC1heGlzXCIsIHlsYWIgPSBcIlktYXhpc1wiKSJ9
+</div>
+<p><strong>3. Changing Plot Dimensions</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIHNjYXR0ZXIgcGxvdCB3aXRoIGN1c3RvbSBkaW1lbnNpb25zXG54IDwtIGMoMSwgMiwgMywgNCwgNSlcbnkgPC0gYygyLCAzLCA1LCA3LCAxMSlcbnBsb3QoeCwgeSwgdHlwZSA9IFwicFwiLCBjb2wgPSBcInJlZFwiLCBwY2ggPSAxNiwgbWFpbiA9IFwiU2NhdHRlciBQbG90XCIsIHhsYWIgPSBcIlhcIiwgeWxhYiA9IFwiWVwiLCB4bGltID0gYygwLCA2KSwgeWxpbSA9IGMoMCwgMTIpKSJ9
+</div>
+<p><strong>4. Combining Customization Options</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIHNjYXR0ZXIgcGxvdCB3aXRoIGN1c3RvbSBjb2xvcnMsIHRpdGxlcywgYXhpcyBsYWJlbHMsIGFuZCBkaW1lbnNpb25zXG54IDwtIGMoMSwgMiwgMywgNCwgNSlcbnkgPC0gYygyLCAzLCA1LCA3LCAxMSlcbnBsb3QoeCwgeSwgdHlwZSA9IFwicFwiLCBjb2wgPSBcInJlZFwiLCBwY2ggPSAxNiwgbWFpbiA9IFwiU2NhdHRlciBQbG90XCIsIHhsYWIgPSBcIlgtYXhpc1wiLCB5bGFiID0gXCJZLWF4aXNcIiwgeGxpbSA9IGMoMCwgNiksIHlsaW0gPSBjKDAsIDEyKSkifQ==
+</div>
+<p>You can further customize your plots by adjusting parameters such as
+<strong>pch</strong> (for points), <strong>lwd</strong> (for lines),
+<strong>lty</strong> (for line type), <strong>cex</strong> (for point
+size), and more.</p>
+</div>
+<div id="tips-on-enhancing-plot-readability-and-aesthetic-appeal"
+class="section level3">
+<h3>Tips on enhancing plot readability and aesthetic appeal</h3>
+<p>In order to have a plot with enhanced readability and have an
+aesthetic appeal, you need to use some of these tips:</p>
+<ul>
+<li><strong>Choose appropriate colors:</strong> Use colors that
+complement each other and make it easy to distinguish different elements
+of the plot.Avoid using colors that are too bright or too similar to
+each other.</li>
+<li><strong>Use appropriate font sizes and styles:</strong> Use larger
+font sizes for titles and axis labels to make them more prominent.</li>
+<li><strong>Add grid lines:</strong> Adding grid lines can make it
+easier to read the plot and interpret the data.</li>
+<li><strong>Use appropriate plot types:</strong> Choose the appropriate
+plot type for your data. For example, use a scatter plot for continuous
+data and a bar plot for categorical data.</li>
+<li><strong>Use consistent and intuitive labeling:</strong> Make sure
+that the labels on your plot are consistent and intuitive, making it
+easy for readers to understand the information presented.</li>
+<li><strong>Use legends for clarity:</strong> Use legends to explain the
+meaning of different colors or symbols used in the plot.</li>
+</ul>
+<p>You can also add more improvements to your plot to make it look more
+nice and appealing.</p>
+</div>
+</div>
+<div id="practical-examples-exercises-1" class="section level2">
+<h2>Practical Examples: Exercises</h2>
+<p><strong>Exercise 6</strong></p>
+<p>Create a dataframe of marks of 1000 students (male and female) with
+their respective status i.e pass if marks &gt;= 40, fail otherwise (set
+a seed to 100). Additionally, let the student marks be graded using
+factor method in the following format:</p>
+<p>A: 70 marks and above</p>
+<p>B: 60-69</p>
+<p>C: 50-59</p>
+<p>D: 40-49</p>
+<p>E: Below 40 marks</p>
+<p>Create a dataframe called students with the vectors; id, gender,
+marks, grade and status where status is a column which shows whether the
+student passed or failed.You will use this dataframe to answer exercise
+7,8 and 9.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSJ9
+</div>
+<p><strong>Exercise 7</strong></p>
+<p>Plot a box plot to show the distribution of marks by gender.Give it a
+title, ‘Distribution of Student Marks’. The x-axis should be labelled as
+‘Gender’ while the y-axis should be labelled as ‘Marks’. Apply blue
+color to male and green color to female. Set cex.main and cex.lab to
+1.2.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+</div>
+<p><strong>Exercise 8</strong></p>
+<p>Plot a histogram of the marks where the bins should be equivalent to
+the classes of grading. Which grade had the highest number of students?
+How were the marks distributed in the class? Fill the histogram with
+red. Add a customized title and label the axes.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+</div>
+<p><strong>Exercise 9</strong></p>
+<p>Use a well customized barpot to show the mean mark of students by
+gender. Which gender had the highest average score?</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+</div>
+<!--chapter:end:02-basic-graphics.Rmd-->
+</div>
+</div>
+<div id="data-structures-relevant-to-visualization"
+class="section level1">
+<h1>DATA STRUCTURES RELEVANT TO VISUALIZATION</h1>
+<div id="introduction-1" class="section level2">
+<h2>Introduction</h2>
+<p>The two main objectives of this chapter is to understand various data
+structures in R and learn how to manipulate and prepare data for
+effective visualization.</p>
+<p>Understanding data structures is crucial for creating effective
+visualizations in R. Properly organizing and structuring your data
+allows you to generate clear and insightful visual outputs. In this
+chapter, we will discuss the importance of data structure understanding
+in achieving effective visualizations.</p>
+<div id="importance-of-data-structure-understanding"
+class="section level3">
+<h3>Importance of Data Structure Understanding</h3>
+<ul>
+<li><strong>Data Compatibility:</strong> Different types of
+visualizations require different data structures. Understanding how to
+structure your data properly ensures compatibility with the
+visualization techniques you want to use.</li>
+<li><strong>Efficient Data Handling:</strong> Well-structured data is
+easier to manipulate and process, leading to more efficient
+visualization workflows.</li>
+<li><strong>Insightful Visual Outputs:</strong> Properly structured data
+enables you to generate visual outputs that effectively communicate your
+insights and findings.</li>
+</ul>
+<p>The most commonly used data structures for visualization are vectors,
+matrices, data frames and lists.</p>
+</div>
+</div>
+<div id="vectors-data-frames-and-matrices" class="section level2">
+<h2>Vectors, Data Frames, and Matrices</h2>
+<div id="definitions" class="section level3">
+<h3>Definitions</h3>
+<p><strong>Vectors</strong> are one-dimensional arrays that can hold
+numeric, character, or logical values. They are suitable for creating
+simple plots like scatter plots and line graphs. For example, a vector
+of numeric values can be used to represent data on the x or y-axis of a
+plot.</p>
+<p>A <strong>data frame</strong> is a two-dimensional data structure
+where columns can be of different types. Data frames are highly
+versatile and commonly used for data analysis and visualization. They
+are suitable for creating a wide range of visualizations, including bar
+plots, histograms, and box plots. Each column in a data frame can
+represent a different variable, making it easy to visualize
+relationships between variables.</p>
+<p><strong>Matrices</strong> are two-dimensional arrays that contain
+elements of the same atomic types. Matrices are useful for creating
+visualizations such as heatmaps and surface plots. They are suitable for
+representing data that has two dimensions, such as images or spatial
+data.</p>
+<p><strong>Lists</strong> are ordered collections of objects, which can
+be of different types. Lists can also be nested, allowing for complex
+data structures. They provide flexibility in organizing and storing data
+for complex visualizations. They are suitable for creating custom plots
+or combining multiple plots into a single visualization.</p>
+<p><strong>Factors</strong> are used to represent categorical data in R.
+They are stored as integers and have labels associated with them. They
+are useful for creating plots that involve categorical data, such as bar
+plots and pie charts. They allow for easy grouping and aggregation of
+data based on categorical variables.</p>
+<strong>Example</strong>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgZGF0YVxuc2V0LnNlZWQoMTIzKVxubnVtZXJpY192ZWN0b3IgPC0gcm5vcm0oMTApXG5jaGFyYWN0ZXJfdmVjdG9yIDwtIGxldHRlcnNbMToxMF1cbmxvZ2ljYWxfdmVjdG9yIDwtIHNhbXBsZShjKFRSVUUsIEZBTFNFKSwgMTAsIHJlcGxhY2UgPSBUUlVFKVxuXG4jIENyZWF0ZSBhIGxpc3Rcbm15X2xpc3QgPC0gbGlzdChudW1lcmljX3ZlY3RvciwgY2hhcmFjdGVyX3ZlY3RvciwgbG9naWNhbF92ZWN0b3IpXG5cbiMgQ3JlYXRlIGEgbWF0cml4XG5teV9tYXRyaXggPC0gbWF0cml4KDE6MTIsIG5yb3cgPSA0KVxuXG4jIENyZWF0ZSBhIGRhdGEgZnJhbWVcbm15X2RhdGEgPC0gZGF0YS5mcmFtZShcbiAgSUQgPSAxOjQsXG4gIE5hbWUgPSBjKFwiSm9oblwiLCBcIk1hcnlcIiwgXCJEYXZpZFwiLCBcIkVtbWFcIiksXG4gIEFnZSA9IGMoMjUsIDMwLCAzNSwgNDApXG4pXG5cbiMgQ3JlYXRlIGEgZmFjdG9yXG5teV9mYWN0b3IgPC0gZmFjdG9yKGMoXCJBXCIsIFwiQlwiLCBcIkFcIiwgXCJDXCIpKVxuXG4jIFByaW50IHRoZSBzdHJ1Y3R1cmVzXG5wcmludChteV9saXN0KVxucHJpbnQobXlfbWF0cml4KVxucHJpbnQobXlfZGF0YSlcbnByaW50KG15X2ZhY3RvcikifQ==
+</div>
+</div>
+<div id="tools-and-functions" class="section level3">
+<h3>Tools and Functions</h3>
+<p>Understanding various tools and functions in R is essential for
+manipulating data structures effectively. Here are some commonly used
+tools and functions:</p>
+<p><strong>1. str():</strong> Displays the internal structure of R
+objects. For example if the object is a data frame, it shows the type of
+each vector in the dataframe</p>
+<p><strong>2. class():</strong> Returns the class of the R object.</p>
+<p><strong>3. length():</strong> Returns the number of elements in the R
+object. If the object is a data frame, it returns the number of columns
+in the data frame.</p>
+<p><strong>4. dim():</strong> Returns the dimensions of an R object (for
+matrices and arrays).</p>
+<p><strong>5. attributes():</strong> Returns the attributes of an R
+object.</p>
+<p><strong>6. as.factor():</strong> Converts a vector to a factor.</p>
+<p><strong>7. data.frame():</strong> Creates a data frame from vectors
+or other R objects.</p>
+<p><strong>8. ncol():</strong> Returns the number of columns of a
+dataframe or matrix.</p>
+<p><strong>9. nrow():</strong> Returns the number of rows of a data
+frame.</p>
+</div>
+<div id="step-by-step-tutorials" class="section level3">
+<h3>Step-by-Step Tutorials</h3>
+<div id="converting-a-vector-to-a-data-frame" class="section level4">
+<h4>Converting a Vector to a Data Frame</h4>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgdmVjdG9yXG5zdHVkZW50X2lkIDwtIDE6NVxuc3R1ZGVudF9uYW1lIDwtIGMoXCJKb2huXCIsIFwiQWxpY2VcIiwgXCJCb2JcIiwgXCJFbWlseVwiLCBcIlRvbVwiKVxuc3R1ZGVudF9zY29yZSA8LSBjKDgwLCA3NSwgOTAsIDg1LCA4OClcblxuIyBDb21iaW5lIHZlY3RvcnMgaW50byBhIGRhdGEgZnJhbWVcbnN0dWRlbnRfZGF0YSA8LSBkYXRhLmZyYW1lKElEID0gc3R1ZGVudF9pZCwgTmFtZSA9IHN0dWRlbnRfbmFtZSwgU2NvcmUgPSBzdHVkZW50X3Njb3JlKVxuXG4jIFZpZXcgdGhlIGRhdGEgZnJhbWVcbnByaW50KHN0dWRlbnRfZGF0YSkifQ==
+</div>
+</div>
+<div id="creating-and-modifying-lists-for-nested-data-structures"
+class="section level4">
+<h4>Creating and Modifying Lists for Nested Data Structures</h4>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgbGlzdFxuc3R1ZGVudDEgPC0gbGlzdChOYW1lID0gXCJKb2huXCIsIEFnZSA9IDI1LCBHcmFkZXMgPSBjKE1hdGggPSA4MCwgU2NpZW5jZSA9IDg1KSlcbnN0dWRlbnQyIDwtIGxpc3QoTmFtZSA9IFwiQWxpY2VcIiwgQWdlID0gMjMsIEdyYWRlcyA9IGMoTWF0aCA9IDc1LCBTY2llbmNlID0gNzgpKVxuXG4jIENyZWF0ZSBhIG5lc3RlZCBsaXN0XG5jbGFzc3Jvb20gPC0gbGlzdChzdHVkZW50MSwgc3R1ZGVudDIpXG5cbiMgVmlldyB0aGUgbmVzdGVkIGxpc3RcbnByaW50KGNsYXNzcm9vbSlcblxuIyBBY2Nlc3NpbmcgZWxlbWVudHMgb2YgdGhlIG5lc3RlZCBsaXN0XG5wcmludChjbGFzc3Jvb21bWzFdXSROYW1lKSAgIyBPdXRwdXQ6IEpvaG5cbnByaW50KGNsYXNzcm9vbVtbMl1dJEdyYWRlc1tcIlNjaWVuY2VcIl0pICAjIE91dHB1dDogNzhcblxuIyBNb2RpZnlpbmcgZWxlbWVudHMgb2YgdGhlIG5lc3RlZCBsaXN0XG5jbGFzc3Jvb21bWzFdXSRHcmFkZXNbXCJNYXRoXCJdIDwtIDg1XG5cbiMgVmlldyB0aGUgbW9kaWZpZWQgbmVzdGVkIGxpc3RcbnByaW50KGNsYXNzcm9vbSkifQ==
+</div>
+</div>
+</div>
+</div>
+<div id="practical-example-exercise" class="section level2">
+<h2>Practical Example : Exercise</h2>
+<p><strong>Exercise 10</strong></p>
+<p>You have been provided with a snapshot of a fictional retail
+landscape, capturing essential attributes that drive retail operations
+and customer interactions. It includes key details such as Transaction
+ID, Date, Customer ID, Gender, Age, Product Category, Quantity, Price
+per Unit, and Total Amount. The dataset can be downloaded from Kaggle
+via the link <a
+href="https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-dataset"
+class="uri">https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-dataset</a>.
+Import the data into R and answer the following questions:</p>
+<p>i). Using a well customized line plot, what trend do you see in the
+sales (Total Amount)?</p>
+<p>ii). Using an appropriate plot covered so far, show how the total
+amount vary by the product category. Use a well customized plot to make
+it more appealing and readable.</p>
+<!--chapter:end:03-data-structures.Rmd-->
+</div>
+</div>
+<div id="customizing-graphs-in-base-r" class="section level1">
+<h1>CUSTOMIZING GRAPHS IN BASE R</h1>
+<div id="introduction-2" class="section level2">
+<h2>Introduction</h2>
+<p>The main objectives of this chapter are:</p>
+<ul>
+<li>Learn to customize and enhance graphs using R’s base graphic
+parameters.</li>
+<li>Understand how to apply visual enhancements to convey information
+more effectively.</li>
+</ul>
+</div>
+<div id="graph-customization-basics" class="section level2">
+<h2>Graph Customization Basics</h2>
+<p>Customizing plots in R allows you to enhance the appearance and
+readability of the visualizations. The <strong>par()</strong> function
+in R is used to set or query graphical parameters.</p>
+<p><strong>i). Graphical Parameters (par())</strong></p>
+<ul>
+<li><strong>pch:</strong> Sets the plotting symbol (or point character)
+used in plotting functions like <strong>plot()</strong>.</li>
+<li><strong>lty:</strong> Sets the line type.</li>
+<li><strong>lwd:</strong> Sets the line width.</li>
+<li><strong>col:</strong> Sets the color of lines and points.</li>
+<li><strong>bg:</strong> Sets the background color.</li>
+<li><strong>cex:</strong> Sets the character size.</li>
+<li><strong>mar:</strong> Sets the margins of the plot.</li>
+</ul>
+<p><strong>ii). Adding Custom Colors, Line Types, Point Shapes, and Plot
+Characters</strong></p>
+<ul>
+<li><strong>Custom Colors:</strong> You can specify custom colors using
+color names, hexadecimal codes, or color numbers.</li>
+<li><strong>Line Types:</strong> Different line types are available,
+such as solid, dashed, dotted, etc.</li>
+<li><strong>Point Shapes:</strong> Various point shapes are available,
+including circles, squares, triangles, etc.</li>
+<li><strong>Plot Characters:</strong> Different plot characters, such as
+dots, crosses, stars, etc., can be used.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkgPC0geF4yXG5cbiMgUGxvdCB3aXRoIGN1c3RvbWl6ZWQgZ3JhcGhpY2FsIHBhcmFtZXRlcnNcbnBhcihcbiAgcGNoID0gMTksICAgICMgVXNlIHNvbGlkIGNpcmNsZXMgZm9yIHBvaW50c1xuICBsdHkgPSAyLCAgICAgIyBVc2UgZGFzaGVkIGxpbmVcbiAgbHdkID0gMiwgICAgICMgU2V0IGxpbmUgd2lkdGggdG8gMlxuICBjb2wgPSBcImJsdWVcIiAjIFNldCBsaW5lIGFuZCBwb2ludCBjb2xvciB0byBibHVlXG4pXG5cbnBsb3QoeCwgeSwgdHlwZSA9IFwibFwiLCBtYWluID0gXCJDdXN0b21pemVkIFBsb3RcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5wb2ludHMoeCwgeSwgY29sID0gXCJyZWRcIikgIyBBZGQgcG9pbnRzIHdpdGggcmVkIGNvbG9yIn0=
+</div>
+</div>
+<div id="enhancing-plot-aesthetics" class="section level2">
+<h2>Enhancing Plot Aesthetics</h2>
+<p>Improving the aesthetics of plots is essential for effectively
+communicating your data. The following are some techniques for enhancing
+plot aesthetics in R:</p>
+<p><strong>1. Setting Axis Options:</strong></p>
+<p><strong>Axis Labels:</strong> Use <strong>xlab</strong> and
+<strong>ylab</strong> parameters to set labels for x and y axes,
+respectively.</p>
+<p><strong>Tick Marks:</strong> Use <strong>axes = FALSE</strong> to
+remove axis tick marks and add them back using axis() function.</p>
+<p><strong>Axis Limits:</strong> Use <strong>xlim</strong> and
+<strong>ylim</strong> parameters to set limits for the x and y axes,
+respectively.</p>
+<p>Example:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkgPC0geF4yXG5cbiMgUGxvdCB3aXRoIGN1c3RvbWl6ZWQgYXhpcyBvcHRpb25zXG5wbG90KHgsIHksIHR5cGUgPSBcImxcIiwgbWFpbiA9IFwiQSBzaW1wbGUgbGluZSBwbG90XCIsIHhsYWIgPSBcIlgtYXhpc1wiLCB5bGFiID0gXCJZLWF4aXNcIiwgeGxpbSA9IGMoMCwgMTIpLCB5bGltID0gYygwLCAxMjApKVxuYXhpcyhzaWRlID0gMSwgYXQgPSBzZXEoMCwgMTIsIGJ5ID0gMikpICMgQWRkIHgtYXhpcyB0aWNrIG1hcmtzXG5heGlzKHNpZGUgPSAyLCBhdCA9IHNlcSgwLCAxMjAsIGJ5ID0gMjApKSAjIEFkZCB5LWF4aXMgdGljayBtYXJrcyJ9
+</div>
+</div>
+<div id="advanced-customization-techniques" class="section level2">
+<h2>Advanced Customization Techniques</h2>
+<p>Enhancing plots in R involves more than just changing colors and
+labels. Here are some advanced customization techniques to make your
+plots more informative and visually appealing:</p>
+<p><strong>i). Multiple Plot Windows (mfrow and mfcol):</strong></p>
+<p><strong>mfrow:</strong> Divides the plotting area into a matrix of
+rows and columns. Plots are filled row-wise.</p>
+<p><strong>mfcol:</strong> Divides the plotting area into a matrix of
+rows and columns. Plots are filled column-wise.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgdXNpbmcgbWZyb3dcbnBhcihtZnJvdyA9IGMoMiwgMikpICMgQ3JlYXRlIGEgMngyIGdyaWQgZm9yIHBsb3RzXG5wbG90KDE6MTAsIDE6MTAsIG1haW4gPSBcIlBsb3QgMVwiLCB0eXBlID0gXCJsXCIpXG5wbG90KDE6MTAsICgxOjEwKV4yLCBtYWluID0gXCJQbG90IDJcIiwgdHlwZSA9IFwibFwiKVxucGxvdCgxOjEwLCAoMToxMCleMywgbWFpbiA9IFwiUGxvdCAzXCIsIHR5cGUgPSBcImxcIilcbnBsb3QoMToxMCwgbG9nKDE6MTApLCBtYWluID0gXCJQbG90IDRcIiwgdHlwZSA9IFwibFwiKSJ9
+</div>
+<p><strong>ii). Customizing Plots with Grid Lines, Background Color, and
+Themes:</strong></p>
+<p><strong>Grid Lines:</strong> Use <strong>grid()</strong> function to
+add grid lines to the plot.</p>
+<p><strong>Background Color:</strong> Use <strong>par(bg =
+“color”)</strong> to set background color for the plot.</p>
+<p><strong>Themes:</strong> Use themes from packages like ggplot2 to
+change the overall appearance of the plot. This will be covered under
+ggplot2 package chapter.</p>
+<strong>Example with Grid Lines and Background Color:</strong>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgd2l0aCBncmlkIGxpbmVzIGFuZCBiYWNrZ3JvdW5kIGNvbG9yXG5wbG90KDE6MTAsIDE6MTAsIG1haW4gPSBcIkEgQ3VzdG9taXplZCBTaW1wbGUgTGluZSBQbG90XCIsIHR5cGUgPSBcImxcIiwgeGxhYj0nSGVpZ2h0Jyx5bGFiID0gJ1dlaWdodCcpXG5ncmlkKCkgIyBBZGQgZ3JpZCBsaW5lc1xucGFyKGJnID0gXCJsaWdodGJsdWVcIikgIyBTZXQgYmFja2dyb3VuZCBjb2xvciJ9
+</div>
+</div>
+<div id="practical-examples-exercise" class="section level2">
+<h2>Practical Examples: Exercise</h2>
+<p><strong>Exercise 11</strong></p>
+<p>Read the <strong>cabbages</strong> dataset from <strong>MASS</strong>
+package. Remove the duplicated values of <strong>“HeadWt”</strong> and
+arrange the dataframe in descending order by <strong>“HeadWt”</strong>
+column. Plot a line plot of <strong>“HeadWt”</strong> against its square
+and apply blue color with the first line type. Add a second line plot of
+the square of cube of <strong>“HeadWt”</strong> , apply the red color
+and the line type should be the second one. Add a legend to the plot and
+position it at the top - left position with the names “Square of Head
+Weight” and “Cube of Head Weight” respectively. Maintain the same line
+types and colors that were used to plot. Add a title, ‘Comparison of
+Cabbage Trends’. Label the x-axis as ‘Head Weight’ and y-axis should be
+blank</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZVxuXG4jIFNvbHV0aW9uXG5saWJyYXJ5KGRwbHlyKVxubGlicmFyeShNQVNTKVxuXG5jYWJiYWdlcyA8LSBjYWJiYWdlcyAlPiUgXG4gIGRpc3RpbmN0KEhlYWRXdCwgLmtlZXBfYWxsID0gVFJVRSkgJT4lIFxuICBhcnJhbmdlKGRlc2MoSGVhZFd0KSxGQUxTRSlcblxucGxvdChjYWJiYWdlcyRIZWFkV3QsKGNhYmJhZ2VzJEhlYWRXdCleMix0eXBlID0gJ2wnLCBjb2w9J2JsdWUnLCBcbiAgICAgbHR5PTEsbWFpbiA9IFwiQ29tcGFyaXNvbiBvZiBVbmlxdWUgQ2FiYmFnZSBUcmVuZHNcIiwgeGxhYiA9IFwiSGVhZCBXZWlnaHRcIiwgeWxhYiA9IFwiXCIpXG5saW5lcyhjYWJiYWdlcyRIZWFkV3QsKGNhYmJhZ2VzJEhlYWRXdCleMyx0eXBlID0gJ2wnLCBjb2w9J3JlZCcsIGx0eT0yKVxubGVnZW5kKFwidG9wbGVmdFwiLCBsZWdlbmQgPSBjKFwiU3F1YXJlIG9mIEhlYWQgV2VpZ2h0XCIsIFwiQ3ViZSBvZiBIZWFkIFdlaWdodCBcIiksIGNvbCA9IGMoXCJibHVlXCIsIFwicmVkXCIpLCBsdHkgPSBjKDEsIDIpKSJ9
+</div>
+<p><strong>Exercise 12 : Multiple Small Plots in One Graphic to Compare
+Different Data Sets</strong></p>
+<p>Create a vector <strong>x</strong> of a sequence of numbers from 1 to
+100. Create another vector <strong>y1</strong> which is the square of
+<strong>x</strong>. Create another vector <strong>y2</strong> which is
+the double of <strong>x</strong>. Lastly, create the last vector
+<strong>y3</strong> which is equivalent to <strong>x</strong> raised to
+the power of 1.5. Create three multiple small line plots and organize
+them in one row with three columns. All plots will use the same
+independent variable in the x-axis, i.e <strong>x</strong>.</p>
+<ol style="list-style-type: lower-roman">
+<li>Plot x against y1. Give it the title,‘Trend 1’, x-axis should be
+labelled as ‘X’ while y-axis=‘Y’ and color is blue.</li>
+<li>Plot x against y2. Give it the title,‘Trend 2’, x-axis should be
+labelled as ‘X’ while y-axis=‘Y2’,col is red.</li>
+<li>Plot x against y3. Give it the title,‘Trend 3’, x-axis should be
+labelled as ‘X’ while y-axis=‘Y3’,col is green.</li>
+</ol>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgIGRhdGFcblxuI1NvbHV0aW9uXG4jQ3JlYXRlIGRhdGFcbnggPC0gMToxMDBcbnkxIDwtIHheMlxueTIgPC0gMiAqIHhcbnkzIDwtIHheMS41XG5cbiMgQ3JlYXRlIG11bHRpcGxlIHNtYWxsIHBsb3RzXG5wYXIobWZyb3cgPSBjKDEsIDMpKSAjIDEgcm93LCAzIGNvbHVtbnNcblxuIyBQbG90IDFcbnBsb3QoeCwgeTEsIHR5cGUgPSBcImxcIiwgY29sID0gXCJibHVlXCIsIG1haW4gPSBcIlRyZW5kIDFcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5cbiMgUGxvdCAyXG5wbG90KHgsIHkyLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwicmVkXCIsIG1haW4gPSBcIlRyZW5kIDJcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZMlwiKVxuXG4jIFBsb3QgM1xucGxvdCh4LCB5MywgdHlwZSA9IFwibFwiLCBjb2wgPSBcImdyZWVuXCIsIG1haW4gPSBcIlRyZW5kIDNcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZM1wiKSJ9
+</div>
+<ol start="4" style="list-style-type: lower-roman">
+<li>Repeat the above similar plots but arranged in three rows and one
+column using <strong>mfcol()</strong>.</li>
+</ol>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgIGRhdGFcblxuI1NvbHV0aW9uXG4jQ3JlYXRlIGRhdGFcbnggPC0gMToxMDBcbnkxIDwtIHheMlxueTIgPC0gMiAqIHhcbnkzIDwtIHheMS41XG5cbiMgQ3JlYXRlIG11bHRpcGxlIHNtYWxsIHBsb3RzXG5wYXIobWZjb2wgPSBjKDMsIDEpKSAjIDMgcm93cywgMSBjb2x1bW5cblxuIyBQbG90IDFcbnBsb3QoeCwgeTEsIHR5cGUgPSBcImxcIiwgY29sID0gXCJibHVlXCIsIG1haW4gPSBcIlRyZW5kIDFcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5cbiMgUGxvdCAyXG5wbG90KHgsIHkyLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwicmVkXCIsIG1haW4gPSBcIlRyZW5kIDJcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZMlwiKVxuXG4jIFBsb3QgM1xucGxvdCh4LCB5MywgdHlwZSA9IFwibFwiLCBjb2wgPSBcImdyZWVuXCIsIG1haW4gPSBcIlRyZW5kIDNcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZM1wiKSJ9
+</div>
+<!--chapter:end:04-customize-graphs.Rmd-->
+</div>
+</div>
+<div id="advanced-base-plotting-techniques" class="section level1">
+<h1>ADVANCED BASE PLOTTING TECHNIQUES</h1>
+<div id="combining-different-graph-types" class="section level2">
+<h2>Combining Different Graph Types</h2>
+<p>We can overlay different types of plots, such as combining bar charts
+with line graphs, in R. Here’s how this can be done along with
+customizing axes and scales:</p>
+<div id="overlay-different-types-of-plots" class="section level3">
+<h3>Overlay different types of plots</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkxIDwtIHheMlxueTIgPC0gMiAqIHhcbnkzIDwtIHheMS41XG5cbiMgQ3JlYXRlIGEgbGluZSBwbG90XG5wbG90KHgsIHkxLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwiYmx1ZVwiLCBtYWluID0gXCJDb21iaW5pbmcgRGlmZmVyZW50IEdyYXBoIFR5cGVzXCIsIHhsYWIgPSBcIlhcIiwgeWxhYiA9IFwiWVwiKVxuXG4jIEFkZCBwb2ludHMgdG8gdGhlIGxpbmUgcGxvdFxucG9pbnRzKHgsIHkxLCBjb2wgPSBcImJsdWVcIiwgcGNoID0gMTYpXG5cbiMgQWRkIGEgYmFyIHBsb3RcbmJhcnBsb3QoeTIsIGNvbCA9IFwicmVkXCIsIGFkZCA9IFRSVUUpXG5cbiMgQWRkIGEgc2Vjb25kIGxpbmUgcGxvdFxubGluZXMoeCwgeTMsIGNvbCA9IFwiZ3JlZW5cIilcblxuIyBBZGQgYSBsZWdlbmRcbmxlZ2VuZChcInRvcGxlZnRcIiwgbGVnZW5kID0gYyhcIlRyZW5kIDFcIiwgXCJUcmVuZCAyXCIsIFwiVHJlbmQgM1wiKSwgY29sID0gYyhcImJsdWVcIiwgXCJyZWRcIiwgXCJncmVlblwiKSwgbHR5ID0gYygxLCBOQSwgMSksIHBjaCA9IGMoMTYsIE5BLCBOQSkpIn0=
+</div>
+</div>
+<div id="axes-and-scales-customization-to-accomodate-combined-plots"
+class="section level3">
+<h3>Axes and scales customization to accomodate combined plots</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNldCBjdXN0b20gYXhpcyBsaW1pdHNcbnBsb3QoeCwgeTEsIHR5cGUgPSBcImxcIiwgY29sID0gXCJibHVlXCIsIG1haW4gPSBcIkNvbWJpbmluZyBEaWZmZXJlbnQgR3JhcGggVHlwZXNcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIsIHlsaW0gPSBjKDAsIG1heCh5MSwgeTIsIHkzKSkpXG5cbiMgQWRkIHBvaW50cyB0byB0aGUgbGluZSBwbG90XG5wb2ludHMoeCwgeTEsIGNvbCA9IFwiYmx1ZVwiLCBwY2ggPSAxNilcblxuIyBBZGQgYSBiYXIgcGxvdFxuYmFycGxvdCh5MiwgY29sID0gXCJyZWRcIiwgYWRkID0gVFJVRSwgeWxpbSA9IGMoMCwgbWF4KHkxLCB5MiwgeTMpKSlcblxuIyBBZGQgYSBzZWNvbmQgbGluZSBwbG90XG5saW5lcyh4LCB5MywgY29sID0gXCJncmVlblwiKVxuXG4jIEFkZCBhIGxlZ2VuZFxubGVnZW5kKFwidG9wbGVmdFwiLCBsZWdlbmQgPSBjKFwiVHJlbmQgMVwiLCBcIlRyZW5kIDJcIiwgXCJUcmVuZCAzXCIpLCBjb2wgPSBjKFwiYmx1ZVwiLCBcInJlZFwiLCBcImdyZWVuXCIpLCBsdHkgPSBjKDEsIE5BLCAxKSwgcGNoID0gYygxNiwgTkEsIE5BKSkifQ==
+</div>
+</div>
+</div>
+<div id="interactive-graphics-in-base-r" class="section level2">
+<h2>Interactive Graphics in Base R</h2>
+<div
+id="introduction-to-using-the-locator-function-for-interactive-plotting"
+class="section level3">
+<h3>Introduction to using the locator() function for interactive
+plotting</h3>
+<p>Base R provides basic functionality for creating interactive plots
+using the locator() function. Here’s how you can use locator() for
+interactive plotting and create dynamic plots that respond to user input
+or updates in data:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkgPC0geF4yXG5cbiMgUGxvdCBkYXRhXG5wbG90KHgsIHksIHR5cGUgPSBcImxcIiwgbWFpbiA9IFwiSW50ZXJhY3RpdmUgUGxvdHRpbmcgd2l0aCBsb2NhdG9yKClcIilcblxuIyBBZGQgcG9pbnRzIGludGVyYWN0aXZlbHlcbnBvaW50cyhsb2NhdG9yKDUpLCBjb2wgPSBcInJlZFwiLCBwY2ggPSAxNikifQ==
+</div>
+</div>
+<div
+id="creating-dynamic-plots-that-respond-to-user-input-or-updates-in-data"
+class="section level3">
+<h3>Creating dynamic plots that respond to user input or updates in
+data</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIER5bmFtaWMgcGxvdCB0aGF0IHJlc3BvbmRzIHRvIHVzZXIgaW5wdXRcbnBsb3RfZHluYW1pYyA8LSBmdW5jdGlvbigpIHtcbiAgIyBTYW1wbGUgZGF0YVxuICB4IDwtIDE6MTBcbiAgeSA8LSB4XjJcbiAgXG4gICMgUGxvdCBkYXRhXG4gIHBsb3QoeCwgeSwgdHlwZSA9IFwibFwiLCBtYWluID0gXCJEeW5hbWljIFBsb3Qgd2l0aCBVc2VyIElucHV0XCIpXG4gIFxuICAjIEFkZCBwb2ludHMgaW50ZXJhY3RpdmVseVxuICBwb2ludHMobG9jYXRvcig1KSwgY29sID0gXCJyZWRcIiwgcGNoID0gMTYpXG59XG5cbiMgQ2FsbCB0aGUgZnVuY3Rpb24gdG8gY3JlYXRlIGR5bmFtaWMgcGxvdFxucGxvdF9keW5hbWljKCkifQ==
+</div>
+<!--chapter:end:05-advanced-techniques.Rmd-->
+</div>
+</div>
+</div>
+<div id="plotting-time-series-data" class="section level1">
+<h1>PLOTTING TIME SERIES DATA</h1>
+<div id="introduction-3" class="section level2">
+<h2>Introduction</h2>
+<p>The plotting of time series object is most likely one of the steps of
+the analysis of time-series data. The two main objectives of this
+chapter are:</p>
+<ul>
+<li>Understand specific considerations for plotting time series data in
+R.</li>
+<li>Learn to effectively visualize time-dependent data using R’s base
+graphics.</li>
+</ul>
+<div
+id="importance-of-time-series-analysis-in-various-fields-like-finance-meteorology-and-epidemiology"
+class="section level3">
+<h3>Importance of time series analysis in various fields like finance,
+meteorology, and epidemiology</h3>
+<p>Time series analysis plays a crucial role in various fields such as
+finance, meteorology, epidemiology, and many others. Understanding time
+series data and effectively visualizing it are essential for extracting
+meaningful insights. In this chapter, we will explore the importance of
+time series analysis and the challenges associated with visualizing time
+series data.</p>
+<p>Time series analysis is vital in various fields including:</p>
+<ul>
+<li><p><strong>Finance:</strong> Analyzing stock prices, market trends,
+and forecasting.</p></li>
+<li><p><strong>Meteorology:</strong> Studying weather patterns, climate
+change, and forecasting.</p></li>
+<li><p><strong>Epidemiology:</strong> Tracking disease outbreaks,
+analyzing trends, and forecasting.</p></li>
+</ul>
+</div>
+<div
+id="basic-concepts-related-to-time-series-data-and-its-visualization-challenges."
+class="section level3">
+<h3>Basic concepts related to time series data and its visualization
+challenges.</h3>
+<ul>
+<li><p><strong>Time Series Data:</strong> Time series data consists of
+observations or measurements taken at different points in time.</p></li>
+<li><p><strong>Temporal Patterns:</strong> Time series data often
+exhibits various temporal patterns such as trend, seasonality, and
+cycles.</p></li>
+<li><p><strong>Visualization Challenges:</strong> Visualizing time
+series data poses challenges due to its temporal nature and the need to
+effectively represent temporal patterns.</p></li>
+</ul>
+</div>
+</div>
+<div id="time-series-data-basics" class="section level2">
+<h2>Time Series Data Basics</h2>
+<p>Time series data in R is commonly represented using the
+<strong>ts</strong> class. The time series object must have a
+<strong>Date</strong> or <strong>POSIXct/lt</strong> column and at least
+one numeric column.</p>
+<div id="introduction-to-time-series-objects-in-r-ts-class."
+class="section level3">
+<h3>Introduction to time series objects in R (ts class).</h3>
+<ul>
+<li><p>The <strong>ts</strong> class in R is a basic time series
+object.</p></li>
+<li><p>It is suitable for regularly spaced time series data.</p></li>
+<li><p>Time series objects are created using the <strong>ts()</strong>
+function.</p></li>
+</ul>
+<p><strong>Example: Creating a time series object</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSB0aW1lIHNlcmllcyBkYXRhXG5kYXRhIDwtIGMoMTAsIDE1LCAyMCwgMjUsIDMwKVxudGltZV9zZXJpZXMgPC0gdHMoZGF0YSlcblxuIyBWaWV3IHRoZSB0aW1lIHNlcmllcyBvYmplY3RcbnByaW50KHRpbWVfc2VyaWVzKSJ9
+</div>
+</div>
+<div id="how-to-convert-standard-date-formats-into-time-series-objects"
+class="section level3">
+<h3>How to convert standard date formats into time series objects</h3>
+<p>R provides several functions to convert standard date formats into
+time series objects, such as <strong>as.ts()</strong> and
+<strong>ts()</strong>.</p>
+<p><strong>Example: Converting Standard Date Formats into Time Series
+Objects</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhIHdpdGggZGF0ZXNcbmRhdGVzIDwtIGFzLkRhdGUoYyhcIjIwMjItMDEtMDFcIiwgXCIyMDIyLTAyLTAxXCIsIFwiMjAyMi0wMy0wMVwiLCBcIjIwMjItMDQtMDFcIiwgXCIyMDIyLTA1LTAxXCIpKVxuZGF0YSA8LSBjKDEwLCAxNSwgMjAsIDI1LCAzMClcblxuIyBDcmVhdGUgYSB0aW1lIHNlcmllcyBvYmplY3RcbnRpbWVfc2VyaWVzIDwtIHRzKGRhdGEsIHN0YXJ0ID0gYyhhcy5QT1NJWGx0KGRhdGVzWzFdKSR5ZWFyICsgMTkwMCwgYXMuUE9TSVhsdChkYXRlc1sxXSkkbW9uICsgMSksIGZyZXF1ZW5jeSA9IDEyKVxuXG4jIFZpZXcgdGhlIHRpbWUgc2VyaWVzIG9iamVjdFxucHJpbnQodGltZV9zZXJpZXMpIn0=
+</div>
+<p>In this example, <strong>start</strong> indicates the start of the
+time series, and <strong>frequency</strong> indicates the number of
+observations per unit of time. Here, <strong>frequency = 12</strong>
+indicates monthly data. These are the basics of working with time series
+data objects in R.</p>
+</div>
+</div>
+<div id="visualizing-time-series" class="section level2">
+<h2>Visualizing Time Series</h2>
+<p>Let’s load and plot the <strong>USgas</strong> series, a
+<strong>ts</strong> object which is attached in the TSstudio
+package:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KFRTc3R1ZGlvKVxuXG5kYXRhKFVTZ2FzKVxuXG50c19pbmZvKFVTZ2FzKSJ9
+</div>
+<div id="creating-line-plots-for-time-series-data"
+class="section level3">
+<h3>Creating line plots for time series data</h3>
+<p>Let us plot the <strong>USgas</strong> series using the base R
+<strong>plot()</strong> function.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJwbG90KFVTZ2FzKSJ9
+</div>
+</div>
+<div id="techniques-for-highlighting-trends-seasonality-and-anomalies"
+class="section level3">
+<h3>Techniques for highlighting trends, seasonality, and anomalies</h3>
+<ul>
+<li><p><strong>Trends:</strong> Use <strong>lines()</strong> function to
+overlay a trend line on the plot.</p></li>
+<li><p><strong>Seasonality:</strong> Use <strong>seasonplot()</strong>
+function from the forecast package to visualize seasonal
+patterns.</p></li>
+<li><p><strong>Anomalies:</strong> Use <strong>points()</strong>
+function to mark anomalies on the plot.</p></li>
+</ul>
+<p><strong>Example:</strong> Let’s visualize the <strong>USgas</strong>
+time series data and highlight trends, seasonality, and anomalies:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEluc3RhbGwgYW5kIGxvYWQgdGhlIG5lY2Vzc2FyeSBwYWNrYWdlc1xuI2luc3RhbGwucGFja2FnZXMoXCJmb3JlY2FzdFwiKVxubGlicmFyeShmb3JlY2FzdClcblxuIyBMb2FkIHRoZSBVU2dhcyB0aW1lIHNlcmllcyBvYmplY3RcbmRhdGEoXCJVU2dhc1wiKVxuXG4jIENvbnZlcnQgdGhlIHRzIG9iamVjdCBpbnRvIGEgZGF0YSBmcmFtZVxuVVNnYXNfZGYgPC0gZGF0YS5mcmFtZSh5ZWFyID0gdGltZShVU2dhcyksIHByb2R1Y3Rpb24gPSBhcy5udW1lcmljKFVTZ2FzKSlcblxuIyBBcHBseSBsb2VzcyBmdW5jdGlvblxudHJlbmQgPC0gbG9lc3MocHJvZHVjdGlvbiB+IHllYXIsIGRhdGEgPSBVU2dhc19kZilcblxuIyBFeHRyYWN0IHRoZSB0cmVuZCB2YWx1ZXNcbnRyZW5kX3ZhbHVlcyA8LSBwcmVkaWN0KHRyZW5kKVxuXG4jIFBsb3QgdGhlIFVTZ2FzIHRpbWUgc2VyaWVzXG5wbG90KFVTZ2FzLCBtYWluID0gXCJVUyBHYXMgUHJvZHVjdGlvbiBUaW1lIFNlcmllc1wiLCB4bGFiID0gXCJZZWFyXCIsIHlsYWIgPSBcIkdhcyBQcm9kdWN0aW9uXCIpXG5cbiMgQWRkIHRyZW5kIGxpbmVcbiNsaW5lcyh0aW1lKFVTZ2FzKSwgdHJlbmRfdmFsdWVzLCBjb2wgPSBcImJsdWVcIilcblxuIyBWaXN1YWxpemUgc2Vhc29uYWwgcGF0dGVyblxuc2Vhc29ucGxvdChVU2dhcywgY29sID0gXCJncmVlblwiKVxuXG4jIElkZW50aWZ5IGFub21hbGllc1xuYW5vbWFsaWVzIDwtIHdoaWNoKFVTZ2FzID4gbWVhbihVU2dhcykgKyAyICogc2QoVVNnYXMpIHwgVVNnYXMgPCBtZWFuKFVTZ2FzKSAtIDIgKiBzZChVU2dhcykpXG5wb2ludHModGltZShVU2dhcylbYW5vbWFsaWVzXSwgVVNnYXNbYW5vbWFsaWVzXSwgY29sID0gXCJyZWRcIiwgcGNoID0gMTYpIn0=
+</div>
+</div>
+</div>
+<div id="advanced-time-series-visualization" class="section level2">
+<h2>Advanced Time Series Visualization</h2>
+<div
+id="advance-customization-using-ts_plot-function-from-plotly-package"
+class="section level3">
+<h3>Advance customization using ts_plot() function from
+<strong>plotly</strong> package</h3>
+<p>The <strong>ts_plot</strong> is a wraper of the
+<strong>plotly</strong> package plotting functions for time series
+objects, therefore, the output of the <strong>ts_plot</strong> is a
+<strong>plotly</strong> object. Advance customization of the
+<strong>ts_plot</strong> output can be done with plotly’s layout
+function. For example, let’s re plot the <strong>USgas</strong> series
+and customize the background to black:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHBsb3RseSlcblxudHNfcGxvdChVU2dhcyxcbiAgICAgICAgdGl0bGUgPSBcIlVTIE1vbnRobHkgTmF0dXJhbCBHYXMgQ29uc3VtcHRpb25cIixcbiAgICAgICAgWHRpdGxlID0gXCJUaW1lXCIsXG4gICAgICAgIFl0aXRsZSA9IFwiQmlsbGlvbiBDdWJpYyBGZWV0XCIsXG4gICAgICAgIGNvbG9yID0gIFwicGlua1wiLFxuICAgICAgICBYZ3JpZCA9IFRSVUUsXG4gICAgICAgIFlncmlkID0gVFJVRSkgJT4lXG4gIGxheW91dChwYXBlcl9iZ2NvbG9yID0gXCJibGFja1wiLFxuICAgICAgICAgcGxvdF9iZ2NvbG9yID0gXCJibGFja1wiLFxuICAgICAgICAgZm9udCA9IGxpc3QoY29sb3IgPSBcIndoaXRlXCIpLFxuICAgICAgICAgeWF4aXMgPSBsaXN0KGxpbmVjb2xvciA9IFwiIzZiNmI2YlwiLFxuICAgICAgICAgICAgICAgICAgICAgIHplcm9saW5lY29sb3IgPSBcIiM2YjZiNmJcIixcbiAgICAgICAgICAgICAgICAgICAgICBncmlkY29sb3I9IFwiIzQ0NDQ0NFwiKSxcbiAgICAgICAgIHhheGlzID0gbGlzdChsaW5lY29sb3IgPSBcIiM2YjZiNmJcIixcbiAgICAgICAgICAgICAgICAgICAgICB6ZXJvbGluZWNvbG9yID0gXCIjNmI2YjZiXCIsXG4gICAgICAgICAgICAgICAgICAgICAgZ3JpZGNvbG9yPSBcIiM0NDQ0NDRcIikpIn0=
+</div>
+<p>Note that the <strong>Xgrid</strong> and <strong>Ygrid</strong>
+arguments, when set to <strong>TRUE</strong>, add the corresponding X
+and Y grid lines.</p>
+</div>
+<div
+id="plotting-multiple-time-series-on-a-single-graph-for-comparative-analysis"
+class="section level3">
+<h3>Plotting multiple time series on a single graph for comparative
+analysis</h3>
+<p>The plotting of a multiple time series object is straightforward.
+Let’s load the <strong>Coffee_Prices</strong> an <strong>mts</strong>
+object that represents the monthly prices of the Robusta and Arabica
+coffee prices (USD per Kg.):</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhKFwiQ29mZmVlX1ByaWNlc1wiKVxuXG50c19pbmZvKENvZmZlZV9QcmljZXMpXG50c19wbG90KENvZmZlZV9QcmljZXMsXG4gICAgICAgIHRpdGxlID0gXCJDb21wYXJpc29uIG9mIFJvYnVzdGEgYW5kIEFyYWJpY2EgY29mZmVlIHByaWNlc1wiKSJ9
+</div>
+<p>By default, the function will plot all the series in one plot.
+Plotting the different series on a separate plot can be done by setting
+the type argument to multiple:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0c19wbG90KENvZmZlZV9QcmljZXMsXG4gICAgICAgIHRpdGxlID0gXCJDb21wYXJpc29uIG9mIFJvYnVzdGEgYW5kIEFyYWJpY2EgY29mZmVlIHByaWNlc1wiLFxuICAgICAgICB0eXBlID0gXCJtdWx0aXBsZVwiKSJ9
+</div>
+<p><strong>Note</strong> that the <strong>color</strong>,
+<strong>Ytitle</strong>, and <strong>Xtitle</strong> arguments are not
+applicable when plotting multiple time series object.</p>
+</div>
+</div>
+<div id="practical-examples-exercises-2" class="section level2">
+<h2>Practical Examples: Exercises</h2>
+<p><strong>Exercise 13: Stock market data</strong></p>
+<p>Obtain the daily closing prices for the last ten calendar years of
+S&amp;P 500 Index, Dow Jones, NASDAQ100 and Russell 2000 indices from
+Yahoo Finance using the appropriate R package such as tidyquant or
+quantmod. Prepare the data and clean it by removing any missing values.
+Plot a time series plot of the prices of these indices in one graph and
+use the plot to identify any economic trends among the indices.</p>
+<p><strong>Exercise 14: Temperature</strong></p>
+<p>Obtain the temperature data from an open source such as Weather data
+(<a href="https://www.wunderground.com/weather/in/ahmedabad/VAAH"
+class="uri">https://www.wunderground.com/weather/in/ahmedabad/VAAH</a>)
+for Ahmedabad which is located in Western India on the banks of River
+Sabarmati. Obtain the average monthly temperature data from Sardar
+Vallabhbhai Patel International Airport Station weather station for the
+years 2014-2021. Decompose the time series data by splitting these
+components (data or the level, trend, seasonality, and noise or random
+components) separately into individual components. Present the
+decomposition of the multiplicative model of the components of the time
+series of the average temperature of Ahmedabad in a suitable plot. What
+observation did you make about the seasonality of this data?</p>
+<!--chapter:end:06-time-series.Rmd-->
+</div>
+</div>
+<div id="statistical-graphs-in-r" class="section level1">
+<h1>STATISTICAL GRAPHS IN R</h1>
+<div id="introduction-4" class="section level2">
+<h2>Introduction</h2>
+<p>The two main objectives of this chapter are:</p>
+<ul>
+<li>Learn to use R’s base graphics for creating statistical plots.</li>
+<li>Understand the application of statistical plots in real-world data
+analysis.</li>
+</ul>
+</div>
+<div id="essential-statistical-plots" class="section level2">
+<h2>Essential Statistical Plots:</h2>
+<p>Statistical plots are essential for exploring and understanding the
+distribution of data. In this chapter, we will cover how to create the
+following essential statistical plots in R and understand the insights
+they provide.</p>
+<div id="how-to-create-box-plots-violin-plots-and-qq-plots."
+class="section level3">
+<h3>How to create box plots, violin plots, and QQ plots.</h3>
+<p><strong>i) Box Plots:</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgYm94IHBsb3RcbmJveHBsb3QoU2VwYWwuTGVuZ3RoIH4gU3BlY2llcywgZGF0YSA9IGlyaXMsIFxuICAgICAgICBtYWluID0gXCJCb3ggUGxvdCBvZiBTZXBhbCBMZW5ndGggYnkgU3BlY2llc1wiLFxuICAgICAgICB4bGFiID0gXCJTcGVjaWVzXCIsIHlsYWIgPSBcIlNlcGFsIExlbmd0aFwiKSJ9
+</div>
+<p><strong>ii) Violin Plots:</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgdmlvbGluIHBsb3RcbmxpYnJhcnkoZ2dwbG90MilcbmdncGxvdChpcmlzLCBhZXMoeCA9IFNwZWNpZXMsIHkgPSBTZXBhbC5MZW5ndGgpKSArXG4gIGdlb21fdmlvbGluKGZpbGwgPSBcImxpZ2h0Ymx1ZVwiKSArXG4gIGxhYnModGl0bGUgPSBcIlZpb2xpbiBQbG90IG9mIFNlcGFsIExlbmd0aCBieSBTcGVjaWVzXCIsXG4gICAgICAgeCA9IFwiU3BlY2llc1wiLCB5ID0gXCJTZXBhbCBMZW5ndGhcIikifQ==
+</div>
+<p><strong>iii) QQ Plots:</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgUVEgcGxvdFxucXFub3JtKGlyaXMkU2VwYWwuTGVuZ3RoKVxucXFsaW5lKGlyaXMkU2VwYWwuTGVuZ3RoKSJ9
+</div>
+</div>
+<div id="understanding-the-data-insights-these-plots-provide."
+class="section level3">
+<h3>Understanding the data insights these plots provide.</h3>
+<p><strong>i) Box Plots:</strong> Box plots provide a graphical summary
+of the distribution of a dataset. They display the median, quartiles,
+and potential outliers.</p>
+<p><strong>ii) Violin Plots:</strong> Violin plots are similar to box
+plots but provide a more detailed summary of the distribution. They
+combine a box plot with a kernel density plot.</p>
+<p><strong>iii) QQ Plots (Quantile-Quantile Plots):</strong> QQ plots
+are used to assess if a dataset follows a particular distribution. They
+compare the quantiles of the dataset against the quantiles of a
+theoretical distribution.</p>
+<p>These statistical plots are invaluable tools for exploring and
+understanding the distribution of data.</p>
+</div>
+</div>
+<div id="analyzing-distributions-with-histograms-and-density-plots"
+class="section level2">
+<h2>Analyzing Distributions with Histograms and Density Plots:</h2>
+<p>Histograms provide a visual representation of the distribution of
+numerical data. They group data into bins and display the frequency of
+observations in each bin.Density plots estimate the probability density
+function of the underlying data distribution. They provide a smooth
+representation of the distribution.</p>
+<div
+id="techniques-for-creating-and-customizing-histograms-and-density-plots-and-best-practices-for-displaying-distribution-characteristics."
+class="section level3">
+<h3>Techniques for creating and customizing histograms and density plots
+and best practices for displaying distribution characteristics.</h3>
+<strong>Creating and Customizing Histograms:</strong>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgaGlzdG9ncmFtXG5oaXN0KGlyaXMkU2VwYWwuTGVuZ3RoLCBcbiAgICAgbWFpbiA9IFwiSGlzdG9ncmFtIG9mIFNlcGFsIExlbmd0aFwiLFxuICAgICB4bGFiID0gXCJTZXBhbCBMZW5ndGhcIixcbiAgICAgeWxhYiA9IFwiRnJlcXVlbmN5XCIsXG4gICAgIGNvbCA9IFwibGlnaHRibHVlXCIpXG5cbiMgQWRkaW5nIGEgZGVuc2l0eSBwbG90XG5saW5lcyhkZW5zaXR5KGlyaXMkU2VwYWwuTGVuZ3RoKSwgY29sID0gXCJyZWRcIikifQ==
+</div>
+<p><strong>Creating and Customizing Density Plots:</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgZGVuc2l0eSBwbG90XG5wbG90KGRlbnNpdHkoaXJpcyRTZXBhbC5MZW5ndGgpLCBcbiAgICAgbWFpbiA9IFwiRGVuc2l0eSBQbG90IG9mIFNlcGFsIExlbmd0aFwiLFxuICAgICB4bGFiID0gXCJTZXBhbCBMZW5ndGhcIixcbiAgICAgY29sID0gXCJibHVlXCIpXG5cbiMgQWRkaW5nIGEgaGlzdG9ncmFtXG5oaXN0KGlyaXMkU2VwYWwuTGVuZ3RoLCBcbiAgICAgY29sID0gcmdiKDAsMCwxLDAuMiksIFxuICAgICBhZGQgPSBUUlVFLCBcbiAgICAgYnJlYWtzID0gMjApIn0=
+</div>
+</div>
+</div>
+<div id="scatter-plots-and-correlation-analysis" class="section level2">
+<h2>Scatter Plots and Correlation Analysis:</h2>
+<p>Scatter plots are useful for visualizing the relationship between two
+continuous variables.</p>
+<div
+id="using-scatter-plots-to-visualize-relationships-between-variables."
+class="section level3">
+<h3>Using scatter plots to visualize relationships between
+variables.</h3>
+<p>Scatter plots visually represent the relationship between two
+continuous variables. They help to identify patterns, trends, and
+correlations between variables.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgc2NhdHRlciBwbG90XG5wbG90KGlyaXMkU2VwYWwuTGVuZ3RoLCBpcmlzJFBldGFsLkxlbmd0aCxcbiAgICAgbWFpbiA9IFwiU2NhdHRlciBQbG90IG9mIFNlcGFsIExlbmd0aCB2cyBQZXRhbCBMZW5ndGhcIixcbiAgICAgeGxhYiA9IFwiU2VwYWwgTGVuZ3RoXCIsIHlsYWIgPSBcIlBldGFsIExlbmd0aFwiLFxuICAgICBjb2wgPSBcImJsdWVcIikifQ==
+</div>
+</div>
+<div
+id="introduction-to-adding-regression-lines-and-confidence-intervals."
+class="section level3">
+<h3>Introduction to adding regression lines and confidence
+intervals.</h3>
+<ul>
+<li><p>Regression lines provide a summary of the relationship between
+variables.</p></li>
+<li><p>Confidence intervals help assess the uncertainty of the estimated
+regression line.</p></li>
+</ul>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgc2NhdHRlciBwbG90XG5wbG90KGlyaXMkU2VwYWwuTGVuZ3RoLCBpcmlzJFBldGFsLkxlbmd0aCxcbiAgICAgbWFpbiA9IFwiU2NhdHRlciBQbG90IGFuZCBSZWdyZXNzaW9uIExpbmUgb2YgU2VwYWwgTGVuZ3RoIHZzIFBldGFsIExlbmd0aFwiLFxuICAgICB4bGFiID0gXCJTZXBhbCBMZW5ndGhcIiwgeWxhYiA9IFwiUGV0YWwgTGVuZ3RoXCIsXG4gICAgIGNvbCA9IFwiYmx1ZVwiKVxuXG4jIEZpdCBsaW5lYXIgcmVncmVzc2lvbiBtb2RlbFxubW9kZWwgPC0gbG0oUGV0YWwuTGVuZ3RoIH4gU2VwYWwuTGVuZ3RoLCBkYXRhID0gaXJpcylcblxuIyBBZGRpbmcgcmVncmVzc2lvbiBsaW5lXG5hYmxpbmUobW9kZWwsIGNvbCA9IFwicmVkXCIpXG5cbiMgQWRkaW5nIHJlZ3Jlc3Npb24gZXF1YXRpb25cbmVxIDwtIHBhc3RlKFwieSA9XCIsIHJvdW5kKGNvZWYobW9kZWwpWzFdLCAyKSwgXCIrXCIsIHJvdW5kKGNvZWYobW9kZWwpWzJdLCAyKSwgXCJ4XCIpXG50ZXh0KDYuNSwgMi41LCBlcSwgcG9zID0gNClcblxuIyBBZGRpbmcgY29uZmlkZW5jZSBpbnRlcnZhbHNcbmNvbmZfaW50ZXJ2YWwgPC0gcHJlZGljdChtb2RlbCwgaW50ZXJ2YWwgPSBcImNvbmZpZGVuY2VcIilcbmxpbmVzKGlyaXMkU2VwYWwuTGVuZ3RoLCBjb25mX2ludGVydmFsWywgXCJsd3JcIl0sIGNvbCA9IFwiZ3JlZW5cIiwgbHR5ID0gMilcbmxpbmVzKGlyaXMkU2VwYWwuTGVuZ3RoLCBjb25mX2ludGVydmFsWywgXCJ1cHJcIl0sIGNvbCA9IFwiZ3JlZW5cIiwgbHR5ID0gMilcbiMgQWRkIGxlZ2VuZFxubGVnZW5kKFwidG9wbGVmdFwiLCBsZWdlbmQgPSBjKFwiRGF0YSBQb2ludHNcIiwgXCJSZWdyZXNzaW9uIExpbmVcIiwgXCJDb25maWRlbmNlIEludGVydmFsc1wiKSxcbiAgICAgICBjb2wgPSBjKFwiYmx1ZVwiLCBcInJlZFwiLCBcImdyZWVuXCIpLCBsdHkgPSBjKE5BLCAxLCAyKSwgbHdkID0gYyhOQSwgMSwgMSksXG4gICAgICAgcGNoID0gYygxLCBOQSwgTkEpLCBidHkgPSBcIm9cIiAjIEVuY2xvc2UgdGhlIGxlZ2VuZCBpbiBhIGJveFxuICAgICAgICkifQ==
+</div>
+</div>
+</div>
+<div id="practical-examples-exercises-3" class="section level2">
+<h2>Practical Examples: Exercises</h2>
+<!--chapter:end:07-statistical-graphs.Rmd-->
+</div>
+</div>
+<div id="introduction-to-ggplot2" class="section level1">
+<h1>INTRODUCTION TO ggplot2</h1>
+<div id="getting-started-with-ggplot2" class="section level2">
+<h2>Getting Started with ggplot2</h2>
+<div id="installation-of-ggplot2-and-setting-up-the-environment."
+class="section level3">
+<h3>Installation of ggplot2 and setting up the environment.</h3>
+<p>If you have not installed the <strong>ggplot2</strong> package in
+your computer, then installing the package for the first time is
+achieved by writing the code
+<strong>install.packages(“ggplot2”)</strong>. Once, the package has
+successfully been installed, you can set up the environment to use it in
+your analysis by writing the code <strong>library(“ggplot2”)</strong>.
+Alternatively, <strong>ggpot2</strong> package can be loaded by loading
+the <strong>tidyverse</strong> package which comes while attached with
+several packages where ggplot2 is among them.</p>
+</div>
+<div
+id="basic-syntax-and-components-of-ggplot2-aesthetics-geoms-and-layers"
+class="section level3">
+<h3>Basic syntax and components of ggplot2: aesthetics, geoms, and
+layers</h3>
+<ul>
+<li><p><strong>Aesthetics:</strong> Mapping data variables to visual
+properties.</p></li>
+<li><p><strong>Geoms:</strong> Geometric objects that represent data
+points, lines, shapes, etc.</p></li>
+<li><p><strong>Layers:</strong> Building plots by adding layers of
+graphics.</p></li>
+</ul>
+</div>
+</div>
+<div id="creating-basic-plots-with-ggplot2" class="section level2">
+<h2>Creating Basic Plots with ggplot2</h2>
+<p>We are using the gapminder dataset (<a
+href="https://www.gapminder.org/data"
+class="uri">https://www.gapminder.org/data</a>) that has been put into
+an R package by Bryan (2017) so we can load it with library(gapminder).
+The dataset includes 1704 observations (rows) of 6 variables (columns:
+country, continent, year, lifeExp, pop, gdpPercap). country, continent,
+and year could be thought of as grouping variables, whereas lifeExp
+(life expectancy), pop (population), and gdpPercap (Gross Domestic
+Product per capita) are values. The years in this dataset span 1952 to
+2007 with 5-year intervals (so a total of 12 different years). It
+includes 142 countries from 5 continents (Asia, Europe, Africa,
+Americas, Oceania). You can check that all of the numbers quoted above
+are correct with these lines:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHRpZHl2ZXJzZSlcbmxpYnJhcnkoZ2FwbWluZGVyKVxuZ2FwbWluZGVyJHllYXIgJT4lIHVuaXF1ZSgpXG5nYXBtaW5kZXIkY291bnRyeSAlPiUgbl9kaXN0aW5jdCgpXG5nYXBtaW5kZXIkY29udGluZW50ICU+JSB1bmlxdWUoKSJ9
+</div>
+<div
+id="step-by-step-instructions-to-create-scatter-plots-histograms-and-bar-charts-using-ggplot2"
+class="section level3">
+<h3>Step-by-step instructions to create scatter plots, histograms, and
+bar charts using ggplot2</h3>
+<div id="scatter-plotsbubble-plots" class="section level4">
+<h4>Scatter plots/bubble plots</h4>
+<p>Let’s create a new shorter tibble called gapdata2007 that only
+includes data for the year 2007. Let’s ask ggplot() to draw a point for
+each observation by adding geom_point()</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpbHRlciBvbmx5IHRoZSB5ZWFyIDIwMDcgZGF0YVxuZ2FwZGF0YTIwMDcgPC0gZ2FwbWluZGVyICU+JVxuZmlsdGVyKHllYXIgPT0gMjAwNylcblxuI1Bsb3QgYSBzaW1wbGUgc2NhdHRlciBwbG90IFxuZ2FwZGF0YTIwMDcgJT4lXG5nZ3Bsb3QoYWVzKHggPSBnZHBQZXJjYXAsIHkgPSBsaWZlRXhwKSkgK1xuZ2VvbV9wb2ludCgpIn0=
+</div>
+</div>
+<div id="histograms" class="section level4">
+<h4>Histograms</h4>
+<p>A histogram displays the distribution of values within a continuous
+variable. In the example below, we are taking the life expectancy (aes(x
+= lifeExp)) and telling the histogram to count the observations up in
+“bins” of 10 years (geom_histogram(binwidth = 10)</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGxpZmVFeHApKSArXG5nZW9tX2hpc3RvZ3JhbShiaW53aWR0aCA9IDEwKSJ9
+</div>
+<p>We can see that most countries in the world have a life expectancy of
+~70-80 years (in 2007), and that the distribution of life expectancy
+globally is not normally distributed. Setting the binwidth is optional,
+using just geom_histogram() works well too - by default, it will divide
+the data into 30 bins.</p>
+</div>
+<div id="bar-plots" class="section level4">
+<h4>Bar plots</h4>
+<p>There are two geoms for making bar plots -
+<strong>geom_col()</strong> and <strong>geom_bar()</strong> and the
+examples below will illustrate when to use which one. In short: if your
+data is already summarised or includes values for y (height of the
+bars), use <strong>geom_col()</strong>. If, however, you want ggplot()
+to count up the number of rows in your dataset, use
+<strong>geom_bar()</strong>. For example, with patient-level data (each
+row is a patient) you’ll probably want to use geom_bar(), with data that
+is already somewhat aggregated, you’ll use geom_col(). There is no harm
+in trying one, and if it doesn’t work, trying the other.</p>
+<p>Let’s plot the life expectancies in 2007 in these three
+countries:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmZpbHRlcihjb3VudHJ5ICVpbiUgYyhcIlVuaXRlZCBLaW5nZG9tXCIsIFwiRnJhbmNlXCIsIFwiR2VybWFueVwiKSkgJT4lXG5nZ3Bsb3QoYWVzKHggPSBjb3VudHJ5LCB5ID0gbGlmZUV4cCkpICtcbmdlb21fY29sKCkifQ==
+</div>
+</div>
+<div id="box-plots" class="section level4">
+<h4>Box plots</h4>
+<p>Box plots are our go to method for quickly visualizing summary
+statistics of a continuous outcome variable (such as life expectancy in
+the gapminder dataset. Box plots include:</p>
+<ul>
+<li>the median (middle line in the box)</li>
+<li>inter-quartile range (IQR, top and bottom parts of the boxes - this
+is where 50% of your data is)</li>
+<li>whiskers (the black lines extending to the lowest and highest values
+that are still within 1.5*IQR)</li>
+<li>outliers (any observations out with the whiskers)</li>
+</ul>
+Let’s pot the boxplots of life expectancies within each continent in
+year 2007
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGNvbnRpbmVudCwgeSA9IGxpZmVFeHApKSArXG5nZW9tX2JveHBsb3QoKSJ9
+</div>
+</div>
+<div id="line-plotstime-series-plots" class="section level4">
+<h4>Line plots/time series plots</h4>
+<p>Let’s plot the life expectancy in the United Kingdom over time.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhIDwtIGdhcG1pbmRlclxuZ2FwZGF0YSAlPiVcbmZpbHRlcihjb3VudHJ5ID09IFwiVW5pdGVkIEtpbmdkb21cIikgJT4lXG5nZ3Bsb3QoYWVzKHggPSB5ZWFyLCB5ID0gbGlmZUV4cCkpICtcbmdlb21fbGluZSgpIn0=
+</div>
+</div>
+</div>
+<div
+id="introduction-to-adding-layers-modifying-aesthetics-and-utilizing-facets-for-multi-panel-plots"
+class="section level3">
+<h3>Introduction to adding layers, modifying aesthetics, and utilizing
+facets for multi-panel plots</h3>
+<p><strong>a) Adding layers</strong></p>
+<p>Going back to the scatter plot (lifeExp vs gdpPercap), let’s use
+continent to give the points some colour. We can do this by adding
+colour = continent inside the aes():Let’s also add a regression line to
+the scatter plot</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGdkcFBlcmNhcCwgeSA9IGxpZmVFeHAsIGNvbG91ciA9IGNvbnRpbmVudCkpICtcbmdlb21fcG9pbnQoKStcbmdlb21fc21vb3RoKG1ldGhvZCA9IFwibG1cIiwgc2UgPSBGQUxTRSkifQ==
+</div>
+<p><strong>b) Modifying aesthetics</strong></p>
+<p>This can be achieved by specifying further variables inside
+<strong>aes()</strong> or specifying aesthetics outside
+<strong>aes()</strong>. The main aesthetics (things we can see) are:
+<strong>x, y, colour, fill, shape, size,</strong> and any of these could
+appear inside or outside the <strong>aes()</strong> function.</p>
+<p>Variables (so columns of your dataset) have to be defined inside
+<strong>aes()</strong>. Whereas to apply a modification on everything,
+we can set an aesthetic to a constant value outside of aes().</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGdkcFBlcmNhcCwgeSA9IGxpZmVFeHAsIGNvbG91ciA9IGNvbnRpbmVudCkpICtcbmdlb21fcG9pbnQoc2hhcGUgPSAxKSJ9
+</div>
+<p><strong>c) Utilizing facets for multi-panel plots</strong> Faceting
+is a way to efficiently create the same plot for subgroups within the
+dataset. For example, we can separate each continent into its own facet
+by adding facet_wrap(~continent) to our plot:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGdkcFBlcmNhcCwgeSA9IGxpZmVFeHAsIGNvbG91ciA9IGNvbnRpbmVudCkpICtcbmdlb21fcG9pbnQoc2hhcGUgPSAxKSArXG5mYWNldF93cmFwKH5jb250aW5lbnQpIn0=
+</div>
+</div>
+</div>
+<div id="customizing-plots-in-ggplot2" class="section level2">
+<h2>Customizing Plots in ggplot2</h2>
+<div
+id="advanced-customization-techniques-including-themes-scales-and-coordinate-systems."
+class="section level3">
+<h3>Advanced customization techniques including themes, scales, and
+coordinate systems.</h3>
+<p><strong>a) Themes</strong></p>
+<p>Changing themes involves changing the default background from grey to
+a white background. Some of the built-in ggplot themes are
+<strong>theme_bw()</strong>, <strong>theme_dark()</strong>,
+<strong>theme_minimal()</strong> and <strong>theme_classic()</strong>.
+We are adding <strong>theme_bw()</strong> (“background white”) to give
+the plot a different look. We have also divided the gdpPercap by 1000
+(making the units “thousands of dollars per capita”). Note that you can
+apply calculations directly on ggplot variables (so how we’ve done x =
+gdpPercap/1000 here). This is how ggplot() works - you can build a plot
+by adding or modifying things one by one.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGdkcFBlcmNhcC8xMDAwLCB5ID0gbGlmZUV4cCwgY29sb3VyID0gY29udGluZW50KSkgK1xuZ2VvbV9wb2ludChzaGFwZSA9IDEpICtcbmZhY2V0X3dyYXAofmNvbnRpbmVudCkgK1xudGhlbWVfYncoKSJ9
+</div>
+<p><strong>b) Scales</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBtaW5kZXIgJT4lXG5nZ3Bsb3QoYWVzKHggPSB5ZWFyLCB5ID0gbGlmZUV4cCwgZ3JvdXAgPSBjb3VudHJ5LCBjb2xvdXIgPSBjb250aW5lbnQpKSArXG5nZW9tX2xpbmUoKSArXG5mYWNldF93cmFwKH5jb250aW5lbnQpICtcbnRoZW1lX2J3KCkgK1xuc2NhbGVfY29sb3VyX2JyZXdlcihwYWxldHRlID0gXCJQYWlyZWRcIikifQ==
+</div>
+<p><strong>c) Coordinate systems</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZsaXBwZWQgY29vcmRpbmF0ZSBzeXN0ZW1cbmdhcGRhdGEyMDA3ICU+JVxuZ2dwbG90KGFlcyh4ID0gZ2RwUGVyY2FwLCB5ID0gbGlmZUV4cCwgY29sb3VyID0gY29udGluZW50KSkgK1xuZ2VvbV9wb2ludChzaGFwZSA9IDEpK1xuICBjb29yZF9mbGlwKCkgK1xuICBsYWJzKHRpdGxlID0gXCJTY2F0dGVyIFBsb3Qgd2l0aCBGbGlwcGVkIENvb3JkaW5hdGUgU3lzdGVtXCIsXG4gICAgICAgeCA9IFwiR0RQIFBlciBDYXBpdGFcIiwgeSA9IFwiTGlmZSBFeHBlY3RhbmN5XCIpICtcbiAgdGhlbWVfYncoKSJ9
+</div>
+</div>
+<div
+id="techniques-for-fine-tuning-ggplot2-outputs-to-create-publication-quality-graphics"
+class="section level3">
+<h3>Techniques for fine-tuning ggplot2 outputs to create
+publication-quality graphics</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFB1YmxpY2F0aW9uLXF1YWxpdHkgc2NhdHRlciBwbG90XG5nZ3Bsb3QoZGF0YSA9IGlyaXMsIGFlcyh4ID0gU2VwYWwuTGVuZ3RoLCB5ID0gU2VwYWwuV2lkdGgsIGNvbG9yID0gU3BlY2llcykpICsgXG4gIGdlb21fcG9pbnQoYWxwaGEgPSAwLjcsIHNpemUgPSAzKSArXG4gIGxhYnModGl0bGUgPSBcIlB1YmxpY2F0aW9uLVF1YWxpdHkgU2NhdHRlciBQbG90XCIsXG4gICAgICAgeCA9IFwiU2VwYWwgTGVuZ3RoXCIsIHkgPSBcIlNlcGFsIFdpZHRoXCIpICtcbiAgdGhlbWVfYncoKSArXG4gIHRoZW1lKFxuICAgIHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDE0LCBmYWNlID0gXCJib2xkXCIsIGhqdXN0ID0gMC41KSxcbiAgICBheGlzLnRpdGxlID0gZWxlbWVudF90ZXh0KHNpemUgPSAxMiksXG4gICAgYXhpcy50ZXh0ID0gZWxlbWVudF90ZXh0KHNpemUgPSAxMCksXG4gICAgbGVnZW5kLnRpdGxlID0gZWxlbWVudF90ZXh0KHNpemUgPSAxMiksXG4gICAgbGVnZW5kLnRleHQgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEwKVxuICApICtcbiAgc2NhbGVfY29sb3JfbWFudWFsKHZhbHVlcyA9IGMoXCJzZXRvc2FcIiA9IFwiYmx1ZVwiLCBcInZlcnNpY29sb3JcIiA9IFwiZ3JlZW5cIiwgXCJ2aXJnaW5pY2FcIiA9IFwicmVkXCIpKSJ9
+</div>
+</div>
+</div>
+<div id="practical-examples-exercise-1" class="section level2">
+<h2>Practical Examples: Exercise</h2>
+<!--chapter:end:08-intro-ggplot2.Rmd-->
+</div>
+</div>
+<div id="advanced-data-visualization-with-ggplot2-and-other-packages"
+class="section level1">
+<h1>ADVANCED DATA VISUALIZATION WITH ggplot2 AND OTHER PACKAGES</h1>
+<div id="interactive-graphs-with-plotly" class="section level2">
+<h2>Interactive Graphs with plotly</h2>
+<div id="converting-ggplot2-charts-into-interactive-plotly-graphs"
+class="section level3">
+<h3>Converting ggplot2 charts into interactive plotly graphs</h3>
+<p>Before converting the ggplot2 chart to interactive plotly graph, you
+assign the plot to a vector, say, p. Then load the
+<strong>plotly</strong> package and convert the ggplot chart to
+interactive plotly graph using the <strong>ggpotly()</strong> function,
+for example, <strong>ggplotly(p)</strong>.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHBsb3RseSlcbnA8LWdncGxvdChkYXRhID0gaXJpcywgYWVzKHggPSBTZXBhbC5MZW5ndGgsIHkgPSBTZXBhbC5XaWR0aCwgY29sb3IgPSBTcGVjaWVzKSkgKyBcbiAgZ2VvbV9wb2ludChhbHBoYSA9IDAuNywgc2l6ZSA9IDMpICtcbiAgbGFicyh0aXRsZSA9IFwiUHVibGljYXRpb24tUXVhbGl0eSBTY2F0dGVyIFBsb3RcIixcbiAgICAgICB4ID0gXCJTZXBhbCBMZW5ndGhcIiwgeSA9IFwiU2VwYWwgV2lkdGhcIikgK1xuICB0aGVtZV9idygpICtcbiAgdGhlbWUoXG4gICAgcGxvdC50aXRsZSA9IGVsZW1lbnRfdGV4dChzaXplID0gMTQsIGZhY2UgPSBcImJvbGRcIiwgaGp1c3QgPSAwLjUpLFxuICAgIGF4aXMudGl0bGUgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEyKSxcbiAgICBheGlzLnRleHQgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEwKSxcbiAgICBsZWdlbmQudGl0bGUgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEyKSxcbiAgICBsZWdlbmQudGV4dCA9IGVsZW1lbnRfdGV4dChzaXplID0gMTApXG4gICkgK1xuICBzY2FsZV9jb2xvcl9tYW51YWwodmFsdWVzID0gYyhcInNldG9zYVwiID0gXCJibHVlXCIsIFwidmVyc2ljb2xvclwiID0gXCJncmVlblwiLCBcInZpcmdpbmljYVwiID0gXCJyZWRcIikpXG5cbiMgQ29udmVydCBnZ3Bsb3QyIHRvIHBsb3RseVxuI2dncGxvdGx5KHApIn0=
+</div>
+</div>
+<div
+id="customizing-interactions-adding-tooltips-and-embedding-plotly-graphs-in-web-applications."
+class="section level3">
+<h3>Customizing interactions, adding tooltips, and embedding plotly
+graphs in web applications.</h3>
+<p><strong>Customizing Interactions and Adding Tooltips</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENvbnZlcnQgZ2dwbG90MiBzY2F0dGVyIHBsb3QgdG8gcGxvdGx5IHdpdGggY3VzdG9tIHRvb2x0aXBcbnAgPC0gZ2dwbG90KGRhdGEgPSBpcmlzLCBhZXMoeCA9IFNlcGFsLkxlbmd0aCwgeSA9IFNlcGFsLldpZHRoLCBjb2xvciA9IFNwZWNpZXMsIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXh0ID0gcGFzdGUoXCJTcGVjaWVzOiBcIiwgU3BlY2llcykpKSArIFxuICBnZW9tX3BvaW50KCkgK1xuICBsYWJzKHRpdGxlID0gXCJJbnRlcmFjdGl2ZSBTY2F0dGVyIFBsb3Qgb2YgU2VwYWwgTGVuZ3RoIHZzIFNlcGFsIFdpZHRoXCIsXG4gICAgICAgeCA9IFwiU2VwYWwgTGVuZ3RoXCIsIHkgPSBcIlNlcGFsIFdpZHRoXCIpICtcbiAgdGhlbWVfYncoKVxuXG4jIENvbnZlcnQgZ2dwbG90MiB0byBwbG90bHkgd2l0aCBjdXN0b20gdG9vbHRpcFxuI2dncGxvdGx5KHAsIHRvb2x0aXAgPSBcInRleHRcIikifQ==
+</div>
+<p><strong>Embedding plotly Graphs in Web Applications
+(Shiny)</strong></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEluc3RhbGwgYW5kIGxvYWQgU2hpbnkgcGFja2FnZVxuI2luc3RhbGwucGFja2FnZXMoXCJzaGlueVwiKVxubGlicmFyeShzaGlueSlcblxuIyBEZWZpbmUgVUlcbnVpIDwtIGZsdWlkUGFnZShcbiAgdGl0bGVQYW5lbChcIkludGVyYWN0aXZlIFNjYXR0ZXIgUGxvdFwiKSxcbiAgcGxvdGx5T3V0cHV0KFwic2NhdHRlcl9wbG90XCIpXG4pXG5cbiMgRGVmaW5lIHNlcnZlciBsb2dpY1xuc2VydmVyIDwtIGZ1bmN0aW9uKGlucHV0LCBvdXRwdXQpIHtcbiAgb3V0cHV0JHNjYXR0ZXJfcGxvdCA8LSByZW5kZXJQbG90bHkoe1xuICAgIGdncGxvdChkYXRhID0gaXJpcywgYWVzKHggPSBTZXBhbC5MZW5ndGgsIHkgPSBTZXBhbC5XaWR0aCwgY29sb3IgPSBTcGVjaWVzLCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXh0ID0gcGFzdGUoXCJTcGVjaWVzOiBcIiwgU3BlY2llcykpKSArIFxuICAgICAgZ2VvbV9wb2ludCgpICtcbiAgICAgIGxhYnModGl0bGUgPSBcIkludGVyYWN0aXZlIFNjYXR0ZXIgUGxvdCBvZiBTZXBhbCBMZW5ndGggdnMgU2VwYWwgV2lkdGhcIixcbiAgICAgICAgICAgeCA9IFwiU2VwYWwgTGVuZ3RoXCIsIHkgPSBcIlNlcGFsIFdpZHRoXCIpICtcbiAgICAgIHRoZW1lX21pbmltYWwoKSAlPiVcbiAgICAgIGdncGxvdGx5KHRvb2x0aXAgPSBcInRleHRcIilcbiAgfSlcbn1cblxuIyBSdW4gdGhlIGFwcGxpY2F0aW9uXG5zaGlueUFwcCh1aSA9IHVpLCBzZXJ2ZXIgPSBzZXJ2ZXIpIn0=
+</div>
+</div>
+</div>
+<div id="building-web-applications-with-shiny" class="section level2">
+<h2>Building Web Applications with shiny</h2>
+<div
+id="introduction-to-shiny-for-building-interactive-web-applications"
+class="section level3">
+<h3>Introduction to shiny for building interactive web applications</h3>
+<p>Shiny allows you to turn your analyses into interactive web
+applications without needing to know HTML, CSS, or JavaScript. It works
+by allowing you to separate the user interface from the underlying R
+code, making it easy to create complex interactive apps.</p>
+</div>
+<div
+id="creating-reactive-plots-and-dashboards-that-update-with-user-input."
+class="section level3">
+<h3>Creating reactive plots and dashboards that update with user
+input.</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgbmVjZXNzYXJ5IHBhY2thZ2VzXG4jbGlicmFyeShzaGlueSlcbiNsaWJyYXJ5KGdncGxvdDIpXG5cbiMgRGVmaW5lIFVJXG51aSA8LSBmbHVpZFBhZ2UoXG4gIHRpdGxlUGFuZWwoXCJJbnRlcmFjdGl2ZSBTY2F0dGVyIFBsb3RcIiksXG4gIHNpZGViYXJMYXlvdXQoXG4gICAgc2lkZWJhclBhbmVsKFxuICAgICAgc2xpZGVySW5wdXQoXCJzbGlkZXJcIiwgXCJOdW1iZXIgb2YgcG9pbnRzIHRvIHNob3c6XCIsIFxuICAgICAgICAgICAgICAgICAgbWluID0gMTAsIG1heCA9IG5yb3coaXJpcyksIHZhbHVlID0gNTApXG4gICAgKSxcbiAgICBtYWluUGFuZWwoXG4gICAgICBwbG90T3V0cHV0KFwic2NhdHRlcl9wbG90XCIpXG4gICAgKVxuICApXG4pXG5cbiMgRGVmaW5lIHNlcnZlciBsb2dpY1xuc2VydmVyIDwtIGZ1bmN0aW9uKGlucHV0LCBvdXRwdXQpIHtcbiAgb3V0cHV0JHNjYXR0ZXJfcGxvdCA8LSByZW5kZXJQbG90KHtcbiAgICBzYW1wbGVfcm93cyA8LSBzYW1wbGUobnJvdyhpcmlzKSwgaW5wdXQkc2xpZGVyKVxuICAgIGdncGxvdChkYXRhID0gaXJpc1tzYW1wbGVfcm93cywgXSwgYWVzKHggPSBTZXBhbC5MZW5ndGgsIHkgPSBTZXBhbC5XaWR0aCwgY29sb3IgPSBTcGVjaWVzKSkgKyBcbiAgICAgIGdlb21fcG9pbnQoKSArXG4gICAgICBsYWJzKHRpdGxlID0gXCJJbnRlcmFjdGl2ZSBTY2F0dGVyIFBsb3Qgb2YgU2VwYWwgTGVuZ3RoIHZzIFNlcGFsIFdpZHRoXCIsXG4gICAgICAgICAgIHggPSBcIlNlcGFsIExlbmd0aFwiLCB5ID0gXCJTZXBhbCBXaWR0aFwiKSArXG4gICAgICB0aGVtZV9taW5pbWFsKClcbiAgfSlcbn1cblxuIyBSdW4gdGhlIGFwcGxpY2F0aW9uXG5zaGlueUFwcCh1aSA9IHVpLCBzZXJ2ZXIgPSBzZXJ2ZXIpIn0=
+</div>
+</div>
+</div>
+<div id="advanced-ggplot2-extensions" class="section level2">
+<h2>Advanced ggplot2 Extensions</h2>
+<div id="explore-extensions-like-gganimate-for-creating-animated-plots."
+class="section level3">
+<h3>Explore extensions like gganimate for creating animated plots.</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KGdnYW5pbWF0ZSlcblxuI05vdGU6IFRoaXMgcGxvdCB3aWxsIGJlIGRpc3BsYXllZCBhZnRlciB5b3UgaW5zdGFsbCB0aGUgZ2lmc2tpIHBhY2thZ2VcblxuIyBBbmltYXRlZCBzY2F0dGVyIHBsb3RcbmdncGxvdChpcmlzLCBhZXMoeCA9IFNlcGFsLkxlbmd0aCwgeSA9IFNlcGFsLldpZHRoLCBjb2xvciA9IFNwZWNpZXMpKSArIFxuICBnZW9tX3BvaW50KCkgK1xuICB0cmFuc2l0aW9uX3N0YXRlcyhTcGVjaWVzLCB0cmFuc2l0aW9uX2xlbmd0aCA9IDIsIHN0YXRlX2xlbmd0aCA9IDEpICtcbiAgbGFicyh0aXRsZSA9IFwiQW5pbWF0ZWQgU2NhdHRlciBQbG90IG9mIFNlcGFsIExlbmd0aCB2cyBTZXBhbCBXaWR0aFwiLFxuICAgICAgIHggPSBcIlNlcGFsIExlbmd0aFwiLCB5ID0gXCJTZXBhbCBXaWR0aFwiKSArXG4gIHRoZW1lX2J3KCkifQ==
+</div>
+</div>
+<div
+id="using-ggridges-for-ridge-line-plots-and-other-creative-visualization-techniques."
+class="section level3">
+<h3>Using ggridges for ridge line plots and other creative visualization
+techniques.</h3>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KGdncmlkZ2VzKVxuXG4jIFJpZGdlIGxpbmUgcGxvdFxuZ2dwbG90KGlyaXMsIGFlcyh4ID0gU2VwYWwuTGVuZ3RoLCB5ID0gU3BlY2llcywgZmlsbCA9IFNwZWNpZXMpKSArIFxuICBnZW9tX2RlbnNpdHlfcmlkZ2VzKCkgK1xuICBsYWJzKHRpdGxlID0gXCJSaWRnZSBMaW5lIFBsb3Qgb2YgU2VwYWwgTGVuZ3RoIGJ5IFNwZWNpZXNcIixcbiAgICAgICB4ID0gXCJTZXBhbCBMZW5ndGhcIiwgeSA9IFwiU3BlY2llc1wiKSArXG4gIHRoZW1lX2J3KCkifQ==
+</div>
+</div>
+</div>
+<div id="practical-examples-exercises-4" class="section level2">
+<h2>Practical Examples: Exercises</h2>
+<!--chapter:end:09-advanced-visualization.Rmd-->
+</div>
+</div>
+<div id="real-world-applications-and-case-studies-code-challenges"
+class="section level1">
+<h1>REAL-WORLD APPLICATIONS AND CASE STUDIES (CODE CHALLENGES)</h1>
+<!--chapter:end:10-real-world-application.Rmd-->
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

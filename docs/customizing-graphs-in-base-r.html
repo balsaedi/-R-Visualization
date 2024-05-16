@@ -5,31 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 CUSTOMIZING GRAPHS IN BASE R | R Base Data Visualization</title>
-  <meta name="description" content="<p>This is a brief document on the Data visualization in R.
-#The HTML output format for this example is bookdown::gitbook,
-#set in the _output.yml file.</p>" />
+  <meta name="description" content="Chapter 4 CUSTOMIZING GRAPHS IN BASE R | R Base Data Visualization" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 CUSTOMIZING GRAPHS IN BASE R | R Base Data Visualization" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="<p>This is a brief document on the Data visualization in R.
-#The HTML output format for this example is bookdown::gitbook,
-#set in the _output.yml file.</p>" />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 4 CUSTOMIZING GRAPHS IN BASE R | R Base Data Visualization" />
   
-  <meta name="twitter:description" content="<p>This is a brief document on the Data visualization in R.
-#The HTML output format for this example is bookdown::gitbook,
-#set in the _output.yml file.</p>" />
+  
   
 
 <meta name="author" content="Basim Alsaedi" />
 
 
-<meta name="date" content="2024-05-07" />
+<meta name="date" content="2024-05-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -58,79 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.10.3/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -365,21 +288,9 @@ effectively.</li>
 <li><strong>Plot Characters:</strong> Different plot characters, such as dots, crosses, stars, etc., can be used.</li>
 </ul>
 <p><strong>Example:</strong></p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="customizing-graphs-in-base-r.html#cb56-1" tabindex="-1"></a><span class="co"># Sample data</span></span>
-<span id="cb56-2"><a href="customizing-graphs-in-base-r.html#cb56-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb56-3"><a href="customizing-graphs-in-base-r.html#cb56-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb56-4"><a href="customizing-graphs-in-base-r.html#cb56-4" tabindex="-1"></a></span>
-<span id="cb56-5"><a href="customizing-graphs-in-base-r.html#cb56-5" tabindex="-1"></a><span class="co"># Plot with customized graphical parameters</span></span>
-<span id="cb56-6"><a href="customizing-graphs-in-base-r.html#cb56-6" tabindex="-1"></a><span class="fu">par</span>(</span>
-<span id="cb56-7"><a href="customizing-graphs-in-base-r.html#cb56-7" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,    <span class="co"># Use solid circles for points</span></span>
-<span id="cb56-8"><a href="customizing-graphs-in-base-r.html#cb56-8" tabindex="-1"></a>  <span class="at">lty =</span> <span class="dv">2</span>,     <span class="co"># Use dashed line</span></span>
-<span id="cb56-9"><a href="customizing-graphs-in-base-r.html#cb56-9" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">2</span>,     <span class="co"># Set line width to 2</span></span>
-<span id="cb56-10"><a href="customizing-graphs-in-base-r.html#cb56-10" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">&quot;blue&quot;</span> <span class="co"># Set line and point color to blue</span></span>
-<span id="cb56-11"><a href="customizing-graphs-in-base-r.html#cb56-11" tabindex="-1"></a>)</span>
-<span id="cb56-12"><a href="customizing-graphs-in-base-r.html#cb56-12" tabindex="-1"></a></span>
-<span id="cb56-13"><a href="customizing-graphs-in-base-r.html#cb56-13" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Customized Plot&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Y&quot;</span>)</span>
-<span id="cb56-14"><a href="customizing-graphs-in-base-r.html#cb56-14" tabindex="-1"></a><span class="fu">points</span>(x, y, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="co"># Add points with red color</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkgPC0geF4yXG5cbiMgUGxvdCB3aXRoIGN1c3RvbWl6ZWQgZ3JhcGhpY2FsIHBhcmFtZXRlcnNcbnBhcihcbiAgcGNoID0gMTksICAgICMgVXNlIHNvbGlkIGNpcmNsZXMgZm9yIHBvaW50c1xuICBsdHkgPSAyLCAgICAgIyBVc2UgZGFzaGVkIGxpbmVcbiAgbHdkID0gMiwgICAgICMgU2V0IGxpbmUgd2lkdGggdG8gMlxuICBjb2wgPSBcImJsdWVcIiAjIFNldCBsaW5lIGFuZCBwb2ludCBjb2xvciB0byBibHVlXG4pXG5cbnBsb3QoeCwgeSwgdHlwZSA9IFwibFwiLCBtYWluID0gXCJDdXN0b21pemVkIFBsb3RcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5wb2ludHMoeCwgeSwgY29sID0gXCJyZWRcIikgIyBBZGQgcG9pbnRzIHdpdGggcmVkIGNvbG9yIn0=
+</div>
 </div>
 <div id="enhancing-plot-aesthetics" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Enhancing Plot Aesthetics<a href="customizing-graphs-in-base-r.html#enhancing-plot-aesthetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -389,15 +300,9 @@ effectively.</li>
 <p><strong>Tick Marks:</strong> Use <strong>axes = FALSE</strong> to remove axis tick marks and add them back using axis() function.</p>
 <p><strong>Axis Limits:</strong> Use <strong>xlim</strong> and <strong>ylim</strong> parameters to set limits for the x and y axes, respectively.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="customizing-graphs-in-base-r.html#cb57-1" tabindex="-1"></a><span class="co"># Sample data</span></span>
-<span id="cb57-2"><a href="customizing-graphs-in-base-r.html#cb57-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb57-3"><a href="customizing-graphs-in-base-r.html#cb57-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb57-4"><a href="customizing-graphs-in-base-r.html#cb57-4" tabindex="-1"></a></span>
-<span id="cb57-5"><a href="customizing-graphs-in-base-r.html#cb57-5" tabindex="-1"></a><span class="co"># Plot with customized axis options</span></span>
-<span id="cb57-6"><a href="customizing-graphs-in-base-r.html#cb57-6" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">main =</span> <span class="st">&quot;A simple line plot&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X-axis&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Y-axis&quot;</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">12</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">120</span>))</span>
-<span id="cb57-7"><a href="customizing-graphs-in-base-r.html#cb57-7" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">12</span>, <span class="at">by =</span> <span class="dv">2</span>)) <span class="co"># Add x-axis tick marks</span></span>
-<span id="cb57-8"><a href="customizing-graphs-in-base-r.html#cb57-8" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">2</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">120</span>, <span class="at">by =</span> <span class="dv">20</span>)) <span class="co"># Add y-axis tick marks</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkgPC0geF4yXG5cbiMgUGxvdCB3aXRoIGN1c3RvbWl6ZWQgYXhpcyBvcHRpb25zXG5wbG90KHgsIHksIHR5cGUgPSBcImxcIiwgbWFpbiA9IFwiQSBzaW1wbGUgbGluZSBwbG90XCIsIHhsYWIgPSBcIlgtYXhpc1wiLCB5bGFiID0gXCJZLWF4aXNcIiwgeGxpbSA9IGMoMCwgMTIpLCB5bGltID0gYygwLCAxMjApKVxuYXhpcyhzaWRlID0gMSwgYXQgPSBzZXEoMCwgMTIsIGJ5ID0gMikpICMgQWRkIHgtYXhpcyB0aWNrIG1hcmtzXG5heGlzKHNpZGUgPSAyLCBhdCA9IHNlcSgwLCAxMjAsIGJ5ID0gMjApKSAjIEFkZCB5LWF4aXMgdGljayBtYXJrcyJ9
+</div>
 </div>
 <div id="advanced-customization-techniques" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> Advanced Customization Techniques<a href="customizing-graphs-in-base-r.html#advanced-customization-techniques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -405,43 +310,25 @@ effectively.</li>
 <p><strong>i). Multiple Plot Windows (mfrow and mfcol):</strong></p>
 <p><strong>mfrow:</strong> Divides the plotting area into a matrix of rows and columns. Plots are filled row-wise.</p>
 <p><strong>mfcol:</strong> Divides the plotting area into a matrix of rows and columns. Plots are filled column-wise.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="customizing-graphs-in-base-r.html#cb58-1" tabindex="-1"></a><span class="co"># Example using mfrow</span></span>
-<span id="cb58-2"><a href="customizing-graphs-in-base-r.html#cb58-2" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>)) <span class="co"># Create a 2x2 grid for plots</span></span>
-<span id="cb58-3"><a href="customizing-graphs-in-base-r.html#cb58-3" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">main =</span> <span class="st">&quot;Plot 1&quot;</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
-<span id="cb58-4"><a href="customizing-graphs-in-base-r.html#cb58-4" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, (<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span>, <span class="at">main =</span> <span class="st">&quot;Plot 2&quot;</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
-<span id="cb58-5"><a href="customizing-graphs-in-base-r.html#cb58-5" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, (<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">^</span><span class="dv">3</span>, <span class="at">main =</span> <span class="st">&quot;Plot 3&quot;</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
-<span id="cb58-6"><a href="customizing-graphs-in-base-r.html#cb58-6" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">log</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="at">main =</span> <span class="st">&quot;Plot 4&quot;</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgdXNpbmcgbWZyb3dcbnBhcihtZnJvdyA9IGMoMiwgMikpICMgQ3JlYXRlIGEgMngyIGdyaWQgZm9yIHBsb3RzXG5wbG90KDE6MTAsIDE6MTAsIG1haW4gPSBcIlBsb3QgMVwiLCB0eXBlID0gXCJsXCIpXG5wbG90KDE6MTAsICgxOjEwKV4yLCBtYWluID0gXCJQbG90IDJcIiwgdHlwZSA9IFwibFwiKVxucGxvdCgxOjEwLCAoMToxMCleMywgbWFpbiA9IFwiUGxvdCAzXCIsIHR5cGUgPSBcImxcIilcbnBsb3QoMToxMCwgbG9nKDE6MTApLCBtYWluID0gXCJQbG90IDRcIiwgdHlwZSA9IFwibFwiKSJ9
+</div>
 <p><strong>ii). Customizing Plots with Grid Lines, Background Color, and Themes:</strong></p>
 <p><strong>Grid Lines:</strong> Use <strong>grid()</strong> function to add grid lines to the plot.</p>
 <p><strong>Background Color:</strong> Use <strong>par(bg = “color”)</strong> to set background color for the plot.</p>
 <p><strong>Themes:</strong> Use themes from packages like ggplot2 to change the overall appearance of the plot. This will be covered under ggplot2 package chapter.</p>
-<p><strong>Example with Grid Lines and Background Color:</strong></p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="customizing-graphs-in-base-r.html#cb59-1" tabindex="-1"></a><span class="co"># Example with grid lines and background color</span></span>
-<span id="cb59-2"><a href="customizing-graphs-in-base-r.html#cb59-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">main =</span> <span class="st">&quot;A Customized Simple Line Plot&quot;</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xlab=</span><span class="st">&#39;Height&#39;</span>,<span class="at">ylab =</span> <span class="st">&#39;Weight&#39;</span>)</span>
-<span id="cb59-3"><a href="customizing-graphs-in-base-r.html#cb59-3" tabindex="-1"></a><span class="fu">grid</span>() <span class="co"># Add grid lines</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="customizing-graphs-in-base-r.html#cb60-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">bg =</span> <span class="st">&quot;lightblue&quot;</span>) <span class="co"># Set background color</span></span></code></pre></div>
+<strong>Example with Grid Lines and Background Color:</strong>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgd2l0aCBncmlkIGxpbmVzIGFuZCBiYWNrZ3JvdW5kIGNvbG9yXG5wbG90KDE6MTAsIDE6MTAsIG1haW4gPSBcIkEgQ3VzdG9taXplZCBTaW1wbGUgTGluZSBQbG90XCIsIHR5cGUgPSBcImxcIiwgeGxhYj0nSGVpZ2h0Jyx5bGFiID0gJ1dlaWdodCcpXG5ncmlkKCkgIyBBZGQgZ3JpZCBsaW5lc1xucGFyKGJnID0gXCJsaWdodGJsdWVcIikgIyBTZXQgYmFja2dyb3VuZCBjb2xvciJ9
+</div>
 </div>
 <div id="practical-examples-exercise" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> Practical Examples: Exercise<a href="customizing-graphs-in-base-r.html#practical-examples-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Exercise 11</strong></p>
 <p>Read the <strong>cabbages</strong> dataset from <strong>MASS</strong> package. Remove the duplicated values of <strong>“HeadWt”</strong> and arrange the dataframe in descending order by <strong>“HeadWt”</strong> column. Plot a line plot of <strong>“HeadWt”</strong> against its square and apply blue color with the first line type. Add a second line plot of the square of cube of <strong>“HeadWt”</strong> , apply the red color and the line type should be the second one. Add a legend to the plot and position it at the top - left position with the names “Square of Head Weight” and “Cube of Head Weight” respectively. Maintain the same line types and colors that were used to plot. Add a title, ‘Comparison of Cabbage Trends’. Label the x-axis as ‘Head Weight’ and y-axis should be blank</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="customizing-graphs-in-base-r.html#cb61-1" tabindex="-1"></a><span class="co"># Your code</span></span>
-<span id="cb61-2"><a href="customizing-graphs-in-base-r.html#cb61-2" tabindex="-1"></a></span>
-<span id="cb61-3"><a href="customizing-graphs-in-base-r.html#cb61-3" tabindex="-1"></a><span class="co"># Solution</span></span>
-<span id="cb61-4"><a href="customizing-graphs-in-base-r.html#cb61-4" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb61-5"><a href="customizing-graphs-in-base-r.html#cb61-5" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb61-6"><a href="customizing-graphs-in-base-r.html#cb61-6" tabindex="-1"></a></span>
-<span id="cb61-7"><a href="customizing-graphs-in-base-r.html#cb61-7" tabindex="-1"></a>cabbages <span class="ot">&lt;-</span> cabbages <span class="sc">%&gt;%</span> </span>
-<span id="cb61-8"><a href="customizing-graphs-in-base-r.html#cb61-8" tabindex="-1"></a>  <span class="fu">distinct</span>(HeadWt, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb61-9"><a href="customizing-graphs-in-base-r.html#cb61-9" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(HeadWt),<span class="cn">FALSE</span>)</span>
-<span id="cb61-10"><a href="customizing-graphs-in-base-r.html#cb61-10" tabindex="-1"></a></span>
-<span id="cb61-11"><a href="customizing-graphs-in-base-r.html#cb61-11" tabindex="-1"></a><span class="fu">plot</span>(cabbages<span class="sc">$</span>HeadWt,(cabbages<span class="sc">$</span>HeadWt)<span class="sc">^</span><span class="dv">2</span>,<span class="at">type =</span> <span class="st">&#39;l&#39;</span>, <span class="at">col=</span><span class="st">&#39;blue&#39;</span>, </span>
-<span id="cb61-12"><a href="customizing-graphs-in-base-r.html#cb61-12" tabindex="-1"></a>     <span class="at">lty=</span><span class="dv">1</span>,<span class="at">main =</span> <span class="st">&quot;Comparison of Unique Cabbage Trends&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Head Weight&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb61-13"><a href="customizing-graphs-in-base-r.html#cb61-13" tabindex="-1"></a><span class="fu">lines</span>(cabbages<span class="sc">$</span>HeadWt,(cabbages<span class="sc">$</span>HeadWt)<span class="sc">^</span><span class="dv">3</span>,<span class="at">type =</span> <span class="st">&#39;l&#39;</span>, <span class="at">col=</span><span class="st">&#39;red&#39;</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
-<span id="cb61-14"><a href="customizing-graphs-in-base-r.html#cb61-14" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Square of Head Weight&quot;</span>, <span class="st">&quot;Cube of Head Weight &quot;</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZVxuXG4jIFNvbHV0aW9uXG5saWJyYXJ5KGRwbHlyKVxubGlicmFyeShNQVNTKVxuXG5jYWJiYWdlcyA8LSBjYWJiYWdlcyAlPiUgXG4gIGRpc3RpbmN0KEhlYWRXdCwgLmtlZXBfYWxsID0gVFJVRSkgJT4lIFxuICBhcnJhbmdlKGRlc2MoSGVhZFd0KSxGQUxTRSlcblxucGxvdChjYWJiYWdlcyRIZWFkV3QsKGNhYmJhZ2VzJEhlYWRXdCleMix0eXBlID0gJ2wnLCBjb2w9J2JsdWUnLCBcbiAgICAgbHR5PTEsbWFpbiA9IFwiQ29tcGFyaXNvbiBvZiBVbmlxdWUgQ2FiYmFnZSBUcmVuZHNcIiwgeGxhYiA9IFwiSGVhZCBXZWlnaHRcIiwgeWxhYiA9IFwiXCIpXG5saW5lcyhjYWJiYWdlcyRIZWFkV3QsKGNhYmJhZ2VzJEhlYWRXdCleMyx0eXBlID0gJ2wnLCBjb2w9J3JlZCcsIGx0eT0yKVxubGVnZW5kKFwidG9wbGVmdFwiLCBsZWdlbmQgPSBjKFwiU3F1YXJlIG9mIEhlYWQgV2VpZ2h0XCIsIFwiQ3ViZSBvZiBIZWFkIFdlaWdodCBcIiksIGNvbCA9IGMoXCJibHVlXCIsIFwicmVkXCIpLCBsdHkgPSBjKDEsIDIpKSJ9
+</div>
 <p><strong>Exercise 12 : Multiple Small Plots in One Graphic to Compare Different Data Sets</strong></p>
 <p>Create a vector <strong>x</strong> of a sequence of numbers from 1 to 100. Create another vector <strong>y1</strong> which is the square of <strong>x</strong>. Create another vector <strong>y2</strong> which is the double of <strong>x</strong>. Lastly, create the last vector <strong>y3</strong> which is equivalent to <strong>x</strong> raised to the power of 1.5. Create three multiple small line plots and organize them in one row with three columns. All plots will use the same independent variable in the x-axis, i.e <strong>x</strong>.</p>
 <ol style="list-style-type: lower-roman">
@@ -449,51 +336,15 @@ effectively.</li>
 <li>Plot x against y2. Give it the title,‘Trend 2’, x-axis should be labelled as ‘X’ while y-axis=‘Y2’,col is red.</li>
 <li>Plot x against y3. Give it the title,‘Trend 3’, x-axis should be labelled as ‘X’ while y-axis=‘Y3’,col is green.</li>
 </ol>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="customizing-graphs-in-base-r.html#cb62-1" tabindex="-1"></a><span class="co"># Your  data</span></span>
-<span id="cb62-2"><a href="customizing-graphs-in-base-r.html#cb62-2" tabindex="-1"></a></span>
-<span id="cb62-3"><a href="customizing-graphs-in-base-r.html#cb62-3" tabindex="-1"></a><span class="co">#Solution</span></span>
-<span id="cb62-4"><a href="customizing-graphs-in-base-r.html#cb62-4" tabindex="-1"></a><span class="co">#Create data</span></span>
-<span id="cb62-5"><a href="customizing-graphs-in-base-r.html#cb62-5" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
-<span id="cb62-6"><a href="customizing-graphs-in-base-r.html#cb62-6" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb62-7"><a href="customizing-graphs-in-base-r.html#cb62-7" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> x</span>
-<span id="cb62-8"><a href="customizing-graphs-in-base-r.html#cb62-8" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="fl">1.5</span></span>
-<span id="cb62-9"><a href="customizing-graphs-in-base-r.html#cb62-9" tabindex="-1"></a></span>
-<span id="cb62-10"><a href="customizing-graphs-in-base-r.html#cb62-10" tabindex="-1"></a><span class="co"># Create multiple small plots</span></span>
-<span id="cb62-11"><a href="customizing-graphs-in-base-r.html#cb62-11" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)) <span class="co"># 1 row, 3 columns</span></span>
-<span id="cb62-12"><a href="customizing-graphs-in-base-r.html#cb62-12" tabindex="-1"></a></span>
-<span id="cb62-13"><a href="customizing-graphs-in-base-r.html#cb62-13" tabindex="-1"></a><span class="co"># Plot 1</span></span>
-<span id="cb62-14"><a href="customizing-graphs-in-base-r.html#cb62-14" tabindex="-1"></a><span class="fu">plot</span>(x, y1, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Trend 1&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Y&quot;</span>)</span>
-<span id="cb62-15"><a href="customizing-graphs-in-base-r.html#cb62-15" tabindex="-1"></a></span>
-<span id="cb62-16"><a href="customizing-graphs-in-base-r.html#cb62-16" tabindex="-1"></a><span class="co"># Plot 2</span></span>
-<span id="cb62-17"><a href="customizing-graphs-in-base-r.html#cb62-17" tabindex="-1"></a><span class="fu">plot</span>(x, y2, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Trend 2&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Y2&quot;</span>)</span>
-<span id="cb62-18"><a href="customizing-graphs-in-base-r.html#cb62-18" tabindex="-1"></a></span>
-<span id="cb62-19"><a href="customizing-graphs-in-base-r.html#cb62-19" tabindex="-1"></a><span class="co"># Plot 3</span></span>
-<span id="cb62-20"><a href="customizing-graphs-in-base-r.html#cb62-20" tabindex="-1"></a><span class="fu">plot</span>(x, y3, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Trend 3&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Y3&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgIGRhdGFcblxuI1NvbHV0aW9uXG4jQ3JlYXRlIGRhdGFcbnggPC0gMToxMDBcbnkxIDwtIHheMlxueTIgPC0gMiAqIHhcbnkzIDwtIHheMS41XG5cbiMgQ3JlYXRlIG11bHRpcGxlIHNtYWxsIHBsb3RzXG5wYXIobWZyb3cgPSBjKDEsIDMpKSAjIDEgcm93LCAzIGNvbHVtbnNcblxuIyBQbG90IDFcbnBsb3QoeCwgeTEsIHR5cGUgPSBcImxcIiwgY29sID0gXCJibHVlXCIsIG1haW4gPSBcIlRyZW5kIDFcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5cbiMgUGxvdCAyXG5wbG90KHgsIHkyLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwicmVkXCIsIG1haW4gPSBcIlRyZW5kIDJcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZMlwiKVxuXG4jIFBsb3QgM1xucGxvdCh4LCB5MywgdHlwZSA9IFwibFwiLCBjb2wgPSBcImdyZWVuXCIsIG1haW4gPSBcIlRyZW5kIDNcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZM1wiKSJ9
+</div>
 <ol start="4" style="list-style-type: lower-roman">
 <li>Repeat the above similar plots but arranged in three rows and one column using <strong>mfcol()</strong>.</li>
 </ol>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="customizing-graphs-in-base-r.html#cb63-1" tabindex="-1"></a><span class="co"># Your  data</span></span>
-<span id="cb63-2"><a href="customizing-graphs-in-base-r.html#cb63-2" tabindex="-1"></a></span>
-<span id="cb63-3"><a href="customizing-graphs-in-base-r.html#cb63-3" tabindex="-1"></a><span class="co">#Solution</span></span>
-<span id="cb63-4"><a href="customizing-graphs-in-base-r.html#cb63-4" tabindex="-1"></a><span class="co">#Create data</span></span>
-<span id="cb63-5"><a href="customizing-graphs-in-base-r.html#cb63-5" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
-<span id="cb63-6"><a href="customizing-graphs-in-base-r.html#cb63-6" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb63-7"><a href="customizing-graphs-in-base-r.html#cb63-7" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> x</span>
-<span id="cb63-8"><a href="customizing-graphs-in-base-r.html#cb63-8" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="fl">1.5</span></span>
-<span id="cb63-9"><a href="customizing-graphs-in-base-r.html#cb63-9" tabindex="-1"></a></span>
-<span id="cb63-10"><a href="customizing-graphs-in-base-r.html#cb63-10" tabindex="-1"></a><span class="co"># Create multiple small plots</span></span>
-<span id="cb63-11"><a href="customizing-graphs-in-base-r.html#cb63-11" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfcol =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>)) <span class="co"># 3 rows, 1 column</span></span>
-<span id="cb63-12"><a href="customizing-graphs-in-base-r.html#cb63-12" tabindex="-1"></a></span>
-<span id="cb63-13"><a href="customizing-graphs-in-base-r.html#cb63-13" tabindex="-1"></a><span class="co"># Plot 1</span></span>
-<span id="cb63-14"><a href="customizing-graphs-in-base-r.html#cb63-14" tabindex="-1"></a><span class="fu">plot</span>(x, y1, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Trend 1&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Y&quot;</span>)</span>
-<span id="cb63-15"><a href="customizing-graphs-in-base-r.html#cb63-15" tabindex="-1"></a></span>
-<span id="cb63-16"><a href="customizing-graphs-in-base-r.html#cb63-16" tabindex="-1"></a><span class="co"># Plot 2</span></span>
-<span id="cb63-17"><a href="customizing-graphs-in-base-r.html#cb63-17" tabindex="-1"></a><span class="fu">plot</span>(x, y2, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Trend 2&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Y2&quot;</span>)</span>
-<span id="cb63-18"><a href="customizing-graphs-in-base-r.html#cb63-18" tabindex="-1"></a></span>
-<span id="cb63-19"><a href="customizing-graphs-in-base-r.html#cb63-19" tabindex="-1"></a><span class="co"># Plot 3</span></span>
-<span id="cb63-20"><a href="customizing-graphs-in-base-r.html#cb63-20" tabindex="-1"></a><span class="fu">plot</span>(x, y3, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Trend 3&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Y3&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgIGRhdGFcblxuI1NvbHV0aW9uXG4jQ3JlYXRlIGRhdGFcbnggPC0gMToxMDBcbnkxIDwtIHheMlxueTIgPC0gMiAqIHhcbnkzIDwtIHheMS41XG5cbiMgQ3JlYXRlIG11bHRpcGxlIHNtYWxsIHBsb3RzXG5wYXIobWZjb2wgPSBjKDMsIDEpKSAjIDMgcm93cywgMSBjb2x1bW5cblxuIyBQbG90IDFcbnBsb3QoeCwgeTEsIHR5cGUgPSBcImxcIiwgY29sID0gXCJibHVlXCIsIG1haW4gPSBcIlRyZW5kIDFcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5cbiMgUGxvdCAyXG5wbG90KHgsIHkyLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwicmVkXCIsIG1haW4gPSBcIlRyZW5kIDJcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZMlwiKVxuXG4jIFBsb3QgM1xucGxvdCh4LCB5MywgdHlwZSA9IFwibFwiLCBjb2wgPSBcImdyZWVuXCIsIG1haW4gPSBcIlRyZW5kIDNcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZM1wiKSJ9
+</div>
 
 </div>
 </div>
@@ -534,7 +385,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-customize-graphs.Rmd",
+"link": "https://balsaedi.github.io/-R-Visualization/04-customize-graphs.Rmd",
 "text": "Edit"
 },
 "history": {

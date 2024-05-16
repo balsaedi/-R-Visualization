@@ -1,4 +1,10 @@
 
+
+```{r , include=FALSE}
+#tutorial::go_interactive(greedy = TRUE)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
+
 # R BASE GRAPHICS - STARTING WITH THE BASICS
 
 ## Exploring Base Graphics in R
@@ -75,7 +81,7 @@ The commonly used graphical parameters are:
 
 **Example:**
 
-```{r,tut=TRUE, height=500}
+```{r, height=500}
 # Create a scatter plot
 x <- c(1, 2, 3, 4, 5)
 y <- c(2, 3, 5, 7, 11)
@@ -186,6 +192,7 @@ plot(x, y, type = "p", col = "red", pch = 16, main = "Scatter Plot", xlab = "X",
 ```
 
 **4. Combining Customization Options**
+
 ```{r}
 # Create a scatter plot with custom colors, titles, axis labels, and dimensions
 x <- c(1, 2, 3, 4, 5)

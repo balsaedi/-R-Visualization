@@ -1,4 +1,10 @@
 
+
+```{r , include=FALSE}
+#tutorial::go_interactive(greedy = TRUE)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
+
 # CUSTOMIZING GRAPHS IN BASE R
 
 ## Introduction

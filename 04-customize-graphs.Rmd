@@ -39,7 +39,7 @@ Customizing plots in R allows you to enhance the appearance and readability of t
 
 **Example:**
 
-```{r}
+```{r, height=500}
 # Sample data
 x <- 1:10
 y <- x^2
@@ -71,7 +71,7 @@ Improving the aesthetics of plots is essential for effectively communicating you
 
 Example:
 
-```{r}
+```{r, height=500}
 # Sample data
 x <- 1:10
 y <- x^2
@@ -95,7 +95,7 @@ Enhancing plots in R involves more than just changing colors and labels. Here ar
 
 **mfcol:**  Divides the plotting area into a matrix of rows and columns. Plots are filled column-wise.
 
-```{r}
+```{r, height=500}
 # Example using mfrow
 par(mfrow = c(2, 2)) # Create a 2x2 grid for plots
 plot(1:10, 1:10, main = "Plot 1", type = "l")
@@ -115,7 +115,7 @@ __Grid Lines:__ Use __grid()__ function to add grid lines to the plot.
 
 
 **Example with Grid Lines and Background Color:**
-```{r}
+```{r, height=500}
 # Example with grid lines and background color
 plot(1:10, 1:10, main = "A Customized Simple Line Plot", type = "l", xlab='Height',ylab = 'Weight')
 grid() # Add grid lines
@@ -133,9 +133,12 @@ par(bg = "lightblue") # Set background color
 Read the __cabbages__ dataset from __MASS__ package. Remove the duplicated values of __"HeadWt"__ and arrange the dataframe in descending order by __"HeadWt"__ column. Plot a line plot of __"HeadWt"__ against its square  and apply blue color with the first line type. Add a second line plot of the square of cube of __"HeadWt"__ , apply the red color and the line type should be the second one. Add a legend to the plot and position it at the top - left position with the names "Square of Head Weight" and "Cube of Head Weight" respectively. Maintain the same line types and colors that were used to plot. Add a title, 'Comparison of Cabbage Trends'. Label the x-axis as 'Head Weight' and y-axis should be blank
 
 
-```{r,message=FALSE}
+```{r,ex="dtype_num40", type="sample-code", height=500}
 # Your code
+```
 
+
+```{r,ex="dtype_num40", type="solution", height=500}
 # Solution
 library(dplyr)
 library(MASS)
@@ -161,9 +164,11 @@ ii) Plot x against y2. Give it the title,'Trend 2', x-axis should be labelled as
 iii) Plot x against y3. Give it the title,'Trend 3', x-axis should be labelled as 'X' while y-axis='Y3',col is green.
 
 
-```{r}
-# Your  data
+```{r, ex="dtype_num41", type="sample-code", height=500}
+# Your  code
+```
 
+```{r, ex="dtype_num41", type="solution", height=500}
 #Solution
 #Create data
 x <- 1:100
@@ -189,9 +194,12 @@ plot(x, y3, type = "l", col = "green", main = "Trend 3", xlab = "X", ylab = "Y3"
 iv) Repeat the above similar plots but arranged in three rows and one column using __mfcol()__.
 
 
-```{r}
+```{r ex="dtype_num42", type="sample-code", height=500}
 # Your  data
+```
 
+
+```{r ex="dtype_num42", type="solution", height=500}
 #Solution
 #Create data
 x <- 1:100
@@ -212,9 +220,6 @@ plot(x, y2, type = "l", col = "red", main = "Trend 2", xlab = "X", ylab = "Y2")
 plot(x, y3, type = "l", col = "green", main = "Trend 3", xlab = "X", ylab = "Y3")
 
 ```
-
-
-
 
 
 

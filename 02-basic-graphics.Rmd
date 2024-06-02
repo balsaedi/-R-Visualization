@@ -108,7 +108,8 @@ Histograms are useful for visualizing the frequency distribution of a single var
 #     nclass = NULL, warn.unused = TRUE, ...)
 ```
 
-```{r}
+
+```{r, height=500}
 # Create a histogram
 set.seed(100)  # Fix the random numbers generated
 data <- rnorm(100)  # Generate some random data
@@ -234,19 +235,46 @@ D: 40-49
 
 E: Below 40 marks
 
-Create a dataframe called students with the vectors; id, gender, marks, grade and status where status is a column which shows whether the student passed or failed.You will use this dataframe to answer exercise 7,8 and 9.
+Create a dataframe called students with the vectors; id, gender, marks, grade and status where status is a column which shows whether the student passed or failed.You will use this dataframe to answer exercise 7,8 and 9.Note: The minimum mark should be 10 marks
 
-```{r}
+```{r, ex="exercise_num2.1", type="sample-code", height=500}
 # Your code
 ```
+```{r, ex="exercise_num2.1", type="solution"}
+#Solution
+
+id<-1:1000
+set.seed(100)
+marks<-sample(c(10:100),1000, replace = TRUE)
+gender<-sample(c("Male","Female"),1000,replace = TRUE)
+grade<-factor(c(marks >=0)+ (marks >=40) + (marks >=50) + (marks >=60) +(marks >=70), labels=c("E","D","C","B","A"))
+status<-factor(c(marks >=0)+ (marks >=40), labels=c("Fail","Pass"))
+students<-data.frame(id, gender,marks, grade, status)
+
+```
+
 
 
 **Exercise 7**
 
 Plot a box plot to show the distribution of marks by gender.Give it a title, 'Distribution of Student Marks'. The x-axis should be labelled as 'Gender' while the y-axis should be labelled as 'Marks'. Apply blue color to male and green color to female. Set cex.main and cex.lab to 1.2.  
 
-```{r}
+```{r,  ex="exercise_num2.2", type="sample-code", height=500}
 #Your code
+```
+```{r, ex="exercise_num2.2", type="solution", height=500}
+# Solution
+
+id<-1:1000
+set.seed(100)
+marks<-sample(c(10:100),1000, replace = TRUE)
+gender<-sample(c("Male","Female"),1000,replace = TRUE)
+grade<-factor(c(marks >=0)+ (marks >=40) + (marks >=50) + (marks >=60) +(marks >=70), labels=c("E","D","C","B","A"))
+status<-factor(c(marks >=0)+ (marks >=40), labels=c("Fail","Pass"))
+students<-data.frame(id, gender,marks, grade, status)
+# Customized box plot with different colors, labels, and larger font sizes
+boxplot(marks ~ gender, data = students, col = c("green", "blue"), main = "Distribution of Student Marks", xlab = "Gender", ylab = "Marks", cex.main = 1.2, cex.lab = 1.2)
+
 ```
 
 
@@ -254,16 +282,87 @@ Plot a box plot to show the distribution of marks by gender.Give it a title, 'Di
 
 Plot a histogram of the marks where the bins should be equivalent to the classes of grading. Which grade had the highest number of students? How were the marks distributed in the class? Fill the histogram with red. Add a customized title and label the axes. 
 
-```{r}
+```{r, ex="exercise_num2.3", type="sample-code", height=500}
 #Your code
 ```
+```{r, ex="exercise_num2.3", type="solution", height=500}
+# Solution
+# Create the students dataframe
+id <- 1:1000
+set.seed(60)
+marks <- sample(10:100, 1000, replace = TRUE)
+gender <- sample(c("Male", "Female"), 1000, replace = TRUE)
+grade <- factor(c(marks >= 0) + (marks >= 40) + (marks >= 50) + (marks >= 60) + (marks >= 70), labels = c("E", "D", "C", "B", "A"))
+status <- factor(c(marks >= 0) + (marks >= 40), labels = c("Fail", "Pass"))
+students <- data.frame(id, gender, marks, grade, status)
+
+# Define breaks based on the grading classes
+breaks <- c(0, 40, 50, 60, 70, 100)
+
+# Create the histogram
+hist(students$marks, breaks = breaks, col = "red", 
+     main = "Distribution of Marks by Grade", 
+     xlab = "Marks", ylab = "Number of Students")
+# Count the number of students in each grade
+grade_counts <- table(students$grade)
+print(grade_counts)
+
+# Determine the grade with the highest number of students
+highest_grade <- names(which.max(grade_counts))
+cat("The grade with the highest number of students is:", highest_grade, "\n")
+
+```
+
+
 
 **Exercise 9**
 
 Use a well customized barpot to show the mean mark of students by gender. Which gender had the highest average score?
 
-```{r}
+```{r, ex="exercise_num2.4", type="sample-code", height=500}
 #Your code
+```
+```{r, ex="exercise_num2.4", type="solution", height=500}
+# Solution
+# Create the students dataframe
+id <- 1:1000
+set.seed(100)
+marks <- sample(10:100, 1000, replace = TRUE)
+gender <- sample(c("Male", "Female"), 1000, replace = TRUE)
+grade <- factor(c(marks >= 0) + (marks >= 40) + (marks >= 50) + (marks >= 60) + (marks >= 70), labels = c("E", "D", "C", "B", "A"))
+status <- factor(c(marks >= 0) + (marks >= 40), labels = c("Fail", "Pass"))
+students <- data.frame(id, gender, marks, grade, status)
+# Calculate the mean marks by gender
+mean_marks_by_gender <- aggregate(marks ~ gender, data = students, mean)
+
+# Plot the barplot
+barplot(mean_marks_by_gender$marks, 
+        names.arg = mean_marks_by_gender$gender,
+        col = c("blue", "pink"),
+        main = "Mean Marks by Gender",
+        xlab = "Gender",
+        ylab = "Mean Marks",
+        ylim = c(0, 100),
+        beside = TRUE,
+        border = "black",
+        las = 1, # make axis labels perpendicular to axis
+        cex.names = 1.2, # adjust the size of the axis labels
+        cex.axis = 1.2, # adjust the size of the axis text
+        cex.main = 1.5, # adjust the size of the main title
+        cex.lab = 1.2) # adjust the size of the axis labels text
+
+# Add text labels on top of the bars
+text(x = c(1, 2), 
+     y = mean_marks_by_gender$marks, 
+     label = round(mean_marks_by_gender$marks, 1), 
+     pos = 3, # position above the bars
+     cex = 1.2, # adjust the size of the text
+     col = "black")
+
+# Determine which gender had the highest average score
+highest_avg_gender <- mean_marks_by_gender[which.max(mean_marks_by_gender$marks), ]
+cat("The gender with the highest average score is:", highest_avg_gender$gender, "with an average score of", round(highest_avg_gender$marks, 1), "marks", "\n")
+
 ```
 
 

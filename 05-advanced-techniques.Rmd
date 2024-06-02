@@ -11,7 +11,7 @@ We can overlay different types of plots, such as combining bar charts with line 
 
 ### Overlay different types of plots
 
-```{r}
+```{r , height=500}
 # Sample data
 x <- 1:10
 y1 <- x^2
@@ -38,7 +38,7 @@ legend("topleft", legend = c("Trend 1", "Trend 2", "Trend 3"), col = c("blue", "
 
 ### Axes and scales customization to accomodate combined plots
 
-```{r}
+```{r, height=500}
 # Set custom axis limits
 plot(x, y1, type = "l", col = "blue", main = "Combining Different Graph Types", xlab = "X", ylab = "Y", ylim = c(0, max(y1, y2, y3)))
 
@@ -65,7 +65,7 @@ legend("topleft", legend = c("Trend 1", "Trend 2", "Trend 3"), col = c("blue", "
 Base R provides basic functionality for creating interactive plots using the locator() function. Here's how you can use locator() for interactive plotting and create dynamic plots that respond to user input or updates in data:
 
 
-```{r}
+```{r, height=500}
 # Sample data
 x <- 1:10
 y <- x^2
@@ -81,7 +81,7 @@ points(locator(5), col = "red", pch = 16)
 
 ### Creating dynamic plots that respond to user input or updates in data
 
-```{r}
+```{r, height=500}
 # Dynamic plot that responds to user input
 plot_dynamic <- function() {
   # Sample data

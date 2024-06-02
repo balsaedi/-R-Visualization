@@ -5,16 +5,18 @@ author: "Basim Alsaedi"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output:
-   html_document:
-      self_contained: false
+  html_document:
+    self_contained: false
+    toc: true
 ---
+
 
 
 ```{r, include=FALSE}
 # if(!require(devtools)) {
 #   install.packages("devtools")
 # }
-# devtools::install_github("datacamp/tutorial")
+devtools::install_github("datacamp/tutorial")
 
 tutorial::go_interactive()
 knitr::opts_chunk$set(echo = TRUE,error=TRUE)
@@ -78,7 +80,9 @@ Before installing **RStudio** in your computer, first start with **R**. **RStudi
 ### Step-by-step guide on installing RStudio and Set Up 
 
 1. Wait until the R installer has finished.
+
 2.Download RStudio installer from the official website <https://posit.co/download/rstudio-desktop/>.
+
 3. After the download is complete, double-click on the installer and follow the installation steps to install it in your computer.
 
 
@@ -107,6 +111,35 @@ You can use R as a simple calculator. Here are some basic arithmetic operations:
 2^3
 ```
 
+Your turn! Add 35 to 65. Subtract 70 from 200. Multiply 6 by 8, divide 65 by 5 and lastly raise 9 to the power of 10. 
+
+
+```{r ex="dtype_num1", type="sample-code"}
+# Add 35 to 65.
+
+# Subtract 70 from 200.
+
+# Multiply 6 by 8
+
+# Divide 65 by 5 
+
+# Raise 9 to the power of 10.
+
+```
+```{r ex="dtype_num1", type="solution"}
+# Addition
+35+65
+# Subtraction
+100 - 70
+# Multiplication
+6 * 8
+# Division
+65 / 5
+# Exponentiation
+9^10
+```
+
+
 **2. Assigning Values to Variables:**
 
 You can store values in variables using the assignment operator _<-_ or _=_.
@@ -119,6 +152,27 @@ y <- 3
 z = x + y
 
 ```
+
+Try to assign 10 to a variable called m and 89 to a variable called n. Create a new variable called p which is the sum of m and n. 
+
+```{r ex="dtype_num2", type="sample-code"}
+# Write your code here 
+
+# Print p
+
+```
+```{r ex="dtype_num2", type="solution"}
+m<-10
+n<-89
+p<-m+n
+
+#Print p
+p
+
+```
+
+
+If you did it right, the final answer should be 99.
 
 **3. Basic Data Types:**
 
@@ -144,6 +198,9 @@ A vector is a sequence of data elements of the same basic type. You can create a
 nums <- c(1, 2, 3, 4, 5)
 # Creating a character vector
 chars <- c("apple", "banana", "orange")
+
+nums
+chars
 ```
 
 **5. Indexing and Slicing:**
@@ -152,13 +209,35 @@ You can access elements of a vector using square brackets **[]**.
 
 ```{r }
 # Accessing elements of a vector
-nums <- c(1, 2, 3, 4, 5)
+nums <- c(1, 2, 3, 4, 5, 9, 12, 45,78)
 nums[1]   # Access the first element of nums
 nums[2:4] # Access the second to fourth elements of nums
-nums[1,4,6] # Access the first, fourth and sixth elements of nums
-nums
+nums[6] # Access the  sixth element of nums
+
 ```
 
+
+Write a sequence of numbers from 2 to 1000 that increase by 17 and store them in a vector called seq. Access the 15th number. What do you get?
+
+```{r ex="dtype_num3", type="sample-code"}
+# Your code
+
+# Print the 15th number
+
+```
+```{r ex="dtype_num3", type="solution"}
+# Generate the sequence
+seq <- seq(from = 2, to = 1000, by = 17)
+
+# Access the 15th number
+number_15 <- seq[15]
+
+# Print the 15th number
+print(number_15)
+
+```
+
+The correct answer should be `240`.
 
 **6. Functions:**
 
@@ -177,6 +256,58 @@ add <- function(a, b) {
 }
 add(3, 5)
 ```
+
+Define your own function  called perform_operation to perform addition, subtraction, division, and multiplication with three arguments (x,y,operation). Ensure that the function prints the result or returns an error in a division by zero and print the error message, "Error: Division by zero".
+
+```{r ex="dtype_num4", type="sample-code"}
+# Define your function called perform_operation here with three arguments (x,y,operation).
+
+#Test the function
+x<-10
+y<-5
+# Addition
+perform_operation(x, y, "addition")
+
+# Subtraction
+perform_operation(x, y, "subtraction")
+
+# Multiplication
+perform_operation(x, y, "multiplication")
+
+# Division
+perform_operation(x, y, "division")
+
+```
+```{r ex="dtype_num4", type="solution"}
+# Define a function for basic mathematical operations
+perform_operation <- function(x, y, operation) {
+  result <- switch(operation,
+                   "addition" = x + y,
+                   "subtraction" = x - y,
+                   "multiplication" = x * y,
+                   "division" = if(y != 0) x / y else "Error: Division by zero")
+  print(result)
+}
+
+# Test the function
+x <- 10
+y <- 5
+
+# Addition
+perform_operation(x, y, "addition")
+
+# Subtraction
+perform_operation(x, y, "subtraction")
+
+# Multiplication
+perform_operation(x, y, "multiplication")
+
+# Division
+perform_operation(x, y, "division")
+
+```
+
+
 
 
 ### Overview of R’s data types and structures essential for visualization 
@@ -198,6 +329,7 @@ Integer data type is used to represent integer values.
 
 ```{r}
 int <- 10L
+int
 ```
 
 **3. Character:**
@@ -206,6 +338,7 @@ Character data type is used to represent text data.
 
 ```{r}
 char <- "Hi, John!"
+char
 ```
 
 **4. Logical:**
@@ -214,6 +347,8 @@ Logical data type is used to represent Boolean values ( __TRUE__ or __FALSE__).
 
 ```{r}
 logic <- TRUE
+
+logic
 ```
 
 **5. Vector:**
@@ -231,6 +366,8 @@ A matrix is a two-dimensional array with rows and columns in that order respecti
 
 ```{r}
 mat <- matrix(1:12, nrow = 3, ncol = 4) # A matrix with three rows and 2 columns 
+
+mat 
 ```
 
 **7. Data Frame:**
@@ -243,6 +380,7 @@ df <- data.frame(
   Age = c(25, 30, 35),
   Height = c(175, 160, 180)
 )
+df
 ```
 
 **8. List:**
@@ -255,6 +393,8 @@ lst <- list(
   Age = c(25, 30, 35),
   Height = c(175, 160, 180)
 )
+
+lst
 ```
 
 
@@ -273,9 +413,16 @@ loan_default<-factor(c('Yes', 'No'))
 
 Create a variable called $x$ and give it the value 15.Take the exponent of the variable and add 5 to the final result. Print the final result of $x$.
 
-```{r}
+```{r ex="exercise_num1", type="sample-code"}
 # Your code
 ```
+```{r ex="exercise_num1", type="solution"}
+x<-15
+x<-exp(x)
+x<-x+5
+x
+```
+
 
 **Exercise 2: Vectors:**
 
@@ -284,7 +431,7 @@ are given in the table below. Read the ‘before’ and ‘after’ values into 
 and __after__. Use __R__ to evaluate the amount of weight lost for each participant. What is the average amount of weight lost?
 
 
-```{r}
+```{r, echo=FALSE}
 
   df=data.frame(
     X1 = c(78, 67),
@@ -298,9 +445,26 @@ colnames(df)<-NULL
 knitr::kable(df, align = "c",booktabs = FALSE)
 ```
 
-```{r}
+```{r ex="exercise_num2", type="sample-code"}
 #Your code
 ```
+```{r ex="exercise_num2", type="solution"}
+# Extract 'before' and 'after' weights into two vectors
+before<-c(78,72,78,79,105)
+after<-c(67,65,79,70,93)
+# Calculate the amount of weight lost for each participant
+weight_lost <- before - after
+
+# Calculate the average amount of weight lost
+average_weight_lost <- mean(weight_lost)
+
+# Print the amount of weight lost for each participant and the average amount of weight lost
+
+print(weight_lost)
+print(paste("The average amount of weight lost:", average_weight_lost))
+
+```
+
 
 
 
@@ -334,8 +498,39 @@ iv) the diagonal of __A__.
 
 v) the inverse of __A__.
 
-```{r}
-#Your code
+```{r ex="exercise_num3", type="sample-code"}
+# Create the two matrices
+
+# matrix multiplication
+
+# transpose
+
+# determinant
+
+# diagonal
+
+# inverse
+```
+```{r ex="exercise_num3", type="solution"}
+#Create the two matrices
+A <- matrix(c(1:8,10), 3, 3)
+x <- c(1,2,3)
+
+# matrix multiplication
+A %*% x 
+
+# transpose
+t(A) 
+
+# determinant
+det(A) 
+
+# diagonal
+diag(A)
+
+# inverse
+solve(A) 
+
 ```
 
 
@@ -348,8 +543,36 @@ films. It should contain the fields __title__, __director__, __year__, __country
 (c) Merge the two data frames using rbind().
 (d) Try sorting the titles using sort(): what happens?
 
-```{r}
+```{r ex="exercise_num4", type="sample-code"}
 #Your code
+```
+```{r ex="exercise_num4", type="solution"}
+# Create the first data frame
+films1 <- data.frame(
+  title = c("The Shawshank Redemption", "The Godfather", "The Dark Knight"),
+  director = c("Frank Darabont", "Francis Ford Coppola", "Christopher Nolan"),
+  year = c(1994, 1972, 2008),
+  country = c("USA", "USA", "USA")
+)
+
+# Create the second data frame with one new film
+films2 <- data.frame(
+  title = c("Inception"),
+  director = c("Christopher Nolan"),
+  year = c(2010),
+  country = c("UK")
+)
+
+# Merge the two data frames using rbind
+all_films <- rbind(films1, films2)
+
+# Print the combined data frame
+print(all_films)
+
+# Try sorting the titles using sort()
+sorted_films <- sort(all_films$title)
+print(sorted_films)
+
 ```
 
 
@@ -357,8 +580,20 @@ films. It should contain the fields __title__, __director__, __year__, __country
 
 Suppose we have the heights of 100 individuals, where the first are 50 male and the rest female. Generate 100 fixed random numbers from a normal distribution where the mean height of male is 170 while that of female is 160 with an equal standard deviation of 10 and call that vector as 'height'. Create another vector called 'sex' with two entries 'M' and 'F' each replicated 50 times. Tell R to treat 'sex' as a categorical variable and name it as 'Sex'. Plot __Sex__ against __height__ using __plot()__ function. Which type of plot have you obtained? What happens if you try to plot __sex__ against __height__ instead?
 
-```{r}
+```{r ex="exercise_num5", type="sample-code", height=500}
 #Your code
+```
+```{r ex="exercise_num5", type="solution", height=500}
+set.seed(1442) # fixes the random numbers
+
+height = round(rnorm(100, mean=rep(c(170,160),each=50), sd=10))
+sex = rep(c("M", "F"), each=50)
+# treat sex as a categorical variable
+Sex = as.factor(sex)
+
+plot(Sex, height)
+
+plot(sex, height)
 ```
 
 

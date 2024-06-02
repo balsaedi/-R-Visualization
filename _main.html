@@ -11,7 +11,7 @@
 
 <meta name="author" content="Basim Alsaedi" />
 
-<meta name="date" content="2024-05-16" />
+<meta name="date" content="2024-06-02" />
 
 <title>R Base Data Visualization</title>
 
@@ -164,10 +164,404 @@ pre code {
 
 <h1 class="title toc-ignore">R Base Data Visualization</h1>
 <h4 class="author">Basim Alsaedi</h4>
-<h4 class="date">2024-05-16</h4>
+<h4 class="date">2024-06-02</h4>
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#introduction-to-r-and-data-visualization"
+id="toc-introduction-to-r-and-data-visualization">INTRODUCTION TO R AND
+DATA VISUALIZATION</a>
+<ul>
+<li><a href="#introduction" id="toc-introduction">Introduction</a>
+<ul>
+<li><a href="#overview-of-r" id="toc-overview-of-r">Overview of
+R</a></li>
+</ul></li>
+<li><a href="#why-use-r-for-data-visualization"
+id="toc-why-use-r-for-data-visualization">Why Use R for Data
+Visualization?</a>
+<ul>
+<li><a
+href="#advantages-of-r-over-other-programming-languages-and-tools"
+id="toc-advantages-of-r-over-other-programming-languages-and-tools">Advantages
+of R over other programming languages and tools</a></li>
+<li><a href="#rs-extensive-package-ecosystem"
+id="toc-rs-extensive-package-ecosystem">R’s extensive package
+ecosystem</a></li>
+</ul></li>
+<li><a href="#installing-and-configuring-r-and-rstudio"
+id="toc-installing-and-configuring-r-and-rstudio">Installing and
+Configuring R and RStudio</a>
+<ul>
+<li><a href="#step-by-step-guide-on-installing-r"
+id="toc-step-by-step-guide-on-installing-r">Step-by-step guide on
+installing R</a></li>
+<li><a href="#step-by-step-guide-on-installing-rstudio-and-set-up"
+id="toc-step-by-step-guide-on-installing-rstudio-and-set-up">Step-by-step
+guide on installing RStudio and Set Up</a></li>
+</ul></li>
+<li><a href="#basic-r-concepts." id="toc-basic-r-concepts.">Basic R
+Concepts.</a>
+<ul>
+<li><a href="#introduction-to-r-syntax-and-basic-commands"
+id="toc-introduction-to-r-syntax-and-basic-commands">Introduction to R
+syntax and basic commands</a></li>
+<li><a
+href="#overview-of-rs-data-types-and-structures-essential-for-visualization"
+id="toc-overview-of-rs-data-types-and-structures-essential-for-visualization">Overview
+of R’s data types and structures essential for visualization</a></li>
+</ul></li>
+<li><a href="#practical-examples-exercises"
+id="toc-practical-examples-exercises">Practical Examples:
+Exercises</a></li>
+</ul></li>
+<li><a href="#r-base-graphics---starting-with-the-basics"
+id="toc-r-base-graphics---starting-with-the-basics">R BASE GRAPHICS -
+STARTING WITH THE BASICS</a>
+<ul>
+<li><a href="#exploring-base-graphics-in-r"
+id="toc-exploring-base-graphics-in-r">Exploring Base Graphics in R</a>
+<ul>
+<li><a
+href="#overview-of-the-philosophy-behind-rs-base-graphics-system-including-its-stateful-nature"
+id="toc-overview-of-the-philosophy-behind-rs-base-graphics-system-including-its-stateful-nature">Overview
+of the philosophy behind R’s base graphics system, including its
+stateful nature</a></li>
+<li><a href="#introduction-to-core-plotting-functions-in-r"
+id="toc-introduction-to-core-plotting-functions-in-r">Introduction to
+Core Plotting Functions in R</a></li>
+</ul></li>
+<li><a href="#creating-basic-plots"
+id="toc-creating-basic-plots">Creating Basic Plots</a>
+<ul>
+<li><a
+href="#detailed-instructions-on-using-plot-for-scatter-plots-and-line-graphs"
+id="toc-detailed-instructions-on-using-plot-for-scatter-plots-and-line-graphs">Detailed
+instructions on using plot() for scatter plots and line graphs</a></li>
+<li><a
+href="#using-hist-to-create-histograms-for-data-distribution-analysis"
+id="toc-using-hist-to-create-histograms-for-data-distribution-analysis">Using
+hist() to create histograms for data distribution analysis</a></li>
+<li><a
+href="#implementing-boxplot-and-barplot-to-visualize-data-comparisons-and-distributions"
+id="toc-implementing-boxplot-and-barplot-to-visualize-data-comparisons-and-distributions">Implementing
+boxplot() and barplot() to visualize data comparisons and
+distributions</a></li>
+</ul></li>
+<li><a href="#customizing-plots" id="toc-customizing-plots">Customizing
+Plots</a>
+<ul>
+<li><a
+href="#basic-customization-options-including-colors-main-titles-axis-labels-and-plot-dimensions"
+id="toc-basic-customization-options-including-colors-main-titles-axis-labels-and-plot-dimensions">Basic
+customization options including colors, main titles, axis labels, and
+plot dimensions</a></li>
+<li><a href="#tips-on-enhancing-plot-readability-and-aesthetic-appeal"
+id="toc-tips-on-enhancing-plot-readability-and-aesthetic-appeal">Tips on
+enhancing plot readability and aesthetic appeal</a></li>
+</ul></li>
+<li><a href="#practical-examples-exercises-1"
+id="toc-practical-examples-exercises-1">Practical Examples:
+Exercises</a></li>
+</ul></li>
+<li><a href="#data-structures-relevant-to-visualization"
+id="toc-data-structures-relevant-to-visualization">DATA STRUCTURES
+RELEVANT TO VISUALIZATION</a>
+<ul>
+<li><a href="#introduction-1" id="toc-introduction-1">Introduction</a>
+<ul>
+<li><a href="#importance-of-data-structure-understanding"
+id="toc-importance-of-data-structure-understanding">Importance of Data
+Structure Understanding</a></li>
+</ul></li>
+<li><a href="#vectors-data-frames-and-matrices"
+id="toc-vectors-data-frames-and-matrices">Vectors, Data Frames, and
+Matrices</a>
+<ul>
+<li><a href="#definitions" id="toc-definitions">Definitions</a></li>
+<li><a href="#tools-and-functions" id="toc-tools-and-functions">Tools
+and Functions</a></li>
+<li><a href="#step-by-step-tutorials"
+id="toc-step-by-step-tutorials">Step-by-Step Tutorials</a></li>
+</ul></li>
+<li><a href="#practical-example-exercise"
+id="toc-practical-example-exercise">Practical Example :
+Exercise</a></li>
+</ul></li>
+<li><a href="#customizing-graphs-in-base-r"
+id="toc-customizing-graphs-in-base-r">CUSTOMIZING GRAPHS IN BASE R</a>
+<ul>
+<li><a href="#introduction-2"
+id="toc-introduction-2">Introduction</a></li>
+<li><a href="#graph-customization-basics"
+id="toc-graph-customization-basics">Graph Customization Basics</a></li>
+<li><a href="#enhancing-plot-aesthetics"
+id="toc-enhancing-plot-aesthetics">Enhancing Plot Aesthetics</a></li>
+<li><a href="#advanced-customization-techniques"
+id="toc-advanced-customization-techniques">Advanced Customization
+Techniques</a></li>
+<li><a href="#practical-examples-exercise"
+id="toc-practical-examples-exercise">Practical Examples:
+Exercise</a></li>
+</ul></li>
+<li><a href="#advanced-base-plotting-techniques"
+id="toc-advanced-base-plotting-techniques">ADVANCED BASE PLOTTING
+TECHNIQUES</a>
+<ul>
+<li><a href="#combining-different-graph-types"
+id="toc-combining-different-graph-types">Combining Different Graph
+Types</a>
+<ul>
+<li><a href="#overlay-different-types-of-plots"
+id="toc-overlay-different-types-of-plots">Overlay different types of
+plots</a></li>
+<li><a
+href="#axes-and-scales-customization-to-accomodate-combined-plots"
+id="toc-axes-and-scales-customization-to-accomodate-combined-plots">Axes
+and scales customization to accomodate combined plots</a></li>
+</ul></li>
+<li><a href="#interactive-graphics-in-base-r"
+id="toc-interactive-graphics-in-base-r">Interactive Graphics in Base
+R</a>
+<ul>
+<li><a
+href="#introduction-to-using-the-locator-function-for-interactive-plotting"
+id="toc-introduction-to-using-the-locator-function-for-interactive-plotting">Introduction
+to using the locator() function for interactive plotting</a></li>
+<li><a
+href="#creating-dynamic-plots-that-respond-to-user-input-or-updates-in-data"
+id="toc-creating-dynamic-plots-that-respond-to-user-input-or-updates-in-data">Creating
+dynamic plots that respond to user input or updates in data</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#plotting-time-series-data"
+id="toc-plotting-time-series-data">PLOTTING TIME SERIES DATA</a>
+<ul>
+<li><a href="#introduction-3" id="toc-introduction-3">Introduction</a>
+<ul>
+<li><a
+href="#importance-of-time-series-analysis-in-various-fields-like-finance-meteorology-and-epidemiology"
+id="toc-importance-of-time-series-analysis-in-various-fields-like-finance-meteorology-and-epidemiology">Importance
+of time series analysis in various fields like finance, meteorology, and
+epidemiology</a></li>
+<li><a
+href="#basic-concepts-related-to-time-series-data-and-its-visualization-challenges."
+id="toc-basic-concepts-related-to-time-series-data-and-its-visualization-challenges.">Basic
+concepts related to time series data and its visualization
+challenges.</a></li>
+</ul></li>
+<li><a href="#time-series-data-basics"
+id="toc-time-series-data-basics">Time Series Data Basics</a>
+<ul>
+<li><a href="#introduction-to-time-series-objects-in-r-ts-class."
+id="toc-introduction-to-time-series-objects-in-r-ts-class.">Introduction
+to time series objects in R (ts class).</a></li>
+<li><a
+href="#how-to-convert-standard-date-formats-into-time-series-objects"
+id="toc-how-to-convert-standard-date-formats-into-time-series-objects">How
+to convert standard date formats into time series objects</a></li>
+</ul></li>
+<li><a href="#visualizing-time-series"
+id="toc-visualizing-time-series">Visualizing Time Series</a>
+<ul>
+<li><a href="#creating-line-plots-for-time-series-data"
+id="toc-creating-line-plots-for-time-series-data">Creating line plots
+for time series data</a></li>
+<li><a
+href="#techniques-for-highlighting-trends-seasonality-and-anomalies"
+id="toc-techniques-for-highlighting-trends-seasonality-and-anomalies">Techniques
+for highlighting trends, seasonality, and anomalies</a></li>
+</ul></li>
+<li><a href="#advanced-time-series-visualization"
+id="toc-advanced-time-series-visualization">Advanced Time Series
+Visualization</a>
+<ul>
+<li><a
+href="#advance-customization-using-ts_plot-function-from-plotly-package"
+id="toc-advance-customization-using-ts_plot-function-from-plotly-package">Advance
+customization using ts_plot() function from <strong>plotly</strong>
+package</a></li>
+<li><a
+href="#plotting-multiple-time-series-on-a-single-graph-for-comparative-analysis"
+id="toc-plotting-multiple-time-series-on-a-single-graph-for-comparative-analysis">Plotting
+multiple time series on a single graph for comparative analysis</a></li>
+</ul></li>
+<li><a href="#practical-examples-exercises-2"
+id="toc-practical-examples-exercises-2">Practical Examples:
+Exercises</a></li>
+</ul></li>
+<li><a href="#statistical-graphs-in-r"
+id="toc-statistical-graphs-in-r">STATISTICAL GRAPHS IN R</a>
+<ul>
+<li><a href="#introduction-4"
+id="toc-introduction-4">Introduction</a></li>
+<li><a href="#essential-statistical-plots"
+id="toc-essential-statistical-plots">Essential Statistical Plots:</a>
+<ul>
+<li><a href="#how-to-create-box-plots-violin-plots-and-qq-plots."
+id="toc-how-to-create-box-plots-violin-plots-and-qq-plots.">How to
+create box plots, violin plots, and QQ plots.</a></li>
+<li><a href="#understanding-the-data-insights-these-plots-provide."
+id="toc-understanding-the-data-insights-these-plots-provide.">Understanding
+the data insights these plots provide.</a></li>
+</ul></li>
+<li><a href="#analyzing-distributions-with-histograms-and-density-plots"
+id="toc-analyzing-distributions-with-histograms-and-density-plots">Analyzing
+Distributions with Histograms and Density Plots:</a>
+<ul>
+<li><a
+href="#techniques-for-creating-and-customizing-histograms-and-density-plots-and-best-practices-for-displaying-distribution-characteristics."
+id="toc-techniques-for-creating-and-customizing-histograms-and-density-plots-and-best-practices-for-displaying-distribution-characteristics.">Techniques
+for creating and customizing histograms and density plots and best
+practices for displaying distribution characteristics.</a></li>
+</ul></li>
+<li><a href="#scatter-plots-and-correlation-analysis"
+id="toc-scatter-plots-and-correlation-analysis">Scatter Plots and
+Correlation Analysis:</a>
+<ul>
+<li><a
+href="#using-scatter-plots-to-visualize-relationships-between-variables."
+id="toc-using-scatter-plots-to-visualize-relationships-between-variables.">Using
+scatter plots to visualize relationships between variables.</a></li>
+<li><a
+href="#introduction-to-adding-regression-lines-and-confidence-intervals."
+id="toc-introduction-to-adding-regression-lines-and-confidence-intervals.">Introduction
+to adding regression lines and confidence intervals.</a></li>
+</ul></li>
+<li><a href="#practical-examples-exercises-3"
+id="toc-practical-examples-exercises-3">Practical Examples:
+Exercises</a></li>
+</ul></li>
+<li><a href="#introduction-to-ggplot2"
+id="toc-introduction-to-ggplot2">INTRODUCTION TO ggplot2</a>
+<ul>
+<li><a href="#getting-started-with-ggplot2"
+id="toc-getting-started-with-ggplot2">Getting Started with ggplot2</a>
+<ul>
+<li><a href="#installation-of-ggplot2-and-setting-up-the-environment."
+id="toc-installation-of-ggplot2-and-setting-up-the-environment.">Installation
+of ggplot2 and setting up the environment.</a></li>
+<li><a
+href="#basic-syntax-and-components-of-ggplot2-aesthetics-geoms-and-layers"
+id="toc-basic-syntax-and-components-of-ggplot2-aesthetics-geoms-and-layers">Basic
+syntax and components of ggplot2: aesthetics, geoms, and layers</a></li>
+</ul></li>
+<li><a href="#creating-basic-plots-with-ggplot2"
+id="toc-creating-basic-plots-with-ggplot2">Creating Basic Plots with
+ggplot2</a>
+<ul>
+<li><a
+href="#step-by-step-instructions-to-create-scatter-plots-histograms-and-bar-charts-using-ggplot2"
+id="toc-step-by-step-instructions-to-create-scatter-plots-histograms-and-bar-charts-using-ggplot2">Step-by-step
+instructions to create scatter plots, histograms, and bar charts using
+ggplot2</a></li>
+<li><a
+href="#introduction-to-adding-layers-modifying-aesthetics-and-utilizing-facets-for-multi-panel-plots"
+id="toc-introduction-to-adding-layers-modifying-aesthetics-and-utilizing-facets-for-multi-panel-plots">Introduction
+to adding layers, modifying aesthetics, and utilizing facets for
+multi-panel plots</a></li>
+</ul></li>
+<li><a href="#customizing-plots-in-ggplot2"
+id="toc-customizing-plots-in-ggplot2">Customizing Plots in ggplot2</a>
+<ul>
+<li><a
+href="#advanced-customization-techniques-including-themes-scales-and-coordinate-systems."
+id="toc-advanced-customization-techniques-including-themes-scales-and-coordinate-systems.">Advanced
+customization techniques including themes, scales, and coordinate
+systems.</a></li>
+<li><a
+href="#techniques-for-fine-tuning-ggplot2-outputs-to-create-publication-quality-graphics"
+id="toc-techniques-for-fine-tuning-ggplot2-outputs-to-create-publication-quality-graphics">Techniques
+for fine-tuning ggplot2 outputs to create publication-quality
+graphics</a></li>
+</ul></li>
+<li><a href="#practical-examples-exercise-1"
+id="toc-practical-examples-exercise-1">Practical Examples:
+Exercise</a></li>
+</ul></li>
+<li><a
+href="#advanced-data-visualization-with-ggplot2-and-other-packages"
+id="toc-advanced-data-visualization-with-ggplot2-and-other-packages">ADVANCED
+DATA VISUALIZATION WITH ggplot2 AND OTHER PACKAGES</a>
+<ul>
+<li><a href="#interactive-graphs-with-plotly"
+id="toc-interactive-graphs-with-plotly">Interactive Graphs with
+plotly</a>
+<ul>
+<li><a href="#converting-ggplot2-charts-into-interactive-plotly-graphs"
+id="toc-converting-ggplot2-charts-into-interactive-plotly-graphs">Converting
+ggplot2 charts into interactive plotly graphs</a></li>
+<li><a
+href="#customizing-interactions-adding-tooltips-and-embedding-plotly-graphs-in-web-applications."
+id="toc-customizing-interactions-adding-tooltips-and-embedding-plotly-graphs-in-web-applications.">Customizing
+interactions, adding tooltips, and embedding plotly graphs in web
+applications.</a></li>
+</ul></li>
+<li><a href="#building-web-applications-with-shiny"
+id="toc-building-web-applications-with-shiny">Building Web Applications
+with shiny</a>
+<ul>
+<li><a
+href="#introduction-to-shiny-for-building-interactive-web-applications"
+id="toc-introduction-to-shiny-for-building-interactive-web-applications">Introduction
+to shiny for building interactive web applications</a></li>
+<li><a
+href="#creating-reactive-plots-and-dashboards-that-update-with-user-input."
+id="toc-creating-reactive-plots-and-dashboards-that-update-with-user-input.">Creating
+reactive plots and dashboards that update with user input.</a></li>
+</ul></li>
+<li><a href="#advanced-ggplot2-extensions"
+id="toc-advanced-ggplot2-extensions">Advanced ggplot2 Extensions</a>
+<ul>
+<li><a
+href="#explore-extensions-like-gganimate-for-creating-animated-plots."
+id="toc-explore-extensions-like-gganimate-for-creating-animated-plots.">Explore
+extensions like gganimate for creating animated plots.</a></li>
+<li><a
+href="#using-ggridges-for-ridge-line-plots-and-other-creative-visualization-techniques."
+id="toc-using-ggridges-for-ridge-line-plots-and-other-creative-visualization-techniques.">Using
+ggridges for ridge line plots and other creative visualization
+techniques.</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#real-world-applications-and-case-studies-code-challenges"
+id="toc-real-world-applications-and-case-studies-code-challenges">REAL-WORLD
+APPLICATIONS AND CASE STUDIES (CODE CHALLENGES)</a>
+<ul>
+<li><a href="#base-r" id="toc-base-r">1. Base R</a></li>
+<li><a href="#functions" id="toc-functions">2. Functions</a></li>
+<li><a href="#data-visualization-with-base-r"
+id="toc-data-visualization-with-base-r">3. Data Visualization with Base
+R</a></li>
+<li><a href="#data-visualization-with-ggplot2"
+id="toc-data-visualization-with-ggplot2">4. Data Visualization with
+ggplot2</a>
+<ul>
+<li><a href="#part-i-geoms-and-aesthetics"
+id="toc-part-i-geoms-and-aesthetics">Part I – geoms and
+aesthetics</a></li>
+<li><a href="#scatterplots" id="toc-scatterplots">Scatterplots</a></li>
+<li><a href="#boxplots-and-violin-plots"
+id="toc-boxplots-and-violin-plots">Boxplots and Violin plots</a></li>
+<li><a href="#histogram-and-density-plots"
+id="toc-histogram-and-density-plots">Histogram and Density
+plots</a></li>
+<li><a href="#part-ii---facets" id="toc-part-ii---facets">Part II -
+facets</a></li>
+<li><a href="#part-iii-scales-and-themes"
+id="toc-part-iii-scales-and-themes">Part III – scales and
+themes</a></li>
+<li><a href="#scales" id="toc-scales">Scales</a></li>
+<li><a href="#themes" id="toc-themes">Themes</a></li>
+</ul></li>
+<li><a href="#data-visualization-using-ggplot2-part-ii"
+id="toc-data-visualization-using-ggplot2-part-ii">5. Data Visualization
+using ggplot2 Part II</a></li>
+</ul></li>
+</ul>
+</div>
 
 <script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
 <div id="introduction-to-r-and-data-visualization"
@@ -268,10 +662,12 @@ is 4.3.3.</p>
 class="section level3">
 <h3>Step-by-step guide on installing RStudio and Set Up</h3>
 <ol style="list-style-type: decimal">
-<li>Wait until the R installer has finished. 2.Download RStudio
-installer from the official website <a
+<li>Wait until the R installer has finished.</li>
+</ol>
+<p>2.Download RStudio installer from the official website <a
 href="https://posit.co/download/rstudio-desktop/"
-class="uri">https://posit.co/download/rstudio-desktop/</a>.</li>
+class="uri">https://posit.co/download/rstudio-desktop/</a>.</p>
+<ol start="3" style="list-style-type: decimal">
 <li>After the download is complete, double-click on the installer and
 follow the installation steps to install it in your computer.</li>
 </ol>
@@ -300,12 +696,23 @@ operations:</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEFkZGl0aW9uXG4yICsgM1xuIyBTdWJ0cmFjdGlvblxuNSAtIDJcbiMgTXVsdGlwbGljYXRpb25cbjIgKiAzXG4jIERpdmlzaW9uXG42IC8gMlxuIyBFeHBvbmVudGlhdGlvblxuMl4zIn0=
 </div>
+<p>Your turn! Add 35 to 65. Subtract 70 from 200. Multiply 6 by 8,
+divide 65 by 5 and lastly raise 9 to the power of 10.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEFkZCAzNSB0byA2NS5cblxuIyBTdWJ0cmFjdCA3MCBmcm9tIDIwMC5cblxuIyBNdWx0aXBseSA2IGJ5IDhcblxuIyBEaXZpZGUgNjUgYnkgNSBcblxuIyBSYWlzZSA5IHRvIHRoZSBwb3dlciBvZiAxMC4iLCJzb2x1dGlvbiI6IiMgQWRkaXRpb25cbjM1KzY1XG4jIFN1YnRyYWN0aW9uXG4xMDAgLSA3MFxuIyBNdWx0aXBsaWNhdGlvblxuNiAqIDhcbiMgRGl2aXNpb25cbjY1IC8gNVxuIyBFeHBvbmVudGlhdGlvblxuOV4xMCJ9
+</div>
 <p><strong>2. Assigning Values to Variables:</strong></p>
 <p>You can store values in variables using the assignment operator
 <em>&lt;-</em> or <em>=</em>.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEFzc2lnbmluZyBhIHZhbHVlIHRvIGEgdmFyaWFibGVcbnggPC0gNVxueSA8LSAzXG4jIFlvdSBjYW4gYWxzbyB1c2UgPVxueiA9IHggKyB5In0=
 </div>
+<p>Try to assign 10 to a variable called m and 89 to a variable called
+n. Create a new variable called p which is the sum of m and n. </p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFdyaXRlIHlvdXIgY29kZSBoZXJlIFxuXG4jIFByaW50IHAiLCJzb2x1dGlvbiI6Im08LTEwXG5uPC04OVxucDwtbStuXG5cbiNQcmludCBwXG5wIn0=
+</div>
+<p>If you did it right, the final answer should be 99.</p>
 <p><strong>3. Basic Data Types:</strong></p>
 <p>R supports several basic data types, including numeric, character,
 logical, and complex.</p>
@@ -316,20 +723,35 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIE51bWVyaWNcbm51bSA8LSAxMFxuIyBDaGFyYWN0ZXJc
 <p>A vector is a sequence of data elements of the same basic type. You
 can create a vector using the <strong>c()</strong> function.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgbnVtZXJpYyB2ZWN0b3Jcbm51bXMgPC0gYygxLCAyLCAzLCA0LCA1KVxuIyBDcmVhdGluZyBhIGNoYXJhY3RlciB2ZWN0b3JcbmNoYXJzIDwtIGMoXCJhcHBsZVwiLCBcImJhbmFuYVwiLCBcIm9yYW5nZVwiKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgbnVtZXJpYyB2ZWN0b3Jcbm51bXMgPC0gYygxLCAyLCAzLCA0LCA1KVxuIyBDcmVhdGluZyBhIGNoYXJhY3RlciB2ZWN0b3JcbmNoYXJzIDwtIGMoXCJhcHBsZVwiLCBcImJhbmFuYVwiLCBcIm9yYW5nZVwiKVxuXG5udW1zXG5jaGFycyJ9
 </div>
 <p><strong>5. Indexing and Slicing:</strong></p>
 <p>You can access elements of a vector using square brackets
 <strong>[]</strong>.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEFjY2Vzc2luZyBlbGVtZW50cyBvZiBhIHZlY3RvclxubnVtcyA8LSBjKDEsIDIsIDMsIDQsIDUpXG5udW1zWzFdICAgIyBBY2Nlc3MgdGhlIGZpcnN0IGVsZW1lbnQgb2YgbnVtc1xubnVtc1syOjRdICMgQWNjZXNzIHRoZSBzZWNvbmQgdG8gZm91cnRoIGVsZW1lbnRzIG9mIG51bXNcbm51bXNbMSw0LDZdICMgQWNjZXNzIHRoZSBmaXJzdCwgZm91cnRoIGFuZCBzaXh0aCBlbGVtZW50cyBvZiBudW1zXG5udW1zIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEFjY2Vzc2luZyBlbGVtZW50cyBvZiBhIHZlY3RvclxubnVtcyA8LSBjKDEsIDIsIDMsIDQsIDUsIDksIDEyLCA0NSw3OClcbm51bXNbMV0gICAjIEFjY2VzcyB0aGUgZmlyc3QgZWxlbWVudCBvZiBudW1zXG5udW1zWzI6NF0gIyBBY2Nlc3MgdGhlIHNlY29uZCB0byBmb3VydGggZWxlbWVudHMgb2YgbnVtc1xubnVtc1s2XSAjIEFjY2VzcyB0aGUgIHNpeHRoIGVsZW1lbnQgb2YgbnVtcyJ9
 </div>
+<p>Write a sequence of numbers from 2 to 1000 that increase by 17 and
+store them in a vector called seq. Access the 15th number. What do you
+get?</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZVxuXG4jIFByaW50IHRoZSAxNXRoIG51bWJlciIsInNvbHV0aW9uIjoiIyBHZW5lcmF0ZSB0aGUgc2VxdWVuY2VcbnNlcSA8LSBzZXEoZnJvbSA9IDIsIHRvID0gMTAwMCwgYnkgPSAxNylcblxuIyBBY2Nlc3MgdGhlIDE1dGggbnVtYmVyXG5udW1iZXJfMTUgPC0gc2VxWzE1XVxuXG4jIFByaW50IHRoZSAxNXRoIG51bWJlclxucHJpbnQobnVtYmVyXzE1KSJ9
+</div>
+<p>The correct answer should be <code>240</code>.</p>
 <p><strong>6. Functions:</strong></p>
 <p>R has a large number of built-in functions, and you can also create
 your own functions for some tasks that can not be achieved by built-in
 functions.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEJ1aWx0LWluIGZ1bmN0aW9uXG5zcXJ0KDE2KSAgICMgU3F1YXJlIHJvb3QgZnVuY3Rpb25cbm51bXMgPC0gYygxLCAyLCAzLCA0LCA1KVxubWVhbihudW1zKSAjIHRoZSBtZWFuIG9mIG51bXMgZWxlbWVudHNcbnZhcihudW1zKSAjIHRoZSB2YXJpYW5jZVxuc2QobnVtcykgIyBzdGFuZGFyZCBkZXZpYXRpb25cbiMgVXNlci1kZWZpbmVkIGZ1bmN0aW9uXG5hZGQgPC0gZnVuY3Rpb24oYSwgYikge1xuICByZXR1cm4oYSArIGIpXG59XG5hZGQoMywgNSkifQ==
+</div>
+<p>Define your own function called perform_operation to perform
+addition, subtraction, division, and multiplication with three arguments
+(x,y,operation). Ensure that the function prints the result or returns
+an error in a division by zero and print the error message, “Error:
+Division by zero”.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERlZmluZSB5b3VyIGZ1bmN0aW9uIGNhbGxlZCBwZXJmb3JtX29wZXJhdGlvbiBoZXJlIHdpdGggdGhyZWUgYXJndW1lbnRzICh4LHksb3BlcmF0aW9uKS5cblxuI1Rlc3QgdGhlIGZ1bmN0aW9uXG54PC0xMFxueTwtNVxuIyBBZGRpdGlvblxucGVyZm9ybV9vcGVyYXRpb24oeCwgeSwgXCJhZGRpdGlvblwiKVxuXG4jIFN1YnRyYWN0aW9uXG5wZXJmb3JtX29wZXJhdGlvbih4LCB5LCBcInN1YnRyYWN0aW9uXCIpXG5cbiMgTXVsdGlwbGljYXRpb25cbnBlcmZvcm1fb3BlcmF0aW9uKHgsIHksIFwibXVsdGlwbGljYXRpb25cIilcblxuIyBEaXZpc2lvblxucGVyZm9ybV9vcGVyYXRpb24oeCwgeSwgXCJkaXZpc2lvblwiKSIsInNvbHV0aW9uIjoiIyBEZWZpbmUgYSBmdW5jdGlvbiBmb3IgYmFzaWMgbWF0aGVtYXRpY2FsIG9wZXJhdGlvbnNcbnBlcmZvcm1fb3BlcmF0aW9uIDwtIGZ1bmN0aW9uKHgsIHksIG9wZXJhdGlvbikge1xuICByZXN1bHQgPC0gc3dpdGNoKG9wZXJhdGlvbixcbiAgICAgICAgICAgICAgICAgICBcImFkZGl0aW9uXCIgPSB4ICsgeSxcbiAgICAgICAgICAgICAgICAgICBcInN1YnRyYWN0aW9uXCIgPSB4IC0geSxcbiAgICAgICAgICAgICAgICAgICBcIm11bHRpcGxpY2F0aW9uXCIgPSB4ICogeSxcbiAgICAgICAgICAgICAgICAgICBcImRpdmlzaW9uXCIgPSBpZih5ICE9IDApIHggLyB5IGVsc2UgXCJFcnJvcjogRGl2aXNpb24gYnkgemVyb1wiKVxuICBwcmludChyZXN1bHQpXG59XG5cbiMgVGVzdCB0aGUgZnVuY3Rpb25cbnggPC0gMTBcbnkgPC0gNVxuXG4jIEFkZGl0aW9uXG5wZXJmb3JtX29wZXJhdGlvbih4LCB5LCBcImFkZGl0aW9uXCIpXG5cbiMgU3VidHJhY3Rpb25cbnBlcmZvcm1fb3BlcmF0aW9uKHgsIHksIFwic3VidHJhY3Rpb25cIilcblxuIyBNdWx0aXBsaWNhdGlvblxucGVyZm9ybV9vcGVyYXRpb24oeCwgeSwgXCJtdWx0aXBsaWNhdGlvblwiKVxuXG4jIERpdmlzaW9uXG5wZXJmb3JtX29wZXJhdGlvbih4LCB5LCBcImRpdmlzaW9uXCIpIn0=
 </div>
 </div>
 <div
@@ -349,18 +771,18 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJudW0gPC0gNS42OyBudW0ifQ==
 <p><strong>2. Integer:</strong></p>
 <p>Integer data type is used to represent integer values.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJpbnQgPC0gMTBMIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJpbnQgPC0gMTBMXG5pbnQifQ==
 </div>
 <p><strong>3. Character:</strong></p>
 <p>Character data type is used to represent text data.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJjaGFyIDwtIFwiSGksIEpvaG4hXCIifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJjaGFyIDwtIFwiSGksIEpvaG4hXCJcbmNoYXIifQ==
 </div>
 <p><strong>4. Logical:</strong></p>
 <p>Logical data type is used to represent Boolean values (
 <strong>TRUE</strong> or <strong>FALSE</strong>).</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsb2dpYyA8LSBUUlVFIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsb2dpYyA8LSBUUlVFXG5cbmxvZ2ljIn0=
 </div>
 <p><strong>5. Vector:</strong></p>
 <p>A vector is a sequence of data elements of the same basic type. It is
@@ -374,21 +796,21 @@ order respectively, that is (<span class="math inline">\(R \times
 C\)</span> ). It is created using the <strong>matrix()</strong>
 command.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtYXQgPC0gbWF0cml4KDE6MTIsIG5yb3cgPSAzLCBuY29sID0gNCkgIyBBIG1hdHJpeCB3aXRoIHRocmVlIHJvd3MgYW5kIDIgY29sdW1ucyAifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtYXQgPC0gbWF0cml4KDE6MTIsIG5yb3cgPSAzLCBuY29sID0gNCkgIyBBIG1hdHJpeCB3aXRoIHRocmVlIHJvd3MgYW5kIDIgY29sdW1ucyBcblxubWF0ICJ9
 </div>
 <p><strong>7. Data Frame:</strong></p>
 <p>A data frame is a two-dimensional data structure with rows and
 columns, similar to a spreadsheet. It can contain several data types. It
 is created using the command <strong>data.frame()</strong> command.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkZiA8LSBkYXRhLmZyYW1lKFxuICBOYW1lID0gYyhcIkpvaG5cIiwgXCJBbGljZVwiLCBcIkJvYlwiKSxcbiAgQWdlID0gYygyNSwgMzAsIDM1KSxcbiAgSGVpZ2h0ID0gYygxNzUsIDE2MCwgMTgwKVxuKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkZiA8LSBkYXRhLmZyYW1lKFxuICBOYW1lID0gYyhcIkpvaG5cIiwgXCJBbGljZVwiLCBcIkJvYlwiKSxcbiAgQWdlID0gYygyNSwgMzAsIDM1KSxcbiAgSGVpZ2h0ID0gYygxNzUsIDE2MCwgMTgwKVxuKVxuZGYifQ==
 </div>
 <p><strong>8. List:</strong></p>
 <p>A list is an ordered collection of objects (which may be of different
 types: numeric, character, etc.). It is created using the
 <strong>list()</strong> command.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsc3QgPC0gbGlzdChcbiAgTmFtZSA9IGMoXCJKb2huXCIsIFwiQWxpY2VcIiwgXCJCb2JcIiksXG4gIEFnZSA9IGMoMjUsIDMwLCAzNSksXG4gIEhlaWdodCA9IGMoMTc1LCAxNjAsIDE4MClcbikifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsc3QgPC0gbGlzdChcbiAgTmFtZSA9IGMoXCJKb2huXCIsIFwiQWxpY2VcIiwgXCJCb2JcIiksXG4gIEFnZSA9IGMoMjUsIDMwLCAzNSksXG4gIEhlaWdodCA9IGMoMTc1LCAxNjAsIDE4MClcbilcblxubHN0In0=
 </div>
 <p><strong>9. Factors:</strong></p>
 <p>Factors are used to represent categorical data. It is created using
@@ -406,7 +828,7 @@ give it the value 15.Take the exponent of the variable and add 5 to the
 final result. Print the final result of <span
 class="math inline">\(x\)</span>.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSIsInNvbHV0aW9uIjoieDwtMTVcbng8LWV4cCh4KVxueDwteCs1XG54In0=
 </div>
 <p><strong>Exercise 2: Vectors:</strong></p>
 <p>The weights of five people before and after a diet programme are
@@ -415,11 +837,28 @@ different vectors called <strong>before</strong> and
 <strong>after</strong>. Use <strong>R</strong> to evaluate the amount of
 weight lost for each participant. What is the average amount of weight
 lost?</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">Before</td>
+<td align="center">78</td>
+<td align="center">72</td>
+<td align="center">78</td>
+<td align="center">79</td>
+<td align="center">105</td>
+</tr>
+<tr class="even">
+<td align="left">After</td>
+<td align="center">67</td>
+<td align="center">65</td>
+<td align="center">79</td>
+<td align="center">70</td>
+<td align="center">93</td>
+</tr>
+</tbody>
+</table>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIgIGRmPWRhdGEuZnJhbWUoXG4gICAgWDEgPSBjKDc4LCA2NyksXG4gICAgWDIgPSBjKDcyLCA2NSksXG4gICAgWDMgPSBjKDc4LCA3OSksXG4gICAgWDQgPSBjKDc5LCA3MCksXG4gICAgWDUgPSBjKDEwNSwgOTMpXG4gIClcbnJvdy5uYW1lcyhkZik8LWMoXCJCZWZvcmVcIiwgXCJBZnRlclwiKVxuY29sbmFtZXMoZGYpPC1OVUxMXG5rbml0cjo6a2FibGUoZGYsIGFsaWduID0gXCJjXCIsYm9va3RhYnMgPSBGQUxTRSkifQ==
-</div>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIiwic29sdXRpb24iOiIjIEV4dHJhY3QgJ2JlZm9yZScgYW5kICdhZnRlcicgd2VpZ2h0cyBpbnRvIHR3byB2ZWN0b3JzXG5iZWZvcmU8LWMoNzgsNzIsNzgsNzksMTA1KVxuYWZ0ZXI8LWMoNjcsNjUsNzksNzAsOTMpXG4jIENhbGN1bGF0ZSB0aGUgYW1vdW50IG9mIHdlaWdodCBsb3N0IGZvciBlYWNoIHBhcnRpY2lwYW50XG53ZWlnaHRfbG9zdCA8LSBiZWZvcmUgLSBhZnRlclxuXG4jIENhbGN1bGF0ZSB0aGUgYXZlcmFnZSBhbW91bnQgb2Ygd2VpZ2h0IGxvc3RcbmF2ZXJhZ2Vfd2VpZ2h0X2xvc3QgPC0gbWVhbih3ZWlnaHRfbG9zdClcblxuIyBQcmludCB0aGUgYW1vdW50IG9mIHdlaWdodCBsb3N0IGZvciBlYWNoIHBhcnRpY2lwYW50IGFuZCB0aGUgYXZlcmFnZSBhbW91bnQgb2Ygd2VpZ2h0IGxvc3RcblxucHJpbnQod2VpZ2h0X2xvc3QpXG5wcmludChwYXN0ZShcIlRoZSBhdmVyYWdlIGFtb3VudCBvZiB3ZWlnaHQgbG9zdDpcIiwgYXZlcmFnZV93ZWlnaHRfbG9zdCkpIn0=
 </div>
 <p><strong>Exercise 3: Matrices</strong></p>
 <p>Create two matrices called <strong>A</strong> and <strong>X</strong>
@@ -447,7 +886,7 @@ X=
 <li><p>the inverse of <strong>A</strong>.</p></li>
 </ol>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSB0aGUgdHdvIG1hdHJpY2VzXG5cbiMgbWF0cml4IG11bHRpcGxpY2F0aW9uXG5cbiMgdHJhbnNwb3NlXG5cbiMgZGV0ZXJtaW5hbnRcblxuIyBkaWFnb25hbFxuXG4jIGludmVyc2UiLCJzb2x1dGlvbiI6IiNDcmVhdGUgdGhlIHR3byBtYXRyaWNlc1xuQSA8LSBtYXRyaXgoYygxOjgsMTApLCAzLCAzKVxueCA8LSBjKDEsMiwzKVxuXG4jIG1hdHJpeCBtdWx0aXBsaWNhdGlvblxuQSAlKiUgeCBcblxuIyB0cmFuc3Bvc2VcbnQoQSkgXG5cbiMgZGV0ZXJtaW5hbnRcbmRldChBKSBcblxuIyBkaWFnb25hbFxuZGlhZyhBKVxuXG4jIGludmVyc2VcbnNvbHZlKEEpICJ9
 </div>
 <p><strong>Exercise 4: Creating Data Frames</strong></p>
 <ol style="list-style-type: lower-alpha">
@@ -461,7 +900,7 @@ containing just one new film.</p></li>
 <li><p>Try sorting the titles using sort(): what happens?</p></li>
 </ol>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIiwic29sdXRpb24iOiIjIENyZWF0ZSB0aGUgZmlyc3QgZGF0YSBmcmFtZVxuZmlsbXMxIDwtIGRhdGEuZnJhbWUoXG4gIHRpdGxlID0gYyhcIlRoZSBTaGF3c2hhbmsgUmVkZW1wdGlvblwiLCBcIlRoZSBHb2RmYXRoZXJcIiwgXCJUaGUgRGFyayBLbmlnaHRcIiksXG4gIGRpcmVjdG9yID0gYyhcIkZyYW5rIERhcmFib250XCIsIFwiRnJhbmNpcyBGb3JkIENvcHBvbGFcIiwgXCJDaHJpc3RvcGhlciBOb2xhblwiKSxcbiAgeWVhciA9IGMoMTk5NCwgMTk3MiwgMjAwOCksXG4gIGNvdW50cnkgPSBjKFwiVVNBXCIsIFwiVVNBXCIsIFwiVVNBXCIpXG4pXG5cbiMgQ3JlYXRlIHRoZSBzZWNvbmQgZGF0YSBmcmFtZSB3aXRoIG9uZSBuZXcgZmlsbVxuZmlsbXMyIDwtIGRhdGEuZnJhbWUoXG4gIHRpdGxlID0gYyhcIkluY2VwdGlvblwiKSxcbiAgZGlyZWN0b3IgPSBjKFwiQ2hyaXN0b3BoZXIgTm9sYW5cIiksXG4gIHllYXIgPSBjKDIwMTApLFxuICBjb3VudHJ5ID0gYyhcIlVLXCIpXG4pXG5cbiMgTWVyZ2UgdGhlIHR3byBkYXRhIGZyYW1lcyB1c2luZyByYmluZFxuYWxsX2ZpbG1zIDwtIHJiaW5kKGZpbG1zMSwgZmlsbXMyKVxuXG4jIFByaW50IHRoZSBjb21iaW5lZCBkYXRhIGZyYW1lXG5wcmludChhbGxfZmlsbXMpXG5cbiMgVHJ5IHNvcnRpbmcgdGhlIHRpdGxlcyB1c2luZyBzb3J0KClcbnNvcnRlZF9maWxtcyA8LSBzb3J0KGFsbF9maWxtcyR0aXRsZSlcbnByaW50KHNvcnRlZF9maWxtcykifQ==
 </div>
 <p><strong>Exercise 5: Factors and Simple plot</strong></p>
 <p>Suppose we have the heights of 100 individuals, where the first are
@@ -474,8 +913,8 @@ categorical variable and name it as ‘Sex’. Plot <strong>Sex</strong>
 against <strong>height</strong> using <strong>plot()</strong> function.
 Which type of plot have you obtained? What happens if you try to plot
 <strong>sex</strong> against <strong>height</strong> instead?</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIiwic29sdXRpb24iOiJzZXQuc2VlZCgxNDQyKSAjIGZpeGVzIHRoZSByYW5kb20gbnVtYmVyc1xuXG5oZWlnaHQgPSByb3VuZChybm9ybSgxMDAsIG1lYW49cmVwKGMoMTcwLDE2MCksZWFjaD01MCksIHNkPTEwKSlcbnNleCA9IHJlcChjKFwiTVwiLCBcIkZcIiksIGVhY2g9NTApXG4jIHRyZWF0IHNleCBhcyBhIGNhdGVnb3JpY2FsIHZhcmlhYmxlXG5TZXggPSBhcy5mYWN0b3Ioc2V4KVxuXG5wbG90KFNleCwgaGVpZ2h0KVxuXG5wbG90KHNleCwgaGVpZ2h0KSJ9
 </div>
 <!--chapter:end:index.Rmd-->
 </div>
@@ -625,7 +1064,7 @@ is given below</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjaGlzdCh4LCBicmVha3MgPSBcIlN0dXJnZXNcIixcbiMgICAgIGZyZXEgPSBOVUxMLCBwcm9iYWJpbGl0eSA9ICFmcmVxLFxuIyAgICAgaW5jbHVkZS5sb3dlc3QgPSBUUlVFLCByaWdodCA9IFRSVUUsIGZ1enogPSAxZS03LFxuIyAgICAgZGVuc2l0eSA9IE5VTEwsIGFuZ2xlID0gNDUsIGNvbCA9IFwibGlnaHRncmF5XCIsIGJvcmRlciA9IE5VTEwsXG4jICAgICBtYWluID0gcGFzdGUoXCJIaXN0b2dyYW0gb2ZcIiAsIHhuYW1lKSxcbiMgICAgIHhsaW0gPSByYW5nZShicmVha3MpLCB5bGltID0gTlVMTCxcbiMgICAgIHhsYWIgPSB4bmFtZSwgeWxhYixcbiMgICAgIGF4ZXMgPSBUUlVFLCBwbG90ID0gVFJVRSwgbGFiZWxzID0gRkFMU0UsXG4jICAgICBuY2xhc3MgPSBOVUxMLCB3YXJuLnVudXNlZCA9IFRSVUUsIC4uLikifQ==
 </div>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIGhpc3RvZ3JhbVxuc2V0LnNlZWQoMTAwKSAgIyBGaXggdGhlIHJhbmRvbSBudW1iZXJzIGdlbmVyYXRlZFxuZGF0YSA8LSBybm9ybSgxMDApICAjIEdlbmVyYXRlIHNvbWUgcmFuZG9tIGRhdGFcbmhpc3QoZGF0YSwgYnJlYWtzID0gXCJTdHVyZ2VzXCIsIGNvbCA9IFwic2t5Ymx1ZVwiLCBtYWluID0gXCJIaXN0b2dyYW1cIiwgeGxhYiA9IFwiVmFsdWVcIiwgeWxhYiA9IFwiRnJlcXVlbmN5XCIpIn0=
 </div>
 </div>
@@ -727,9 +1166,9 @@ factor method in the following format:</p>
 <p>Create a dataframe called students with the vectors; id, gender,
 marks, grade and status where status is a column which shows whether the
 student passed or failed.You will use this dataframe to answer exercise
-7,8 and 9.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSJ9
+7,8 and 9.Note: The minimum mark should be 10 marks</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSIsInNvbHV0aW9uIjoiI1NvbHV0aW9uXG5cbmlkPC0xOjEwMDBcbnNldC5zZWVkKDEwMClcbm1hcmtzPC1zYW1wbGUoYygxMDoxMDApLDEwMDAsIHJlcGxhY2UgPSBUUlVFKVxuZ2VuZGVyPC1zYW1wbGUoYyhcIk1hbGVcIixcIkZlbWFsZVwiKSwxMDAwLHJlcGxhY2UgPSBUUlVFKVxuZ3JhZGU8LWZhY3RvcihjKG1hcmtzID49MCkrIChtYXJrcyA+PTQwKSArIChtYXJrcyA+PTUwKSArIChtYXJrcyA+PTYwKSArKG1hcmtzID49NzApLCBsYWJlbHM9YyhcIkVcIixcIkRcIixcIkNcIixcIkJcIixcIkFcIikpXG5zdGF0dXM8LWZhY3RvcihjKG1hcmtzID49MCkrIChtYXJrcyA+PTQwKSwgbGFiZWxzPWMoXCJGYWlsXCIsXCJQYXNzXCIpKVxuc3R1ZGVudHM8LWRhdGEuZnJhbWUoaWQsIGdlbmRlcixtYXJrcywgZ3JhZGUsIHN0YXR1cykifQ==
 </div>
 <p><strong>Exercise 7</strong></p>
 <p>Plot a box plot to show the distribution of marks by gender.Give it a
@@ -737,22 +1176,22 @@ title, ‘Distribution of Student Marks’. The x-axis should be labelled as
 ‘Gender’ while the y-axis should be labelled as ‘Marks’. Apply blue
 color to male and green color to female. Set cex.main and cex.lab to
 1.2.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIiwic29sdXRpb24iOiIjIFNvbHV0aW9uXG5cbmlkPC0xOjEwMDBcbnNldC5zZWVkKDEwMClcbm1hcmtzPC1zYW1wbGUoYygxMDoxMDApLDEwMDAsIHJlcGxhY2UgPSBUUlVFKVxuZ2VuZGVyPC1zYW1wbGUoYyhcIk1hbGVcIixcIkZlbWFsZVwiKSwxMDAwLHJlcGxhY2UgPSBUUlVFKVxuZ3JhZGU8LWZhY3RvcihjKG1hcmtzID49MCkrIChtYXJrcyA+PTQwKSArIChtYXJrcyA+PTUwKSArIChtYXJrcyA+PTYwKSArKG1hcmtzID49NzApLCBsYWJlbHM9YyhcIkVcIixcIkRcIixcIkNcIixcIkJcIixcIkFcIikpXG5zdGF0dXM8LWZhY3RvcihjKG1hcmtzID49MCkrIChtYXJrcyA+PTQwKSwgbGFiZWxzPWMoXCJGYWlsXCIsXCJQYXNzXCIpKVxuc3R1ZGVudHM8LWRhdGEuZnJhbWUoaWQsIGdlbmRlcixtYXJrcywgZ3JhZGUsIHN0YXR1cylcbiMgQ3VzdG9taXplZCBib3ggcGxvdCB3aXRoIGRpZmZlcmVudCBjb2xvcnMsIGxhYmVscywgYW5kIGxhcmdlciBmb250IHNpemVzXG5ib3hwbG90KG1hcmtzIH4gZ2VuZGVyLCBkYXRhID0gc3R1ZGVudHMsIGNvbCA9IGMoXCJncmVlblwiLCBcImJsdWVcIiksIG1haW4gPSBcIkRpc3RyaWJ1dGlvbiBvZiBTdHVkZW50IE1hcmtzXCIsIHhsYWIgPSBcIkdlbmRlclwiLCB5bGFiID0gXCJNYXJrc1wiLCBjZXgubWFpbiA9IDEuMiwgY2V4LmxhYiA9IDEuMikifQ==
 </div>
 <p><strong>Exercise 8</strong></p>
 <p>Plot a histogram of the marks where the bins should be equivalent to
 the classes of grading. Which grade had the highest number of students?
 How were the marks distributed in the class? Fill the histogram with
 red. Add a customized title and label the axes.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIiwic29sdXRpb24iOiIjIFNvbHV0aW9uXG4jIENyZWF0ZSB0aGUgc3R1ZGVudHMgZGF0YWZyYW1lXG5pZCA8LSAxOjEwMDBcbnNldC5zZWVkKDYwKVxubWFya3MgPC0gc2FtcGxlKDEwOjEwMCwgMTAwMCwgcmVwbGFjZSA9IFRSVUUpXG5nZW5kZXIgPC0gc2FtcGxlKGMoXCJNYWxlXCIsIFwiRmVtYWxlXCIpLCAxMDAwLCByZXBsYWNlID0gVFJVRSlcbmdyYWRlIDwtIGZhY3RvcihjKG1hcmtzID49IDApICsgKG1hcmtzID49IDQwKSArIChtYXJrcyA+PSA1MCkgKyAobWFya3MgPj0gNjApICsgKG1hcmtzID49IDcwKSwgbGFiZWxzID0gYyhcIkVcIiwgXCJEXCIsIFwiQ1wiLCBcIkJcIiwgXCJBXCIpKVxuc3RhdHVzIDwtIGZhY3RvcihjKG1hcmtzID49IDApICsgKG1hcmtzID49IDQwKSwgbGFiZWxzID0gYyhcIkZhaWxcIiwgXCJQYXNzXCIpKVxuc3R1ZGVudHMgPC0gZGF0YS5mcmFtZShpZCwgZ2VuZGVyLCBtYXJrcywgZ3JhZGUsIHN0YXR1cylcblxuIyBEZWZpbmUgYnJlYWtzIGJhc2VkIG9uIHRoZSBncmFkaW5nIGNsYXNzZXNcbmJyZWFrcyA8LSBjKDAsIDQwLCA1MCwgNjAsIDcwLCAxMDApXG5cbiMgQ3JlYXRlIHRoZSBoaXN0b2dyYW1cbmhpc3Qoc3R1ZGVudHMkbWFya3MsIGJyZWFrcyA9IGJyZWFrcywgY29sID0gXCJyZWRcIiwgXG4gICAgIG1haW4gPSBcIkRpc3RyaWJ1dGlvbiBvZiBNYXJrcyBieSBHcmFkZVwiLCBcbiAgICAgeGxhYiA9IFwiTWFya3NcIiwgeWxhYiA9IFwiTnVtYmVyIG9mIFN0dWRlbnRzXCIpXG4jIENvdW50IHRoZSBudW1iZXIgb2Ygc3R1ZGVudHMgaW4gZWFjaCBncmFkZVxuZ3JhZGVfY291bnRzIDwtIHRhYmxlKHN0dWRlbnRzJGdyYWRlKVxucHJpbnQoZ3JhZGVfY291bnRzKVxuXG4jIERldGVybWluZSB0aGUgZ3JhZGUgd2l0aCB0aGUgaGlnaGVzdCBudW1iZXIgb2Ygc3R1ZGVudHNcbmhpZ2hlc3RfZ3JhZGUgPC0gbmFtZXMod2hpY2gubWF4KGdyYWRlX2NvdW50cykpXG5jYXQoXCJUaGUgZ3JhZGUgd2l0aCB0aGUgaGlnaGVzdCBudW1iZXIgb2Ygc3R1ZGVudHMgaXM6XCIsIGhpZ2hlc3RfZ3JhZGUsIFwiXFxuXCIpIn0=
 </div>
 <p><strong>Exercise 9</strong></p>
 <p>Use a well customized barpot to show the mean mark of students by
 gender. Which gender had the highest average score?</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIn0=
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIiwic29sdXRpb24iOiIjIFNvbHV0aW9uXG4jIENyZWF0ZSB0aGUgc3R1ZGVudHMgZGF0YWZyYW1lXG5pZCA8LSAxOjEwMDBcbnNldC5zZWVkKDEwMClcbm1hcmtzIDwtIHNhbXBsZSgxMDoxMDAsIDEwMDAsIHJlcGxhY2UgPSBUUlVFKVxuZ2VuZGVyIDwtIHNhbXBsZShjKFwiTWFsZVwiLCBcIkZlbWFsZVwiKSwgMTAwMCwgcmVwbGFjZSA9IFRSVUUpXG5ncmFkZSA8LSBmYWN0b3IoYyhtYXJrcyA+PSAwKSArIChtYXJrcyA+PSA0MCkgKyAobWFya3MgPj0gNTApICsgKG1hcmtzID49IDYwKSArIChtYXJrcyA+PSA3MCksIGxhYmVscyA9IGMoXCJFXCIsIFwiRFwiLCBcIkNcIiwgXCJCXCIsIFwiQVwiKSlcbnN0YXR1cyA8LSBmYWN0b3IoYyhtYXJrcyA+PSAwKSArIChtYXJrcyA+PSA0MCksIGxhYmVscyA9IGMoXCJGYWlsXCIsIFwiUGFzc1wiKSlcbnN0dWRlbnRzIDwtIGRhdGEuZnJhbWUoaWQsIGdlbmRlciwgbWFya3MsIGdyYWRlLCBzdGF0dXMpXG4jIENhbGN1bGF0ZSB0aGUgbWVhbiBtYXJrcyBieSBnZW5kZXJcbm1lYW5fbWFya3NfYnlfZ2VuZGVyIDwtIGFnZ3JlZ2F0ZShtYXJrcyB+IGdlbmRlciwgZGF0YSA9IHN0dWRlbnRzLCBtZWFuKVxuXG4jIFBsb3QgdGhlIGJhcnBsb3RcbmJhcnBsb3QobWVhbl9tYXJrc19ieV9nZW5kZXIkbWFya3MsIFxuICAgICAgICBuYW1lcy5hcmcgPSBtZWFuX21hcmtzX2J5X2dlbmRlciRnZW5kZXIsXG4gICAgICAgIGNvbCA9IGMoXCJibHVlXCIsIFwicGlua1wiKSxcbiAgICAgICAgbWFpbiA9IFwiTWVhbiBNYXJrcyBieSBHZW5kZXJcIixcbiAgICAgICAgeGxhYiA9IFwiR2VuZGVyXCIsXG4gICAgICAgIHlsYWIgPSBcIk1lYW4gTWFya3NcIixcbiAgICAgICAgeWxpbSA9IGMoMCwgMTAwKSxcbiAgICAgICAgYmVzaWRlID0gVFJVRSxcbiAgICAgICAgYm9yZGVyID0gXCJibGFja1wiLFxuICAgICAgICBsYXMgPSAxLCAjIG1ha2UgYXhpcyBsYWJlbHMgcGVycGVuZGljdWxhciB0byBheGlzXG4gICAgICAgIGNleC5uYW1lcyA9IDEuMiwgIyBhZGp1c3QgdGhlIHNpemUgb2YgdGhlIGF4aXMgbGFiZWxzXG4gICAgICAgIGNleC5heGlzID0gMS4yLCAjIGFkanVzdCB0aGUgc2l6ZSBvZiB0aGUgYXhpcyB0ZXh0XG4gICAgICAgIGNleC5tYWluID0gMS41LCAjIGFkanVzdCB0aGUgc2l6ZSBvZiB0aGUgbWFpbiB0aXRsZVxuICAgICAgICBjZXgubGFiID0gMS4yKSAjIGFkanVzdCB0aGUgc2l6ZSBvZiB0aGUgYXhpcyBsYWJlbHMgdGV4dFxuXG4jIEFkZCB0ZXh0IGxhYmVscyBvbiB0b3Agb2YgdGhlIGJhcnNcbnRleHQoeCA9IGMoMSwgMiksIFxuICAgICB5ID0gbWVhbl9tYXJrc19ieV9nZW5kZXIkbWFya3MsIFxuICAgICBsYWJlbCA9IHJvdW5kKG1lYW5fbWFya3NfYnlfZ2VuZGVyJG1hcmtzLCAxKSwgXG4gICAgIHBvcyA9IDMsICMgcG9zaXRpb24gYWJvdmUgdGhlIGJhcnNcbiAgICAgY2V4ID0gMS4yLCAjIGFkanVzdCB0aGUgc2l6ZSBvZiB0aGUgdGV4dFxuICAgICBjb2wgPSBcImJsYWNrXCIpXG5cbiMgRGV0ZXJtaW5lIHdoaWNoIGdlbmRlciBoYWQgdGhlIGhpZ2hlc3QgYXZlcmFnZSBzY29yZVxuaGlnaGVzdF9hdmdfZ2VuZGVyIDwtIG1lYW5fbWFya3NfYnlfZ2VuZGVyW3doaWNoLm1heChtZWFuX21hcmtzX2J5X2dlbmRlciRtYXJrcyksIF1cbmNhdChcIlRoZSBnZW5kZXIgd2l0aCB0aGUgaGlnaGVzdCBhdmVyYWdlIHNjb3JlIGlzOlwiLCBoaWdoZXN0X2F2Z19nZW5kZXIkZ2VuZGVyLCBcIndpdGggYW4gYXZlcmFnZSBzY29yZSBvZlwiLCByb3VuZChoaWdoZXN0X2F2Z19nZW5kZXIkbWFya3MsIDEpLCBcIm1hcmtzXCIsIFwiXFxuXCIpIn0=
 </div>
 <!--chapter:end:02-basic-graphics.Rmd-->
 </div>
@@ -880,9 +1319,15 @@ class="uri">https://www.kaggle.com/datasets/mohammadtalib786/retail-sales-datase
 Import the data into R and answer the following questions:</p>
 <p>i). Using a well customized line plot, what trend do you see in the
 sales (Total Amount)?</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSIsInNvbHV0aW9uIjoibGlicmFyeShnZ3Bsb3QyKVxubGlicmFyeShkcGx5cilcbmNzdl91cmw8LVwiaHR0cHM6Ly9naXRodWIuY29tL2JhbHNhZWRpLy1SLVZpc3VhbGl6YXRpb24vcmF3L2M4MThhODVlNzJiYTYwNWQyNzQzNGM0ZmZmMjNjNTZjYWE4ZTIyOTkvcmV0YWlsX3NhbGVzX2RhdGFzZXQuY3N2XCJcbnJldGFpbF9zYWxlc19kYXRhPC1yZWFkLmNzdihjc3ZfdXJsKVxuIyBDb252ZXJ0IHRoZSBEYXRlIGNvbHVtbiB0byBEYXRlIHR5cGUgaWYgaXQgaXNuJ3QgYWxyZWFkeSBhbmQgcmVuYW1lIHRoZSBUb3RhbC5BbW91bnRcbnJldGFpbF9zYWxlc19kYXRhPC1yZXRhaWxfc2FsZXNfZGF0YSU+JVxuICBtdXRhdGUoRGF0ZT1hcy5EYXRlKERhdGUsZm9ybWF0ID1cIiVZLSVtLSVkXCIpKSU+JVxuICByZW5hbWUoVG90YWxfQW1vdW50PVRvdGFsLkFtb3VudClcbiMgQWdncmVnYXRlIHNhbGVzIGJ5IGRhdGVcbnNhbGVzX3RyZW5kIDwtIHJldGFpbF9zYWxlc19kYXRhICU+JVxuICBncm91cF9ieShEYXRlKSAlPiVcbiAgc3VtbWFyaXNlKFRvdGFsX0Ftb3VudCA9IHN1bShUb3RhbF9BbW91bnQsIG5hLnJtID0gVFJVRSkpXG4jIFBsb3QgdGhlIHNhbGVzIHRyZW5kXG5nZ3Bsb3Qoc2FsZXNfdHJlbmQsIGFlcyh4ID0gRGF0ZSwgeSA9IFRvdGFsX0Ftb3VudCkpICtcbiAgZ2VvbV9saW5lKGNvbG9yID0gXCJibHVlXCIpICtcbiAgbGFicyh0aXRsZSA9IFwiU2FsZXMgVHJlbmQgT3ZlciBUaW1lXCIsXG4gICAgICAgeCA9IFwiRGF0ZVwiLFxuICAgICAgIHkgPSBcIlRvdGFsIFNhbGVzIEFtb3VudFwiKSArXG4gIHRoZW1lX2J3KCkgK1xuICB0aGVtZShwbG90LnRpdGxlID0gZWxlbWVudF90ZXh0KGhqdXN0ID0gMC41KSkifQ==
+</div>
 <p>ii). Using an appropriate plot covered so far, show how the total
 amount vary by the product category. Use a well customized plot to make
 it more appealing and readable.</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSIsInNvbHV0aW9uIjoibGlicmFyeShnZ3Bsb3QyKVxubGlicmFyeShkcGx5cilcbmNzdl91cmw8LVwiaHR0cHM6Ly9naXRodWIuY29tL2JhbHNhZWRpLy1SLVZpc3VhbGl6YXRpb24vcmF3L2M4MThhODVlNzJiYTYwNWQyNzQzNGM0ZmZmMjNjNTZjYWE4ZTIyOTkvcmV0YWlsX3NhbGVzX2RhdGFzZXQuY3N2XCJcbnJldGFpbF9zYWxlc19kYXRhPC1yZWFkLmNzdihjc3ZfdXJsKVxuIyBDb252ZXJ0IHRoZSBEYXRlIGNvbHVtbiB0byBEYXRlIHR5cGUgaWYgaXQgaXNuJ3QgYWxyZWFkeSBhbmQgcmVuYW1lIHRoZSBUb3RhbC5BbW91bnRcbnJldGFpbF9zYWxlc19kYXRhPC1yZXRhaWxfc2FsZXNfZGF0YSU+JVxuICBtdXRhdGUoRGF0ZT1hcy5EYXRlKERhdGUsZm9ybWF0ID1cIiVZLSVtLSVkXCIpKSU+JVxuICByZW5hbWUoVG90YWxfQW1vdW50PVRvdGFsLkFtb3VudCwgUHJvZHVjdF9DYXRlZ29yeT1Qcm9kdWN0LkNhdGVnb3J5KVxuXG4jIEFnZ3JlZ2F0ZSBzYWxlcyBieSBwcm9kdWN0IGNhdGVnb3J5XG5zYWxlc19ieV9jYXRlZ29yeSA8LSByZXRhaWxfc2FsZXNfZGF0YSAlPiVcbiAgZ3JvdXBfYnkoUHJvZHVjdF9DYXRlZ29yeSkgJT4lXG4gIHN1bW1hcmlzZShUb3RhbF9BbW91bnQgPSBzdW0oVG90YWxfQW1vdW50LCBuYS5ybSA9IFRSVUUpKVxuXG4jIFBsb3QgdGhlIHNhbGVzIGJ5IHByb2R1Y3QgY2F0ZWdvcnkgd2l0aCBsYWJlbHNcbmdncGxvdChzYWxlc19ieV9jYXRlZ29yeSwgYWVzKHggPSByZW9yZGVyKFByb2R1Y3RfQ2F0ZWdvcnksIC1Ub3RhbF9BbW91bnQpLCB5ID0gVG90YWxfQW1vdW50LCBmaWxsID0gUHJvZHVjdF9DYXRlZ29yeSkpICtcbiAgZ2VvbV9iYXIoc3RhdCA9IFwiaWRlbnRpdHlcIikgK1xuICBnZW9tX3RleHQoYWVzKGxhYmVsID0gcm91bmQoVG90YWxfQW1vdW50LCAxKSksIHZqdXN0ID0gLTAuNSwgc2l6ZSA9IDMpICsgICMgQWRkaW5nIGxhYmVsc1xuICBsYWJzKHRpdGxlID0gXCJUb3RhbCBTYWxlcyBBbW91bnQgYnkgUHJvZHVjdCBDYXRlZ29yeVwiLFxuICAgICAgIHggPSBcIlByb2R1Y3QgQ2F0ZWdvcnlcIixcbiAgICAgICB5ID0gXCJUb3RhbCBTYWxlcyBBbW91bnRcIikgK1xuICB0aGVtZV9idygpICtcbiAgdGhlbWUocGxvdC50aXRsZSA9IGVsZW1lbnRfdGV4dChoanVzdCA9IDAuNSksXG4gICAgICAgIGF4aXMudGV4dC54ID0gZWxlbWVudF90ZXh0KGFuZ2xlID0gNDUsIGhqdXN0ID0gMSkpICtcbiAgc2NhbGVfZmlsbF9icmV3ZXIocGFsZXR0ZSA9IFwiU2V0M1wiKSAgIyBZb3UgY2FuIGNoYW5nZSB0aGUgcGFsZXR0ZSB0byB5b3VyIHByZWZlcmVuY2UifQ==
+</div>
 <!--chapter:end:03-data-structures.Rmd-->
 </div>
 </div>
@@ -927,7 +1372,7 @@ including circles, squares, triangles, etc.</li>
 dots, crosses, stars, etc., can be used.</li>
 </ul>
 <p><strong>Example:</strong></p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkgPC0geF4yXG5cbiMgUGxvdCB3aXRoIGN1c3RvbWl6ZWQgZ3JhcGhpY2FsIHBhcmFtZXRlcnNcbnBhcihcbiAgcGNoID0gMTksICAgICMgVXNlIHNvbGlkIGNpcmNsZXMgZm9yIHBvaW50c1xuICBsdHkgPSAyLCAgICAgIyBVc2UgZGFzaGVkIGxpbmVcbiAgbHdkID0gMiwgICAgICMgU2V0IGxpbmUgd2lkdGggdG8gMlxuICBjb2wgPSBcImJsdWVcIiAjIFNldCBsaW5lIGFuZCBwb2ludCBjb2xvciB0byBibHVlXG4pXG5cbnBsb3QoeCwgeSwgdHlwZSA9IFwibFwiLCBtYWluID0gXCJDdXN0b21pemVkIFBsb3RcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5wb2ludHMoeCwgeSwgY29sID0gXCJyZWRcIikgIyBBZGQgcG9pbnRzIHdpdGggcmVkIGNvbG9yIn0=
 </div>
 </div>
@@ -946,7 +1391,7 @@ remove axis tick marks and add them back using axis() function.</p>
 <strong>ylim</strong> parameters to set limits for the x and y axes,
 respectively.</p>
 <p>Example:</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkgPC0geF4yXG5cbiMgUGxvdCB3aXRoIGN1c3RvbWl6ZWQgYXhpcyBvcHRpb25zXG5wbG90KHgsIHksIHR5cGUgPSBcImxcIiwgbWFpbiA9IFwiQSBzaW1wbGUgbGluZSBwbG90XCIsIHhsYWIgPSBcIlgtYXhpc1wiLCB5bGFiID0gXCJZLWF4aXNcIiwgeGxpbSA9IGMoMCwgMTIpLCB5bGltID0gYygwLCAxMjApKVxuYXhpcyhzaWRlID0gMSwgYXQgPSBzZXEoMCwgMTIsIGJ5ID0gMikpICMgQWRkIHgtYXhpcyB0aWNrIG1hcmtzXG5heGlzKHNpZGUgPSAyLCBhdCA9IHNlcSgwLCAxMjAsIGJ5ID0gMjApKSAjIEFkZCB5LWF4aXMgdGljayBtYXJrcyJ9
 </div>
 </div>
@@ -960,7 +1405,7 @@ plots more informative and visually appealing:</p>
 rows and columns. Plots are filled row-wise.</p>
 <p><strong>mfcol:</strong> Divides the plotting area into a matrix of
 rows and columns. Plots are filled column-wise.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgdXNpbmcgbWZyb3dcbnBhcihtZnJvdyA9IGMoMiwgMikpICMgQ3JlYXRlIGEgMngyIGdyaWQgZm9yIHBsb3RzXG5wbG90KDE6MTAsIDE6MTAsIG1haW4gPSBcIlBsb3QgMVwiLCB0eXBlID0gXCJsXCIpXG5wbG90KDE6MTAsICgxOjEwKV4yLCBtYWluID0gXCJQbG90IDJcIiwgdHlwZSA9IFwibFwiKVxucGxvdCgxOjEwLCAoMToxMCleMywgbWFpbiA9IFwiUGxvdCAzXCIsIHR5cGUgPSBcImxcIilcbnBsb3QoMToxMCwgbG9nKDE6MTApLCBtYWluID0gXCJQbG90IDRcIiwgdHlwZSA9IFwibFwiKSJ9
 </div>
 <p><strong>ii). Customizing Plots with Grid Lines, Background Color, and
@@ -973,7 +1418,7 @@ add grid lines to the plot.</p>
 change the overall appearance of the plot. This will be covered under
 ggplot2 package chapter.</p>
 <strong>Example with Grid Lines and Background Color:</strong>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgd2l0aCBncmlkIGxpbmVzIGFuZCBiYWNrZ3JvdW5kIGNvbG9yXG5wbG90KDE6MTAsIDE6MTAsIG1haW4gPSBcIkEgQ3VzdG9taXplZCBTaW1wbGUgTGluZSBQbG90XCIsIHR5cGUgPSBcImxcIiwgeGxhYj0nSGVpZ2h0Jyx5bGFiID0gJ1dlaWdodCcpXG5ncmlkKCkgIyBBZGQgZ3JpZCBsaW5lc1xucGFyKGJnID0gXCJsaWdodGJsdWVcIikgIyBTZXQgYmFja2dyb3VuZCBjb2xvciJ9
 </div>
 </div>
@@ -992,8 +1437,8 @@ Weight” and “Cube of Head Weight” respectively. Maintain the same line
 types and colors that were used to plot. Add a title, ‘Comparison of
 Cabbage Trends’. Label the x-axis as ‘Head Weight’ and y-axis should be
 blank</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZVxuXG4jIFNvbHV0aW9uXG5saWJyYXJ5KGRwbHlyKVxubGlicmFyeShNQVNTKVxuXG5jYWJiYWdlcyA8LSBjYWJiYWdlcyAlPiUgXG4gIGRpc3RpbmN0KEhlYWRXdCwgLmtlZXBfYWxsID0gVFJVRSkgJT4lIFxuICBhcnJhbmdlKGRlc2MoSGVhZFd0KSxGQUxTRSlcblxucGxvdChjYWJiYWdlcyRIZWFkV3QsKGNhYmJhZ2VzJEhlYWRXdCleMix0eXBlID0gJ2wnLCBjb2w9J2JsdWUnLCBcbiAgICAgbHR5PTEsbWFpbiA9IFwiQ29tcGFyaXNvbiBvZiBVbmlxdWUgQ2FiYmFnZSBUcmVuZHNcIiwgeGxhYiA9IFwiSGVhZCBXZWlnaHRcIiwgeWxhYiA9IFwiXCIpXG5saW5lcyhjYWJiYWdlcyRIZWFkV3QsKGNhYmJhZ2VzJEhlYWRXdCleMyx0eXBlID0gJ2wnLCBjb2w9J3JlZCcsIGx0eT0yKVxubGVnZW5kKFwidG9wbGVmdFwiLCBsZWdlbmQgPSBjKFwiU3F1YXJlIG9mIEhlYWQgV2VpZ2h0XCIsIFwiQ3ViZSBvZiBIZWFkIFdlaWdodCBcIiksIGNvbCA9IGMoXCJibHVlXCIsIFwicmVkXCIpLCBsdHkgPSBjKDEsIDIpKSJ9
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSIsInNvbHV0aW9uIjoiIyBTb2x1dGlvblxubGlicmFyeShkcGx5cilcbmxpYnJhcnkoTUFTUylcblxuY2FiYmFnZXMgPC0gY2FiYmFnZXMgJT4lIFxuICBkaXN0aW5jdChIZWFkV3QsIC5rZWVwX2FsbCA9IFRSVUUpICU+JSBcbiAgYXJyYW5nZShkZXNjKEhlYWRXdCksRkFMU0UpXG5cbnBsb3QoY2FiYmFnZXMkSGVhZFd0LChjYWJiYWdlcyRIZWFkV3QpXjIsdHlwZSA9ICdsJywgY29sPSdibHVlJywgXG4gICAgIGx0eT0xLG1haW4gPSBcIkNvbXBhcmlzb24gb2YgVW5pcXVlIENhYmJhZ2UgVHJlbmRzXCIsIHhsYWIgPSBcIkhlYWQgV2VpZ2h0XCIsIHlsYWIgPSBcIlwiKVxubGluZXMoY2FiYmFnZXMkSGVhZFd0LChjYWJiYWdlcyRIZWFkV3QpXjMsdHlwZSA9ICdsJywgY29sPSdyZWQnLCBsdHk9MilcbmxlZ2VuZChcInRvcGxlZnRcIiwgbGVnZW5kID0gYyhcIlNxdWFyZSBvZiBIZWFkIFdlaWdodFwiLCBcIkN1YmUgb2YgSGVhZCBXZWlnaHQgXCIpLCBjb2wgPSBjKFwiYmx1ZVwiLCBcInJlZFwiKSwgbHR5ID0gYygxLCAyKSkifQ==
 </div>
 <p><strong>Exercise 12 : Multiple Small Plots in One Graphic to Compare
 Different Data Sets</strong></p>
@@ -1013,15 +1458,15 @@ labelled as ‘X’ while y-axis=‘Y2’,col is red.</li>
 <li>Plot x against y3. Give it the title,‘Trend 3’, x-axis should be
 labelled as ‘X’ while y-axis=‘Y3’,col is green.</li>
 </ol>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgIGRhdGFcblxuI1NvbHV0aW9uXG4jQ3JlYXRlIGRhdGFcbnggPC0gMToxMDBcbnkxIDwtIHheMlxueTIgPC0gMiAqIHhcbnkzIDwtIHheMS41XG5cbiMgQ3JlYXRlIG11bHRpcGxlIHNtYWxsIHBsb3RzXG5wYXIobWZyb3cgPSBjKDEsIDMpKSAjIDEgcm93LCAzIGNvbHVtbnNcblxuIyBQbG90IDFcbnBsb3QoeCwgeTEsIHR5cGUgPSBcImxcIiwgY29sID0gXCJibHVlXCIsIG1haW4gPSBcIlRyZW5kIDFcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5cbiMgUGxvdCAyXG5wbG90KHgsIHkyLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwicmVkXCIsIG1haW4gPSBcIlRyZW5kIDJcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZMlwiKVxuXG4jIFBsb3QgM1xucGxvdCh4LCB5MywgdHlwZSA9IFwibFwiLCBjb2wgPSBcImdyZWVuXCIsIG1haW4gPSBcIlRyZW5kIDNcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZM1wiKSJ9
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgIGNvZGUiLCJzb2x1dGlvbiI6IiNTb2x1dGlvblxuI0NyZWF0ZSBkYXRhXG54IDwtIDE6MTAwXG55MSA8LSB4XjJcbnkyIDwtIDIgKiB4XG55MyA8LSB4XjEuNVxuXG4jIENyZWF0ZSBtdWx0aXBsZSBzbWFsbCBwbG90c1xucGFyKG1mcm93ID0gYygxLCAzKSkgIyAxIHJvdywgMyBjb2x1bW5zXG5cbiMgUGxvdCAxXG5wbG90KHgsIHkxLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwiYmx1ZVwiLCBtYWluID0gXCJUcmVuZCAxXCIsIHhsYWIgPSBcIlhcIiwgeWxhYiA9IFwiWVwiKVxuXG4jIFBsb3QgMlxucGxvdCh4LCB5MiwgdHlwZSA9IFwibFwiLCBjb2wgPSBcInJlZFwiLCBtYWluID0gXCJUcmVuZCAyXCIsIHhsYWIgPSBcIlhcIiwgeWxhYiA9IFwiWTJcIilcblxuIyBQbG90IDNcbnBsb3QoeCwgeTMsIHR5cGUgPSBcImxcIiwgY29sID0gXCJncmVlblwiLCBtYWluID0gXCJUcmVuZCAzXCIsIHhsYWIgPSBcIlhcIiwgeWxhYiA9IFwiWTNcIikifQ==
 </div>
 <ol start="4" style="list-style-type: lower-roman">
 <li>Repeat the above similar plots but arranged in three rows and one
 column using <strong>mfcol()</strong>.</li>
 </ol>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgIGRhdGFcblxuI1NvbHV0aW9uXG4jQ3JlYXRlIGRhdGFcbnggPC0gMToxMDBcbnkxIDwtIHheMlxueTIgPC0gMiAqIHhcbnkzIDwtIHheMS41XG5cbiMgQ3JlYXRlIG11bHRpcGxlIHNtYWxsIHBsb3RzXG5wYXIobWZjb2wgPSBjKDMsIDEpKSAjIDMgcm93cywgMSBjb2x1bW5cblxuIyBQbG90IDFcbnBsb3QoeCwgeTEsIHR5cGUgPSBcImxcIiwgY29sID0gXCJibHVlXCIsIG1haW4gPSBcIlRyZW5kIDFcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIpXG5cbiMgUGxvdCAyXG5wbG90KHgsIHkyLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwicmVkXCIsIG1haW4gPSBcIlRyZW5kIDJcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZMlwiKVxuXG4jIFBsb3QgM1xucGxvdCh4LCB5MywgdHlwZSA9IFwibFwiLCBjb2wgPSBcImdyZWVuXCIsIG1haW4gPSBcIlRyZW5kIDNcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZM1wiKSJ9
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgIGRhdGEiLCJzb2x1dGlvbiI6IiNTb2x1dGlvblxuI0NyZWF0ZSBkYXRhXG54IDwtIDE6MTAwXG55MSA8LSB4XjJcbnkyIDwtIDIgKiB4XG55MyA8LSB4XjEuNVxuXG4jIENyZWF0ZSBtdWx0aXBsZSBzbWFsbCBwbG90c1xucGFyKG1mY29sID0gYygzLCAxKSkgIyAzIHJvd3MsIDEgY29sdW1uXG5cbiMgUGxvdCAxXG5wbG90KHgsIHkxLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwiYmx1ZVwiLCBtYWluID0gXCJUcmVuZCAxXCIsIHhsYWIgPSBcIlhcIiwgeWxhYiA9IFwiWVwiKVxuXG4jIFBsb3QgMlxucGxvdCh4LCB5MiwgdHlwZSA9IFwibFwiLCBjb2wgPSBcInJlZFwiLCBtYWluID0gXCJUcmVuZCAyXCIsIHhsYWIgPSBcIlhcIiwgeWxhYiA9IFwiWTJcIilcblxuIyBQbG90IDNcbnBsb3QoeCwgeTMsIHR5cGUgPSBcImxcIiwgY29sID0gXCJncmVlblwiLCBtYWluID0gXCJUcmVuZCAzXCIsIHhsYWIgPSBcIlhcIiwgeWxhYiA9IFwiWTNcIikifQ==
 </div>
 <!--chapter:end:04-customize-graphs.Rmd-->
 </div>
@@ -1035,14 +1480,14 @@ with line graphs, in R. Here’s how this can be done along with
 customizing axes and scales:</p>
 <div id="overlay-different-types-of-plots" class="section level3">
 <h3>Overlay different types of plots</h3>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkxIDwtIHheMlxueTIgPC0gMiAqIHhcbnkzIDwtIHheMS41XG5cbiMgQ3JlYXRlIGEgbGluZSBwbG90XG5wbG90KHgsIHkxLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwiYmx1ZVwiLCBtYWluID0gXCJDb21iaW5pbmcgRGlmZmVyZW50IEdyYXBoIFR5cGVzXCIsIHhsYWIgPSBcIlhcIiwgeWxhYiA9IFwiWVwiKVxuXG4jIEFkZCBwb2ludHMgdG8gdGhlIGxpbmUgcGxvdFxucG9pbnRzKHgsIHkxLCBjb2wgPSBcImJsdWVcIiwgcGNoID0gMTYpXG5cbiMgQWRkIGEgYmFyIHBsb3RcbmJhcnBsb3QoeTIsIGNvbCA9IFwicmVkXCIsIGFkZCA9IFRSVUUpXG5cbiMgQWRkIGEgc2Vjb25kIGxpbmUgcGxvdFxubGluZXMoeCwgeTMsIGNvbCA9IFwiZ3JlZW5cIilcblxuIyBBZGQgYSBsZWdlbmRcbmxlZ2VuZChcInRvcGxlZnRcIiwgbGVnZW5kID0gYyhcIlRyZW5kIDFcIiwgXCJUcmVuZCAyXCIsIFwiVHJlbmQgM1wiKSwgY29sID0gYyhcImJsdWVcIiwgXCJyZWRcIiwgXCJncmVlblwiKSwgbHR5ID0gYygxLCBOQSwgMSksIHBjaCA9IGMoMTYsIE5BLCBOQSkpIn0=
 </div>
 </div>
 <div id="axes-and-scales-customization-to-accomodate-combined-plots"
 class="section level3">
 <h3>Axes and scales customization to accomodate combined plots</h3>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNldCBjdXN0b20gYXhpcyBsaW1pdHNcbnBsb3QoeCwgeTEsIHR5cGUgPSBcImxcIiwgY29sID0gXCJibHVlXCIsIG1haW4gPSBcIkNvbWJpbmluZyBEaWZmZXJlbnQgR3JhcGggVHlwZXNcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIsIHlsaW0gPSBjKDAsIG1heCh5MSwgeTIsIHkzKSkpXG5cbiMgQWRkIHBvaW50cyB0byB0aGUgbGluZSBwbG90XG5wb2ludHMoeCwgeTEsIGNvbCA9IFwiYmx1ZVwiLCBwY2ggPSAxNilcblxuIyBBZGQgYSBiYXIgcGxvdFxuYmFycGxvdCh5MiwgY29sID0gXCJyZWRcIiwgYWRkID0gVFJVRSwgeWxpbSA9IGMoMCwgbWF4KHkxLCB5MiwgeTMpKSlcblxuIyBBZGQgYSBzZWNvbmQgbGluZSBwbG90XG5saW5lcyh4LCB5MywgY29sID0gXCJncmVlblwiKVxuXG4jIEFkZCBhIGxlZ2VuZFxubGVnZW5kKFwidG9wbGVmdFwiLCBsZWdlbmQgPSBjKFwiVHJlbmQgMVwiLCBcIlRyZW5kIDJcIiwgXCJUcmVuZCAzXCIpLCBjb2wgPSBjKFwiYmx1ZVwiLCBcInJlZFwiLCBcImdyZWVuXCIpLCBsdHkgPSBjKDEsIE5BLCAxKSwgcGNoID0gYygxNiwgTkEsIE5BKSkifQ==
 </div>
 </div>
@@ -1058,7 +1503,7 @@ plotting</h3>
 using the locator() function. Here’s how you can use locator() for
 interactive plotting and create dynamic plots that respond to user input
 or updates in data:</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkgPC0geF4yXG5cbiMgUGxvdCBkYXRhXG5wbG90KHgsIHksIHR5cGUgPSBcImxcIiwgbWFpbiA9IFwiSW50ZXJhY3RpdmUgUGxvdHRpbmcgd2l0aCBsb2NhdG9yKClcIilcblxuIyBBZGQgcG9pbnRzIGludGVyYWN0aXZlbHlcbnBvaW50cyhsb2NhdG9yKDUpLCBjb2wgPSBcInJlZFwiLCBwY2ggPSAxNikifQ==
 </div>
 </div>
@@ -1067,7 +1512,7 @@ id="creating-dynamic-plots-that-respond-to-user-input-or-updates-in-data"
 class="section level3">
 <h3>Creating dynamic plots that respond to user input or updates in
 data</h3>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIER5bmFtaWMgcGxvdCB0aGF0IHJlc3BvbmRzIHRvIHVzZXIgaW5wdXRcbnBsb3RfZHluYW1pYyA8LSBmdW5jdGlvbigpIHtcbiAgIyBTYW1wbGUgZGF0YVxuICB4IDwtIDE6MTBcbiAgeSA8LSB4XjJcbiAgXG4gICMgUGxvdCBkYXRhXG4gIHBsb3QoeCwgeSwgdHlwZSA9IFwibFwiLCBtYWluID0gXCJEeW5hbWljIFBsb3Qgd2l0aCBVc2VyIElucHV0XCIpXG4gIFxuICAjIEFkZCBwb2ludHMgaW50ZXJhY3RpdmVseVxuICBwb2ludHMobG9jYXRvcig1KSwgY29sID0gXCJyZWRcIiwgcGNoID0gMTYpXG59XG5cbiMgQ2FsbCB0aGUgZnVuY3Rpb24gdG8gY3JlYXRlIGR5bmFtaWMgcGxvdFxucGxvdF9keW5hbWljKCkifQ==
 </div>
 <!--chapter:end:05-advanced-techniques.Rmd-->
@@ -1170,14 +1615,14 @@ data objects in R.</p>
 <strong>ts</strong> object which is attached in the TSstudio
 package:</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KFRTc3R1ZGlvKVxuXG5kYXRhKFVTZ2FzKVxuXG50c19pbmZvKFVTZ2FzKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJpZighcmVxdWlyZShUU3N0dWRpbykpIHtcbiAgaW5zdGFsbC5wYWNrYWdlcyhcIlRTc3R1ZGlvXCIpXG59XG5saWJyYXJ5KFRTc3R1ZGlvKVxuXG5kYXRhKFVTZ2FzKVxuXG50c19pbmZvKFVTZ2FzKSJ9
 </div>
 <div id="creating-line-plots-for-time-series-data"
 class="section level3">
 <h3>Creating line plots for time series data</h3>
 <p>Let us plot the <strong>USgas</strong> series using the base R
 <strong>plot()</strong> function.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJwbG90KFVTZ2FzKSJ9
 </div>
 </div>
@@ -1195,8 +1640,8 @@ function to mark anomalies on the plot.</p></li>
 </ul>
 <p><strong>Example:</strong> Let’s visualize the <strong>USgas</strong>
 time series data and highlight trends, seasonality, and anomalies:</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEluc3RhbGwgYW5kIGxvYWQgdGhlIG5lY2Vzc2FyeSBwYWNrYWdlc1xuI2luc3RhbGwucGFja2FnZXMoXCJmb3JlY2FzdFwiKVxubGlicmFyeShmb3JlY2FzdClcblxuIyBMb2FkIHRoZSBVU2dhcyB0aW1lIHNlcmllcyBvYmplY3RcbmRhdGEoXCJVU2dhc1wiKVxuXG4jIENvbnZlcnQgdGhlIHRzIG9iamVjdCBpbnRvIGEgZGF0YSBmcmFtZVxuVVNnYXNfZGYgPC0gZGF0YS5mcmFtZSh5ZWFyID0gdGltZShVU2dhcyksIHByb2R1Y3Rpb24gPSBhcy5udW1lcmljKFVTZ2FzKSlcblxuIyBBcHBseSBsb2VzcyBmdW5jdGlvblxudHJlbmQgPC0gbG9lc3MocHJvZHVjdGlvbiB+IHllYXIsIGRhdGEgPSBVU2dhc19kZilcblxuIyBFeHRyYWN0IHRoZSB0cmVuZCB2YWx1ZXNcbnRyZW5kX3ZhbHVlcyA8LSBwcmVkaWN0KHRyZW5kKVxuXG4jIFBsb3QgdGhlIFVTZ2FzIHRpbWUgc2VyaWVzXG5wbG90KFVTZ2FzLCBtYWluID0gXCJVUyBHYXMgUHJvZHVjdGlvbiBUaW1lIFNlcmllc1wiLCB4bGFiID0gXCJZZWFyXCIsIHlsYWIgPSBcIkdhcyBQcm9kdWN0aW9uXCIpXG5cbiMgQWRkIHRyZW5kIGxpbmVcbiNsaW5lcyh0aW1lKFVTZ2FzKSwgdHJlbmRfdmFsdWVzLCBjb2wgPSBcImJsdWVcIilcblxuIyBWaXN1YWxpemUgc2Vhc29uYWwgcGF0dGVyblxuc2Vhc29ucGxvdChVU2dhcywgY29sID0gXCJncmVlblwiKVxuXG4jIElkZW50aWZ5IGFub21hbGllc1xuYW5vbWFsaWVzIDwtIHdoaWNoKFVTZ2FzID4gbWVhbihVU2dhcykgKyAyICogc2QoVVNnYXMpIHwgVVNnYXMgPCBtZWFuKFVTZ2FzKSAtIDIgKiBzZChVU2dhcykpXG5wb2ludHModGltZShVU2dhcylbYW5vbWFsaWVzXSwgVVNnYXNbYW5vbWFsaWVzXSwgY29sID0gXCJyZWRcIiwgcGNoID0gMTYpIn0=
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEluc3RhbGwgYW5kIGxvYWQgdGhlIG5lY2Vzc2FyeSBwYWNrYWdlc1xuI2luc3RhbGwucGFja2FnZXMoXCJmb3JlY2FzdFwiKVxubGlicmFyeShUU3N0dWRpbylcbmxpYnJhcnkoZm9yZWNhc3QpXG5cbiMgTG9hZCB0aGUgVVNnYXMgdGltZSBzZXJpZXMgb2JqZWN0XG5kYXRhKFwiVVNnYXNcIilcblxuIyBDb252ZXJ0IHRoZSB0cyBvYmplY3QgaW50byBhIGRhdGEgZnJhbWVcblVTZ2FzX2RmIDwtIGRhdGEuZnJhbWUoeWVhciA9IHRpbWUoVVNnYXMpLCBwcm9kdWN0aW9uID0gYXMubnVtZXJpYyhVU2dhcykpXG5cbiMgQXBwbHkgbG9lc3MgZnVuY3Rpb25cbnRyZW5kIDwtIGxvZXNzKHByb2R1Y3Rpb24gfiB5ZWFyLCBkYXRhID0gVVNnYXNfZGYpXG5cbiMgRXh0cmFjdCB0aGUgdHJlbmQgdmFsdWVzXG50cmVuZF92YWx1ZXMgPC0gcHJlZGljdCh0cmVuZClcblxuIyBQbG90IHRoZSBVU2dhcyB0aW1lIHNlcmllc1xucGxvdChVU2dhcywgbWFpbiA9IFwiVVMgR2FzIFByb2R1Y3Rpb24gVGltZSBTZXJpZXNcIiwgeGxhYiA9IFwiWWVhclwiLCB5bGFiID0gXCJHYXMgUHJvZHVjdGlvblwiKVxuXG4jIEFkZCB0cmVuZCBsaW5lXG4jbGluZXModGltZShVU2dhcyksIHRyZW5kX3ZhbHVlcywgY29sID0gXCJibHVlXCIpXG5cbiMgVmlzdWFsaXplIHNlYXNvbmFsIHBhdHRlcm5cbnNlYXNvbnBsb3QoVVNnYXMsIGNvbCA9IFwiZ3JlZW5cIilcblxuIyBJZGVudGlmeSBhbm9tYWxpZXNcbmFub21hbGllcyA8LSB3aGljaChVU2dhcyA+IG1lYW4oVVNnYXMpICsgMiAqIHNkKFVTZ2FzKSB8IFVTZ2FzIDwgbWVhbihVU2dhcykgLSAyICogc2QoVVNnYXMpKVxucG9pbnRzKHRpbWUoVVNnYXMpW2Fub21hbGllc10sIFVTZ2FzW2Fub21hbGllc10sIGNvbCA9IFwicmVkXCIsIHBjaCA9IDE2KSJ9
 </div>
 </div>
 </div>
@@ -1214,8 +1659,8 @@ objects, therefore, the output of the <strong>ts_plot</strong> is a
 <strong>ts_plot</strong> output can be done with plotly’s layout
 function. For example, let’s re plot the <strong>USgas</strong> series
 and customize the background to black:</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHBsb3RseSlcblxudHNfcGxvdChVU2dhcyxcbiAgICAgICAgdGl0bGUgPSBcIlVTIE1vbnRobHkgTmF0dXJhbCBHYXMgQ29uc3VtcHRpb25cIixcbiAgICAgICAgWHRpdGxlID0gXCJUaW1lXCIsXG4gICAgICAgIFl0aXRsZSA9IFwiQmlsbGlvbiBDdWJpYyBGZWV0XCIsXG4gICAgICAgIGNvbG9yID0gIFwicGlua1wiLFxuICAgICAgICBYZ3JpZCA9IFRSVUUsXG4gICAgICAgIFlncmlkID0gVFJVRSkgJT4lXG4gIGxheW91dChwYXBlcl9iZ2NvbG9yID0gXCJibGFja1wiLFxuICAgICAgICAgcGxvdF9iZ2NvbG9yID0gXCJibGFja1wiLFxuICAgICAgICAgZm9udCA9IGxpc3QoY29sb3IgPSBcIndoaXRlXCIpLFxuICAgICAgICAgeWF4aXMgPSBsaXN0KGxpbmVjb2xvciA9IFwiIzZiNmI2YlwiLFxuICAgICAgICAgICAgICAgICAgICAgIHplcm9saW5lY29sb3IgPSBcIiM2YjZiNmJcIixcbiAgICAgICAgICAgICAgICAgICAgICBncmlkY29sb3I9IFwiIzQ0NDQ0NFwiKSxcbiAgICAgICAgIHhheGlzID0gbGlzdChsaW5lY29sb3IgPSBcIiM2YjZiNmJcIixcbiAgICAgICAgICAgICAgICAgICAgICB6ZXJvbGluZWNvbG9yID0gXCIjNmI2YjZiXCIsXG4gICAgICAgICAgICAgICAgICAgICAgZ3JpZGNvbG9yPSBcIiM0NDQ0NDRcIikpIn0=
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KFRTc3R1ZGlvKVxubGlicmFyeShwbG90bHkpXG5cbnRzX3Bsb3QoVVNnYXMsXG4gICAgICAgIHRpdGxlID0gXCJVUyBNb250aGx5IE5hdHVyYWwgR2FzIENvbnN1bXB0aW9uXCIsXG4gICAgICAgIFh0aXRsZSA9IFwiVGltZVwiLFxuICAgICAgICBZdGl0bGUgPSBcIkJpbGxpb24gQ3ViaWMgRmVldFwiLFxuICAgICAgICBjb2xvciA9ICBcInBpbmtcIixcbiAgICAgICAgWGdyaWQgPSBUUlVFLFxuICAgICAgICBZZ3JpZCA9IFRSVUUpICU+JVxuICBsYXlvdXQocGFwZXJfYmdjb2xvciA9IFwiYmxhY2tcIixcbiAgICAgICAgIHBsb3RfYmdjb2xvciA9IFwiYmxhY2tcIixcbiAgICAgICAgIGZvbnQgPSBsaXN0KGNvbG9yID0gXCJ3aGl0ZVwiKSxcbiAgICAgICAgIHlheGlzID0gbGlzdChsaW5lY29sb3IgPSBcIiM2YjZiNmJcIixcbiAgICAgICAgICAgICAgICAgICAgICB6ZXJvbGluZWNvbG9yID0gXCIjNmI2YjZiXCIsXG4gICAgICAgICAgICAgICAgICAgICAgZ3JpZGNvbG9yPSBcIiM0NDQ0NDRcIiksXG4gICAgICAgICB4YXhpcyA9IGxpc3QobGluZWNvbG9yID0gXCIjNmI2YjZiXCIsXG4gICAgICAgICAgICAgICAgICAgICAgemVyb2xpbmVjb2xvciA9IFwiIzZiNmI2YlwiLFxuICAgICAgICAgICAgICAgICAgICAgIGdyaWRjb2xvcj0gXCIjNDQ0NDQ0XCIpKSJ9
 </div>
 <p>Note that the <strong>Xgrid</strong> and <strong>Ygrid</strong>
 arguments, when set to <strong>TRUE</strong>, add the corresponding X
@@ -1230,14 +1675,14 @@ analysis</h3>
 Let’s load the <strong>Coffee_Prices</strong> an <strong>mts</strong>
 object that represents the monthly prices of the Robusta and Arabica
 coffee prices (USD per Kg.):</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhKFwiQ29mZmVlX1ByaWNlc1wiKVxuXG50c19pbmZvKENvZmZlZV9QcmljZXMpXG50c19wbG90KENvZmZlZV9QcmljZXMsXG4gICAgICAgIHRpdGxlID0gXCJDb21wYXJpc29uIG9mIFJvYnVzdGEgYW5kIEFyYWJpY2EgY29mZmVlIHByaWNlc1wiKSJ9
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KFRTc3R1ZGlvKVxuZGF0YShcIkNvZmZlZV9QcmljZXNcIilcblxudHNfaW5mbyhDb2ZmZWVfUHJpY2VzKVxudHNfcGxvdChDb2ZmZWVfUHJpY2VzLFxuICAgICAgICB0aXRsZSA9IFwiQ29tcGFyaXNvbiBvZiBSb2J1c3RhIGFuZCBBcmFiaWNhIGNvZmZlZSBwcmljZXNcIikifQ==
 </div>
 <p>By default, the function will plot all the series in one plot.
 Plotting the different series on a separate plot can be done by setting
 the type argument to multiple:</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0c19wbG90KENvZmZlZV9QcmljZXMsXG4gICAgICAgIHRpdGxlID0gXCJDb21wYXJpc29uIG9mIFJvYnVzdGEgYW5kIEFyYWJpY2EgY29mZmVlIHByaWNlc1wiLFxuICAgICAgICB0eXBlID0gXCJtdWx0aXBsZVwiKSJ9
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KFRTc3R1ZGlvKVxudHNfcGxvdChDb2ZmZWVfUHJpY2VzLFxuICAgICAgICB0aXRsZSA9IFwiQ29tcGFyaXNvbiBvZiBSb2J1c3RhIGFuZCBBcmFiaWNhIGNvZmZlZSBwcmljZXNcIixcbiAgICAgICAgdHlwZSA9IFwibXVsdGlwbGVcIikifQ==
 </div>
 <p><strong>Note</strong> that the <strong>color</strong>,
 <strong>Ytitle</strong>, and <strong>Xtitle</strong> arguments are not
@@ -1253,6 +1698,9 @@ Yahoo Finance using the appropriate R package such as tidyquant or
 quantmod. Prepare the data and clean it by removing any missing values.
 Plot a time series plot of the prices of these indices in one graph and
 use the plot to identify any economic trends among the indices.</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSIsInNvbHV0aW9uIjoiIyBTb2x1dGlvblxuIyBJbnN0YWxsIGFuZCBsb2FkIG5lY2Vzc2FyeSBwYWNrYWdlc1xuaWYoIXJlcXVpcmUodGlkeXF1YW50KSkge1xuICBpbnN0YWxsLnBhY2thZ2VzKFwidGlkeXF1YW50XCIpXG59XG5pZighcmVxdWlyZSh0aWR5dmVyc2UpKSB7XG4gIGluc3RhbGwucGFja2FnZXMoXCJ0aWR5dmVyc2VcIilcbn1cblxuIyBpbnN0YWxsLnBhY2thZ2VzKFwidGlkeXF1YW50XCIpXG4jIGluc3RhbGwucGFja2FnZXMoXCJ0aWR5dmVyc2VcIilcblxubGlicmFyeSh0aWR5cXVhbnQpXG5saWJyYXJ5KHRpZHl2ZXJzZSlcblxuIyBEZWZpbmUgdGhlIHN0b2NrIGluZGljZXMgYW5kIHRoZSBkYXRlIHJhbmdlXG5pbmRpY2VzIDwtIGMoXCJeR1NQQ1wiLCBcIl5ESklcIiwgXCJeTkRYXCIsIFwiXlJVVFwiKSAjIFMmUCA1MDAsIERvdyBKb25lcywgTkFTREFRIDEwMCwgUnVzc2VsbCAyMDAwXG5pbmRleF9uYW1lcyA8LSBjKFwiXkdTUENcIiA9IFwiUyZQIDUwMFwiLCBcIl5ESklcIiA9IFwiRG93IEpvbmVzXCIsIFwiXk5EWFwiID0gXCJOQVNEQVEgMTAwXCIsIFwiXlJVVFwiID0gXCJSdXNzZWxsIDIwMDBcIilcblxuc3RhcnRfZGF0ZSA8LSBTeXMuRGF0ZSgpIC0geWVhcnMoMTApICMgdGhlIGRhdGUgb2YgMTAgeWVhcnMgYWdvIGZyb20gdG9kYXlcbmVuZF9kYXRlIDwtIFN5cy5EYXRlKCkgI3RvZGF5XG5cbiMgR2V0IHRoZSBkYXRhXG5zdG9ja19kYXRhIDwtIHRxX2dldChpbmRpY2VzLCBmcm9tID0gc3RhcnRfZGF0ZSwgdG8gPSBlbmRfZGF0ZSlcblxuIyBDbGVhbiB0aGUgZGF0YSBhbmQgcmVuYW1lIHRoZSBzeW1ib2xzXG5zdG9ja19kYXRhX2NsZWFuIDwtIHN0b2NrX2RhdGEgJT4lXG4gIHNlbGVjdChzeW1ib2wsIGRhdGUsIGFkanVzdGVkKSAlPiVcbiAgZHJvcF9uYSgpICU+JVxuICBtdXRhdGUoc3ltYm9sID0gcmVjb2RlKHN5bWJvbCwgISEhaW5kZXhfbmFtZXMpKVxuXG4jIFBsb3QgdGhlIGRhdGFcbnN0b2NrX2RhdGFfY2xlYW4gJT4lXG4gIGdncGxvdChhZXMoeCA9IGRhdGUsIHkgPSBhZGp1c3RlZCwgY29sb3IgPSBzeW1ib2wpKSArXG4gIGdlb21fbGluZSgpICtcbiAgbGFicyh0aXRsZSA9IFwiRGFpbHkgQ2xvc2luZyBQcmljZXMgb2YgTWFqb3IgU3RvY2sgSW5kaWNlcyAoTGFzdCAxMCBZZWFycylcIixcbiAgICAgICB4ID0gXCJEYXRlXCIsIHkgPSBcIkFkanVzdGVkIENsb3NpbmcgUHJpY2VcIixcbiAgICAgICBjb2xvciA9IFwiSW5kZXhcIikgK1xuICB0aGVtZV9idygpICtcbiAgdGhlbWUobGVnZW5kLnBvc2l0aW9uID0gXCJib3R0b21cIixcbiAgICAgICAgcGxvdC50aXRsZSA9IGVsZW1lbnRfdGV4dChoanVzdCA9IDAuNSkpIn0=
+</div>
 <p><strong>Exercise 14: Temperature</strong></p>
 <p>Obtain the temperature data from an open source such as Weather data
 (<a href="https://www.wunderground.com/weather/in/ahmedabad/VAAH"
@@ -1266,6 +1714,9 @@ components) separately into individual components. Present the
 decomposition of the multiplicative model of the components of the time
 series of the average temperature of Ahmedabad in a suitable plot. What
 observation did you make about the seasonality of this data?</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSIsInNvbHV0aW9uIjoiI1NvbHV0aW9uXG4jIEluc3RhbGwgdGhlIHJlcXVpcmVkIHBhY2thZ2VzXG5cbiMgaW5zdGFsbC5wYWNrYWdlcyhcInJlYWR4bFwiKVxuIyBpbnN0YWxsLnBhY2thZ2VzKFwiaHR0clwiKVxuIyBpbnN0YWxsLnBhY2thZ2VzKFwidGlkeXZlcnNlXCIpXG4jIGluc3RhbGwucGFja2FnZXMoXCJ4dHNcIilcbiMgaW5zdGFsbC5wYWNrYWdlcyhcInRzZXJpZXNcIilcbiMgaW5zdGFsbC5wYWNrYWdlcyhcImZwcFwiKVxuXG4jIExvYWQgdGhlIHBhY2thZ2VzXG5saWJyYXJ5KHJlYWR4bClcbmxpYnJhcnkoaHR0cilcbmxpYnJhcnkodGlkeXZlcnNlKVxubGlicmFyeSh4dHMpXG5saWJyYXJ5KHRzZXJpZXMpXG5saWJyYXJ5KGZwcClcblxuIyBEZWZpbmUgdGhlIFVSTCBvZiB0aGUgRXhjZWwgZmlsZVxudXJsIDwtIFwiaHR0cHM6Ly9naXRodWIuY29tL2JhbHNhZWRpLy1SLVZpc3VhbGl6YXRpb24vYmxvYi83NjY1NDM0OTZjYWFjY2JkYzI1YWNhMzhiZTk3NDFiNGM0MTk1YjU3L0FobWVkYWJhZCUyMFRlbXBlcmF0dXJlLnhsc3g/cmF3PXRydWVcIlxuXG4jIERvd25sb2FkIHRoZSBmaWxlIHRvIGEgdGVtcG9yYXJ5IGxvY2F0aW9uXG50ZW1wX2ZpbGUgPC0gdGVtcGZpbGUoZmlsZWV4dCA9IFwiLnhsc3hcIilcbkdFVCh1cmwsIHdyaXRlX2Rpc2sodGVtcF9maWxlLCBvdmVyd3JpdGUgPSBUUlVFKSlcblxuIyBSZWFkIHRoZSBFeGNlbCBmaWxlIGludG8gUlxuVGVtcGVyYXR1cmU8LXJlYWRfZXhjZWwodGVtcF9maWxlKVxuY29sbmFtZXMoVGVtcGVyYXR1cmUpPC1jKFwiVGltZVwiLFwiTWF4aW11bVwiLFwiQXZlcmFnZVwiLFwiTWluaW11bVwiKVxuXG4jU2VsZWN0IG9ubHkgdGhlIFRpbWUgYW5kIEF2ZXJhZ2UgY29sdW1uc1xuVGVtcGVyYXR1cmU8LVRlbXBlcmF0dXJlJT4lXG4gIHNlbGVjdChUaW1lLEF2ZXJhZ2UpXG4gIFxuIyBDb252ZXJ0IHRoZSBkYXRhZnJhbWUgdG8gYSB0aW1lIHNlcmllcyBvYmplY3RcbkF2ZXJhZ2VfVGVtcGVyYXR1cmU8LXh0cyhUZW1wZXJhdHVyZVssXCJBdmVyYWdlXCJdLCBvcmRlci5ieSA9IGFzLkRhdGUoVGVtcGVyYXR1cmUkVGltZSkpIFxuXG4jIE11bHRpcGxpY2F0aXZlIFRpbWUgc2VyaWVzIGRlY29tcG9zaXRpb24uXG5BdmVyYWdlX3RzPC10cyhBdmVyYWdlX1RlbXBlcmF0dXJlLCBmcmVxdWVuY3kgPSAxMilcbmF2ZXJhZ2VfZGVjb21wb3NpdGlvbjwtZGVjb21wb3NlKEF2ZXJhZ2VfdHMsXCJtdWx0aXBsaWNhdGl2ZVwiKVxuYXV0b3Bsb3QoYXZlcmFnZV9kZWNvbXBvc2l0aW9uKSt0aGVtZV9idygpIn0=
+</div>
 <!--chapter:end:06-time-series.Rmd-->
 </div>
 </div>
@@ -1290,15 +1741,15 @@ they provide.</p>
 class="section level3">
 <h3>How to create box plots, violin plots, and QQ plots.</h3>
 <p><strong>i) Box Plots:</strong></p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgYm94IHBsb3RcbmJveHBsb3QoU2VwYWwuTGVuZ3RoIH4gU3BlY2llcywgZGF0YSA9IGlyaXMsIFxuICAgICAgICBtYWluID0gXCJCb3ggUGxvdCBvZiBTZXBhbCBMZW5ndGggYnkgU3BlY2llc1wiLFxuICAgICAgICB4bGFiID0gXCJTcGVjaWVzXCIsIHlsYWIgPSBcIlNlcGFsIExlbmd0aFwiKSJ9
 </div>
 <p><strong>ii) Violin Plots:</strong></p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgdmlvbGluIHBsb3RcbmxpYnJhcnkoZ2dwbG90MilcbmdncGxvdChpcmlzLCBhZXMoeCA9IFNwZWNpZXMsIHkgPSBTZXBhbC5MZW5ndGgpKSArXG4gIGdlb21fdmlvbGluKGZpbGwgPSBcImxpZ2h0Ymx1ZVwiKSArXG4gIGxhYnModGl0bGUgPSBcIlZpb2xpbiBQbG90IG9mIFNlcGFsIExlbmd0aCBieSBTcGVjaWVzXCIsXG4gICAgICAgeCA9IFwiU3BlY2llc1wiLCB5ID0gXCJTZXBhbCBMZW5ndGhcIikifQ==
 </div>
 <p><strong>iii) QQ Plots:</strong></p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgUVEgcGxvdFxucXFub3JtKGlyaXMkU2VwYWwuTGVuZ3RoKVxucXFsaW5lKGlyaXMkU2VwYWwuTGVuZ3RoKSJ9
 </div>
 </div>
@@ -1333,11 +1784,11 @@ class="section level3">
 <h3>Techniques for creating and customizing histograms and density plots
 and best practices for displaying distribution characteristics.</h3>
 <strong>Creating and Customizing Histograms:</strong>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgaGlzdG9ncmFtXG5oaXN0KGlyaXMkU2VwYWwuTGVuZ3RoLCBcbiAgICAgbWFpbiA9IFwiSGlzdG9ncmFtIG9mIFNlcGFsIExlbmd0aFwiLFxuICAgICB4bGFiID0gXCJTZXBhbCBMZW5ndGhcIixcbiAgICAgeWxhYiA9IFwiRnJlcXVlbmN5XCIsXG4gICAgIGNvbCA9IFwibGlnaHRibHVlXCIpXG5cbiMgQWRkaW5nIGEgZGVuc2l0eSBwbG90XG5saW5lcyhkZW5zaXR5KGlyaXMkU2VwYWwuTGVuZ3RoKSwgY29sID0gXCJyZWRcIikifQ==
 </div>
 <p><strong>Creating and Customizing Density Plots:</strong></p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgZGVuc2l0eSBwbG90XG5wbG90KGRlbnNpdHkoaXJpcyRTZXBhbC5MZW5ndGgpLCBcbiAgICAgbWFpbiA9IFwiRGVuc2l0eSBQbG90IG9mIFNlcGFsIExlbmd0aFwiLFxuICAgICB4bGFiID0gXCJTZXBhbCBMZW5ndGhcIixcbiAgICAgY29sID0gXCJibHVlXCIpXG5cbiMgQWRkaW5nIGEgaGlzdG9ncmFtXG5oaXN0KGlyaXMkU2VwYWwuTGVuZ3RoLCBcbiAgICAgY29sID0gcmdiKDAsMCwxLDAuMiksIFxuICAgICBhZGQgPSBUUlVFLCBcbiAgICAgYnJlYWtzID0gMjApIn0=
 </div>
 </div>
@@ -1354,7 +1805,7 @@ variables.</h3>
 <p>Scatter plots visually represent the relationship between two
 continuous variables. They help to identify patterns, trends, and
 correlations between variables.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgc2NhdHRlciBwbG90XG5wbG90KGlyaXMkU2VwYWwuTGVuZ3RoLCBpcmlzJFBldGFsLkxlbmd0aCxcbiAgICAgbWFpbiA9IFwiU2NhdHRlciBQbG90IG9mIFNlcGFsIExlbmd0aCB2cyBQZXRhbCBMZW5ndGhcIixcbiAgICAgeGxhYiA9IFwiU2VwYWwgTGVuZ3RoXCIsIHlsYWIgPSBcIlBldGFsIExlbmd0aFwiLFxuICAgICBjb2wgPSBcImJsdWVcIikifQ==
 </div>
 </div>
@@ -1369,13 +1820,32 @@ variables.</p></li>
 <li><p>Confidence intervals help assess the uncertainty of the estimated
 regression line.</p></li>
 </ul>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgc2NhdHRlciBwbG90XG5wbG90KGlyaXMkU2VwYWwuTGVuZ3RoLCBpcmlzJFBldGFsLkxlbmd0aCxcbiAgICAgbWFpbiA9IFwiU2NhdHRlciBQbG90IGFuZCBSZWdyZXNzaW9uIExpbmUgb2YgU2VwYWwgTGVuZ3RoIHZzIFBldGFsIExlbmd0aFwiLFxuICAgICB4bGFiID0gXCJTZXBhbCBMZW5ndGhcIiwgeWxhYiA9IFwiUGV0YWwgTGVuZ3RoXCIsXG4gICAgIGNvbCA9IFwiYmx1ZVwiKVxuXG4jIEZpdCBsaW5lYXIgcmVncmVzc2lvbiBtb2RlbFxubW9kZWwgPC0gbG0oUGV0YWwuTGVuZ3RoIH4gU2VwYWwuTGVuZ3RoLCBkYXRhID0gaXJpcylcblxuIyBBZGRpbmcgcmVncmVzc2lvbiBsaW5lXG5hYmxpbmUobW9kZWwsIGNvbCA9IFwicmVkXCIpXG5cbiMgQWRkaW5nIHJlZ3Jlc3Npb24gZXF1YXRpb25cbmVxIDwtIHBhc3RlKFwieSA9XCIsIHJvdW5kKGNvZWYobW9kZWwpWzFdLCAyKSwgXCIrXCIsIHJvdW5kKGNvZWYobW9kZWwpWzJdLCAyKSwgXCJ4XCIpXG50ZXh0KDYuNSwgMi41LCBlcSwgcG9zID0gNClcblxuIyBBZGRpbmcgY29uZmlkZW5jZSBpbnRlcnZhbHNcbmNvbmZfaW50ZXJ2YWwgPC0gcHJlZGljdChtb2RlbCwgaW50ZXJ2YWwgPSBcImNvbmZpZGVuY2VcIilcbmxpbmVzKGlyaXMkU2VwYWwuTGVuZ3RoLCBjb25mX2ludGVydmFsWywgXCJsd3JcIl0sIGNvbCA9IFwiZ3JlZW5cIiwgbHR5ID0gMilcbmxpbmVzKGlyaXMkU2VwYWwuTGVuZ3RoLCBjb25mX2ludGVydmFsWywgXCJ1cHJcIl0sIGNvbCA9IFwiZ3JlZW5cIiwgbHR5ID0gMilcbiMgQWRkIGxlZ2VuZFxubGVnZW5kKFwidG9wbGVmdFwiLCBsZWdlbmQgPSBjKFwiRGF0YSBQb2ludHNcIiwgXCJSZWdyZXNzaW9uIExpbmVcIiwgXCJDb25maWRlbmNlIEludGVydmFsc1wiKSxcbiAgICAgICBjb2wgPSBjKFwiYmx1ZVwiLCBcInJlZFwiLCBcImdyZWVuXCIpLCBsdHkgPSBjKE5BLCAxLCAyKSwgbHdkID0gYyhOQSwgMSwgMSksXG4gICAgICAgcGNoID0gYygxLCBOQSwgTkEpLCBidHkgPSBcIm9cIiAjIEVuY2xvc2UgdGhlIGxlZ2VuZCBpbiBhIGJveFxuICAgICAgICkifQ==
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgc2NhdHRlciBwbG90XG5wbG90KGlyaXMkU2VwYWwuTGVuZ3RoLCBpcmlzJFBldGFsLkxlbmd0aCxcbiAgICAgbWFpbiA9IFwiU2NhdHRlciBQbG90IGFuZCBSZWdyZXNzaW9uIExpbmUgXCIsXG4gICAgIHhsYWIgPSBcIlNlcGFsIExlbmd0aFwiLCB5bGFiID0gXCJQZXRhbCBMZW5ndGhcIixcbiAgICAgY29sID0gXCJibHVlXCIpXG5cbiMgRml0IGxpbmVhciByZWdyZXNzaW9uIG1vZGVsXG5tb2RlbCA8LSBsbShQZXRhbC5MZW5ndGggfiBTZXBhbC5MZW5ndGgsIGRhdGEgPSBpcmlzKVxuXG4jIEFkZGluZyByZWdyZXNzaW9uIGxpbmVcbmFibGluZShtb2RlbCwgY29sID0gXCJyZWRcIilcblxuIyBBZGRpbmcgcmVncmVzc2lvbiBlcXVhdGlvblxuZXEgPC0gcGFzdGUoXCJ5ID1cIiwgcm91bmQoY29lZihtb2RlbClbMV0sIDIpLCBcIitcIiwgcm91bmQoY29lZihtb2RlbClbMl0sIDIpLCBcInhcIilcbnRleHQoNi41LCAyLjUsIGVxLCBwb3MgPSA0KVxuXG4jIEFkZGluZyBjb25maWRlbmNlIGludGVydmFsc1xuY29uZl9pbnRlcnZhbCA8LSBwcmVkaWN0KG1vZGVsLCBpbnRlcnZhbCA9IFwiY29uZmlkZW5jZVwiKVxubGluZXMoaXJpcyRTZXBhbC5MZW5ndGgsIGNvbmZfaW50ZXJ2YWxbLCBcImx3clwiXSwgY29sID0gXCJncmVlblwiLCBsdHkgPSAyKVxubGluZXMoaXJpcyRTZXBhbC5MZW5ndGgsIGNvbmZfaW50ZXJ2YWxbLCBcInVwclwiXSwgY29sID0gXCJncmVlblwiLCBsdHkgPSAyKVxuIyBBZGQgbGVnZW5kXG5sZWdlbmQoXCJ0b3BsZWZ0XCIsIGxlZ2VuZCA9IGMoXCJEYXRhIFBvaW50c1wiLCBcIlJlZ3Jlc3Npb24gTGluZVwiLCBcIkNvbmZpZGVuY2UgSW50ZXJ2YWxzXCIpLFxuICAgICAgIGNvbCA9IGMoXCJibHVlXCIsIFwicmVkXCIsIFwiZ3JlZW5cIiksIGx0eSA9IGMoTkEsIDEsIDIpLCBsd2QgPSBjKE5BLCAxLCAxKSxcbiAgICAgICBwY2ggPSBjKDEsIE5BLCBOQSksIGJ0eSA9IFwib1wiICMgRW5jbG9zZSB0aGUgbGVnZW5kIGluIGEgYm94XG4gICAgICAgKSJ9
 </div>
 </div>
 </div>
 <div id="practical-examples-exercises-3" class="section level2">
 <h2>Practical Examples: Exercises</h2>
+<p><strong>Exercise 7.1</strong></p>
+<p>Create a box plot that compares the distribution of Sepal Length
+across the three species in the iris dataset.</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSIsInNvbHV0aW9uIjoiIyBTb2x1dGlvblxuIyBMb2FkIG5lY2Vzc2FyeSBwYWNrYWdlc1xubGlicmFyeShnZ3Bsb3QyKVxuXG4jIENyZWF0ZSBhIGJveCBwbG90IGNvbXBhcmluZyBTZXBhbC5MZW5ndGggYWNyb3NzIGRpZmZlcmVudCBzcGVjaWVzXG5nZ3Bsb3QoZGF0YSA9IGlyaXMsIGFlcyh4ID0gU3BlY2llcywgeSA9IFNlcGFsLkxlbmd0aCwgZmlsbCA9IFNwZWNpZXMpKSArIFxuICBnZW9tX2JveHBsb3QoKSArXG4gIGxhYnModGl0bGUgPSBcIkJveCBQbG90IG9mIFNlcGFsIExlbmd0aCBieSBTcGVjaWVzXCIsXG4gICAgICAgeCA9IFwiU3BlY2llc1wiLCB5ID0gXCJTZXBhbCBMZW5ndGhcIikgK1xuICB0aGVtZV9idygpIn0=
+</div>
+<p><strong>Exercise 7.2</strong></p>
+<p>Generate a random health dataset of 100 people (male and female) from
+a normal distribution with the three variables: Age,BMI and Gender. The
+mean of Age should be 50 with a stand deviation of 10. The mean of BMI
+should be 25 with a standard deviation of 4. Gender should have only two
+values; “Male” and “Female”. Set random seed to a value of 123 and name
+the data frame as health_dataset. Create a scatter plot that examines
+the relationship between Age and BMI in the simulated health dataset.
+Include a linear regression line with the linear regression equation and
+the value of Adjusted R-Squared to highlight the trend.</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSIsInNvbHV0aW9uIjoiIyBTb2x1dGlvblxuIyBMb2FkIG5lY2Vzc2FyeSBwYWNrYWdlc1xubGlicmFyeShnZ3Bsb3QyKVxuXG4jIFNpbXVsYXRlIGhlYWx0aCBkYXRhXG5zZXQuc2VlZCgxMjMpXG5oZWFsdGhfZGF0YSA8LSBkYXRhLmZyYW1lKFxuICBBZ2UgPSBybm9ybSgxMDAsIG1lYW4gPSA1MCwgc2QgPSAxMCksXG4gIEJNSSA9IHJub3JtKDEwMCwgbWVhbiA9IDI1LCBzZCA9IDQpLFxuICBHZW5kZXIgPSBzYW1wbGUoYyhcIk1hbGVcIiwgXCJGZW1hbGVcIiksIDEwMCwgcmVwbGFjZSA9IFRSVUUpXG4pXG5cbiMgQ3JlYXRlIGEgc2NhdHRlciBwbG90IHRvIGV4YW1pbmUgdGhlIHJlbGF0aW9uc2hpcCBiZXR3ZWVuIEFnZSBhbmQgQk1JXG5wbG90KGhlYWx0aF9kYXRhJEFnZSwgaGVhbHRoX2RhdGEkQk1JLFxuICAgICBtYWluID0gXCJTY2F0dGVyIFBsb3QgYW5kIFJlZ3Jlc3Npb24gTGluZSBcIixcbiAgICAgeGxhYiA9IFwiQWdlXCIsIHlsYWIgPSBcIkJNSVwiLFxuICAgICBjb2wgPSBcImJsdWVcIilcblxuIyBGaXQgbGluZWFyIHJlZ3Jlc3Npb24gbW9kZWxcbm1vZGVsIDwtIGxtKEFnZSB+IEJNSSwgZGF0YSA9IGhlYWx0aF9kYXRhKVxuXG4jIEFkZGluZyByZWdyZXNzaW9uIGxpbmVcbmFibGluZShtb2RlbCwgY29sID0gXCJyZWRcIilcblxuIyBBZGRpbmcgcmVncmVzc2lvbiBlcXVhdGlvblxuZXEgPC0gcGFzdGUoXCJ5ID1cIiwgcm91bmQoY29lZihtb2RlbClbMV0sIDIpLCBcIitcIiwgcm91bmQoY29lZihtb2RlbClbMl0sIDIpLCBcInhcIilcbnRleHQoNTAuNSwgMzcuNSwgZXEsIHBvcyA9IDQpXG5cbiMgQWRkaW5nIGNvbmZpZGVuY2UgaW50ZXJ2YWxzXG5jb25mX2ludGVydmFsIDwtIHByZWRpY3QobW9kZWwsIGludGVydmFsID0gXCJjb25maWRlbmNlXCIpXG5saW5lcyhoZWFsdGhfZGF0YSRCTUksIGNvbmZfaW50ZXJ2YWxbLCBcImx3clwiXSwgY29sID0gXCJncmVlblwiLCBsdHkgPSAyKVxubGluZXMoaGVhbHRoX2RhdGEkQk1JLCBjb25mX2ludGVydmFsWywgXCJ1cHJcIl0sIGNvbCA9IFwiZ3JlZW5cIiwgbHR5ID0gMilcbiMgQWRkIGxlZ2VuZFxubGVnZW5kKFwidG9wbGVmdFwiLCBsZWdlbmQgPSBjKFwiRGF0YSBQb2ludHNcIiwgXCJSZWdyZXNzaW9uIExpbmVcIiwgXCJDb25maWRlbmNlIEludGVydmFsc1wiKSxcbiAgICAgICBjb2wgPSBjKFwiYmx1ZVwiLCBcInJlZFwiLCBcImdyZWVuXCIpLCBsdHkgPSBjKE5BLCAxLCAyKSwgbHdkID0gYyhOQSwgMSwgMSksXG4gICAgICAgcGNoID0gYygxLCBOQSwgTkEpLCBidHkgPSBcIm9cIiAjIEVuY2xvc2UgdGhlIGxlZ2VuZCBpbiBhIGJveFxuKSJ9
+</div>
 <!--chapter:end:07-statistical-graphs.Rmd-->
 </div>
 </div>
@@ -1413,20 +1883,19 @@ graphics.</p></li>
 </div>
 <div id="creating-basic-plots-with-ggplot2" class="section level2">
 <h2>Creating Basic Plots with ggplot2</h2>
-<p>We are using the gapminder dataset (<a
-href="https://www.gapminder.org/data"
-class="uri">https://www.gapminder.org/data</a>) that has been put into
-an R package by Bryan (2017) so we can load it with library(gapminder).
-The dataset includes 1704 observations (rows) of 6 variables (columns:
-country, continent, year, lifeExp, pop, gdpPercap). country, continent,
-and year could be thought of as grouping variables, whereas lifeExp
-(life expectancy), pop (population), and gdpPercap (Gross Domestic
-Product per capita) are values. The years in this dataset span 1952 to
-2007 with 5-year intervals (so a total of 12 different years). It
-includes 142 countries from 5 continents (Asia, Europe, Africa,
-Americas, Oceania). You can check that all of the numbers quoted above
-are correct with these lines:</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<p>We are using the <a href="https://www.gapminder.org/data">gapminder
+dataset</a> that has been put into an R package by Bryan (2017) so we
+can load it with library(gapminder). The dataset includes 1704
+observations (rows) of 6 variables (columns: country, continent, year,
+lifeExp, pop, gdpPercap). country, continent, and year could be thought
+of as grouping variables, whereas lifeExp (life expectancy), pop
+(population), and gdpPercap (Gross Domestic Product per capita) are
+values. The years in this dataset span 1952 to 2007 with 5-year
+intervals (so a total of 12 different years). It includes 142 countries
+from 5 continents (Asia, Europe, Africa, Americas, Oceania). You can
+check that all of the numbers quoted above are correct with these
+lines:</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHRpZHl2ZXJzZSlcbmxpYnJhcnkoZ2FwbWluZGVyKVxuZ2FwbWluZGVyJHllYXIgJT4lIHVuaXF1ZSgpXG5nYXBtaW5kZXIkY291bnRyeSAlPiUgbl9kaXN0aW5jdCgpXG5nYXBtaW5kZXIkY29udGluZW50ICU+JSB1bmlxdWUoKSJ9
 </div>
 <div
@@ -1579,6 +2048,23 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFB1YmxpY2F0aW9uLXF1YWxpdHkgc2NhdHRlciBwbG90
 </div>
 <div id="practical-examples-exercise-1" class="section level2">
 <h2>Practical Examples: Exercise</h2>
+<p><strong>Exercise 8.1</strong></p>
+<p>Obtain a global dataset on internet usage trends.You might find the
+dataset datasets from <a
+href="https://www.kaggle.com/datasets/sansuthi/gapminder-internet">Kaggle</a>.
+Clean and preprocess the dataset to ensure it’s in a suitable format for
+visualization. This may involve handling missing values, aggregating
+data by regions or countries, and calculating relevant metrics. Use
+ggplot2 to create visualizations that showcase global internet usage
+trends over time. Use a scatter plot to show the relationship between
+income per person and internet usage rate across all the countries. You
+may access the data file <a
+href="https://raw.githubusercontent.com/balsaedi/-R-Visualization/main/gapminder_internet.csv">here</a>
+which was downloaded from Kaggle and uploaded to GitHub for easier
+accessibility.</p>
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIiwic29sdXRpb24iOiIjU29sdXRpb25cbmxpYnJhcnkoZ2dwbG90MilcblxuaW50ZXJuZXRfdXJsPC1cImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9iYWxzYWVkaS8tUi1WaXN1YWxpemF0aW9uL21haW4vZ2FwbWluZGVyX2ludGVybmV0LmNzdlwiXG4jIFJlYWQgdGhlIGNzdiBmaWxlXG5pbnRlcm5ldF9kYXRhPC1yZWFkLmNzdihpbnRlcm5ldF91cmwpXG5cbiMgU2NhdHRlciBwbG90IHdpdGggZmFjZXRzXG5nZ3Bsb3QoaW50ZXJuZXRfZGF0YSwgYWVzKHggPSBpbmNvbWVwZXJwZXJzb24sIHkgPSBpbnRlcm5ldHVzZXJhdGUpKSArXG4gIGdlb21fcG9pbnQoKSArXG4gICMgZmFjZXRfd3JhcCh+IGNvdW50cnkpICtcbiAgbGFicyh0aXRsZSA9IFwiUmVsYXRpb25zaGlwIGJldHdlZW4gSW5jb21lIHBlciBQZXJzb24gYW5kIEludGVybmV0IFVzYWdlIFJhdGVcIixcbiAgICAgICB4ID0gXCJJbmNvbWUgcGVyIFBlcnNvbiAoR0RQIHBlciBjYXBpdGEpXCIsXG4gICAgICAgeSA9IFwiSW50ZXJuZXQgVXNhZ2UgUmF0ZSAocGVyIDEwMCBwZW9wbGUpXCIsXG4gICAgICAgc3VidGl0bGUgPSBcIkFjcm9zcyB0aGUgR2xvYmVcIikgK1xuICB0aGVtZV9idygpK1xuICB0aGVtZShwbG90LnRpdGxlID0gZWxlbWVudF90ZXh0KGhqdXN0ID0gMC41KSxcbiAgICAgICAgcGxvdC5zdWJ0aXRsZSA9IGVsZW1lbnRfdGV4dChoanVzdCA9IDAuNSkpIn0=
+</div>
 <!--chapter:end:08-intro-ggplot2.Rmd-->
 </div>
 </div>
@@ -1595,8 +2081,8 @@ assign the plot to a vector, say, p. Then load the
 <strong>plotly</strong> package and convert the ggplot chart to
 interactive plotly graph using the <strong>ggpotly()</strong> function,
 for example, <strong>ggplotly(p)</strong>.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHBsb3RseSlcbnA8LWdncGxvdChkYXRhID0gaXJpcywgYWVzKHggPSBTZXBhbC5MZW5ndGgsIHkgPSBTZXBhbC5XaWR0aCwgY29sb3IgPSBTcGVjaWVzKSkgKyBcbiAgZ2VvbV9wb2ludChhbHBoYSA9IDAuNywgc2l6ZSA9IDMpICtcbiAgbGFicyh0aXRsZSA9IFwiUHVibGljYXRpb24tUXVhbGl0eSBTY2F0dGVyIFBsb3RcIixcbiAgICAgICB4ID0gXCJTZXBhbCBMZW5ndGhcIiwgeSA9IFwiU2VwYWwgV2lkdGhcIikgK1xuICB0aGVtZV9idygpICtcbiAgdGhlbWUoXG4gICAgcGxvdC50aXRsZSA9IGVsZW1lbnRfdGV4dChzaXplID0gMTQsIGZhY2UgPSBcImJvbGRcIiwgaGp1c3QgPSAwLjUpLFxuICAgIGF4aXMudGl0bGUgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEyKSxcbiAgICBheGlzLnRleHQgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEwKSxcbiAgICBsZWdlbmQudGl0bGUgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEyKSxcbiAgICBsZWdlbmQudGV4dCA9IGVsZW1lbnRfdGV4dChzaXplID0gMTApXG4gICkgK1xuICBzY2FsZV9jb2xvcl9tYW51YWwodmFsdWVzID0gYyhcInNldG9zYVwiID0gXCJibHVlXCIsIFwidmVyc2ljb2xvclwiID0gXCJncmVlblwiLCBcInZpcmdpbmljYVwiID0gXCJyZWRcIikpXG5cbiMgQ29udmVydCBnZ3Bsb3QyIHRvIHBsb3RseVxuI2dncGxvdGx5KHApIn0=
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KGdncGxvdDIpXG5saWJyYXJ5KHBsb3RseSlcbnA8LWdncGxvdChkYXRhID0gaXJpcywgYWVzKHggPSBTZXBhbC5MZW5ndGgsIHkgPSBTZXBhbC5XaWR0aCwgY29sb3IgPSBTcGVjaWVzKSkgKyBcbiAgZ2VvbV9wb2ludChhbHBoYSA9IDAuNywgc2l6ZSA9IDMpICtcbiAgbGFicyh0aXRsZSA9IFwiUHVibGljYXRpb24tUXVhbGl0eSBTY2F0dGVyIFBsb3RcIixcbiAgICAgICB4ID0gXCJTZXBhbCBMZW5ndGhcIiwgeSA9IFwiU2VwYWwgV2lkdGhcIikgK1xuICB0aGVtZV9idygpICtcbiAgdGhlbWUoXG4gICAgcGxvdC50aXRsZSA9IGVsZW1lbnRfdGV4dChzaXplID0gMTQsIGZhY2UgPSBcImJvbGRcIiwgaGp1c3QgPSAwLjUpLFxuICAgIGF4aXMudGl0bGUgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEyKSxcbiAgICBheGlzLnRleHQgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEwKSxcbiAgICBsZWdlbmQudGl0bGUgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEyKSxcbiAgICBsZWdlbmQudGV4dCA9IGVsZW1lbnRfdGV4dChzaXplID0gMTApXG4gICkgK1xuICBzY2FsZV9jb2xvcl9tYW51YWwodmFsdWVzID0gYyhcInNldG9zYVwiID0gXCJibHVlXCIsIFwidmVyc2ljb2xvclwiID0gXCJncmVlblwiLCBcInZpcmdpbmljYVwiID0gXCJyZWRcIikpXG5cbiMgQ29udmVydCBnZ3Bsb3QyIHRvIHBsb3RseVxuZ2dwbG90bHkocCkifQ==
 </div>
 </div>
 <div
@@ -1605,13 +2091,13 @@ class="section level3">
 <h3>Customizing interactions, adding tooltips, and embedding plotly
 graphs in web applications.</h3>
 <p><strong>Customizing Interactions and Adding Tooltips</strong></p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENvbnZlcnQgZ2dwbG90MiBzY2F0dGVyIHBsb3QgdG8gcGxvdGx5IHdpdGggY3VzdG9tIHRvb2x0aXBcbnAgPC0gZ2dwbG90KGRhdGEgPSBpcmlzLCBhZXMoeCA9IFNlcGFsLkxlbmd0aCwgeSA9IFNlcGFsLldpZHRoLCBjb2xvciA9IFNwZWNpZXMsIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXh0ID0gcGFzdGUoXCJTcGVjaWVzOiBcIiwgU3BlY2llcykpKSArIFxuICBnZW9tX3BvaW50KCkgK1xuICBsYWJzKHRpdGxlID0gXCJJbnRlcmFjdGl2ZSBTY2F0dGVyIFBsb3Qgb2YgU2VwYWwgTGVuZ3RoIHZzIFNlcGFsIFdpZHRoXCIsXG4gICAgICAgeCA9IFwiU2VwYWwgTGVuZ3RoXCIsIHkgPSBcIlNlcGFsIFdpZHRoXCIpICtcbiAgdGhlbWVfYncoKVxuXG4jIENvbnZlcnQgZ2dwbG90MiB0byBwbG90bHkgd2l0aCBjdXN0b20gdG9vbHRpcFxuI2dncGxvdGx5KHAsIHRvb2x0aXAgPSBcInRleHRcIikifQ==
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENvbnZlcnQgZ2dwbG90MiBzY2F0dGVyIHBsb3QgdG8gcGxvdGx5IHdpdGggY3VzdG9tIHRvb2x0aXBcbnAgPC0gZ2dwbG90KGRhdGEgPSBpcmlzLCBhZXMoeCA9IFNlcGFsLkxlbmd0aCwgeSA9IFNlcGFsLldpZHRoLCBjb2xvciA9IFNwZWNpZXMsIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXh0ID0gcGFzdGUoXCJTcGVjaWVzOiBcIiwgU3BlY2llcykpKSArIFxuICBnZW9tX3BvaW50KCkgK1xuICBsYWJzKHRpdGxlID0gXCJJbnRlcmFjdGl2ZSBTY2F0dGVyIFBsb3Qgb2YgU2VwYWwgTGVuZ3RoIHZzIFNlcGFsIFdpZHRoXCIsXG4gICAgICAgeCA9IFwiU2VwYWwgTGVuZ3RoXCIsIHkgPSBcIlNlcGFsIFdpZHRoXCIpICtcbiAgdGhlbWVfYncoKVxuXG4jIENvbnZlcnQgZ2dwbG90MiB0byBwbG90bHkgd2l0aCBjdXN0b20gdG9vbHRpcFxuZ2dwbG90bHkocCwgdG9vbHRpcCA9IFwidGV4dFwiKSJ9
 </div>
 <p><strong>Embedding plotly Graphs in Web Applications
 (Shiny)</strong></p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEluc3RhbGwgYW5kIGxvYWQgU2hpbnkgcGFja2FnZVxuI2luc3RhbGwucGFja2FnZXMoXCJzaGlueVwiKVxubGlicmFyeShzaGlueSlcblxuIyBEZWZpbmUgVUlcbnVpIDwtIGZsdWlkUGFnZShcbiAgdGl0bGVQYW5lbChcIkludGVyYWN0aXZlIFNjYXR0ZXIgUGxvdFwiKSxcbiAgcGxvdGx5T3V0cHV0KFwic2NhdHRlcl9wbG90XCIpXG4pXG5cbiMgRGVmaW5lIHNlcnZlciBsb2dpY1xuc2VydmVyIDwtIGZ1bmN0aW9uKGlucHV0LCBvdXRwdXQpIHtcbiAgb3V0cHV0JHNjYXR0ZXJfcGxvdCA8LSByZW5kZXJQbG90bHkoe1xuICAgIGdncGxvdChkYXRhID0gaXJpcywgYWVzKHggPSBTZXBhbC5MZW5ndGgsIHkgPSBTZXBhbC5XaWR0aCwgY29sb3IgPSBTcGVjaWVzLCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXh0ID0gcGFzdGUoXCJTcGVjaWVzOiBcIiwgU3BlY2llcykpKSArIFxuICAgICAgZ2VvbV9wb2ludCgpICtcbiAgICAgIGxhYnModGl0bGUgPSBcIkludGVyYWN0aXZlIFNjYXR0ZXIgUGxvdCBvZiBTZXBhbCBMZW5ndGggdnMgU2VwYWwgV2lkdGhcIixcbiAgICAgICAgICAgeCA9IFwiU2VwYWwgTGVuZ3RoXCIsIHkgPSBcIlNlcGFsIFdpZHRoXCIpICtcbiAgICAgIHRoZW1lX21pbmltYWwoKSAlPiVcbiAgICAgIGdncGxvdGx5KHRvb2x0aXAgPSBcInRleHRcIilcbiAgfSlcbn1cblxuIyBSdW4gdGhlIGFwcGxpY2F0aW9uXG5zaGlueUFwcCh1aSA9IHVpLCBzZXJ2ZXIgPSBzZXJ2ZXIpIn0=
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEluc3RhbGwgYW5kIGxvYWQgU2hpbnkgcGFja2FnZVxuXG5cbiMgSW5zdGFsbCBwbG90bHkgcGFja2FnZSBpZiBub3QgYWxyZWFkeSBpbnN0YWxsZWRcbmlmICghcmVxdWlyZU5hbWVzcGFjZShcInBsb3RseVwiLCBxdWlldGx5ID0gVFJVRSkpIHtcbiAgaW5zdGFsbC5wYWNrYWdlcyhcInBsb3RseVwiKVxufVxuXG4jIExvYWQgbmVjZXNzYXJ5IHBhY2thZ2VzXG5saWJyYXJ5KHNoaW55KVxubGlicmFyeShnZ3Bsb3QyKVxubGlicmFyeShwbG90bHkpXG5cbiMgRGVmaW5lIFVJXG51aSA8LSBmbHVpZFBhZ2UoXG4gIHRpdGxlUGFuZWwoXCJJbnRlcmFjdGl2ZSBTY2F0dGVyIFBsb3QgaW4gU2hpbnkgQXBwXCIpLFxuICBwbG90bHlPdXRwdXQoXCJzY2F0dGVyX3Bsb3RcIilcbilcblxuIyBEZWZpbmUgc2VydmVyIGxvZ2ljXG5zZXJ2ZXIgPC0gZnVuY3Rpb24oaW5wdXQsIG91dHB1dCkge1xuICBvdXRwdXQkc2NhdHRlcl9wbG90IDwtIHJlbmRlclBsb3RseSh7XG4gICAgcCA8LSBnZ3Bsb3QoZGF0YSA9IGlyaXMsIGFlcyh4ID0gU2VwYWwuTGVuZ3RoLCB5ID0gU2VwYWwuV2lkdGgsIGNvbG9yID0gU3BlY2llcywgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXh0ID0gcGFzdGUoXCJTcGVjaWVzOiBcIiwgU3BlY2llcykpKSArIFxuICAgICAgZ2VvbV9wb2ludCgpICtcbiAgICAgIGxhYnModGl0bGUgPSBcIkludGVyYWN0aXZlIFNjYXR0ZXIgUGxvdCBvZiBTZXBhbCBMZW5ndGggdnMgU2VwYWwgV2lkdGhcIixcbiAgICAgICAgICAgeCA9IFwiU2VwYWwgTGVuZ3RoXCIsIHkgPSBcIlNlcGFsIFdpZHRoXCIpICtcbiAgICAgIHRoZW1lX2J3KClcbiAgICBcbiAgICBnZ3Bsb3RseShwLCB0b29sdGlwID0gXCJ0ZXh0XCIpXG4gIH0pXG59XG5cbiMgUnVuIHRoZSBhcHBsaWNhdGlvblxuc2hpbnlBcHAodWkgPSB1aSwgc2VydmVyID0gc2VydmVyKSJ9
 </div>
 </div>
 </div>
@@ -1631,8 +2117,8 @@ id="creating-reactive-plots-and-dashboards-that-update-with-user-input."
 class="section level3">
 <h3>Creating reactive plots and dashboards that update with user
 input.</h3>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgbmVjZXNzYXJ5IHBhY2thZ2VzXG4jbGlicmFyeShzaGlueSlcbiNsaWJyYXJ5KGdncGxvdDIpXG5cbiMgRGVmaW5lIFVJXG51aSA8LSBmbHVpZFBhZ2UoXG4gIHRpdGxlUGFuZWwoXCJJbnRlcmFjdGl2ZSBTY2F0dGVyIFBsb3RcIiksXG4gIHNpZGViYXJMYXlvdXQoXG4gICAgc2lkZWJhclBhbmVsKFxuICAgICAgc2xpZGVySW5wdXQoXCJzbGlkZXJcIiwgXCJOdW1iZXIgb2YgcG9pbnRzIHRvIHNob3c6XCIsIFxuICAgICAgICAgICAgICAgICAgbWluID0gMTAsIG1heCA9IG5yb3coaXJpcyksIHZhbHVlID0gNTApXG4gICAgKSxcbiAgICBtYWluUGFuZWwoXG4gICAgICBwbG90T3V0cHV0KFwic2NhdHRlcl9wbG90XCIpXG4gICAgKVxuICApXG4pXG5cbiMgRGVmaW5lIHNlcnZlciBsb2dpY1xuc2VydmVyIDwtIGZ1bmN0aW9uKGlucHV0LCBvdXRwdXQpIHtcbiAgb3V0cHV0JHNjYXR0ZXJfcGxvdCA8LSByZW5kZXJQbG90KHtcbiAgICBzYW1wbGVfcm93cyA8LSBzYW1wbGUobnJvdyhpcmlzKSwgaW5wdXQkc2xpZGVyKVxuICAgIGdncGxvdChkYXRhID0gaXJpc1tzYW1wbGVfcm93cywgXSwgYWVzKHggPSBTZXBhbC5MZW5ndGgsIHkgPSBTZXBhbC5XaWR0aCwgY29sb3IgPSBTcGVjaWVzKSkgKyBcbiAgICAgIGdlb21fcG9pbnQoKSArXG4gICAgICBsYWJzKHRpdGxlID0gXCJJbnRlcmFjdGl2ZSBTY2F0dGVyIFBsb3Qgb2YgU2VwYWwgTGVuZ3RoIHZzIFNlcGFsIFdpZHRoXCIsXG4gICAgICAgICAgIHggPSBcIlNlcGFsIExlbmd0aFwiLCB5ID0gXCJTZXBhbCBXaWR0aFwiKSArXG4gICAgICB0aGVtZV9taW5pbWFsKClcbiAgfSlcbn1cblxuIyBSdW4gdGhlIGFwcGxpY2F0aW9uXG5zaGlueUFwcCh1aSA9IHVpLCBzZXJ2ZXIgPSBzZXJ2ZXIpIn0=
+<div data-datacamp-exercise="" data-height="700" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgbmVjZXNzYXJ5IHBhY2thZ2VzXG4jbGlicmFyeShzaGlueSlcbiNsaWJyYXJ5KGdncGxvdDIpXG5cbiMgRGVmaW5lIFVJXG51aSA8LSBmbHVpZFBhZ2UoXG4gIHRpdGxlUGFuZWwoXCJJbnRlcmFjdGl2ZSBTY2F0dGVyIFBsb3QgaW4gU2hpbnkgQVBQIHdpdGggdXNlciB1cGRhdGVcIiksXG4gIHNpZGViYXJMYXlvdXQoXG4gICAgc2lkZWJhclBhbmVsKFxuICAgICAgc2xpZGVySW5wdXQoXCJzbGlkZXJcIiwgXCJOdW1iZXIgb2YgcG9pbnRzIHRvIHNob3c6XCIsIFxuICAgICAgICAgICAgICAgICAgbWluID0gNSwgbWF4ID0gbnJvdyhpcmlzKSwgdmFsdWUgPSA1MClcbiAgICApLFxuICAgIG1haW5QYW5lbChcbiAgICAgIHBsb3RPdXRwdXQoXCJzY2F0dGVyX3Bsb3RcIilcbiAgICApXG4gIClcbilcblxuIyBEZWZpbmUgc2VydmVyIGxvZ2ljXG5zZXJ2ZXIgPC0gZnVuY3Rpb24oaW5wdXQsIG91dHB1dCkge1xuICBvdXRwdXQkc2NhdHRlcl9wbG90IDwtIHJlbmRlclBsb3Qoe1xuICAgIHNhbXBsZV9yb3dzIDwtIHNhbXBsZShucm93KGlyaXMpLCBpbnB1dCRzbGlkZXIpXG4gICAgZ2dwbG90KGRhdGEgPSBpcmlzW3NhbXBsZV9yb3dzLCBdLCBhZXMoeCA9IFNlcGFsLkxlbmd0aCwgeSA9IFNlcGFsLldpZHRoLCBjb2xvciA9IFNwZWNpZXMpKSArIFxuICAgICAgZ2VvbV9wb2ludCgpICtcbiAgICAgIGxhYnModGl0bGUgPSBcIkludGVyYWN0aXZlIFNjYXR0ZXIgUGxvdCBvZiBTZXBhbCBMZW5ndGggdnMgU2VwYWwgV2lkdGhcIixcbiAgICAgICAgICAgeCA9IFwiU2VwYWwgTGVuZ3RoXCIsIHkgPSBcIlNlcGFsIFdpZHRoXCIpICtcbiAgICAgIHRoZW1lX2J3KClcbiAgfSlcbn1cblxuIyBSdW4gdGhlIGFwcGxpY2F0aW9uXG5zaGlueUFwcCh1aSA9IHVpLCBzZXJ2ZXIgPSBzZXJ2ZXIpIn0=
 </div>
 </div>
 </div>
@@ -1641,7 +2127,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgbmVjZXNzYXJ5IHBhY2thZ2VzXG4jbGlicmFy
 <div id="explore-extensions-like-gganimate-for-creating-animated-plots."
 class="section level3">
 <h3>Explore extensions like gganimate for creating animated plots.</h3>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KGdnYW5pbWF0ZSlcblxuI05vdGU6IFRoaXMgcGxvdCB3aWxsIGJlIGRpc3BsYXllZCBhZnRlciB5b3UgaW5zdGFsbCB0aGUgZ2lmc2tpIHBhY2thZ2VcblxuIyBBbmltYXRlZCBzY2F0dGVyIHBsb3RcbmdncGxvdChpcmlzLCBhZXMoeCA9IFNlcGFsLkxlbmd0aCwgeSA9IFNlcGFsLldpZHRoLCBjb2xvciA9IFNwZWNpZXMpKSArIFxuICBnZW9tX3BvaW50KCkgK1xuICB0cmFuc2l0aW9uX3N0YXRlcyhTcGVjaWVzLCB0cmFuc2l0aW9uX2xlbmd0aCA9IDIsIHN0YXRlX2xlbmd0aCA9IDEpICtcbiAgbGFicyh0aXRsZSA9IFwiQW5pbWF0ZWQgU2NhdHRlciBQbG90IG9mIFNlcGFsIExlbmd0aCB2cyBTZXBhbCBXaWR0aFwiLFxuICAgICAgIHggPSBcIlNlcGFsIExlbmd0aFwiLCB5ID0gXCJTZXBhbCBXaWR0aFwiKSArXG4gIHRoZW1lX2J3KCkifQ==
 </div>
 </div>
@@ -1650,20 +2136,399 @@ id="using-ggridges-for-ridge-line-plots-and-other-creative-visualization-techniq
 class="section level3">
 <h3>Using ggridges for ridge line plots and other creative visualization
 techniques.</h3>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+<div data-datacamp-exercise="" data-height="500" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KGdncmlkZ2VzKVxuXG4jIFJpZGdlIGxpbmUgcGxvdFxuZ2dwbG90KGlyaXMsIGFlcyh4ID0gU2VwYWwuTGVuZ3RoLCB5ID0gU3BlY2llcywgZmlsbCA9IFNwZWNpZXMpKSArIFxuICBnZW9tX2RlbnNpdHlfcmlkZ2VzKCkgK1xuICBsYWJzKHRpdGxlID0gXCJSaWRnZSBMaW5lIFBsb3Qgb2YgU2VwYWwgTGVuZ3RoIGJ5IFNwZWNpZXNcIixcbiAgICAgICB4ID0gXCJTZXBhbCBMZW5ndGhcIiwgeSA9IFwiU3BlY2llc1wiKSArXG4gIHRoZW1lX2J3KCkifQ==
 </div>
-</div>
-</div>
-<div id="practical-examples-exercises-4" class="section level2">
-<h2>Practical Examples: Exercises</h2>
 <!--chapter:end:09-advanced-visualization.Rmd-->
+</div>
 </div>
 </div>
 <div id="real-world-applications-and-case-studies-code-challenges"
 class="section level1">
 <h1>REAL-WORLD APPLICATIONS AND CASE STUDIES (CODE CHALLENGES)</h1>
+<p>The following exercises will test your understanding of the material
+covered during this course. Each exercise corresponds to material
+covered in each section of the Introduction to R manual. It’s entirely
+up to you how you progress through these exercises, everyone learns at
+their own pace and in their own way. You can either work your way
+through each section of the manual and then test your understanding of
+the material by completing the associated exercise. Alternatively, you
+can start with each exercise and refer back to the appropriate material
+in the manual. Or find another way that works for you. Whichever
+approach you use, make sure that you write your R code in RStudio (or
+your favourite script editor), annotate it liberally and save it
+regularly.</p>
+<div id="base-r" class="section level2">
+<h2>1. Base R</h2>
+<ol style="list-style-type: lower-roman">
+<li>create a new variable called <code>my.num</code> that contains 6
+numbers; 5,4,7,8,12,14</li>
+<li>multiply <code>my.num</code> by 4</li>
+<li>create a second variable called <code>my.char</code> that contains 5
+character strings; Robert, Parker, Robert, Robert, Parker</li>
+<li>combine the two variables <code>my.num</code> and
+<code>my.char</code> into a variable called <code>both</code></li>
+<li>what is the length of <code>both</code>?</li>
+<li>what class is <code>both</code>?</li>
+<li>divide <code>both</code> by 3, what happens?</li>
+<li>create a vector with elements 1 2 3 4 5 6 and call it
+<code>x</code></li>
+<li>create another vector with elements 10 20 30 40 50 and call it
+<code>y</code></li>
+<li>what happens if you try to add <code>x</code> and <code>y</code>
+together? why?</li>
+<li>append the value 60 onto the vector y (hint: you can use the c()
+function) add <code>x</code> and <code>y</code> together</li>
+<li>multiply <code>x</code> and <code>y</code> together. pay attention
+to how R performs operations on vectors of the same length.</li>
+</ol>
+</div>
+<div id="functions" class="section level2">
+<h2>2. Functions</h2>
+<ol style="list-style-type: lower-alpha">
+<li><p>Write a function, <code>sqdif</code>, that does the
+following:</p></li>
+<li><p>takes two numbers <code>x</code> and <code>y</code> with default
+values of 2 and 3.</p></li>
+</ol>
+<ol start="2" style="list-style-type: lower-roman">
+<li>takes the difference</li>
+<li>squares this difference</li>
+<li>then returns the final value</li>
+<li>checks that <code>x</code> and <code>y</code> are numeric and
+<code>stop</code> S with an error message otherwise</li>
+</ol>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>Try to write a function called <code>top()</code> that takes a
+<code>matrix</code> or <code>data.frame</code> and a number
+<code>n</code>, and returns the first n rows and columns, with the
+default value of <code>n=5</code>. What do you get when you run the
+following code?:</p></li>
+<li><p><code>top(matrix(1:100, ncol=10))</code></p></li>
+</ol>
+<ol start="2" style="list-style-type: lower-roman">
+<li><p><code>top(matrix(1:25, ncol = 5), 2)</code></p></li>
+<li><p>Write a function called <code>my_t_CI</code> that will calculate
+a 95% one sample t interval. The results will be stored in a list to be
+returned containing sample mean and the confidence interval. The input
+to the functions is the numeric vector containing our data. For review,
+the formula for a 95% one sample t interval is</p></li>
+</ol>
+<p><span class="math display">\[
+\bar{x} \pm 1.96*s/\sqrt{n}
+\]</span> i. Generate random numbers from a normal distribution with the
+seed <code>set.seed(60)</code> and code
+<code>data_sim = rnorm(100)</code>.</p>
+<ol start="2" style="list-style-type: lower-roman">
+<li><p>What do you get when you run
+<code>my_t_CI(data_sim)</code>?</p></li>
+<li><p>Compare the accuracy of your function with the built-in function
+<code>t.test(data_sim)</code>. What do you find?</p></li>
+</ol>
+</div>
+<div id="data-visualization-with-base-r" class="section level2">
+<h2>3. Data Visualization with Base R</h2>
+<ol style="list-style-type: lower-roman">
+<li><p>Download the data file <code>squid1.xlsx</code> from <a
+href="https://github.com/balsaedi/-R-Visualization/blob/main/squid1.xlsx">Squid
+Data</a> link and save it to your working directory. Open this file in
+Microsoft Excel and save it as a tab delimited file type. Name the file
+<code>squid1.txt</code> and save it to the working directory. These data
+were originally collected as part of a study published in Aquatic Living
+Resources1 in 2005. The aim of the study was to investigate the seasonal
+patterns of investment in somatic and reproductive tissues in the long
+finned squid Loligo forbesi caught in Scottish waters. Squid were caught
+monthly from December 1989 - July 1991 (<code>month</code> and
+<code>year</code> variables). After capture, each squid was given a
+unique <code>specimen</code> code, weighed (<code>weight</code>) and the
+sex determined (<code>sex</code> - only female squid are included here).
+The size of individuals was also measured as the dorsal mantle length
+(<code>DML</code>) and the mantle weight measured without internal
+organs (<code>eviscerate.weight</code>). The gonads were weighed
+(<code>ovary.weight</code>) along with the accessory reproductive organ
+(the nidamental gland, <code>nid.weight</code>,
+<code>nid.length</code>). Each individual was also assigned a
+categorical measure of maturity (<code>maturity.stage</code>, ranging
+from 1 to 5 with 1 = immature, 5 = mature). The digestive gland weight
+(<code>dig.weight</code>) was also recorded to assess nutritional status
+of the individual.</p></li>
+<li><p>Import the ‘squid1.txt’ file into R using the read.table()
+function and assign it to a variable named squid. Use the
+<code>str()</code> function to display the structure of the dataset and
+the <code>summary()</code> function to summarise the dataset. How many
+observations are in this dataset? How many variables? The
+<code>year</code>, <code>month</code> and <code>maturity.stage</code>
+variables were coded as integers in the original dataset. Here we would
+like to code them as factors. Create a new variable for each of these
+variables in the <code>squid</code> dataframe and recode them as
+factors. Use the <code>str()</code> function again to check the coding
+of these new variables.</p></li>
+<li><p>How many observations are there per month and year combination
+(hint: remember the <code>table()</code> or <code>xtabs()</code>
+functions?)? Don’t forget to use the factor recoded versions of these
+variables. Do you have data for each month in each year? Which years
+have the most observations? (optional) Use a combination of the
+<code>xtabs()</code> and <code>ftable()</code> functions to create a
+flattened table of the number of observations for each year, maturity
+stage and month (aka a contingency table).</p></li>
+<li><p>The humble cleveland dotplot is a great way of identifying if you
+have potential outliers in continuous variables. Create dotplots (using
+the <code>dotchart()</code> function) for the following variables;
+<code>DML</code>, <code>weight</code>, <code>nid.length</code> and
+<code>ovary.weight</code>. Do these variables contain any unusually
+large or small observations? Don’t forget, if you prefer to create a
+single figure with all 4 plots you can always split your plotting device
+into 2 rows and 2 columns . Use the <code>pdf()</code> function to save
+a pdf version of your plot(s) in your output directory you created . You
+may also include some alternative code in the solutions for this
+exercise using the <code>dotplot()</code> function from the
+<code>lattice</code> package.</p></li>
+<li><p>It looks like the variable <code>nid.length</code> contains an
+unusually large value. Actually, this value is biologically implausible
+and clearly an error. The researchers were asked to go back and check
+their field notebooks and sure enough they discover a typo. It looks
+like a tired researcher accidentally inserted a zero by mistake when
+transcribing these data (mistakes in data are very common and why we
+<strong>always</strong> explore, check and validate any data we are
+working on). We can clearly see this value is over 400 so we can use the
+<code>which()</code> function to identify which observation this is
+<code>which(squid$nid.length &gt; 400)</code>. It looks like this is the
+11th observation of the <code>nid.length</code> variable. Use your skill
+with the square brackets <code>[ ]</code> to first confirm the this is
+the correct value (you should get 430.2) and then change this value to
+43.2. Now redo the dotchart to visualise your correction. Caution: You
+can only do this because you have confirmed that this is an transcribing
+error. You should not remove or change values in your data just because
+you feel like it or they look ‘unusual’. This is scientific fraud! Also,
+the advantage of making this change in your R script rather than in
+Excel is that you now have a permanent record of the change you made and
+can state a clear reason for the change.</p></li>
+<li><p>When exploring your data it is often useful to visualise the
+distribution of continuous variables. Take a look at the histogram
+section of this manual and then create histograms for the variables;
+<code>DML</code>, <code>weight</code>, <code>eviscerate.weight</code>
+and <code>ovary.weight</code>. Again, its up to you if you want to plot
+all 4 plots separately or in the same figure. Export your plot(s) as pdf
+file(s) to the <code>output</code> directory. One potential problem with
+histograms is that the distribution of data can look quite different
+depending on the number of ‘breaks’ used. The <code>hist()</code>
+function does it’s best to create appropriate ‘breaks’ for your plots
+(it uses the <code>Sturges algorithm</code> for those that want to know)
+but experiment with changing the number of breaks for the
+<code>DML</code> variable to see how the shape of the distribution
+changes.</p></li>
+<li><p>Scatterplots are great for visualising relationships between two
+continuous variables. Plot the relationship between <code>DML</code> on
+the x axis and <code>weight</code> on the y axis. How would you describe
+this relationship? Is it linear? One approach to linearising
+relationships is to apply a transformation on one or both variables. Try
+transforming the <code>weight</code> variable with either a natural log
+(<code>log()</code>) or square root (<code>sqrt()</code>)
+transformation. I suggest you create new variables in the
+<code>squid</code> dataframe for your transformed variables and use
+these variables when creating your new plots . Which transformation best
+linearises this relationship? Again, save your plots as a pdf file (or
+try saving in your output directory as jpeg or png format using the
+jpeg() or png() functions.</p></li>
+<li><p>When visualising differences in a continuous variable between
+levels of a factor (categorical variable) then a <code>boxplot</code> is
+your best friend (avoid using bar plots - Google ‘bar plots are evil’
+for more info). Create a boxplot to visualise the differences in
+<code>DML</code> at each maturity stage (don’t forget to use the recoded
+version of this variable you created earlier in <strong>ii</strong>) .
+Include x and y axes labels in your plot. An alternative to the boxplot
+is the <code>violin</code> plot. A violin plot is a combination of a
+boxplot and a <code>kernel</code> density plot and is great at
+visualising the distribution of a variable. To create a violin plot you
+will first need to install the <code>vioplot</code> package from CRAN
+and make it available using library(vioplot). You can now use the
+<code>vioplot()</code> function in pretty much the same way as you
+created your boxplot.</p></li>
+<li><p>To visualise the relationship between two continuous variables
+but for different levels of a factor variable you can create a
+conditional scatterplot. Use the <code>coplot()</code> function to plot
+the relationship between <code>DML</code> on the x axis and square root
+transformed <code>weight</code> on the y axis (you created this variable
+in <strong>vi</strong>) for each level of maturity stage. Does the
+relationship between <code>DML</code> and <code>weight</code> look
+different for each maturity stage (suggesting an interaction)? If you
+prefer, you can also create a similar plot using the
+<code>xyplot()</code> function from the <code>lattice</code>
+package.</p></li>
+<li><p>To explore the relationships between multiple continuous
+variables it’s hard to beat a pairs plot. Create a pairs plot for the
+variables; <code>DML</code>, <code>weight</code>,
+<code>eviscerate.weight</code>, <code>ovary.weight</code>,
+<code>nid.length</code>, and <code>nid.weight</code>. If it looks a
+little cramped in RStudio then click on the ‘zoom’ button in the plot
+viewer to see a larger version. One of the great things about the
+<code>pairs()</code> function is that you can customise what goes into
+each panel. Modify your pairs plot to include a histogram of the
+variables on the diagonal panel and include a correlation coefficient
+for each relationship on the upper triangle panels. Also include a
+smoother (wiggly line) in the lower triangle panels to help visualise
+these relationships.</p></li>
+<li><p>Almost every aspect of the figures you create in R is
+customizable. Learning how to get your plot looking just right is not
+only rewarding but also means that you will never have to include a plot
+in your paper/thesis that you’re not completely happy with. When you
+start learning how to use R it can sometimes seem to take a lot of work
+to customize your plots. Don’t worry, it gets easier with experience
+(most of the time anyway) and you will always have your code if you want
+to create a similar plot in the future. Use the <code>plot()</code>
+function to produce a <code>scatterplot</code> of <code>DML</code> on
+the x axis and <code>ovary weight</code> on the y axis (you might need
+to apply a transformation on the variable <code>ovary.weight</code>).
+Use a different <code>colour</code> to highlight points for each level
+of maturity stage. Produce a <code>legend</code> explaining the
+different colours and place it in a suitable position on the plot.
+Format the graph further to make it suitable for inclusion into your
+paper/thesis (i.e. add axes labels, change the axes scales
+etc).</p></li>
+</ol>
+</div>
+<div id="data-visualization-with-ggplot2" class="section level2">
+<h2>4. Data Visualization with ggplot2</h2>
+<p>These exercises require you to generate plots of various kinds. This
+document shows both the plots that you should obtain and the
+solutions.</p>
+<p>Click on the ‘Code’ button on the right hand side to reveal the
+solution for each plot.</p>
+<div id="part-i-geoms-and-aesthetics" class="section level3">
+<h3>Part I – geoms and aesthetics</h3>
+<p>These first few exercises will run through some of the simple
+principles of creating a ggplot2 object, assigning aesthetics mappings
+and geoms.</p>
+<ol style="list-style-type: decimal">
+<li>Read in the cleaned <a
+href="https://github.com/balsaedi/-R-Visualization/raw/main/patient-data.txt">patients</a>
+dataset, <code>patient-data-cleaned.txt</code>, into a new object called
+<code>patients</code>.</li>
+</ol>
+</div>
+<div id="scatterplots" class="section level3">
+<h3>Scatterplots</h3>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Generate a scatterplot of BMI versus Weight using the patient
+dataset and add a colour scale based on the Height variable.</p></li>
+<li><p>Using an additional geom, add an extra layer of a fit line to the
+previous plot.</p></li>
+<li><p>Does the fit in the previous plot look good? Look at the help
+page for <code>geom_smooth</code> and adjust the method to fit a
+straight line without standard error bounds.</p></li>
+</ol>
+</div>
+<div id="boxplots-and-violin-plots" class="section level3">
+<h3>Boxplots and Violin plots</h3>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Generate a boxplot of Score values comparing smokers and
+non-smokers.</p></li>
+<li><p>Split the previous boxplot into male and female groups with
+different colours.</p></li>
+<li><p>Produce a similar boxplot of Scores but this time group data by
+Sex and colour the interior of the box (not the outline) by Age. Change
+this plot to a violin plot.</p></li>
+</ol>
+<p><strong>Note</strong>: Having loaded the data using
+<code>read_tsv</code>, the <code>Age</code> column has been set to
+<code>dbl</code> (short for <code>double</code>, a <code>numeric</code>
+vector type) as it only contains numbers. This makes it a
+<strong>continuous</strong> variable. In order to split the boxplot by
+age and colour each one according to Age, it is necessary to change age
+to be a <strong>categorical</strong> variable. We can do this by
+changing the <code>Age</code> column into a different vector type: a
+<code>factor</code>.</p>
+</div>
+<div id="histogram-and-density-plots" class="section level3">
+<h3>Histogram and Density plots</h3>
+<ol start="8" style="list-style-type: decimal">
+<li><p>Generate a histogram of BMIs with each bar coloured blue,
+choosing a suitable bin width.</p></li>
+<li><p>Instead of a histogram, generate a density plot of BMI</p></li>
+<li><p>Generate density plots of BMIs coloured by Sex.</p></li>
+</ol>
+<p><em>Hint: alpha can be used to control transparency.</em></p>
+</div>
+<div id="part-ii---facets" class="section level3">
+<h3>Part II - facets</h3>
+<p>In this next part you will create plots with faceting. First check
+that the cleaned patients dataset has been read in and is available as a
+data frame in your current session. If you haven’t done so, convert the
+Age variable to a factor.</p>
+<ol start="11" style="list-style-type: decimal">
+<li><p>Using the patient dataset generate a scatterplot of BMI versus
+Weight, add a colour scale to the scatterplot based on the Height
+variable, and split the plot into a grid of plots separated by Smoking
+status and Sex.</p></li>
+<li><p>Generate a boxplot of BMIs comparing smokers and non-smokers,
+colour boxplot by Sex, and include a separate facet for people of
+different age.</p></li>
+<li><p>Produce a similar boxplot of BMIs but this time group data by
+Sex, colour by Age and facet by Smoking status.</p></li>
+</ol>
+</div>
+<div id="part-iii-scales-and-themes" class="section level3">
+<h3>Part III – scales and themes</h3>
+<p>In these exercises we look at adjusting the scales and themes of our
+plots.</p>
+<p>Check that the cleaned patients dataset has been read in and is
+available as a data frame in your current session. Check also that the
+Age variable is a factor.</p>
+</div>
+<div id="scales" class="section level3">
+<h3>Scales</h3>
+<ol start="14" style="list-style-type: decimal">
+<li><p>Generate a scatterplot of BMI versus Weight from the patients
+dataset.</p></li>
+<li><p>Starting from the previous plot, adjust the BMI axis to show only
+labels for 20, 30, 40 and the weight axis to show breaks for 60 to 100
+in steps of 5, adding the units (kilograms) to the axis label.</p></li>
+<li><p>Create a violin plot of BMI by Age where violins are filled using
+a sequential colour palette.</p></li>
+<li><p>Create a scatterplot of BMI versus Weight and add a continuous
+colour scale for the height. Make the colour scale with a midpoint (set
+to mean point) colour of grey and extremes of green (low) and red
+(high).</p></li>
+</ol>
+</div>
+<div id="themes" class="section level3">
+<h3>Themes</h3>
+<ol start="18" style="list-style-type: decimal">
+<li><p>Recreate the scatterplot of BMI by weight this time colouring by
+age group and add a straight line fit (but no standard error/confidence
+intervals) for each age group.</p></li>
+<li><p>Remove the legend title from the previous plot, change the
+background colours of legend keys to white and place the legend at the
+bottom of the plot.</p></li>
+<li><p>Add a title to the plot and remove the minor grid lines. Save the
+plot to a 7 by 7 inch image file.</p></li>
+</ol>
+</div>
+</div>
+<div id="data-visualization-using-ggplot2-part-ii"
+class="section level2">
+<h2>5. Data Visualization using ggplot2 Part II</h2>
+<ol style="list-style-type: lower-roman">
+<li>Plot a <code>sin(x)/x</code> using <code>ggplot()</code>
+function.</li>
+</ol>
+<p>Hint: Trigonometric functions in R use angles in radians (see ? sin).
+2 times pi is 360 degrees.</p>
+<ol start="2" style="list-style-type: lower-roman">
+<li>The ‘cars’ data set gives the speed of cars and the distances taken
+to stop. Note that the data were recorded in the 1920s. Plot the ‘cars’
+data set as a scatter plot. Plot all data points with distances taken to
+stop greater than 80 in red.</li>
+</ol>
+<ul>
+<li><p>basic version with points</p></li>
+<li><p>Add color as a mapping that is only used by geom_points</p></li>
+<li><p>define the colors using a manual color scale</p></li>
+<li><p>add a second geom that produces a smoothed line (default is a
+local polynomial regression)</p></li>
+</ul>
 <!--chapter:end:10-real-world-application.Rmd-->
+</div>
 </div>
 
 

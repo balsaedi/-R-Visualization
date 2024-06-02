@@ -27,7 +27,7 @@ If you have not installed the __ggplot2__ package in your computer, then install
 
 ## Creating Basic Plots with ggplot2
 
-We are using the gapminder dataset (https://www.gapminder.org/data) that has
+We are using the [gapminder dataset](https://www.gapminder.org/data) that has
 been put into an R package by Bryan (2017) so we can load it with
 library(gapminder). The dataset includes 1704 observations (rows) of 6 variables (columns: country,
 continent, year, lifeExp, pop, gdpPercap). country, continent, and year could
@@ -39,7 +39,7 @@ Africa, Americas, Oceania).
 You can check that all of the numbers quoted above are correct with these
 lines:
 
-```{r, message=FALSE,warning=FALSE}
+```{r, message=FALSE,warning=FALSE,height=500}
 library(tidyverse)
 library(gapminder)
 gapminder$year %>% unique()
@@ -251,4 +251,36 @@ ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 ## Practical Examples: Exercise
 
 
+**Exercise 8.1**
+
+Obtain a global dataset on internet usage trends.You might find the dataset datasets from [Kaggle](https://www.kaggle.com/datasets/sansuthi/gapminder-internet). Clean and preprocess the dataset to ensure it's in a suitable format for visualization. This may involve handling missing values, aggregating data by regions or countries, and calculating relevant metrics. Use ggplot2 to create visualizations that showcase global internet usage trends over time. Use a scatter plot to show the relationship between income per person and internet usage rate across all the countries. You may access the data file [here](https://raw.githubusercontent.com/balsaedi/-R-Visualization/main/gapminder_internet.csv) which was downloaded from Kaggle and uploaded to GitHub for easier accessibility.
+
+
+
+```{r, ex="exercise_num8.1", type="sample-code", height=500}
+#Your code
+```
+
+
+```{r, ex="exercise_num8.1", type="solution", height=500}
+#Solution
+library(ggplot2)
+
+internet_url<-"https://raw.githubusercontent.com/balsaedi/-R-Visualization/main/gapminder_internet.csv"
+# Read the csv file
+internet_data<-read.csv(internet_url)
+
+# Scatter plot with facets
+ggplot(internet_data, aes(x = incomeperperson, y = internetuserate)) +
+  geom_point() +
+  # facet_wrap(~ country) +
+  labs(title = "Relationship between Income per Person and Internet Usage Rate",
+       x = "Income per Person (GDP per capita)",
+       y = "Internet Usage Rate (per 100 people)",
+       subtitle = "Across the Globe") +
+  theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5))
+
+```
 

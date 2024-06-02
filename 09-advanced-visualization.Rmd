@@ -15,8 +15,8 @@ knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 
 Before converting the ggplot2 chart to interactive plotly graph, you assign the plot to a vector, say, p. Then load the __plotly__ package and convert the ggplot chart to interactive plotly graph using the __ggpotly()__ function, for example, __ggplotly(p)__.
 
-```{r,message=FALSE,warning=FALSE}
-
+```{r,message=FALSE,warning=FALSE,height=500}
+library(ggplot2)
 library(plotly)
 p<-ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
   geom_point(alpha = 0.7, size = 3) +
@@ -33,7 +33,7 @@ p<-ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) 
   scale_color_manual(values = c("setosa" = "blue", "versicolor" = "green", "virginica" = "red"))
 
 # Convert ggplot2 to plotly
-#ggplotly(p)
+ggplotly(p)
 
 ```
 
@@ -43,7 +43,7 @@ p<-ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) 
 
 **Customizing Interactions and Adding Tooltips**
 
-```{r}
+```{r, height=500}
 # Convert ggplot2 scatter plot to plotly with custom tooltip
 p <- ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species, 
                              text = paste("Species: ", Species))) + 
@@ -53,33 +53,43 @@ p <- ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species,
   theme_bw()
 
 # Convert ggplot2 to plotly with custom tooltip
-#ggplotly(p, tooltip = "text")
+ggplotly(p, tooltip = "text")
 
 ```
 
 **Embedding plotly Graphs in Web Applications (Shiny)**
 
-```{r}
+```{r,height=500}
 # Install and load Shiny package
-#install.packages("shiny")
+
+
+# Install plotly package if not already installed
+if (!requireNamespace("plotly", quietly = TRUE)) {
+  install.packages("plotly")
+}
+
+# Load necessary packages
 library(shiny)
+library(ggplot2)
+library(plotly)
 
 # Define UI
 ui <- fluidPage(
-  titlePanel("Interactive Scatter Plot"),
+  titlePanel("Interactive Scatter Plot in Shiny App"),
   plotlyOutput("scatter_plot")
 )
 
 # Define server logic
 server <- function(input, output) {
   output$scatter_plot <- renderPlotly({
-    ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species, 
-                            text = paste("Species: ", Species))) + 
+    p <- ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species, 
+                                 text = paste("Species: ", Species))) + 
       geom_point() +
       labs(title = "Interactive Scatter Plot of Sepal Length vs Sepal Width",
            x = "Sepal Length", y = "Sepal Width") +
-      theme_minimal() %>%
-      ggplotly(tooltip = "text")
+      theme_bw()
+    
+    ggplotly(p, tooltip = "text")
   })
 }
 
@@ -93,7 +103,6 @@ shinyApp(ui = ui, server = server)
 
 
 
-
 ### Introduction to shiny for building interactive web applications
 
 Shiny allows you to turn your analyses into interactive web applications without needing to know HTML, CSS, or JavaScript. It works by allowing you to separate the user interface from the underlying R code, making it easy to create complex interactive apps.
@@ -101,18 +110,18 @@ Shiny allows you to turn your analyses into interactive web applications without
 
 ### Creating reactive plots and dashboards that update with user input.
 
-```{r}
+```{r, height=700}
 # Load necessary packages
 #library(shiny)
 #library(ggplot2)
 
 # Define UI
 ui <- fluidPage(
-  titlePanel("Interactive Scatter Plot"),
+  titlePanel("Interactive Scatter Plot in Shiny APP with user update"),
   sidebarLayout(
     sidebarPanel(
       sliderInput("slider", "Number of points to show:", 
-                  min = 10, max = nrow(iris), value = 50)
+                  min = 5, max = nrow(iris), value = 50)
     ),
     mainPanel(
       plotOutput("scatter_plot")
@@ -128,7 +137,7 @@ server <- function(input, output) {
       geom_point() +
       labs(title = "Interactive Scatter Plot of Sepal Length vs Sepal Width",
            x = "Sepal Length", y = "Sepal Width") +
-      theme_minimal()
+      theme_bw()
   })
 }
 
@@ -142,9 +151,8 @@ shinyApp(ui = ui, server = server)
 ## Advanced ggplot2 Extensions
 
 
-
 ### Explore extensions like gganimate for creating animated plots.
-```{r,message=FALSE, warning=FALSE}
+```{r,message=FALSE, warning=FALSE, height=500}
 library(gganimate)
 
 #Note: This plot will be displayed after you install the gifski package
@@ -163,7 +171,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 
 ### Using ggridges for ridge line plots and other creative visualization techniques.
 
-```{r,message=FALSE}
+```{r,message=FALSE, height=500}
 library(ggridges)
 
 # Ridge line plot
@@ -175,8 +183,6 @@ ggplot(iris, aes(x = Sepal.Length, y = Species, fill = Species)) +
 ```
 
 
-
-## Practical Examples: Exercises
 
 
 

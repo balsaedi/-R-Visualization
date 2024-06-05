@@ -16,9 +16,9 @@ output:
 # if(!require(devtools)) {
 #   install.packages("devtools")
 # }
-devtools::install_github("datacamp/tutorial")
+#devtools::install_github("datacamp/tutorial")
 
-tutorial::go_interactive()
+#tutorial::go_interactive()
 knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 ```
 
@@ -98,7 +98,7 @@ R is  designed for statistical computing and graphics. In this section, we will 
 
 You can use R as a simple calculator. Here are some basic arithmetic operations:
 
-```{r}
+```{r, tutorial::go_interactive(greedy=FALSE)}
 # Addition
 2 + 3
 # Subtraction
@@ -416,12 +416,6 @@ Create a variable called $x$ and give it the value 15.Take the exponent of the v
 ```{r ex="exercise_num1", type="sample-code"}
 # Your code
 ```
-```{r ex="exercise_num1", type="solution"}
-x<-15
-x<-exp(x)
-x<-x+5
-x
-```
 
 
 **Exercise 2: Vectors:**
@@ -448,24 +442,6 @@ knitr::kable(df, align = "c",booktabs = FALSE)
 ```{r ex="exercise_num2", type="sample-code"}
 #Your code
 ```
-```{r ex="exercise_num2", type="solution"}
-# Extract 'before' and 'after' weights into two vectors
-before<-c(78,72,78,79,105)
-after<-c(67,65,79,70,93)
-# Calculate the amount of weight lost for each participant
-weight_lost <- before - after
-
-# Calculate the average amount of weight lost
-average_weight_lost <- mean(weight_lost)
-
-# Print the amount of weight lost for each participant and the average amount of weight lost
-
-print(weight_lost)
-print(paste("The average amount of weight lost:", average_weight_lost))
-
-```
-
-
 
 
 **Exercise 3: Matrices**
@@ -511,27 +487,6 @@ v) the inverse of __A__.
 
 # inverse
 ```
-```{r ex="exercise_num3", type="solution"}
-#Create the two matrices
-A <- matrix(c(1:8,10), 3, 3)
-x <- c(1,2,3)
-
-# matrix multiplication
-A %*% x 
-
-# transpose
-t(A) 
-
-# determinant
-det(A) 
-
-# diagonal
-diag(A)
-
-# inverse
-solve(A) 
-
-```
 
 
 **Exercise 4: Creating Data Frames**
@@ -546,34 +501,6 @@ films. It should contain the fields __title__, __director__, __year__, __country
 ```{r ex="exercise_num4", type="sample-code"}
 #Your code
 ```
-```{r ex="exercise_num4", type="solution"}
-# Create the first data frame
-films1 <- data.frame(
-  title = c("The Shawshank Redemption", "The Godfather", "The Dark Knight"),
-  director = c("Frank Darabont", "Francis Ford Coppola", "Christopher Nolan"),
-  year = c(1994, 1972, 2008),
-  country = c("USA", "USA", "USA")
-)
-
-# Create the second data frame with one new film
-films2 <- data.frame(
-  title = c("Inception"),
-  director = c("Christopher Nolan"),
-  year = c(2010),
-  country = c("UK")
-)
-
-# Merge the two data frames using rbind
-all_films <- rbind(films1, films2)
-
-# Print the combined data frame
-print(all_films)
-
-# Try sorting the titles using sort()
-sorted_films <- sort(all_films$title)
-print(sorted_films)
-
-```
 
 
 **Exercise 5: Factors and Simple plot**
@@ -582,18 +509,6 @@ Suppose we have the heights of 100 individuals, where the first are 50 male and 
 
 ```{r ex="exercise_num5", type="sample-code", height=500}
 #Your code
-```
-```{r ex="exercise_num5", type="solution", height=500}
-set.seed(1442) # fixes the random numbers
-
-height = round(rnorm(100, mean=rep(c(170,160),each=50), sd=10))
-sex = rep(c("M", "F"), each=50)
-# treat sex as a categorical variable
-Sex = as.factor(sex)
-
-plot(Sex, height)
-
-plot(sex, height)
 ```
 
 

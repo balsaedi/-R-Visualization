@@ -138,23 +138,6 @@ Read the __cabbages__ dataset from __MASS__ package. Remove the duplicated value
 ```
 
 
-```{r,ex="dtype_num40", type="solution", height=500}
-# Solution
-library(dplyr)
-library(MASS)
-
-cabbages <- cabbages %>% 
-  distinct(HeadWt, .keep_all = TRUE) %>% 
-  arrange(desc(HeadWt),FALSE)
-
-plot(cabbages$HeadWt,(cabbages$HeadWt)^2,type = 'l', col='blue', 
-     lty=1,main = "Comparison of Unique Cabbage Trends", xlab = "Head Weight", ylab = "")
-lines(cabbages$HeadWt,(cabbages$HeadWt)^3,type = 'l', col='red', lty=2)
-legend("topleft", legend = c("Square of Head Weight", "Cube of Head Weight "), col = c("blue", "red"), lty = c(1, 2))
-
-```
-
-
 **Exercise 12 : Multiple Small Plots in One Graphic to Compare Different Data Sets**
 
 Create a vector __x__ of a sequence of numbers from 1 to 100. Create another vector __y1__ which is the square of __x__. Create another vector __y2__ which is the double of __x__. Lastly, create the last vector __y3__ which is equivalent to __x__ raised to the power of 1.5. Create three multiple small line plots and organize them in one row with three columns. All plots will use the same independent variable in the x-axis, i.e __x__. 
@@ -168,27 +151,6 @@ iii) Plot x against y3. Give it the title,'Trend 3', x-axis should be labelled a
 # Your  code
 ```
 
-```{r, ex="dtype_num41", type="solution", height=500}
-#Solution
-#Create data
-x <- 1:100
-y1 <- x^2
-y2 <- 2 * x
-y3 <- x^1.5
-
-# Create multiple small plots
-par(mfrow = c(1, 3)) # 1 row, 3 columns
-
-# Plot 1
-plot(x, y1, type = "l", col = "blue", main = "Trend 1", xlab = "X", ylab = "Y")
-
-# Plot 2
-plot(x, y2, type = "l", col = "red", main = "Trend 2", xlab = "X", ylab = "Y2")
-
-# Plot 3
-plot(x, y3, type = "l", col = "green", main = "Trend 3", xlab = "X", ylab = "Y3")
-
-```
 
 
 iv) Repeat the above similar plots but arranged in three rows and one column using __mfcol()__.
@@ -198,28 +160,6 @@ iv) Repeat the above similar plots but arranged in three rows and one column usi
 # Your  data
 ```
 
-
-```{r ex="dtype_num42", type="solution", height=500}
-#Solution
-#Create data
-x <- 1:100
-y1 <- x^2
-y2 <- 2 * x
-y3 <- x^1.5
-
-# Create multiple small plots
-par(mfcol = c(3, 1)) # 3 rows, 1 column
-
-# Plot 1
-plot(x, y1, type = "l", col = "blue", main = "Trend 1", xlab = "X", ylab = "Y")
-
-# Plot 2
-plot(x, y2, type = "l", col = "red", main = "Trend 2", xlab = "X", ylab = "Y2")
-
-# Plot 3
-plot(x, y3, type = "l", col = "green", main = "Trend 3", xlab = "X", ylab = "Y3")
-
-```
 
 
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Basim Alsaedi" />
 
 
-<meta name="date" content="2024-06-02" />
+<meta name="date" content="2024-06-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,8 +52,79 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -252,6 +323,16 @@
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="real-world-applications-and-case-studies-code-challenges.html"><a href="real-world-applications-and-case-studies-code-challenges.html#data-visualization-using-ggplot2-part-ii"><i class="fa fa-check"></i><b>10.5</b> 5. Data Visualization using ggplot2 Part II</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="exercise-solutions.html"><a href="exercise-solutions.html"><i class="fa fa-check"></i><b>11</b> Exercise Solutions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="exercise-solutions.html"><a href="exercise-solutions.html#introduction-to-r-and-data-visualization-exercises"><i class="fa fa-check"></i><b>11.1</b> Introduction to R and Data Visualization Exercises</a></li>
+<li class="chapter" data-level="11.2" data-path="exercise-solutions.html"><a href="exercise-solutions.html#r-base-graphics-exercises"><i class="fa fa-check"></i><b>11.2</b> R Base Graphics Exercises</a></li>
+<li class="chapter" data-level="11.3" data-path="exercise-solutions.html"><a href="exercise-solutions.html#data-structures-relevant-to-visualization-exercises"><i class="fa fa-check"></i><b>11.3</b> Data Structures Relevant to Visualization Exercises</a></li>
+<li class="chapter" data-level="11.4" data-path="exercise-solutions.html"><a href="exercise-solutions.html#customizing-graphs-in-base-r-exercises"><i class="fa fa-check"></i><b>11.4</b> Customizing Graphs in Base R Exercises</a></li>
+<li class="chapter" data-level="11.5" data-path="exercise-solutions.html"><a href="exercise-solutions.html#time-series-exercises"><i class="fa fa-check"></i><b>11.5</b> Time Series Exercises</a></li>
+<li class="chapter" data-level="11.6" data-path="exercise-solutions.html"><a href="exercise-solutions.html#statistical-graphs-exercises"><i class="fa fa-check"></i><b>11.6</b> Statistical Graphs Exercises</a></li>
+<li class="chapter" data-level="11.7" data-path="exercise-solutions.html"><a href="exercise-solutions.html#ggplot2-exercise"><i class="fa fa-check"></i><b>11.7</b> GGPLOT2 Exercise</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -279,15 +360,45 @@
 <p>We can overlay different types of plots, such as combining bar charts with line graphs, in R. Here’s how this can be done along with customizing axes and scales:</p>
 <div id="overlay-different-types-of-plots" class="section level3 hasAnchor" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Overlay different types of plots<a href="advanced-base-plotting-techniques.html#overlay-different-types-of-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkxIDwtIHheMlxueTIgPC0gMiAqIHhcbnkzIDwtIHheMS41XG5cbiMgQ3JlYXRlIGEgbGluZSBwbG90XG5wbG90KHgsIHkxLCB0eXBlID0gXCJsXCIsIGNvbCA9IFwiYmx1ZVwiLCBtYWluID0gXCJDb21iaW5pbmcgRGlmZmVyZW50IEdyYXBoIFR5cGVzXCIsIHhsYWIgPSBcIlhcIiwgeWxhYiA9IFwiWVwiKVxuXG4jIEFkZCBwb2ludHMgdG8gdGhlIGxpbmUgcGxvdFxucG9pbnRzKHgsIHkxLCBjb2wgPSBcImJsdWVcIiwgcGNoID0gMTYpXG5cbiMgQWRkIGEgYmFyIHBsb3RcbmJhcnBsb3QoeTIsIGNvbCA9IFwicmVkXCIsIGFkZCA9IFRSVUUpXG5cbiMgQWRkIGEgc2Vjb25kIGxpbmUgcGxvdFxubGluZXMoeCwgeTMsIGNvbCA9IFwiZ3JlZW5cIilcblxuIyBBZGQgYSBsZWdlbmRcbmxlZ2VuZChcInRvcGxlZnRcIiwgbGVnZW5kID0gYyhcIlRyZW5kIDFcIiwgXCJUcmVuZCAyXCIsIFwiVHJlbmQgM1wiKSwgY29sID0gYyhcImJsdWVcIiwgXCJyZWRcIiwgXCJncmVlblwiKSwgbHR5ID0gYygxLCBOQSwgMSksIHBjaCA9IGMoMTYsIE5BLCBOQSkpIn0=
-</div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="advanced-base-plotting-techniques.html#cb132-1" tabindex="-1"></a><span class="co"># Sample data</span></span>
+<span id="cb132-2"><a href="advanced-base-plotting-techniques.html#cb132-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb132-3"><a href="advanced-base-plotting-techniques.html#cb132-3" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb132-4"><a href="advanced-base-plotting-techniques.html#cb132-4" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> x</span>
+<span id="cb132-5"><a href="advanced-base-plotting-techniques.html#cb132-5" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="fl">1.5</span></span>
+<span id="cb132-6"><a href="advanced-base-plotting-techniques.html#cb132-6" tabindex="-1"></a></span>
+<span id="cb132-7"><a href="advanced-base-plotting-techniques.html#cb132-7" tabindex="-1"></a><span class="co"># Create a line plot</span></span>
+<span id="cb132-8"><a href="advanced-base-plotting-techniques.html#cb132-8" tabindex="-1"></a><span class="fu">plot</span>(x, y1, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Combining Different Graph Types&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Y&quot;</span>)</span>
+<span id="cb132-9"><a href="advanced-base-plotting-techniques.html#cb132-9" tabindex="-1"></a></span>
+<span id="cb132-10"><a href="advanced-base-plotting-techniques.html#cb132-10" tabindex="-1"></a><span class="co"># Add points to the line plot</span></span>
+<span id="cb132-11"><a href="advanced-base-plotting-techniques.html#cb132-11" tabindex="-1"></a><span class="fu">points</span>(x, y1, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb132-12"><a href="advanced-base-plotting-techniques.html#cb132-12" tabindex="-1"></a></span>
+<span id="cb132-13"><a href="advanced-base-plotting-techniques.html#cb132-13" tabindex="-1"></a><span class="co"># Add a bar plot</span></span>
+<span id="cb132-14"><a href="advanced-base-plotting-techniques.html#cb132-14" tabindex="-1"></a><span class="fu">barplot</span>(y2, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb132-15"><a href="advanced-base-plotting-techniques.html#cb132-15" tabindex="-1"></a></span>
+<span id="cb132-16"><a href="advanced-base-plotting-techniques.html#cb132-16" tabindex="-1"></a><span class="co"># Add a second line plot</span></span>
+<span id="cb132-17"><a href="advanced-base-plotting-techniques.html#cb132-17" tabindex="-1"></a><span class="fu">lines</span>(x, y3, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span>
+<span id="cb132-18"><a href="advanced-base-plotting-techniques.html#cb132-18" tabindex="-1"></a></span>
+<span id="cb132-19"><a href="advanced-base-plotting-techniques.html#cb132-19" tabindex="-1"></a><span class="co"># Add a legend</span></span>
+<span id="cb132-20"><a href="advanced-base-plotting-techniques.html#cb132-20" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Trend 1&quot;</span>, <span class="st">&quot;Trend 2&quot;</span>, <span class="st">&quot;Trend 3&quot;</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">1</span>), <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="cn">NA</span>, <span class="cn">NA</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 </div>
 <div id="axes-and-scales-customization-to-accomodate-combined-plots" class="section level3 hasAnchor" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> Axes and scales customization to accomodate combined plots<a href="advanced-base-plotting-techniques.html#axes-and-scales-customization-to-accomodate-combined-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNldCBjdXN0b20gYXhpcyBsaW1pdHNcbnBsb3QoeCwgeTEsIHR5cGUgPSBcImxcIiwgY29sID0gXCJibHVlXCIsIG1haW4gPSBcIkNvbWJpbmluZyBEaWZmZXJlbnQgR3JhcGggVHlwZXNcIiwgeGxhYiA9IFwiWFwiLCB5bGFiID0gXCJZXCIsIHlsaW0gPSBjKDAsIG1heCh5MSwgeTIsIHkzKSkpXG5cbiMgQWRkIHBvaW50cyB0byB0aGUgbGluZSBwbG90XG5wb2ludHMoeCwgeTEsIGNvbCA9IFwiYmx1ZVwiLCBwY2ggPSAxNilcblxuIyBBZGQgYSBiYXIgcGxvdFxuYmFycGxvdCh5MiwgY29sID0gXCJyZWRcIiwgYWRkID0gVFJVRSwgeWxpbSA9IGMoMCwgbWF4KHkxLCB5MiwgeTMpKSlcblxuIyBBZGQgYSBzZWNvbmQgbGluZSBwbG90XG5saW5lcyh4LCB5MywgY29sID0gXCJncmVlblwiKVxuXG4jIEFkZCBhIGxlZ2VuZFxubGVnZW5kKFwidG9wbGVmdFwiLCBsZWdlbmQgPSBjKFwiVHJlbmQgMVwiLCBcIlRyZW5kIDJcIiwgXCJUcmVuZCAzXCIpLCBjb2wgPSBjKFwiYmx1ZVwiLCBcInJlZFwiLCBcImdyZWVuXCIpLCBsdHkgPSBjKDEsIE5BLCAxKSwgcGNoID0gYygxNiwgTkEsIE5BKSkifQ==
-</div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="advanced-base-plotting-techniques.html#cb133-1" tabindex="-1"></a><span class="co"># Set custom axis limits</span></span>
+<span id="cb133-2"><a href="advanced-base-plotting-techniques.html#cb133-2" tabindex="-1"></a><span class="fu">plot</span>(x, y1, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Combining Different Graph Types&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Y&quot;</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(y1, y2, y3)))</span>
+<span id="cb133-3"><a href="advanced-base-plotting-techniques.html#cb133-3" tabindex="-1"></a></span>
+<span id="cb133-4"><a href="advanced-base-plotting-techniques.html#cb133-4" tabindex="-1"></a><span class="co"># Add points to the line plot</span></span>
+<span id="cb133-5"><a href="advanced-base-plotting-techniques.html#cb133-5" tabindex="-1"></a><span class="fu">points</span>(x, y1, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb133-6"><a href="advanced-base-plotting-techniques.html#cb133-6" tabindex="-1"></a></span>
+<span id="cb133-7"><a href="advanced-base-plotting-techniques.html#cb133-7" tabindex="-1"></a><span class="co"># Add a bar plot</span></span>
+<span id="cb133-8"><a href="advanced-base-plotting-techniques.html#cb133-8" tabindex="-1"></a><span class="fu">barplot</span>(y2, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(y1, y2, y3)))</span>
+<span id="cb133-9"><a href="advanced-base-plotting-techniques.html#cb133-9" tabindex="-1"></a></span>
+<span id="cb133-10"><a href="advanced-base-plotting-techniques.html#cb133-10" tabindex="-1"></a><span class="co"># Add a second line plot</span></span>
+<span id="cb133-11"><a href="advanced-base-plotting-techniques.html#cb133-11" tabindex="-1"></a><span class="fu">lines</span>(x, y3, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span>
+<span id="cb133-12"><a href="advanced-base-plotting-techniques.html#cb133-12" tabindex="-1"></a></span>
+<span id="cb133-13"><a href="advanced-base-plotting-techniques.html#cb133-13" tabindex="-1"></a><span class="co"># Add a legend</span></span>
+<span id="cb133-14"><a href="advanced-base-plotting-techniques.html#cb133-14" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Trend 1&quot;</span>, <span class="st">&quot;Trend 2&quot;</span>, <span class="st">&quot;Trend 3&quot;</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">1</span>), <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="cn">NA</span>, <span class="cn">NA</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
 </div>
 </div>
 <div id="interactive-graphics-in-base-r" class="section level2 hasAnchor" number="5.2">
@@ -295,15 +406,35 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNldCBjdXN0b20gYXhpcyBsaW1pdHNcbnBsb3QoeCwg
 <div id="introduction-to-using-the-locator-function-for-interactive-plotting" class="section level3 hasAnchor" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Introduction to using the locator() function for interactive plotting<a href="advanced-base-plotting-techniques.html#introduction-to-using-the-locator-function-for-interactive-plotting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Base R provides basic functionality for creating interactive plots using the locator() function. Here’s how you can use locator() for interactive plotting and create dynamic plots that respond to user input or updates in data:</p>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNhbXBsZSBkYXRhXG54IDwtIDE6MTBcbnkgPC0geF4yXG5cbiMgUGxvdCBkYXRhXG5wbG90KHgsIHksIHR5cGUgPSBcImxcIiwgbWFpbiA9IFwiSW50ZXJhY3RpdmUgUGxvdHRpbmcgd2l0aCBsb2NhdG9yKClcIilcblxuIyBBZGQgcG9pbnRzIGludGVyYWN0aXZlbHlcbnBvaW50cyhsb2NhdG9yKDUpLCBjb2wgPSBcInJlZFwiLCBwY2ggPSAxNikifQ==
-</div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="advanced-base-plotting-techniques.html#cb134-1" tabindex="-1"></a><span class="co"># Sample data</span></span>
+<span id="cb134-2"><a href="advanced-base-plotting-techniques.html#cb134-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb134-3"><a href="advanced-base-plotting-techniques.html#cb134-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb134-4"><a href="advanced-base-plotting-techniques.html#cb134-4" tabindex="-1"></a></span>
+<span id="cb134-5"><a href="advanced-base-plotting-techniques.html#cb134-5" tabindex="-1"></a><span class="co"># Plot data</span></span>
+<span id="cb134-6"><a href="advanced-base-plotting-techniques.html#cb134-6" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Interactive Plotting with locator()&quot;</span>)</span>
+<span id="cb134-7"><a href="advanced-base-plotting-techniques.html#cb134-7" tabindex="-1"></a></span>
+<span id="cb134-8"><a href="advanced-base-plotting-techniques.html#cb134-8" tabindex="-1"></a><span class="co"># Add points interactively</span></span>
+<span id="cb134-9"><a href="advanced-base-plotting-techniques.html#cb134-9" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">locator</span>(<span class="dv">5</span>), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
 </div>
 <div id="creating-dynamic-plots-that-respond-to-user-input-or-updates-in-data" class="section level3 hasAnchor" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Creating dynamic plots that respond to user input or updates in data<a href="advanced-base-plotting-techniques.html#creating-dynamic-plots-that-respond-to-user-input-or-updates-in-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIER5bmFtaWMgcGxvdCB0aGF0IHJlc3BvbmRzIHRvIHVzZXIgaW5wdXRcbnBsb3RfZHluYW1pYyA8LSBmdW5jdGlvbigpIHtcbiAgIyBTYW1wbGUgZGF0YVxuICB4IDwtIDE6MTBcbiAgeSA8LSB4XjJcbiAgXG4gICMgUGxvdCBkYXRhXG4gIHBsb3QoeCwgeSwgdHlwZSA9IFwibFwiLCBtYWluID0gXCJEeW5hbWljIFBsb3Qgd2l0aCBVc2VyIElucHV0XCIpXG4gIFxuICAjIEFkZCBwb2ludHMgaW50ZXJhY3RpdmVseVxuICBwb2ludHMobG9jYXRvcig1KSwgY29sID0gXCJyZWRcIiwgcGNoID0gMTYpXG59XG5cbiMgQ2FsbCB0aGUgZnVuY3Rpb24gdG8gY3JlYXRlIGR5bmFtaWMgcGxvdFxucGxvdF9keW5hbWljKCkifQ==
-</div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="advanced-base-plotting-techniques.html#cb135-1" tabindex="-1"></a><span class="co"># Dynamic plot that responds to user input</span></span>
+<span id="cb135-2"><a href="advanced-base-plotting-techniques.html#cb135-2" tabindex="-1"></a>plot_dynamic <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb135-3"><a href="advanced-base-plotting-techniques.html#cb135-3" tabindex="-1"></a>  <span class="co"># Sample data</span></span>
+<span id="cb135-4"><a href="advanced-base-plotting-techniques.html#cb135-4" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb135-5"><a href="advanced-base-plotting-techniques.html#cb135-5" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb135-6"><a href="advanced-base-plotting-techniques.html#cb135-6" tabindex="-1"></a>  </span>
+<span id="cb135-7"><a href="advanced-base-plotting-techniques.html#cb135-7" tabindex="-1"></a>  <span class="co"># Plot data</span></span>
+<span id="cb135-8"><a href="advanced-base-plotting-techniques.html#cb135-8" tabindex="-1"></a>  <span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Dynamic Plot with User Input&quot;</span>)</span>
+<span id="cb135-9"><a href="advanced-base-plotting-techniques.html#cb135-9" tabindex="-1"></a>  </span>
+<span id="cb135-10"><a href="advanced-base-plotting-techniques.html#cb135-10" tabindex="-1"></a>  <span class="co"># Add points interactively</span></span>
+<span id="cb135-11"><a href="advanced-base-plotting-techniques.html#cb135-11" tabindex="-1"></a>  <span class="fu">points</span>(<span class="fu">locator</span>(<span class="dv">5</span>), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb135-12"><a href="advanced-base-plotting-techniques.html#cb135-12" tabindex="-1"></a>}</span>
+<span id="cb135-13"><a href="advanced-base-plotting-techniques.html#cb135-13" tabindex="-1"></a></span>
+<span id="cb135-14"><a href="advanced-base-plotting-techniques.html#cb135-14" tabindex="-1"></a><span class="co"># Call the function to create dynamic plot</span></span>
+<span id="cb135-15"><a href="advanced-base-plotting-techniques.html#cb135-15" tabindex="-1"></a><span class="fu">plot_dynamic</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
 
 </div>
 </div>

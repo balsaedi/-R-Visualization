@@ -165,7 +165,7 @@ legend("topleft", legend = c("Data Points", "Regression Line", "Confidence Inter
 ## Practical Examples: Exercises
 
 
-**Exercise 7.1**
+**Exercise 15**
 
 Create a box plot that compares the distribution of Sepal Length across the three species in the iris dataset.
 
@@ -174,73 +174,14 @@ Create a box plot that compares the distribution of Sepal Length across the thre
 # Your code
 ```
 
-```{r, ex="exercise_num7.1", type="solution", height=500}
-# Solution
-# Load necessary packages
-library(ggplot2)
 
-# Create a box plot comparing Sepal.Length across different species
-ggplot(data = iris, aes(x = Species, y = Sepal.Length, fill = Species)) + 
-  geom_boxplot() +
-  labs(title = "Box Plot of Sepal Length by Species",
-       x = "Species", y = "Sepal Length") +
-  theme_bw()
-
-```
-
-
-
-
-**Exercise 7.2**
+**Exercise 16**
 
 Generate a random health dataset of 100 people (male and female) from a normal distribution with the three variables: Age,BMI and Gender. The mean of Age should be 50 with a stand deviation of 10. The mean of BMI should be 25 with a standard deviation of 4. Gender should have only two values; "Male" and "Female". Set random seed to a value of 123 and name the data frame as health_dataset. Create a scatter plot that examines the relationship between Age and BMI in the simulated health dataset. Include a linear regression line with the linear regression equation and the value of Adjusted R-Squared to highlight the trend.
 
 
 ```{r, ex="exercise_num7.2", type="sample-code", height=500}
 # Your code
-```
-
-
-```{r, ex="exercise_num7.2", type="solution", height=500}
-# Solution
-# Load necessary packages
-library(ggplot2)
-
-# Simulate health data
-set.seed(123)
-health_data <- data.frame(
-  Age = rnorm(100, mean = 50, sd = 10),
-  BMI = rnorm(100, mean = 25, sd = 4),
-  Gender = sample(c("Male", "Female"), 100, replace = TRUE)
-)
-
-# Create a scatter plot to examine the relationship between Age and BMI
-plot(health_data$Age, health_data$BMI,
-     main = "Scatter Plot and Regression Line ",
-     xlab = "Age", ylab = "BMI",
-     col = "blue")
-
-# Fit linear regression model
-model <- lm(Age ~ BMI, data = health_data)
-
-# Adding regression line
-abline(model, col = "red")
-
-# Adding regression equation
-eq <- paste("y =", round(coef(model)[1], 2), "+", round(coef(model)[2], 2), "x")
-text(50.5, 37.5, eq, pos = 4)
-
-# Adding confidence intervals
-conf_interval <- predict(model, interval = "confidence")
-lines(health_data$BMI, conf_interval[, "lwr"], col = "green", lty = 2)
-lines(health_data$BMI, conf_interval[, "upr"], col = "green", lty = 2)
-# Add legend
-legend("topleft", legend = c("Data Points", "Regression Line", "Confidence Intervals"),
-       col = c("blue", "red", "green"), lty = c(NA, 1, 2), lwd = c(NA, 1, 1),
-       pch = c(1, NA, NA), bty = "o" # Enclose the legend in a box
-)
-
-
 ```
 
 

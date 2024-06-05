@@ -85,10 +85,7 @@ In this example, __start__ indicates the start of the time series, and __frequen
 ## Visualizing Time Series
 Let’s load and plot the __USgas__ series, a __ts__ object which is attached in the TSstudio package:
 
-```{r}
-if(!require(TSstudio)) {
-  install.packages("TSstudio")
-}
+```{r,message=FALSE,warning=FALSE}
 library(TSstudio)
 
 data(USgas)
@@ -117,9 +114,9 @@ plot(USgas)
 **Example:** Let's visualize the __USgas__ time series data and highlight trends, seasonality, and anomalies:
 
 
-```{r, message=FALSE, warning=FALSE, height=500}
+```{r, message=FALSE, warning=FALSE, height=500,message=FALSE}
 # Install and load the necessary packages
-#install.packages("forecast")
+
 library(TSstudio)
 library(forecast)
 
@@ -160,7 +157,7 @@ points(time(USgas)[anomalies], USgas[anomalies], col = "red", pch = 16)
 The __ts_plot__ is a wraper of the __plotly__ package plotting functions for time series objects, therefore, the output of the __ts_plot__ is a __plotly__ object. Advance customization of the __ts_plot__ output can be done with plotly’s layout function. For example, let’s re plot the __USgas__ series and customize the background to black:
 
 
-```{r, message=FALSE, warning=FALSE, height=500}
+```{r, message=FALSE, warning=FALSE, height=500,message=FALSE}
 library(TSstudio)
 library(plotly)
 
@@ -190,7 +187,7 @@ Note  that the __Xgrid__ and __Ygrid__ arguments, when set to __TRUE__, add the 
 The plotting of a multiple time series object is straightforward. Let’s load the __Coffee_Prices__ an __mts__ object that represents the monthly prices of the Robusta and Arabica coffee prices (USD per Kg.):
 
 
-```{r, height=500}
+```{r, height=500,message=FALSE}
 library(TSstudio)
 data("Coffee_Prices")
 
@@ -202,7 +199,7 @@ ts_plot(Coffee_Prices,
 
 By default, the function will plot all the series in one plot. Plotting the different series on a separate plot can be done by setting the type argument to multiple:
 
-```{r, height=500}
+```{r, height=500, message=FALSE}
 library(TSstudio)
 ts_plot(Coffee_Prices,
         title = "Comparison of Robusta and Arabica coffee prices",
@@ -223,52 +220,6 @@ Obtain the daily closing  prices for the last ten calendar years of S&P 500 Inde
 # Your code
 ```
 
-```{r, ex="dtype_num61", type="solution", height=500}
-# Solution
-# Install and load necessary packages
-if(!require(tidyquant)) {
-  install.packages("tidyquant")
-}
-if(!require(tidyverse)) {
-  install.packages("tidyverse")
-}
-
-# install.packages("tidyquant")
-# install.packages("tidyverse")
-
-library(tidyquant)
-library(tidyverse)
-
-# Define the stock indices and the date range
-indices <- c("^GSPC", "^DJI", "^NDX", "^RUT") # S&P 500, Dow Jones, NASDAQ 100, Russell 2000
-index_names <- c("^GSPC" = "S&P 500", "^DJI" = "Dow Jones", "^NDX" = "NASDAQ 100", "^RUT" = "Russell 2000")
-
-start_date <- Sys.Date() - years(10) # the date of 10 years ago from today
-end_date <- Sys.Date() #today
-
-# Get the data
-stock_data <- tq_get(indices, from = start_date, to = end_date)
-
-# Clean the data and rename the symbols
-stock_data_clean <- stock_data %>%
-  select(symbol, date, adjusted) %>%
-  drop_na() %>%
-  mutate(symbol = recode(symbol, !!!index_names))
-
-# Plot the data
-stock_data_clean %>%
-  ggplot(aes(x = date, y = adjusted, color = symbol)) +
-  geom_line() +
-  labs(title = "Daily Closing Prices of Major Stock Indices (Last 10 Years)",
-       x = "Date", y = "Adjusted Closing Price",
-       color = "Index") +
-  theme_bw() +
-  theme(legend.position = "bottom",
-        plot.title = element_text(hjust = 0.5))
-
-```
-
-
 
 
 **Exercise 14: Temperature**
@@ -280,50 +231,6 @@ temperature of Ahmedabad in a suitable plot. What observation did you make about
 
 ```{r, ex="dtype_num62", type="sample-code", height=500}
 # Your code
-```
-
-```{r, ex="dtype_num62", type="solution", height=500}
-#Solution
-# Install the required packages
-
-# install.packages("readxl")
-# install.packages("httr")
-# install.packages("tidyverse")
-# install.packages("xts")
-# install.packages("tseries")
-# install.packages("fpp")
-
-# Load the packages
-library(readxl)
-library(httr)
-library(tidyverse)
-library(xts)
-library(tseries)
-library(fpp)
-
-# Define the URL of the Excel file
-url <- "https://github.com/balsaedi/-R-Visualization/blob/766543496caaccbdc25aca38be9741b4c4195b57/Ahmedabad%20Temperature.xlsx?raw=true"
-
-# Download the file to a temporary location
-temp_file <- tempfile(fileext = ".xlsx")
-GET(url, write_disk(temp_file, overwrite = TRUE))
-
-# Read the Excel file into R
-Temperature<-read_excel(temp_file)
-colnames(Temperature)<-c("Time","Maximum","Average","Minimum")
-
-#Select only the Time and Average columns
-Temperature<-Temperature%>%
-  select(Time,Average)
-  
-# Convert the dataframe to a time series object
-Average_Temperature<-xts(Temperature[,"Average"], order.by = as.Date(Temperature$Time)) 
-
-# Multiplicative Time series decomposition.
-Average_ts<-ts(Average_Temperature, frequency = 12)
-average_decomposition<-decompose(Average_ts,"multiplicative")
-autoplot(average_decomposition)+theme_bw()
-
 ```
 
 

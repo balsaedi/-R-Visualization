@@ -151,66 +151,11 @@ i). Using a well customized line plot, what trend do you see in the sales (Total
 ```{r ex="dtype_num31", type="sample-code", height=500}
 # Your code
 ```
-```{r ex="dtype_num31", type="solution", height=500}
-library(ggplot2)
-library(dplyr)
-csv_url<-"https://github.com/balsaedi/-R-Visualization/raw/c818a85e72ba605d27434c4fff23c56caa8e2299/retail_sales_dataset.csv"
-retail_sales_data<-read.csv(csv_url)
-# Convert the Date column to Date type if it isn't already and rename the Total.Amount
-retail_sales_data<-retail_sales_data%>%
-  mutate(Date=as.Date(Date,format ="%Y-%m-%d"))%>%
-  rename(Total_Amount=Total.Amount)
-# Aggregate sales by date
-sales_trend <- retail_sales_data %>%
-  group_by(Date) %>%
-  summarise(Total_Amount = sum(Total_Amount, na.rm = TRUE))
-# Plot the sales trend
-ggplot(sales_trend, aes(x = Date, y = Total_Amount)) +
-  geom_line(color = "blue") +
-  labs(title = "Sales Trend Over Time",
-       x = "Date",
-       y = "Total Sales Amount") +
-  theme_bw() +
-  theme(plot.title = element_text(hjust = 0.5))
-
-
-```
-
 
 ii). Using an appropriate plot covered so far, show how the total amount vary by the product category. Use a well customized plot to make it more appealing and readable.
 
 ```{r ex="dtype_num32", type="sample-code", height=500}
 # Your code
-```
-```{r ex="dtype_num32", type="solution", height=500}
-library(ggplot2)
-library(dplyr)
-csv_url<-"https://github.com/balsaedi/-R-Visualization/raw/c818a85e72ba605d27434c4fff23c56caa8e2299/retail_sales_dataset.csv"
-retail_sales_data<-read.csv(csv_url)
-# Convert the Date column to Date type if it isn't already and rename the Total.Amount
-retail_sales_data<-retail_sales_data%>%
-  mutate(Date=as.Date(Date,format ="%Y-%m-%d"))%>%
-  rename(Total_Amount=Total.Amount, Product_Category=Product.Category)
-
-# Aggregate sales by product category
-sales_by_category <- retail_sales_data %>%
-  group_by(Product_Category) %>%
-  summarise(Total_Amount = sum(Total_Amount, na.rm = TRUE))
-
-# Plot the sales by product category with labels
-ggplot(sales_by_category, aes(x = reorder(Product_Category, -Total_Amount), y = Total_Amount, fill = Product_Category)) +
-  geom_bar(stat = "identity") +
-  geom_text(aes(label = round(Total_Amount, 1)), vjust = -0.5, size = 3) +  # Adding labels
-  labs(title = "Total Sales Amount by Product Category",
-       x = "Product Category",
-       y = "Total Sales Amount") +
-  theme_bw() +
-  theme(plot.title = element_text(hjust = 0.5),
-        axis.text.x = element_text(angle = 45, hjust = 1)) +
-  scale_fill_brewer(palette = "Set3")  # You can change the palette to your preference
-
-
-
 ```
 
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Basim Alsaedi" />
 
 
-<meta name="date" content="2024-06-02" />
+<meta name="date" content="2024-06-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,8 +52,79 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -252,6 +323,16 @@
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="real-world-applications-and-case-studies-code-challenges.html"><a href="real-world-applications-and-case-studies-code-challenges.html#data-visualization-using-ggplot2-part-ii"><i class="fa fa-check"></i><b>10.5</b> 5. Data Visualization using ggplot2 Part II</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="exercise-solutions.html"><a href="exercise-solutions.html"><i class="fa fa-check"></i><b>11</b> Exercise Solutions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="exercise-solutions.html"><a href="exercise-solutions.html#introduction-to-r-and-data-visualization-exercises"><i class="fa fa-check"></i><b>11.1</b> Introduction to R and Data Visualization Exercises</a></li>
+<li class="chapter" data-level="11.2" data-path="exercise-solutions.html"><a href="exercise-solutions.html#r-base-graphics-exercises"><i class="fa fa-check"></i><b>11.2</b> R Base Graphics Exercises</a></li>
+<li class="chapter" data-level="11.3" data-path="exercise-solutions.html"><a href="exercise-solutions.html#data-structures-relevant-to-visualization-exercises"><i class="fa fa-check"></i><b>11.3</b> Data Structures Relevant to Visualization Exercises</a></li>
+<li class="chapter" data-level="11.4" data-path="exercise-solutions.html"><a href="exercise-solutions.html#customizing-graphs-in-base-r-exercises"><i class="fa fa-check"></i><b>11.4</b> Customizing Graphs in Base R Exercises</a></li>
+<li class="chapter" data-level="11.5" data-path="exercise-solutions.html"><a href="exercise-solutions.html#time-series-exercises"><i class="fa fa-check"></i><b>11.5</b> Time Series Exercises</a></li>
+<li class="chapter" data-level="11.6" data-path="exercise-solutions.html"><a href="exercise-solutions.html#statistical-graphs-exercises"><i class="fa fa-check"></i><b>11.6</b> Statistical Graphs Exercises</a></li>
+<li class="chapter" data-level="11.7" data-path="exercise-solutions.html"><a href="exercise-solutions.html#ggplot2-exercise"><i class="fa fa-check"></i><b>11.7</b> GGPLOT2 Exercise</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -302,17 +383,29 @@ The years in this dataset span 1952 to 2007 with 5-year intervals (so a total of
 Africa, Americas, Oceania).
 You can check that all of the numbers quoted above are correct with these
 lines:</p>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHRpZHl2ZXJzZSlcbmxpYnJhcnkoZ2FwbWluZGVyKVxuZ2FwbWluZGVyJHllYXIgJT4lIHVuaXF1ZSgpXG5nYXBtaW5kZXIkY291bnRyeSAlPiUgbl9kaXN0aW5jdCgpXG5nYXBtaW5kZXIkY29udGluZW50ICU+JSB1bmlxdWUoKSJ9
-</div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="introduction-to-ggplot2.html#cb161-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb161-2"><a href="introduction-to-ggplot2.html#cb161-2" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb161-3"><a href="introduction-to-ggplot2.html#cb161-3" tabindex="-1"></a>gapminder<span class="sc">$</span>year <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code></pre></div>
+<pre><code>##  [1] 1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 2002 2007</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="introduction-to-ggplot2.html#cb163-1" tabindex="-1"></a>gapminder<span class="sc">$</span>country <span class="sc">%&gt;%</span> <span class="fu">n_distinct</span>()</span></code></pre></div>
+<pre><code>## [1] 142</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="introduction-to-ggplot2.html#cb165-1" tabindex="-1"></a>gapminder<span class="sc">$</span>continent <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code></pre></div>
+<pre><code>## [1] Asia     Europe   Africa   Americas Oceania 
+## Levels: Africa Americas Asia Europe Oceania</code></pre>
 <div id="step-by-step-instructions-to-create-scatter-plots-histograms-and-bar-charts-using-ggplot2" class="section level3 hasAnchor" number="8.2.1">
 <h3><span class="header-section-number">8.2.1</span> Step-by-step instructions to create scatter plots, histograms, and bar charts using ggplot2<a href="introduction-to-ggplot2.html#step-by-step-instructions-to-create-scatter-plots-histograms-and-bar-charts-using-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="scatter-plotsbubble-plots" class="section level4 hasAnchor" number="8.2.1.1">
 <h4><span class="header-section-number">8.2.1.1</span> Scatter plots/bubble plots<a href="introduction-to-ggplot2.html#scatter-plotsbubble-plots" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s create a new shorter tibble called gapdata2007 that only includes data for the year 2007. Let’s ask ggplot() to draw a point for each observation by adding geom_point()</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpbHRlciBvbmx5IHRoZSB5ZWFyIDIwMDcgZGF0YVxuZ2FwZGF0YTIwMDcgPC0gZ2FwbWluZGVyICU+JVxuZmlsdGVyKHllYXIgPT0gMjAwNylcblxuI1Bsb3QgYSBzaW1wbGUgc2NhdHRlciBwbG90IFxuZ2FwZGF0YTIwMDcgJT4lXG5nZ3Bsb3QoYWVzKHggPSBnZHBQZXJjYXAsIHkgPSBsaWZlRXhwKSkgK1xuZ2VvbV9wb2ludCgpIn0=
-</div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="introduction-to-ggplot2.html#cb167-1" tabindex="-1"></a><span class="co"># Filter only the year 2007 data</span></span>
+<span id="cb167-2"><a href="introduction-to-ggplot2.html#cb167-2" tabindex="-1"></a>gapdata2007 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb167-3"><a href="introduction-to-ggplot2.html#cb167-3" tabindex="-1"></a><span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
+<span id="cb167-4"><a href="introduction-to-ggplot2.html#cb167-4" tabindex="-1"></a></span>
+<span id="cb167-5"><a href="introduction-to-ggplot2.html#cb167-5" tabindex="-1"></a><span class="co">#Plot a simple scatter plot </span></span>
+<span id="cb167-6"><a href="introduction-to-ggplot2.html#cb167-6" tabindex="-1"></a>gapdata2007 <span class="sc">%&gt;%</span></span>
+<span id="cb167-7"><a href="introduction-to-ggplot2.html#cb167-7" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb167-8"><a href="introduction-to-ggplot2.html#cb167-8" tabindex="-1"></a><span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
 </div>
 <div id="histograms" class="section level4 hasAnchor" number="8.2.1.2">
 <h4><span class="header-section-number">8.2.1.2</span> Histograms<a href="introduction-to-ggplot2.html#histograms" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -320,9 +413,10 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZpbHRlciBvbmx5IHRoZSB5ZWFyIDIwMDcgZGF0YVxu
 In the example below, we are taking the life expectancy (aes(x = lifeExp))
 and telling the histogram to count the observations up in “bins” of 10 years
 (geom_histogram(binwidth = 10)</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGxpZmVFeHApKSArXG5nZW9tX2hpc3RvZ3JhbShiaW53aWR0aCA9IDEwKSJ9
-</div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="introduction-to-ggplot2.html#cb168-1" tabindex="-1"></a>gapdata2007 <span class="sc">%&gt;%</span></span>
+<span id="cb168-2"><a href="introduction-to-ggplot2.html#cb168-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb168-3"><a href="introduction-to-ggplot2.html#cb168-3" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
 <p>We can see that most countries in the world have a life expectancy of ~70-80
 years (in 2007), and that the distribution of life expectancy globally is not normally distributed. Setting the binwidth is optional, using just geom_histogram() works well too - by default, it will divide the data into 30 bins.</p>
 </div>
@@ -330,9 +424,11 @@ years (in 2007), and that the distribution of life expectancy globally is not no
 <h4><span class="header-section-number">8.2.1.3</span> Bar plots<a href="introduction-to-ggplot2.html#bar-plots" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>There are two geoms for making bar plots - <strong>geom_col()</strong> and <strong>geom_bar()</strong> and the examples below will illustrate when to use which one. In short: if your data is already summarised or includes values for y (height of the bars), use <strong>geom_col()</strong>. If, however, you want ggplot() to count up the number of rows in your dataset, use <strong>geom_bar()</strong>. For example, with patient-level data (each row is a patient) you’ll probably want to use geom_bar(), with data that is already somewhat aggregated, you’ll use geom_col(). There is no harm in trying one, and if it doesn’t work, trying the other.</p>
 <p>Let’s plot the life expectancies in 2007 in these three countries:</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmZpbHRlcihjb3VudHJ5ICVpbiUgYyhcIlVuaXRlZCBLaW5nZG9tXCIsIFwiRnJhbmNlXCIsIFwiR2VybWFueVwiKSkgJT4lXG5nZ3Bsb3QoYWVzKHggPSBjb3VudHJ5LCB5ID0gbGlmZUV4cCkpICtcbmdlb21fY29sKCkifQ==
-</div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="introduction-to-ggplot2.html#cb169-1" tabindex="-1"></a>gapdata2007 <span class="sc">%&gt;%</span></span>
+<span id="cb169-2"><a href="introduction-to-ggplot2.html#cb169-2" tabindex="-1"></a><span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;United Kingdom&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Germany&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb169-3"><a href="introduction-to-ggplot2.html#cb169-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb169-4"><a href="introduction-to-ggplot2.html#cb169-4" tabindex="-1"></a><span class="fu">geom_col</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
 </div>
 <div id="box-plots" class="section level4 hasAnchor" number="8.2.1.4">
 <h4><span class="header-section-number">8.2.1.4</span> Box plots<a href="introduction-to-ggplot2.html#box-plots" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -345,37 +441,47 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmZpbHRlcihjb3VudHJ5ICVp
 still within 1.5*IQR)</li>
 <li>outliers (any observations out with the whiskers)</li>
 </ul>
-Let’s pot the boxplots of life expectancies within each continent in year 2007
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGNvbnRpbmVudCwgeSA9IGxpZmVFeHApKSArXG5nZW9tX2JveHBsb3QoKSJ9
-</div>
+<p>Let’s pot the boxplots of life expectancies within each continent in year 2007</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="introduction-to-ggplot2.html#cb170-1" tabindex="-1"></a>gapdata2007 <span class="sc">%&gt;%</span></span>
+<span id="cb170-2"><a href="introduction-to-ggplot2.html#cb170-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb170-3"><a href="introduction-to-ggplot2.html#cb170-3" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
 </div>
 <div id="line-plotstime-series-plots" class="section level4 hasAnchor" number="8.2.1.5">
 <h4><span class="header-section-number">8.2.1.5</span> Line plots/time series plots<a href="introduction-to-ggplot2.html#line-plotstime-series-plots" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s plot the life expectancy in the United Kingdom over time.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhIDwtIGdhcG1pbmRlclxuZ2FwZGF0YSAlPiVcbmZpbHRlcihjb3VudHJ5ID09IFwiVW5pdGVkIEtpbmdkb21cIikgJT4lXG5nZ3Bsb3QoYWVzKHggPSB5ZWFyLCB5ID0gbGlmZUV4cCkpICtcbmdlb21fbGluZSgpIn0=
-</div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="introduction-to-ggplot2.html#cb171-1" tabindex="-1"></a>gapdata <span class="ot">&lt;-</span> gapminder</span>
+<span id="cb171-2"><a href="introduction-to-ggplot2.html#cb171-2" tabindex="-1"></a>gapdata <span class="sc">%&gt;%</span></span>
+<span id="cb171-3"><a href="introduction-to-ggplot2.html#cb171-3" tabindex="-1"></a><span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;United Kingdom&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb171-4"><a href="introduction-to-ggplot2.html#cb171-4" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb171-5"><a href="introduction-to-ggplot2.html#cb171-5" tabindex="-1"></a><span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
 </div>
 </div>
 <div id="introduction-to-adding-layers-modifying-aesthetics-and-utilizing-facets-for-multi-panel-plots" class="section level3 hasAnchor" number="8.2.2">
 <h3><span class="header-section-number">8.2.2</span> Introduction to adding layers, modifying aesthetics, and utilizing facets for multi-panel plots<a href="introduction-to-ggplot2.html#introduction-to-adding-layers-modifying-aesthetics-and-utilizing-facets-for-multi-panel-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>a) Adding layers</strong></p>
 <p>Going back to the scatter plot (lifeExp vs gdpPercap), let’s use continent to give the points some colour. We can do this by adding colour = continent inside the aes():Let’s also add a regression line to the scatter plot</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGdkcFBlcmNhcCwgeSA9IGxpZmVFeHAsIGNvbG91ciA9IGNvbnRpbmVudCkpICtcbmdlb21fcG9pbnQoKStcbmdlb21fc21vb3RoKG1ldGhvZCA9IFwibG1cIiwgc2UgPSBGQUxTRSkifQ==
-</div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="introduction-to-ggplot2.html#cb172-1" tabindex="-1"></a>gapdata2007 <span class="sc">%&gt;%</span></span>
+<span id="cb172-2"><a href="introduction-to-ggplot2.html#cb172-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> continent)) <span class="sc">+</span></span>
+<span id="cb172-3"><a href="introduction-to-ggplot2.html#cb172-3" tabindex="-1"></a><span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb172-4"><a href="introduction-to-ggplot2.html#cb172-4" tabindex="-1"></a><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
 <p><strong>b) Modifying aesthetics</strong></p>
 <p>This can be achieved by specifying further variables inside <strong>aes()</strong> or specifying aesthetics outside <strong>aes()</strong>. The main aesthetics (things we can see) are: <strong>x, y, colour, fill, shape, size,</strong> and any of these could appear inside or outside the <strong>aes()</strong> function.</p>
 <p>Variables (so columns of your dataset) have to be defined inside <strong>aes()</strong>. Whereas to apply a modification on everything, we can set an aesthetic to a constant value outside of aes().</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGdkcFBlcmNhcCwgeSA9IGxpZmVFeHAsIGNvbG91ciA9IGNvbnRpbmVudCkpICtcbmdlb21fcG9pbnQoc2hhcGUgPSAxKSJ9
-</div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="introduction-to-ggplot2.html#cb174-1" tabindex="-1"></a>gapdata2007 <span class="sc">%&gt;%</span></span>
+<span id="cb174-2"><a href="introduction-to-ggplot2.html#cb174-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> continent)) <span class="sc">+</span></span>
+<span id="cb174-3"><a href="introduction-to-ggplot2.html#cb174-3" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
 <p><strong>c) Utilizing facets for multi-panel plots</strong>
 Faceting is a way to efficiently create the same plot for subgroups within the dataset. For example, we can separate each continent into its own facet by adding facet_wrap(~continent) to our plot:</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGdkcFBlcmNhcCwgeSA9IGxpZmVFeHAsIGNvbG91ciA9IGNvbnRpbmVudCkpICtcbmdlb21fcG9pbnQoc2hhcGUgPSAxKSArXG5mYWNldF93cmFwKH5jb250aW5lbnQpIn0=
-</div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="introduction-to-ggplot2.html#cb175-1" tabindex="-1"></a>gapdata2007 <span class="sc">%&gt;%</span></span>
+<span id="cb175-2"><a href="introduction-to-ggplot2.html#cb175-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> continent)) <span class="sc">+</span></span>
+<span id="cb175-3"><a href="introduction-to-ggplot2.html#cb175-3" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb175-4"><a href="introduction-to-ggplot2.html#cb175-4" tabindex="-1"></a><span class="fu">facet_wrap</span>(<span class="sc">~</span>continent)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
 </div>
 </div>
 <div id="customizing-plots-in-ggplot2" class="section level2 hasAnchor" number="8.3">
@@ -386,32 +492,55 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGdk
 <p>Changing themes involves changing the default background from grey to a white background. Some of the built-in ggplot themes are <strong>theme_bw()</strong>,
 <strong>theme_dark()</strong>, <strong>theme_minimal()</strong> and <strong>theme_classic()</strong>. We are adding <strong>theme_bw()</strong> (“background white”) to give the plot a different look. We have also divided the gdpPercap by 1000 (making the units “thousands of dollars per capita”). Note that you can apply calculations
 directly on ggplot variables (so how we’ve done x = gdpPercap/1000 here). This is how ggplot() works - you can build a plot by adding or modifying things one by one.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBkYXRhMjAwNyAlPiVcbmdncGxvdChhZXMoeCA9IGdkcFBlcmNhcC8xMDAwLCB5ID0gbGlmZUV4cCwgY29sb3VyID0gY29udGluZW50KSkgK1xuZ2VvbV9wb2ludChzaGFwZSA9IDEpICtcbmZhY2V0X3dyYXAofmNvbnRpbmVudCkgK1xudGhlbWVfYncoKSJ9
-</div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="introduction-to-ggplot2.html#cb176-1" tabindex="-1"></a>gapdata2007 <span class="sc">%&gt;%</span></span>
+<span id="cb176-2"><a href="introduction-to-ggplot2.html#cb176-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap<span class="sc">/</span><span class="dv">1000</span>, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> continent)) <span class="sc">+</span></span>
+<span id="cb176-3"><a href="introduction-to-ggplot2.html#cb176-3" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb176-4"><a href="introduction-to-ggplot2.html#cb176-4" tabindex="-1"></a><span class="fu">facet_wrap</span>(<span class="sc">~</span>continent) <span class="sc">+</span></span>
+<span id="cb176-5"><a href="introduction-to-ggplot2.html#cb176-5" tabindex="-1"></a><span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
 <p><strong>b) Scales</strong></p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnYXBtaW5kZXIgJT4lXG5nZ3Bsb3QoYWVzKHggPSB5ZWFyLCB5ID0gbGlmZUV4cCwgZ3JvdXAgPSBjb3VudHJ5LCBjb2xvdXIgPSBjb250aW5lbnQpKSArXG5nZW9tX2xpbmUoKSArXG5mYWNldF93cmFwKH5jb250aW5lbnQpICtcbnRoZW1lX2J3KCkgK1xuc2NhbGVfY29sb3VyX2JyZXdlcihwYWxldHRlID0gXCJQYWlyZWRcIikifQ==
-</div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="introduction-to-ggplot2.html#cb177-1" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb177-2"><a href="introduction-to-ggplot2.html#cb177-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> lifeExp, <span class="at">group =</span> country, <span class="at">colour =</span> continent)) <span class="sc">+</span></span>
+<span id="cb177-3"><a href="introduction-to-ggplot2.html#cb177-3" tabindex="-1"></a><span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb177-4"><a href="introduction-to-ggplot2.html#cb177-4" tabindex="-1"></a><span class="fu">facet_wrap</span>(<span class="sc">~</span>continent) <span class="sc">+</span></span>
+<span id="cb177-5"><a href="introduction-to-ggplot2.html#cb177-5" tabindex="-1"></a><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb177-6"><a href="introduction-to-ggplot2.html#cb177-6" tabindex="-1"></a><span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Paired&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
 <p><strong>c) Coordinate systems</strong></p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEZsaXBwZWQgY29vcmRpbmF0ZSBzeXN0ZW1cbmdhcGRhdGEyMDA3ICU+JVxuZ2dwbG90KGFlcyh4ID0gZ2RwUGVyY2FwLCB5ID0gbGlmZUV4cCwgY29sb3VyID0gY29udGluZW50KSkgK1xuZ2VvbV9wb2ludChzaGFwZSA9IDEpK1xuICBjb29yZF9mbGlwKCkgK1xuICBsYWJzKHRpdGxlID0gXCJTY2F0dGVyIFBsb3Qgd2l0aCBGbGlwcGVkIENvb3JkaW5hdGUgU3lzdGVtXCIsXG4gICAgICAgeCA9IFwiR0RQIFBlciBDYXBpdGFcIiwgeSA9IFwiTGlmZSBFeHBlY3RhbmN5XCIpICtcbiAgdGhlbWVfYncoKSJ9
-</div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="introduction-to-ggplot2.html#cb178-1" tabindex="-1"></a><span class="co"># Flipped coordinate system</span></span>
+<span id="cb178-2"><a href="introduction-to-ggplot2.html#cb178-2" tabindex="-1"></a>gapdata2007 <span class="sc">%&gt;%</span></span>
+<span id="cb178-3"><a href="introduction-to-ggplot2.html#cb178-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> continent)) <span class="sc">+</span></span>
+<span id="cb178-4"><a href="introduction-to-ggplot2.html#cb178-4" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb178-5"><a href="introduction-to-ggplot2.html#cb178-5" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb178-6"><a href="introduction-to-ggplot2.html#cb178-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Scatter Plot with Flipped Coordinate System&quot;</span>,</span>
+<span id="cb178-7"><a href="introduction-to-ggplot2.html#cb178-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Life Expectancy&quot;</span>) <span class="sc">+</span></span>
+<span id="cb178-8"><a href="introduction-to-ggplot2.html#cb178-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
 </div>
 <div id="techniques-for-fine-tuning-ggplot2-outputs-to-create-publication-quality-graphics" class="section level3 hasAnchor" number="8.3.2">
 <h3><span class="header-section-number">8.3.2</span> Techniques for fine-tuning ggplot2 outputs to create publication-quality graphics<a href="introduction-to-ggplot2.html#techniques-for-fine-tuning-ggplot2-outputs-to-create-publication-quality-graphics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFB1YmxpY2F0aW9uLXF1YWxpdHkgc2NhdHRlciBwbG90XG5nZ3Bsb3QoZGF0YSA9IGlyaXMsIGFlcyh4ID0gU2VwYWwuTGVuZ3RoLCB5ID0gU2VwYWwuV2lkdGgsIGNvbG9yID0gU3BlY2llcykpICsgXG4gIGdlb21fcG9pbnQoYWxwaGEgPSAwLjcsIHNpemUgPSAzKSArXG4gIGxhYnModGl0bGUgPSBcIlB1YmxpY2F0aW9uLVF1YWxpdHkgU2NhdHRlciBQbG90XCIsXG4gICAgICAgeCA9IFwiU2VwYWwgTGVuZ3RoXCIsIHkgPSBcIlNlcGFsIFdpZHRoXCIpICtcbiAgdGhlbWVfYncoKSArXG4gIHRoZW1lKFxuICAgIHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDE0LCBmYWNlID0gXCJib2xkXCIsIGhqdXN0ID0gMC41KSxcbiAgICBheGlzLnRpdGxlID0gZWxlbWVudF90ZXh0KHNpemUgPSAxMiksXG4gICAgYXhpcy50ZXh0ID0gZWxlbWVudF90ZXh0KHNpemUgPSAxMCksXG4gICAgbGVnZW5kLnRpdGxlID0gZWxlbWVudF90ZXh0KHNpemUgPSAxMiksXG4gICAgbGVnZW5kLnRleHQgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDEwKVxuICApICtcbiAgc2NhbGVfY29sb3JfbWFudWFsKHZhbHVlcyA9IGMoXCJzZXRvc2FcIiA9IFwiYmx1ZVwiLCBcInZlcnNpY29sb3JcIiA9IFwiZ3JlZW5cIiwgXCJ2aXJnaW5pY2FcIiA9IFwicmVkXCIpKSJ9
-</div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="introduction-to-ggplot2.html#cb179-1" tabindex="-1"></a><span class="co"># Publication-quality scatter plot</span></span>
+<span id="cb179-2"><a href="introduction-to-ggplot2.html#cb179-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span> </span>
+<span id="cb179-3"><a href="introduction-to-ggplot2.html#cb179-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb179-4"><a href="introduction-to-ggplot2.html#cb179-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Publication-Quality Scatter Plot&quot;</span>,</span>
+<span id="cb179-5"><a href="introduction-to-ggplot2.html#cb179-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Sepal Length&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Sepal Width&quot;</span>) <span class="sc">+</span></span>
+<span id="cb179-6"><a href="introduction-to-ggplot2.html#cb179-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb179-7"><a href="introduction-to-ggplot2.html#cb179-7" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb179-8"><a href="introduction-to-ggplot2.html#cb179-8" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb179-9"><a href="introduction-to-ggplot2.html#cb179-9" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb179-10"><a href="introduction-to-ggplot2.html#cb179-10" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb179-11"><a href="introduction-to-ggplot2.html#cb179-11" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb179-12"><a href="introduction-to-ggplot2.html#cb179-12" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb179-13"><a href="introduction-to-ggplot2.html#cb179-13" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb179-14"><a href="introduction-to-ggplot2.html#cb179-14" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;versicolor&quot;</span> <span class="ot">=</span> <span class="st">&quot;green&quot;</span>, <span class="st">&quot;virginica&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
 </div>
 </div>
 <div id="practical-examples-exercise-1" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Practical Examples: Exercise<a href="introduction-to-ggplot2.html#practical-examples-exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Exercise 8.1</strong></p>
-<p>Obtain a global dataset on internet usage trends.You might find the dataset datasets from <a href="https://www.kaggle.com/datasets/sansuthi/gapminder-internet">Kaggle</a>. Clean and preprocess the dataset to ensure it’s in a suitable format for visualization. This may involve handling missing values, aggregating data by regions or countries, and calculating relevant metrics. Use ggplot2 to create visualizations that showcase global internet usage trends over time. Use a scatter plot to show the relationship between income per person and internet usage rate across all the countries. You may access the data file <a href="https://raw.githubusercontent.com/balsaedi/-R-Visualization/main/gapminder_internet.csv">here</a> which was downloaded from Kaggle and uploaded to GitHub for easier accessibility.</p>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjWW91ciBjb2RlIiwic29sdXRpb24iOiIjU29sdXRpb25cbmxpYnJhcnkoZ2dwbG90MilcblxuaW50ZXJuZXRfdXJsPC1cImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9iYWxzYWVkaS8tUi1WaXN1YWxpemF0aW9uL21haW4vZ2FwbWluZGVyX2ludGVybmV0LmNzdlwiXG4jIFJlYWQgdGhlIGNzdiBmaWxlXG5pbnRlcm5ldF9kYXRhPC1yZWFkLmNzdihpbnRlcm5ldF91cmwpXG5cbiMgU2NhdHRlciBwbG90IHdpdGggZmFjZXRzXG5nZ3Bsb3QoaW50ZXJuZXRfZGF0YSwgYWVzKHggPSBpbmNvbWVwZXJwZXJzb24sIHkgPSBpbnRlcm5ldHVzZXJhdGUpKSArXG4gIGdlb21fcG9pbnQoKSArXG4gICMgZmFjZXRfd3JhcCh+IGNvdW50cnkpICtcbiAgbGFicyh0aXRsZSA9IFwiUmVsYXRpb25zaGlwIGJldHdlZW4gSW5jb21lIHBlciBQZXJzb24gYW5kIEludGVybmV0IFVzYWdlIFJhdGVcIixcbiAgICAgICB4ID0gXCJJbmNvbWUgcGVyIFBlcnNvbiAoR0RQIHBlciBjYXBpdGEpXCIsXG4gICAgICAgeSA9IFwiSW50ZXJuZXQgVXNhZ2UgUmF0ZSAocGVyIDEwMCBwZW9wbGUpXCIsXG4gICAgICAgc3VidGl0bGUgPSBcIkFjcm9zcyB0aGUgR2xvYmVcIikgK1xuICB0aGVtZV9idygpK1xuICB0aGVtZShwbG90LnRpdGxlID0gZWxlbWVudF90ZXh0KGhqdXN0ID0gMC41KSxcbiAgICAgICAgcGxvdC5zdWJ0aXRsZSA9IGVsZW1lbnRfdGV4dChoanVzdCA9IDAuNSkpIn0=
-</div>
+<p><strong>Exercise 17</strong></p>
+<p>Obtain a global dataset on internet usage trends.You might find the dataset datasets from <a href="https://www.kaggle.com/datasets/sansuthi/gapminder-internet">Kaggle</a>. Clean and preprocess the dataset to ensure it’s in a suitable format for visualization. This may involve handling missing values, aggregating data by regions or countries, and calculating relevant metrics. Use ggplot2 to create visualizations that showcase global internet usage trends over time. Use a scatter plot to show the relationship between income per person and internet usage rate across all the countries. You may access the data file <a href="https://github.com/balsaedi/-R-Visualization/raw/main/gapminder_internet.csv">here</a> which was downloaded from Kaggle and uploaded to GitHub for easier accessibility.</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="introduction-to-ggplot2.html#cb180-1" tabindex="-1"></a><span class="co">#Your code</span></span></code></pre></div>
 
 </div>
 </div>

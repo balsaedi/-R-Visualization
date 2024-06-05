@@ -113,3 +113,11 @@ part-iii-scales-and-themes
 scales
 themes
 data-visualization-using-ggplot2-part-ii
+exercise-solutions
+introduction-to-r-and-data-visualization-exercises
+r-base-graphics-exercises
+data-structures-relevant-to-visualization-exercises
+customizing-graphs-in-base-r-exercises
+time-series-exercises
+statistical-graphs-exercises
+ggplot2-exercise

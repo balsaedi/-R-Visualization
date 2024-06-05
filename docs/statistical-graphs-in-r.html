@@ -23,7 +23,7 @@
 <meta name="author" content="Basim Alsaedi" />
 
 
-<meta name="date" content="2024-06-02" />
+<meta name="date" content="2024-06-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,8 +52,79 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -252,6 +323,16 @@
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="real-world-applications-and-case-studies-code-challenges.html"><a href="real-world-applications-and-case-studies-code-challenges.html#data-visualization-using-ggplot2-part-ii"><i class="fa fa-check"></i><b>10.5</b> 5. Data Visualization using ggplot2 Part II</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="exercise-solutions.html"><a href="exercise-solutions.html"><i class="fa fa-check"></i><b>11</b> Exercise Solutions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="exercise-solutions.html"><a href="exercise-solutions.html#introduction-to-r-and-data-visualization-exercises"><i class="fa fa-check"></i><b>11.1</b> Introduction to R and Data Visualization Exercises</a></li>
+<li class="chapter" data-level="11.2" data-path="exercise-solutions.html"><a href="exercise-solutions.html#r-base-graphics-exercises"><i class="fa fa-check"></i><b>11.2</b> R Base Graphics Exercises</a></li>
+<li class="chapter" data-level="11.3" data-path="exercise-solutions.html"><a href="exercise-solutions.html#data-structures-relevant-to-visualization-exercises"><i class="fa fa-check"></i><b>11.3</b> Data Structures Relevant to Visualization Exercises</a></li>
+<li class="chapter" data-level="11.4" data-path="exercise-solutions.html"><a href="exercise-solutions.html#customizing-graphs-in-base-r-exercises"><i class="fa fa-check"></i><b>11.4</b> Customizing Graphs in Base R Exercises</a></li>
+<li class="chapter" data-level="11.5" data-path="exercise-solutions.html"><a href="exercise-solutions.html#time-series-exercises"><i class="fa fa-check"></i><b>11.5</b> Time Series Exercises</a></li>
+<li class="chapter" data-level="11.6" data-path="exercise-solutions.html"><a href="exercise-solutions.html#statistical-graphs-exercises"><i class="fa fa-check"></i><b>11.6</b> Statistical Graphs Exercises</a></li>
+<li class="chapter" data-level="11.7" data-path="exercise-solutions.html"><a href="exercise-solutions.html#ggplot2-exercise"><i class="fa fa-check"></i><b>11.7</b> GGPLOT2 Exercise</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -288,17 +369,24 @@
 <div id="how-to-create-box-plots-violin-plots-and-qq-plots." class="section level3 hasAnchor" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> How to create box plots, violin plots, and QQ plots.<a href="statistical-graphs-in-r.html#how-to-create-box-plots-violin-plots-and-qq-plots." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>i) Box Plots:</strong></p>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgYm94IHBsb3RcbmJveHBsb3QoU2VwYWwuTGVuZ3RoIH4gU3BlY2llcywgZGF0YSA9IGlyaXMsIFxuICAgICAgICBtYWluID0gXCJCb3ggUGxvdCBvZiBTZXBhbCBMZW5ndGggYnkgU3BlY2llc1wiLFxuICAgICAgICB4bGFiID0gXCJTcGVjaWVzXCIsIHlsYWIgPSBcIlNlcGFsIExlbmd0aFwiKSJ9
-</div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="statistical-graphs-in-r.html#cb152-1" tabindex="-1"></a><span class="co"># Creating a box plot</span></span>
+<span id="cb152-2"><a href="statistical-graphs-in-r.html#cb152-2" tabindex="-1"></a><span class="fu">boxplot</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris, </span>
+<span id="cb152-3"><a href="statistical-graphs-in-r.html#cb152-3" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Box Plot of Sepal Length by Species&quot;</span>,</span>
+<span id="cb152-4"><a href="statistical-graphs-in-r.html#cb152-4" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Sepal Length&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
 <p><strong>ii) Violin Plots:</strong></p>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgdmlvbGluIHBsb3RcbmxpYnJhcnkoZ2dwbG90MilcbmdncGxvdChpcmlzLCBhZXMoeCA9IFNwZWNpZXMsIHkgPSBTZXBhbC5MZW5ndGgpKSArXG4gIGdlb21fdmlvbGluKGZpbGwgPSBcImxpZ2h0Ymx1ZVwiKSArXG4gIGxhYnModGl0bGUgPSBcIlZpb2xpbiBQbG90IG9mIFNlcGFsIExlbmd0aCBieSBTcGVjaWVzXCIsXG4gICAgICAgeCA9IFwiU3BlY2llc1wiLCB5ID0gXCJTZXBhbCBMZW5ndGhcIikifQ==
-</div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="statistical-graphs-in-r.html#cb153-1" tabindex="-1"></a><span class="co"># Creating a violin plot</span></span>
+<span id="cb153-2"><a href="statistical-graphs-in-r.html#cb153-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb153-3"><a href="statistical-graphs-in-r.html#cb153-3" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb153-4"><a href="statistical-graphs-in-r.html#cb153-4" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">fill =</span> <span class="st">&quot;lightblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb153-5"><a href="statistical-graphs-in-r.html#cb153-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Violin Plot of Sepal Length by Species&quot;</span>,</span>
+<span id="cb153-6"><a href="statistical-graphs-in-r.html#cb153-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Sepal Length&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
 <p><strong>iii) QQ Plots:</strong></p>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgUVEgcGxvdFxucXFub3JtKGlyaXMkU2VwYWwuTGVuZ3RoKVxucXFsaW5lKGlyaXMkU2VwYWwuTGVuZ3RoKSJ9
-</div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="statistical-graphs-in-r.html#cb154-1" tabindex="-1"></a><span class="co"># Creating a QQ plot</span></span>
+<span id="cb154-2"><a href="statistical-graphs-in-r.html#cb154-2" tabindex="-1"></a><span class="fu">qqnorm</span>(iris<span class="sc">$</span>Sepal.Length)</span>
+<span id="cb154-3"><a href="statistical-graphs-in-r.html#cb154-3" tabindex="-1"></a><span class="fu">qqline</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
 </div>
 <div id="understanding-the-data-insights-these-plots-provide." class="section level3 hasAnchor" number="7.2.2">
 <h3><span class="header-section-number">7.2.2</span> Understanding the data insights these plots provide.<a href="statistical-graphs-in-r.html#understanding-the-data-insights-these-plots-provide." class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -313,14 +401,30 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgUVEgcGxvdFxucXFub3JtKGlyaXMk
 <p>Histograms provide a visual representation of the distribution of numerical data. They group data into bins and display the frequency of observations in each bin.Density plots estimate the probability density function of the underlying data distribution. They provide a smooth representation of the distribution.</p>
 <div id="techniques-for-creating-and-customizing-histograms-and-density-plots-and-best-practices-for-displaying-distribution-characteristics." class="section level3 hasAnchor" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> Techniques for creating and customizing histograms and density plots and best practices for displaying distribution characteristics.<a href="statistical-graphs-in-r.html#techniques-for-creating-and-customizing-histograms-and-density-plots-and-best-practices-for-displaying-distribution-characteristics." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<strong>Creating and Customizing Histograms:</strong>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgaGlzdG9ncmFtXG5oaXN0KGlyaXMkU2VwYWwuTGVuZ3RoLCBcbiAgICAgbWFpbiA9IFwiSGlzdG9ncmFtIG9mIFNlcGFsIExlbmd0aFwiLFxuICAgICB4bGFiID0gXCJTZXBhbCBMZW5ndGhcIixcbiAgICAgeWxhYiA9IFwiRnJlcXVlbmN5XCIsXG4gICAgIGNvbCA9IFwibGlnaHRibHVlXCIpXG5cbiMgQWRkaW5nIGEgZGVuc2l0eSBwbG90XG5saW5lcyhkZW5zaXR5KGlyaXMkU2VwYWwuTGVuZ3RoKSwgY29sID0gXCJyZWRcIikifQ==
-</div>
+<p><strong>Creating and Customizing Histograms:</strong></p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="statistical-graphs-in-r.html#cb155-1" tabindex="-1"></a><span class="co"># Creating a histogram</span></span>
+<span id="cb155-2"><a href="statistical-graphs-in-r.html#cb155-2" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length, </span>
+<span id="cb155-3"><a href="statistical-graphs-in-r.html#cb155-3" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histogram of Sepal Length&quot;</span>,</span>
+<span id="cb155-4"><a href="statistical-graphs-in-r.html#cb155-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>,</span>
+<span id="cb155-5"><a href="statistical-graphs-in-r.html#cb155-5" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Frequency&quot;</span>,</span>
+<span id="cb155-6"><a href="statistical-graphs-in-r.html#cb155-6" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;lightblue&quot;</span>)</span>
+<span id="cb155-7"><a href="statistical-graphs-in-r.html#cb155-7" tabindex="-1"></a></span>
+<span id="cb155-8"><a href="statistical-graphs-in-r.html#cb155-8" tabindex="-1"></a><span class="co"># Adding a density plot</span></span>
+<span id="cb155-9"><a href="statistical-graphs-in-r.html#cb155-9" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(iris<span class="sc">$</span>Sepal.Length), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
 <p><strong>Creating and Customizing Density Plots:</strong></p>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgZGVuc2l0eSBwbG90XG5wbG90KGRlbnNpdHkoaXJpcyRTZXBhbC5MZW5ndGgpLCBcbiAgICAgbWFpbiA9IFwiRGVuc2l0eSBQbG90IG9mIFNlcGFsIExlbmd0aFwiLFxuICAgICB4bGFiID0gXCJTZXBhbCBMZW5ndGhcIixcbiAgICAgY29sID0gXCJibHVlXCIpXG5cbiMgQWRkaW5nIGEgaGlzdG9ncmFtXG5oaXN0KGlyaXMkU2VwYWwuTGVuZ3RoLCBcbiAgICAgY29sID0gcmdiKDAsMCwxLDAuMiksIFxuICAgICBhZGQgPSBUUlVFLCBcbiAgICAgYnJlYWtzID0gMjApIn0=
-</div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="statistical-graphs-in-r.html#cb156-1" tabindex="-1"></a><span class="co"># Creating a density plot</span></span>
+<span id="cb156-2"><a href="statistical-graphs-in-r.html#cb156-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(iris<span class="sc">$</span>Sepal.Length), </span>
+<span id="cb156-3"><a href="statistical-graphs-in-r.html#cb156-3" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Density Plot of Sepal Length&quot;</span>,</span>
+<span id="cb156-4"><a href="statistical-graphs-in-r.html#cb156-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>,</span>
+<span id="cb156-5"><a href="statistical-graphs-in-r.html#cb156-5" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb156-6"><a href="statistical-graphs-in-r.html#cb156-6" tabindex="-1"></a></span>
+<span id="cb156-7"><a href="statistical-graphs-in-r.html#cb156-7" tabindex="-1"></a><span class="co"># Adding a histogram</span></span>
+<span id="cb156-8"><a href="statistical-graphs-in-r.html#cb156-8" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length, </span>
+<span id="cb156-9"><a href="statistical-graphs-in-r.html#cb156-9" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.2</span>), </span>
+<span id="cb156-10"><a href="statistical-graphs-in-r.html#cb156-10" tabindex="-1"></a>     <span class="at">add =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb156-11"><a href="statistical-graphs-in-r.html#cb156-11" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
 </div>
 </div>
 <div id="scatter-plots-and-correlation-analysis" class="section level2 hasAnchor" number="7.4">
@@ -329,9 +433,12 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgZGVuc2l0eSBwbG90XG5wbG90KGRl
 <div id="using-scatter-plots-to-visualize-relationships-between-variables." class="section level3 hasAnchor" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> Using scatter plots to visualize relationships between variables.<a href="statistical-graphs-in-r.html#using-scatter-plots-to-visualize-relationships-between-variables." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Scatter plots visually represent the relationship between two continuous variables. They help to identify patterns, trends, and correlations between variables.</p>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgc2NhdHRlciBwbG90XG5wbG90KGlyaXMkU2VwYWwuTGVuZ3RoLCBpcmlzJFBldGFsLkxlbmd0aCxcbiAgICAgbWFpbiA9IFwiU2NhdHRlciBQbG90IG9mIFNlcGFsIExlbmd0aCB2cyBQZXRhbCBMZW5ndGhcIixcbiAgICAgeGxhYiA9IFwiU2VwYWwgTGVuZ3RoXCIsIHlsYWIgPSBcIlBldGFsIExlbmd0aFwiLFxuICAgICBjb2wgPSBcImJsdWVcIikifQ==
-</div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="statistical-graphs-in-r.html#cb157-1" tabindex="-1"></a><span class="co"># Creating a scatter plot</span></span>
+<span id="cb157-2"><a href="statistical-graphs-in-r.html#cb157-2" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length,</span>
+<span id="cb157-3"><a href="statistical-graphs-in-r.html#cb157-3" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Scatter Plot of Sepal Length vs Petal Length&quot;</span>,</span>
+<span id="cb157-4"><a href="statistical-graphs-in-r.html#cb157-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Petal Length&quot;</span>,</span>
+<span id="cb157-5"><a href="statistical-graphs-in-r.html#cb157-5" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
 </div>
 <div id="introduction-to-adding-regression-lines-and-confidence-intervals." class="section level3 hasAnchor" number="7.4.2">
 <h3><span class="header-section-number">7.4.2</span> Introduction to adding regression lines and confidence intervals.<a href="statistical-graphs-in-r.html#introduction-to-adding-regression-lines-and-confidence-intervals." class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -339,23 +446,42 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgc2NhdHRlciBwbG90XG5wbG90KGly
 <li><p>Regression lines provide a summary of the relationship between variables.</p></li>
 <li><p>Confidence intervals help assess the uncertainty of the estimated regression line.</p></li>
 </ul>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0aW5nIGEgc2NhdHRlciBwbG90XG5wbG90KGlyaXMkU2VwYWwuTGVuZ3RoLCBpcmlzJFBldGFsLkxlbmd0aCxcbiAgICAgbWFpbiA9IFwiU2NhdHRlciBQbG90IGFuZCBSZWdyZXNzaW9uIExpbmUgXCIsXG4gICAgIHhsYWIgPSBcIlNlcGFsIExlbmd0aFwiLCB5bGFiID0gXCJQZXRhbCBMZW5ndGhcIixcbiAgICAgY29sID0gXCJibHVlXCIpXG5cbiMgRml0IGxpbmVhciByZWdyZXNzaW9uIG1vZGVsXG5tb2RlbCA8LSBsbShQZXRhbC5MZW5ndGggfiBTZXBhbC5MZW5ndGgsIGRhdGEgPSBpcmlzKVxuXG4jIEFkZGluZyByZWdyZXNzaW9uIGxpbmVcbmFibGluZShtb2RlbCwgY29sID0gXCJyZWRcIilcblxuIyBBZGRpbmcgcmVncmVzc2lvbiBlcXVhdGlvblxuZXEgPC0gcGFzdGUoXCJ5ID1cIiwgcm91bmQoY29lZihtb2RlbClbMV0sIDIpLCBcIitcIiwgcm91bmQoY29lZihtb2RlbClbMl0sIDIpLCBcInhcIilcbnRleHQoNi41LCAyLjUsIGVxLCBwb3MgPSA0KVxuXG4jIEFkZGluZyBjb25maWRlbmNlIGludGVydmFsc1xuY29uZl9pbnRlcnZhbCA8LSBwcmVkaWN0KG1vZGVsLCBpbnRlcnZhbCA9IFwiY29uZmlkZW5jZVwiKVxubGluZXMoaXJpcyRTZXBhbC5MZW5ndGgsIGNvbmZfaW50ZXJ2YWxbLCBcImx3clwiXSwgY29sID0gXCJncmVlblwiLCBsdHkgPSAyKVxubGluZXMoaXJpcyRTZXBhbC5MZW5ndGgsIGNvbmZfaW50ZXJ2YWxbLCBcInVwclwiXSwgY29sID0gXCJncmVlblwiLCBsdHkgPSAyKVxuIyBBZGQgbGVnZW5kXG5sZWdlbmQoXCJ0b3BsZWZ0XCIsIGxlZ2VuZCA9IGMoXCJEYXRhIFBvaW50c1wiLCBcIlJlZ3Jlc3Npb24gTGluZVwiLCBcIkNvbmZpZGVuY2UgSW50ZXJ2YWxzXCIpLFxuICAgICAgIGNvbCA9IGMoXCJibHVlXCIsIFwicmVkXCIsIFwiZ3JlZW5cIiksIGx0eSA9IGMoTkEsIDEsIDIpLCBsd2QgPSBjKE5BLCAxLCAxKSxcbiAgICAgICBwY2ggPSBjKDEsIE5BLCBOQSksIGJ0eSA9IFwib1wiICMgRW5jbG9zZSB0aGUgbGVnZW5kIGluIGEgYm94XG4gICAgICAgKSJ9
-</div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="statistical-graphs-in-r.html#cb158-1" tabindex="-1"></a><span class="co"># Creating a scatter plot</span></span>
+<span id="cb158-2"><a href="statistical-graphs-in-r.html#cb158-2" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length,</span>
+<span id="cb158-3"><a href="statistical-graphs-in-r.html#cb158-3" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Scatter Plot and Regression Line &quot;</span>,</span>
+<span id="cb158-4"><a href="statistical-graphs-in-r.html#cb158-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Sepal Length&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Petal Length&quot;</span>,</span>
+<span id="cb158-5"><a href="statistical-graphs-in-r.html#cb158-5" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb158-6"><a href="statistical-graphs-in-r.html#cb158-6" tabindex="-1"></a></span>
+<span id="cb158-7"><a href="statistical-graphs-in-r.html#cb158-7" tabindex="-1"></a><span class="co"># Fit linear regression model</span></span>
+<span id="cb158-8"><a href="statistical-graphs-in-r.html#cb158-8" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length, <span class="at">data =</span> iris)</span>
+<span id="cb158-9"><a href="statistical-graphs-in-r.html#cb158-9" tabindex="-1"></a></span>
+<span id="cb158-10"><a href="statistical-graphs-in-r.html#cb158-10" tabindex="-1"></a><span class="co"># Adding regression line</span></span>
+<span id="cb158-11"><a href="statistical-graphs-in-r.html#cb158-11" tabindex="-1"></a><span class="fu">abline</span>(model, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb158-12"><a href="statistical-graphs-in-r.html#cb158-12" tabindex="-1"></a></span>
+<span id="cb158-13"><a href="statistical-graphs-in-r.html#cb158-13" tabindex="-1"></a><span class="co"># Adding regression equation</span></span>
+<span id="cb158-14"><a href="statistical-graphs-in-r.html#cb158-14" tabindex="-1"></a>eq <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;y =&quot;</span>, <span class="fu">round</span>(<span class="fu">coef</span>(model)[<span class="dv">1</span>], <span class="dv">2</span>), <span class="st">&quot;+&quot;</span>, <span class="fu">round</span>(<span class="fu">coef</span>(model)[<span class="dv">2</span>], <span class="dv">2</span>), <span class="st">&quot;x&quot;</span>)</span>
+<span id="cb158-15"><a href="statistical-graphs-in-r.html#cb158-15" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">6.5</span>, <span class="fl">2.5</span>, eq, <span class="at">pos =</span> <span class="dv">4</span>)</span>
+<span id="cb158-16"><a href="statistical-graphs-in-r.html#cb158-16" tabindex="-1"></a></span>
+<span id="cb158-17"><a href="statistical-graphs-in-r.html#cb158-17" tabindex="-1"></a><span class="co"># Adding confidence intervals</span></span>
+<span id="cb158-18"><a href="statistical-graphs-in-r.html#cb158-18" tabindex="-1"></a>conf_interval <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span>
+<span id="cb158-19"><a href="statistical-graphs-in-r.html#cb158-19" tabindex="-1"></a><span class="fu">lines</span>(iris<span class="sc">$</span>Sepal.Length, conf_interval[, <span class="st">&quot;lwr&quot;</span>], <span class="at">col =</span> <span class="st">&quot;green&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb158-20"><a href="statistical-graphs-in-r.html#cb158-20" tabindex="-1"></a><span class="fu">lines</span>(iris<span class="sc">$</span>Sepal.Length, conf_interval[, <span class="st">&quot;upr&quot;</span>], <span class="at">col =</span> <span class="st">&quot;green&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb158-21"><a href="statistical-graphs-in-r.html#cb158-21" tabindex="-1"></a><span class="co"># Add legend</span></span>
+<span id="cb158-22"><a href="statistical-graphs-in-r.html#cb158-22" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Data Points&quot;</span>, <span class="st">&quot;Regression Line&quot;</span>, <span class="st">&quot;Confidence Intervals&quot;</span>),</span>
+<span id="cb158-23"><a href="statistical-graphs-in-r.html#cb158-23" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">lwd =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb158-24"><a href="statistical-graphs-in-r.html#cb158-24" tabindex="-1"></a>       <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">bty =</span> <span class="st">&quot;o&quot;</span> <span class="co"># Enclose the legend in a box</span></span>
+<span id="cb158-25"><a href="statistical-graphs-in-r.html#cb158-25" tabindex="-1"></a>       )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
 </div>
 </div>
 <div id="practical-examples-exercises-3" class="section level2 hasAnchor" number="7.5">
 <h2><span class="header-section-number">7.5</span> Practical Examples: Exercises<a href="statistical-graphs-in-r.html#practical-examples-exercises-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Exercise 7.1</strong></p>
+<p><strong>Exercise 15</strong></p>
 <p>Create a box plot that compares the distribution of Sepal Length across the three species in the iris dataset.</p>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSIsInNvbHV0aW9uIjoiIyBTb2x1dGlvblxuIyBMb2FkIG5lY2Vzc2FyeSBwYWNrYWdlc1xubGlicmFyeShnZ3Bsb3QyKVxuXG4jIENyZWF0ZSBhIGJveCBwbG90IGNvbXBhcmluZyBTZXBhbC5MZW5ndGggYWNyb3NzIGRpZmZlcmVudCBzcGVjaWVzXG5nZ3Bsb3QoZGF0YSA9IGlyaXMsIGFlcyh4ID0gU3BlY2llcywgeSA9IFNlcGFsLkxlbmd0aCwgZmlsbCA9IFNwZWNpZXMpKSArIFxuICBnZW9tX2JveHBsb3QoKSArXG4gIGxhYnModGl0bGUgPSBcIkJveCBQbG90IG9mIFNlcGFsIExlbmd0aCBieSBTcGVjaWVzXCIsXG4gICAgICAgeCA9IFwiU3BlY2llc1wiLCB5ID0gXCJTZXBhbCBMZW5ndGhcIikgK1xuICB0aGVtZV9idygpIn0=
-</div>
-<p><strong>Exercise 7.2</strong></p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="statistical-graphs-in-r.html#cb159-1" tabindex="-1"></a><span class="co"># Your code</span></span></code></pre></div>
+<p><strong>Exercise 16</strong></p>
 <p>Generate a random health dataset of 100 people (male and female) from a normal distribution with the three variables: Age,BMI and Gender. The mean of Age should be 50 with a stand deviation of 10. The mean of BMI should be 25 with a standard deviation of 4. Gender should have only two values; “Male” and “Female”. Set random seed to a value of 123 and name the data frame as health_dataset. Create a scatter plot that examines the relationship between Age and BMI in the simulated health dataset. Include a linear regression line with the linear regression equation and the value of Adjusted R-Squared to highlight the trend.</p>
-<div data-datacamp-exercise="" data-height="500" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFlvdXIgY29kZSIsInNvbHV0aW9uIjoiIyBTb2x1dGlvblxuIyBMb2FkIG5lY2Vzc2FyeSBwYWNrYWdlc1xubGlicmFyeShnZ3Bsb3QyKVxuXG4jIFNpbXVsYXRlIGhlYWx0aCBkYXRhXG5zZXQuc2VlZCgxMjMpXG5oZWFsdGhfZGF0YSA8LSBkYXRhLmZyYW1lKFxuICBBZ2UgPSBybm9ybSgxMDAsIG1lYW4gPSA1MCwgc2QgPSAxMCksXG4gIEJNSSA9IHJub3JtKDEwMCwgbWVhbiA9IDI1LCBzZCA9IDQpLFxuICBHZW5kZXIgPSBzYW1wbGUoYyhcIk1hbGVcIiwgXCJGZW1hbGVcIiksIDEwMCwgcmVwbGFjZSA9IFRSVUUpXG4pXG5cbiMgQ3JlYXRlIGEgc2NhdHRlciBwbG90IHRvIGV4YW1pbmUgdGhlIHJlbGF0aW9uc2hpcCBiZXR3ZWVuIEFnZSBhbmQgQk1JXG5wbG90KGhlYWx0aF9kYXRhJEFnZSwgaGVhbHRoX2RhdGEkQk1JLFxuICAgICBtYWluID0gXCJTY2F0dGVyIFBsb3QgYW5kIFJlZ3Jlc3Npb24gTGluZSBcIixcbiAgICAgeGxhYiA9IFwiQWdlXCIsIHlsYWIgPSBcIkJNSVwiLFxuICAgICBjb2wgPSBcImJsdWVcIilcblxuIyBGaXQgbGluZWFyIHJlZ3Jlc3Npb24gbW9kZWxcbm1vZGVsIDwtIGxtKEFnZSB+IEJNSSwgZGF0YSA9IGhlYWx0aF9kYXRhKVxuXG4jIEFkZGluZyByZWdyZXNzaW9uIGxpbmVcbmFibGluZShtb2RlbCwgY29sID0gXCJyZWRcIilcblxuIyBBZGRpbmcgcmVncmVzc2lvbiBlcXVhdGlvblxuZXEgPC0gcGFzdGUoXCJ5ID1cIiwgcm91bmQoY29lZihtb2RlbClbMV0sIDIpLCBcIitcIiwgcm91bmQoY29lZihtb2RlbClbMl0sIDIpLCBcInhcIilcbnRleHQoNTAuNSwgMzcuNSwgZXEsIHBvcyA9IDQpXG5cbiMgQWRkaW5nIGNvbmZpZGVuY2UgaW50ZXJ2YWxzXG5jb25mX2ludGVydmFsIDwtIHByZWRpY3QobW9kZWwsIGludGVydmFsID0gXCJjb25maWRlbmNlXCIpXG5saW5lcyhoZWFsdGhfZGF0YSRCTUksIGNvbmZfaW50ZXJ2YWxbLCBcImx3clwiXSwgY29sID0gXCJncmVlblwiLCBsdHkgPSAyKVxubGluZXMoaGVhbHRoX2RhdGEkQk1JLCBjb25mX2ludGVydmFsWywgXCJ1cHJcIl0sIGNvbCA9IFwiZ3JlZW5cIiwgbHR5ID0gMilcbiMgQWRkIGxlZ2VuZFxubGVnZW5kKFwidG9wbGVmdFwiLCBsZWdlbmQgPSBjKFwiRGF0YSBQb2ludHNcIiwgXCJSZWdyZXNzaW9uIExpbmVcIiwgXCJDb25maWRlbmNlIEludGVydmFsc1wiKSxcbiAgICAgICBjb2wgPSBjKFwiYmx1ZVwiLCBcInJlZFwiLCBcImdyZWVuXCIpLCBsdHkgPSBjKE5BLCAxLCAyKSwgbHdkID0gYyhOQSwgMSwgMSksXG4gICAgICAgcGNoID0gYygxLCBOQSwgTkEpLCBidHkgPSBcIm9cIiAjIEVuY2xvc2UgdGhlIGxlZ2VuZCBpbiBhIGJveFxuKSJ9
-</div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="statistical-graphs-in-r.html#cb160-1" tabindex="-1"></a><span class="co"># Your code</span></span></code></pre></div>
 
 </div>
 </div>

@@ -12,6 +12,8 @@ The following exercises will test your understanding of the material covered dur
 
 ## 1. Base R 
 
+Download the answers template via the link [Base R Answers Template](https://github.com/balsaedi/-R-Visualization/raw/main/Base%20R%20Answer%20Template.R).
+
 i. create a new variable called `my.num` that contains 6 numbers; 5,4,7,8,12,14
 ii. multiply `my.num` by 4
 iii. create a second variable called `my.char` that contains 5 character strings; Robert, Parker, Robert, Robert, Parker
@@ -28,6 +30,9 @@ xiii. multiply `x` and `y` together. pay attention to how R performs operations 
 
 
 ## 2. Functions
+
+Download the answers template for this code challenge via the link [Functions Answers Template](https://github.com/balsaedi/-R-Visualization/raw/main/Functions%20Answer%20Template.R).
+
 
 a. Write a function, `sqdif`, that does the following:
 
@@ -60,6 +65,9 @@ iii. Compare the accuracy of your function with the built-in function
 
 
 ## 3. Data Visualization with Base R
+
+Download the answers template via the link [Base R Visualization Answers Template](https://github.com/balsaedi/-R-Visualization/raw/main/Base%20R%20Visualization%20Answers%20Template.R).
+
 
 i. Download the data file  `squid1.xlsx`  from [Squid Data](https://github.com/balsaedi/-R-Visualization/blob/main/squid1.xlsx) link and save it to your working directory. Open this file in Microsoft Excel and save it as a tab delimited file type. Name the file `squid1.txt` and save it to the working directory.
 These data were originally collected as part of a study published in Aquatic Living Resources1 in 2005. The aim of the study was to investigate the seasonal patterns of investment in somatic and reproductive tissues in the long finned squid Loligo forbesi caught in Scottish waters. Squid were caught monthly from December 1989 - July 1991 (`month` and `year` variables). After capture, each squid was given a unique `specimen` code, weighed (`weight`) and the sex determined (`sex` - only female squid are included here). The size of individuals was also measured as the dorsal mantle length (`DML`) and the mantle weight measured without internal organs (`eviscerate.weight`). The gonads were weighed (`ovary.weight`) along with the accessory reproductive organ (the nidamental gland, `nid.weight`, `nid.length`). Each individual was also assigned a categorical measure of maturity (`maturity.stage`, ranging from 1 to 5 with 1 = immature, 5 = mature). The digestive gland weight (`dig.weight`) was also recorded to assess nutritional status of the individual.
@@ -98,17 +106,16 @@ xi. Almost every aspect of the figures you create in R is customizable. Learning
 ## 4. Data Visualization with ggplot2
 
 These exercises require you to generate plots of various kinds. This document
-shows both the plots that you should obtain and the solutions.
+shows both the plots that you should obtain and the solutions. Click on the [Data Visualization with ggplot2 Answers Template](https://github.com/balsaedi/-R-Visualization/raw/main/ggplot2%20Visualization%20Answers%20Template.R) to download the answers template to answer all the questions to this code challenge.
 
-Click on the 'Code' button on the right hand side to reveal the solution for
-each plot.
+
 
 ### Part I -- geoms and aesthetics
 
 These first few exercises will run through some of the simple principles of
 creating a ggplot2 object, assigning aesthetics mappings and geoms.
 
-1. Read in the cleaned [patients](https://github.com/balsaedi/-R-Visualization/raw/main/patient-data.txt) dataset, `patient-data-cleaned.txt`, into a new object called `patients`.
+1. Read in the cleaned [patients](https://github.com/balsaedi/-R-Visualization/raw/main/patient-data.txt) dataset, `patient-data-cleaned.txt`, into a new object called `patients` using `read_tsv()` function.
 
 ### Scatterplots
 
@@ -197,8 +204,7 @@ frame in your current session. Check also that the Age variable is a factor.
 
 ### Themes
 
-18. Recreate the scatterplot of BMI by weight this time colouring by age group and add
-    a straight line fit (but no standard error/confidence intervals) for each age group.
+18. Recreate the scatter plot of BMI by weight this time colouring by age group and add a straight line fit (but no standard error/confidence intervals) for each age group.
 
 
 19. Remove the legend title from the previous plot, change the background colours of legend keys to white and place the legend at the bottom of the plot.
@@ -209,6 +215,8 @@ frame in your current session. Check also that the Age variable is a factor.
 
 
 ## 5. Data Visualization using ggplot2 Part II 
+
+Access the answers template [here](https://github.com/balsaedi/-R-Visualization/raw/main/ggplot2%20Part%20II%20Visualization%20Answers%20Template.R) to answer all the questions.
 
 i. Plot a `sin(x)/x` using `ggplot()` function.
 
